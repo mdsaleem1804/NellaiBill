@@ -1,0 +1,2 @@
+ALTER TABLE `m_itemgroup` CHANGE `itemgroupno` `itemgroupno` INT(3) NOT NULL AUTO_INCREMENT;
+DROP M_ITEM_SUBGROUP
