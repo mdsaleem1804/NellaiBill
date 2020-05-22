@@ -1110,14 +1110,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="NellaiBill.exe" size="470512">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="NellaiBill.exe" size="470000">
       <assemblyIdentity name="NellaiBill" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>mY3j3kgA5OHuXy4XGUIoCJZJ1E6O8IWK4oUSWlZsJ8c=</dsig:DigestValue>
+        <dsig:DigestValue>9A+66yRGFGGkKuuXZQv4FP13kQ9nq4CmGk/3HVuJ730=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
