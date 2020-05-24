@@ -15,8 +15,8 @@ namespace NellaiBill.Reports
 
         private void btnViewData_Click(object sender, EventArgs e)
         {
-           
-            crystalReportViewer1.RefreshReport();
+            
+           // crystalReportViewer1.RefreshReport();
             string xFromDate = dtpFromDate.Text;
             string xToDate = dtpToDate.Text;
             //string path = xDb.xReportPath + "rptStockHistory.rpt";
@@ -33,7 +33,7 @@ namespace NellaiBill.Reports
                 cryRpt.SetParameterValue("ItemNo", cmbItem.SelectedValue);
             }
             // cryRpt.SetParameterValue("ToDate", DateTime.Parse(xToDate));
-            crystalReportViewer1.ReportSource = cryRpt;
+          //  crystalReportViewer1.ReportSource = cryRpt;
             
         }
 

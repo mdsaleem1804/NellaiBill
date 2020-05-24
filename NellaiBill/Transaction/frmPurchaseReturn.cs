@@ -1,12 +1,5 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace NellaiBill.Transaction
@@ -16,6 +9,7 @@ namespace NellaiBill.Transaction
         DatabaseConnection xDb = new DatabaseConnection();
         string xQry = "select  " +
                 " p.purchaseinvoiceno, " +
+                " i.itemno, " +
                 " i.itemname, " +
                 " p.batchid, " +
                 " p.dateexpired, " +
@@ -110,9 +104,10 @@ namespace NellaiBill.Transaction
         {
             if (e.RowIndex >= 0)
             {
-                txtItemName.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
-                txtBatch.Text = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
-                txtOldQty.Text = dataGridView1.Rows[e.RowIndex].Cells[4].Value.ToString();
+                txtItemNo.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
+                txtItemName.Text = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
+                txtBatch.Text = dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString();
+                txtOldQty.Text = dataGridView1.Rows[e.RowIndex].Cells[5].Value.ToString();
             }
             txtDebitNoteNo.Text = xDb.GetMaxId("accounts_debit_note_id", "accounts_debit_note").ToString();
 
@@ -155,13 +150,13 @@ namespace NellaiBill.Transaction
                                " '" + Convert.ToInt32(txtChangeQty.Text) + "'," +
                                " '" + rchRemarks.Text + "'," +
                                " '" + txtBatch.Text + "')";
-                int xItemNo = Convert.ToInt32(cmbItem.FindStringExact(txtItemName.Text.ToString()));
+                int xItemNo = Convert.ToInt32(txtItemNo.Text);
                 int xNewQty = Convert.ToInt32(txtChangeQty.Text) - Convert.ToInt32(txtOldQty.Text);
 
                 string xQryStockUpdateEntry = "update inv_stockentry set stock= stock - " + Convert.ToInt32(txtChangeQty.Text) + " " +
                     " where itemno="+xItemNo +" and batch='"+txtBatch.Text+"';";
                     
-                int xStockHistoryId = xDb.GetMaxId("stock_history_id", "stock_history");
+                //int xStockHistoryId = xDb.GetMaxId("stock_history_id", "stock_history");
                 //string xQryStockDetails = "insert into   stock_history" +
                 //    " (stock_history_id,itemno,category,qty,remarks)" +
                 //    "  values(" + xStockHistoryId + "," + xItemNo + ",'PURCHASE RETURN'," + Convert.ToInt32(txtChangeQty.Text) + ",'Item Returned')";
@@ -174,7 +169,7 @@ namespace NellaiBill.Transaction
                      + "," + 0
                      + ",'" + txtBatch.Text
                      + "','" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")
-                     + "','PURCHASE RETURN -ID " + xStockHistoryId + "')";
+                     + "','PURCHASE RETURN')";
 
                 myCommand.CommandText = xQryPurchaseReturn;
                 myCommand.ExecuteNonQuery();
@@ -195,6 +190,7 @@ namespace NellaiBill.Transaction
             txtDebitNoteNo.Text = "";
             txtItemName.Text = "";
             txtOldQty.Text = "";
+            rchRemarks.Text = "";
             dataGridView1.DataSource = null;
         }
     }

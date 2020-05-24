@@ -111,6 +111,10 @@ namespace NellaiBill
         }
         public bool CheckUserExists(string xPassword)
         {
+            try
+            {
+
+           
             connection = new MySqlConnection(conString);
             string xQry = "SELECT * FROM `m_login` WHERE password='" + xPassword + "'";
             connection.Open();
@@ -125,6 +129,12 @@ namespace NellaiBill
             }
             connection.Close();
             if (xUserNo > 0) return true;
+            
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Some Error Occured " + ex.Message);
+            }
             return false;
         }
         public void GetConfigValues()
@@ -183,7 +193,7 @@ namespace NellaiBill
                     xGridView.ColumnHeadersDefaultCellStyle.Font = new Font("Tahoma", 10, FontStyle.Bold);
                     //xGridView.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
                     //xGridView.ColumnHeadersDefaultCellStyle.BackColor = Color.DarkMagenta;
-
+                  
                     xGridView.RowHeadersVisible = false;
 
                 }

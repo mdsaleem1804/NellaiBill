@@ -47,7 +47,7 @@ namespace NellaiBill.Master
                 " g.itemgroupname as GROUP_NAME," +
                 " i.itemname as ITEMNAME, " +
                  " i.hsncode as HSNCODE, " +
-                 " i.gst as TAX,"+
+                 " i.gst as TAX," +
                 //" t.tax_name as TAX," +
                 " i.packdescription as UNIT" +
                 " from m_itemcategory c,m_itemgroup g, " +
@@ -79,7 +79,7 @@ namespace NellaiBill.Master
             xCategoryId = Int32.Parse(cmbCategory.SelectedValue.ToString());
             xGroupId = Int32.Parse(cmbGroup.SelectedValue.ToString());
             //xUnitNo = Int32.Parse(cmbUnit.SelectedValue.ToString());
-            xTaxNo = Int32.Parse(cmbGst.SelectedValue.ToString());
+            xTaxNo = Int32.Parse(cmbGst.SelectedItem.ToString());
             double xPrice = double.Parse(txtPrice.Text.ToString());
             string xHsnCode = txtHsnCode.Text.ToString();
             string xOpeningStockExpDate = Convert.ToDateTime(dtpExpDate.Text).ToString("yyyy-MM-dd");
@@ -121,13 +121,26 @@ namespace NellaiBill.Master
                             + xPrice + ")";
                         int xOpeningStock = Convert.ToInt32(txtOpeningStock.Text.ToString());
                         int xStockId = xDb.GetMaxId("stockno", "inv_stockentry");
+                        string xBatch = "OS";
                         string xQryStockEntry = "insert into   inv_stockentry" +
                             " (stockno,itemno,stock,mrp,batch,expdate) " +
-                            " values(" + xStockId + "," + xItemId + "," + xOpeningStock + "," + xPrice + ",'OS','" + xOpeningStockExpDate + "')";
-                        int xStockHistoryId = xDb.GetMaxId("stock_history_id", "stock_history");
-                        string xQryStockDetails = "insert into   stock_history" +
-                            " (stock_history_id,itemno,category,qty,remarks)" +
-                            "  values(" + xStockHistoryId + "," + xItemId + ",'ITEM'," + xOpeningStock + ",'NEW ITEM CREATED')";
+                            " values(" + xStockId + "," + xItemId + "," + xOpeningStock + "," + xPrice + ",'" + xBatch + "','" + xOpeningStockExpDate + "')";
+                        //int xStockHistoryId = xDb.GetMaxId("stock_history_id", "stock_history");
+                        //string xQryStockDetails = "insert into   stock_history" +
+                        //    " (stock_history_id,itemno,category,qty,remarks)" +
+                        //    "  values(" + xStockHistoryId + "," + xItemId + ",'ITEM'," + xOpeningStock + ",'NEW ITEM CREATED')";
+
+                        string xQryStockDetails = "insert into audit_stock" +
+                  " (audit_stock_itemno,audit_stock_qty," +
+                  " audit_stock_mrp,audit_stock_batch," +
+                  " audit_stock_datetime,audit_stock_mode)" +
+                  " values(" + xItemId
+                  + "," + xOpeningStock
+                  + "," + 0
+                  + ",'" + xBatch
+                  + "','" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")
+                  + "','NEW ITEM')";
+
                         myCommand.CommandText = xQry;
                         myCommand.ExecuteNonQuery();
                         myCommand.CommandText = xQryStockEntry;

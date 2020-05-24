@@ -33,8 +33,7 @@
             this.dtpToDate = new System.Windows.Forms.DateTimePicker();
             this.label3 = new System.Windows.Forms.Label();
             this.dtpFromDate = new System.Windows.Forms.DateTimePicker();
-            this.crystalReportViewer1 = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
-            this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
+                this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
             this.cmbItem = new System.Windows.Forms.ComboBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label8 = new System.Windows.Forms.Label();
@@ -90,18 +89,7 @@
             this.dtpFromDate.Name = "dtpFromDate";
             this.dtpFromDate.Size = new System.Drawing.Size(153, 20);
             this.dtpFromDate.TabIndex = 32;
-            // 
-            // crystalReportViewer1
-            // 
-            this.crystalReportViewer1.ActiveViewIndex = -1;
-            this.crystalReportViewer1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.crystalReportViewer1.Cursor = System.Windows.Forms.Cursors.Default;
-            this.crystalReportViewer1.Location = new System.Drawing.Point(15, 114);
-            this.crystalReportViewer1.Name = "crystalReportViewer1";
-            this.crystalReportViewer1.Size = new System.Drawing.Size(963, 591);
-            this.crystalReportViewer1.TabIndex = 31;
-            this.crystalReportViewer1.ToolPanelView = CrystalDecisions.Windows.Forms.ToolPanelViewType.None;
-            // 
+                       // 
             // materialLabel1
             // 
             this.materialLabel1.AutoSize = true;
@@ -182,7 +170,6 @@
             this.Controls.Add(this.dtpToDate);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.dtpFromDate);
-            this.Controls.Add(this.crystalReportViewer1);
             this.Name = "frmStockHistory";
             this.Text = "frmStockHistory";
             this.Load += new System.EventHandler(this.frmStockHistory_Load);
@@ -200,7 +187,6 @@
         private System.Windows.Forms.DateTimePicker dtpToDate;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DateTimePicker dtpFromDate;
-        private CrystalDecisions.Windows.Forms.CrystalReportViewer crystalReportViewer1;
         private MaterialSkin.Controls.MaterialLabel materialLabel1;
         private System.Windows.Forms.ComboBox cmbItem;
         internal System.Windows.Forms.Panel panel3;

@@ -19,6 +19,10 @@ namespace NellaiBill.Master
         {
             LoadComboBox();
             LoadGridView2();
+            dataGridView1.Columns["Qty"].DefaultCellStyle.ForeColor = Color.Red;
+            dataGridView1.Columns["ItemName"].DefaultCellStyle.ForeColor = Color.Red;
+            dataGridView1.Columns["ItemName"].DefaultCellStyle.Font = new Font("Tahoma", 9.75F, FontStyle.Bold);           
+            dataGridView1.Columns["Qty"].DefaultCellStyle.Font = new Font("Tahoma", 9.75F, FontStyle.Bold);
             dtpDate.Focus();
             cmbPaymentMode.SelectedIndex = 0;
             cmbBillType.SelectedIndex = 0;
@@ -54,13 +58,13 @@ namespace NellaiBill.Master
 
                     string xStockId = txtStockId.Text;
                     string xItemNo = txtItemNo.Text;
-                    double xAmount = double.Parse(txtPrice.Text) * double.Parse(txtQty.Text);
+                    double xAmount = double.Parse(txtUnitPrice.Text) * double.Parse(txtQty.Text);
 
                     double xAmountAfterDiscount = xAmount - double.Parse(txtDiscountValue.Text);
                     double xGstPercentage = double.Parse(txtTax.Text);
                     double xGstValue = (xAmountAfterDiscount) * xGstPercentage / 100;
 
-                    double xTotalAmount = xAmountAfterDiscount + xGstValue;
+                    double xTotalAmount = Math.Round(xAmountAfterDiscount + xGstValue);
 
                     foreach (DataGridViewRow dr in dataGridView1.Rows)
                     {
@@ -75,21 +79,24 @@ namespace NellaiBill.Master
                     }
                     string xDiscountPercentage = txtDiscPercentage.Text == "0" ? "0.00" : Convert.ToDecimal(txtDiscPercentage.Text).ToString("#.##");
                     string xDiscountValue = txtDiscountValue.Text == "0" ? "0.00" : Convert.ToDecimal(txtDiscountValue.Text).ToString("#.##");
-                    this.dataGridView1.Rows.Add(xStockId,
-                        xItemNo,
+                    this.dataGridView1.Rows.Add(
+                    xStockId,
+                    xItemNo,
                     txtItem.Text,
                     txtBatch.Text,
-                     Convert.ToDateTime(txtExpDate.Text).ToString("yyyy-MM-dd"),
+                    Convert.ToDateTime(txtExpDate.Text).ToString("yyyy-MM-dd"),
                     txtStock.Text,
-                    txtPrice.Text,
+                    txtUnitPrice.Text,
+                    txtMrp.Text,
                     txtQty.Text,
                     xAmount,
-                    xDiscountPercentage, xDiscountValue,
+                    xDiscountPercentage,
+                    xDiscountValue,
                     Convert.ToDecimal(xAmountAfterDiscount),
                     Convert.ToDecimal(xGstPercentage),
                     Convert.ToDecimal(xGstValue),
                     Convert.ToDecimal(xTotalAmount),
-                   "DEL");
+                    "DEL");
 
                     CalculateTotalAmount();
                     DataClear();
@@ -148,7 +155,8 @@ namespace NellaiBill.Master
             txtItem.Text = "";
             txtBatch.Text = "";
             txtExpDate.Text = "";
-            txtPrice.Text = "";
+            txtUnitPrice.Text = "";
+            txtMrp.Text = "";
             txtQty.Text = "";
             txtStock.Text = "";
             txtTax.Text = "";
@@ -156,6 +164,7 @@ namespace NellaiBill.Master
             txtStockId.Text = "";
             txtDiscPercentage.Text = "";
             txtDiscountValue.Text = "";
+            btnAdd.Enabled = false;
         }
 
 
@@ -209,14 +218,14 @@ namespace NellaiBill.Master
 
                 double xQty = double.Parse(dataGridView1.Rows[rowindex].Cells["Qty"].Value.ToString());
                 double xCurrentStock = double.Parse(dataGridView1.Rows[rowindex].Cells["Stock"].Value.ToString());
-                double xPrice = double.Parse(dataGridView1.Rows[rowindex].Cells["Price"].Value.ToString());
+                double xPrice = double.Parse(dataGridView1.Rows[rowindex].Cells["UnitPrice"].Value.ToString());
                 double xDiscountPercentage = double.Parse(dataGridView1.Rows[rowindex].Cells["DiscPercentage"].Value.ToString());
                 double xGstPercentage = double.Parse(dataGridView1.Rows[rowindex].Cells["GstPercentage"].Value.ToString());
                 double xAmount = xQty * xPrice;
                 double xDiscountValue = xAmount * (xDiscountPercentage / 100);
                 double xAmountAfterDiscount = xAmount - xDiscountValue;
                 double xGstValue = (xAmountAfterDiscount) * xGstPercentage / 100;
-                double xTotalAmount = xAmountAfterDiscount + xGstValue;
+                double xTotalAmount = Math.Round(xAmountAfterDiscount + xGstValue);
                 if (xQty == 0)
                 {
                     MessageBox.Show(" Qty Must be greater than 0");
@@ -293,10 +302,11 @@ namespace NellaiBill.Master
                         int xStockId = Convert.ToInt32(dr.Cells["Id"].Value);
                         int xItemNo = Convert.ToInt32(dr.Cells["ItemNoDg1"].Value);
                         double xQty = Convert.ToDouble(dr.Cells["Qty"].Value);
-                        double xPrice = Convert.ToDouble(dr.Cells["Price"].Value);
-                        double xAmount = xQty * xPrice;
+                        double UnitPrice = Convert.ToDouble(dr.Cells["UnitPrice"].Value);
+                        double xAmount = xQty * UnitPrice;
                         double xGstPercentage = Convert.ToDouble(dr.Cells["GstPercentage"].Value);
-                        double xUnitMrp = xPrice + (xPrice * xGstPercentage / 100);
+                        //double xUnitMrp = UnitPrice + (UnitPrice * xGstPercentage / 100);
+                        double xMrp = Convert.ToDouble(dr.Cells["Mrp"].Value);
                         string xBatch = dr.Cells["Batch"].Value.ToString();
                         string xQrySalesDetails = "insert into   inv_salesentry" +
                            "(salesinvoiceno,date,customerno,itemno,batchid," +
@@ -310,20 +320,20 @@ namespace NellaiBill.Master
                             " '" + xBatch + "'," +
                             " '" + dr.Cells["ExpDate"].Value + "'," +
                            " " + Convert.ToDouble(dr.Cells["Qty"].Value) + "," +
-                           " " + Convert.ToDouble(dr.Cells["Price"].Value) + "," +
+                           " " + Convert.ToDouble(dr.Cells["UnitPrice"].Value) + "," +
                            " " + xAmount + "," +
                            " " + Convert.ToDouble(dr.Cells["GstPercentage"].Value) + "," +
                            " " + Convert.ToDouble(dr.Cells["DiscPercentage"].Value) + "," +
                            " '" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "'," +
                            " '" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "'," +
-                           " " + xUnitMrp + " )";
+                           " " + xMrp + " )";
                         xLessAmount += Convert.ToDouble(dr.Cells["DiscValue"].Value);
 
                         string xUpdateStockQry = "update inv_stockentry set " +
                             " stock = stock - " + xQty + " " +
                             " where itemno=" + xItemNo + " " +
                             " and batch = '" + xBatch + "' " +
-                            " and mrp = '" + xPrice + "'";
+                            " and mrp = '" + xMrp + "'";
 
 
                         myCommand.CommandText = xQrySalesDetails;
@@ -339,7 +349,7 @@ namespace NellaiBill.Master
                          " audit_stock_datetime,audit_stock_mode)" +
                          " values(" + xItemNo
                          + "," + xQty
-                         + "," + xPrice
+                         + "," + xMrp
                          + ",'" + xBatch
                          + "','" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")
                          + "','NEW SALES')";
@@ -404,6 +414,13 @@ namespace NellaiBill.Master
                 txtQty.Focus();
                 return;
             }
+            if (txtMrp.Text == "")
+            {
+                MessageBox.Show("Please Choose Mrp ");
+                txtMrp.Focus();
+                return;
+
+            }
 
             if (txtDiscountValue.Text == "")
             {
@@ -414,13 +431,21 @@ namespace NellaiBill.Master
                 txtDiscPercentage.Text = "0";
             }
 
-            double xAmount = double.Parse(txtQty.Text) * double.Parse(txtPrice.Text);
+            double xAmount = double.Parse(txtQty.Text) * double.Parse(txtMrp.Text);
             txtDiscountValue.Text = (xAmount * (double.Parse(txtDiscPercentage.Text) / 100)).ToString();
 
         }
 
         private void txtDiscountValue_Leave(object sender, EventArgs e)
         {
+
+            if (txtMrp.Text == "")
+            {
+                MessageBox.Show("Please Choose Mrp ");
+                txtMrp.Focus();
+                return;
+
+            }
 
             if (txtQty.Text == "")
             {
@@ -438,9 +463,8 @@ namespace NellaiBill.Master
                 txtDiscPercentage.Text = "0";
             }
 
-            double xAmount = double.Parse(txtQty.Text) * double.Parse(txtPrice.Text);
+            double xAmount = double.Parse(txtQty.Text) * double.Parse(txtMrp.Text);
             txtDiscPercentage.Text = ((double.Parse(txtDiscountValue.Text) / xAmount) * 100).ToString();
-
         }
 
         private void txtSearch_TextChanged(object sender, EventArgs e)
@@ -450,7 +474,9 @@ namespace NellaiBill.Master
         }
         private void LoadGridView2()
         {
+      
             xDb.LoadGrid("select s.stockno,s.itemno,i.itemname,s.stock,s.mrp,s.batch,s.expdate,i.gst from inv_stockentry s,m_item i where s.stock>0 and  s.itemno = i.itemno", dataGridView2);
+            //dataGridView2.RowHeadersVisible = true;
             dataGridView2.ReadOnly = true;
             dataGridView2.Columns[0].Visible = false;
             dataGridView2.Columns[1].Visible = false;
@@ -462,7 +488,8 @@ namespace NellaiBill.Master
             dataGridView2.Columns[5].FillWeight = 60;
 
         }
-        private void dataGridView2_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+      
+        private void FetchDataFromGrid(DataGridViewCellEventArgs e )
         {
             if (e.RowIndex >= 0)
             {
@@ -470,14 +497,15 @@ namespace NellaiBill.Master
                 txtItemNo.Text = Convert.ToInt32(dataGridView2.Rows[e.RowIndex].Cells[1].Value.ToString()).ToString();
                 txtItem.Text = dataGridView2.Rows[e.RowIndex].Cells[2].Value.ToString();
                 txtStock.Text = dataGridView2.Rows[e.RowIndex].Cells[3].Value.ToString();
-                /*Included Text Logic */
+                /*Included Gst Logic */
                 double xUnitMrp = double.Parse(dataGridView2.Rows[e.RowIndex].Cells[4].Value.ToString());
                 double xGstBefore = double.Parse(dataGridView2.Rows[e.RowIndex].Cells[7].Value.ToString()) / 100 + 1;
                 double xUnitRate = (((xUnitMrp / xGstBefore)));
 
-                txtPrice.Text = xUnitRate.ToString();
+                txtUnitPrice.Text = xUnitRate.ToString("#.##");
+                txtMrp.Text = dataGridView2.Rows[e.RowIndex].Cells[4].Value.ToString();
                 //txtPrice.Text = dataGridView2.Rows[e.RowIndex].Cells[4].Value.ToString();
-                /*Included Text Logic Ended */
+                /*Included v Logic Ended */
                 txtBatch.Text = dataGridView2.Rows[e.RowIndex].Cells[5].Value.ToString();
                 txtExpDate.Text = dataGridView2.Rows[e.RowIndex].Cells[6].Value.ToString();
                 txtTax.Text = dataGridView2.Rows[e.RowIndex].Cells[7].Value.ToString();
@@ -489,13 +517,15 @@ namespace NellaiBill.Master
             btnAdd.BackColor = Color.Red;
 
         }
-
         private void txtPaid_TextChanged(object sender, EventArgs e)
         {
-            double xTotalAmount = Convert.ToDouble(lbl_total_amount_value.Text);
-            double xPaidAmount = Convert.ToDouble(txtPaid.Text);
-            double xBalanceAmount = xPaidAmount - xTotalAmount;
-            txtBalance.Text = xBalanceAmount.ToString();
+            if (txtPaid.Text != "") {
+                double xTotalAmount = Convert.ToDouble(lbl_total_amount_value.Text);
+                double xPaidAmount = Convert.ToDouble(txtPaid.Text);
+                double xBalanceAmount = xPaidAmount - xTotalAmount;
+                txtBalance.Text = xBalanceAmount.ToString();
+            }
+            
         }
 
         private void txtUserPassword_TextChanged(object sender, EventArgs e)
@@ -505,14 +535,128 @@ namespace NellaiBill.Master
                 btnSaveBill.Enabled = xDb.CheckUserExists(txtUserPassword.Text);
                 btnSaveBill.BackColor = Color.Red;
             }
-           
+            else
+            {
+                btnSaveBill.Enabled = xDb.CheckUserExists(txtUserPassword.Text);
+                btnSaveBill.BackColor = Color.LavenderBlush;
+            }
+
         }
 
         private void btnSaveBill_Click(object sender, EventArgs e)
         {
             SaveData("S");
         }
-    }
+        private void dataGridView2_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            FetchDataFromGrid(e);
+        }
+        private void dataGridView2_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            FetchDataFromGrid(e);
+        }
 
+       //TO DO 
+        private void dataGridView2_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode.Equals(Keys.Up))
+            {
+                moveUp();
+            }
+            if (e.KeyCode.Equals(Keys.Down))
+            {
+                moveDown();
+            }
+            e.Handled = true;
+        }
+
+        private void moveUp()
+        {
+            if (dataGridView2.RowCount > 0)
+            {
+                if (dataGridView2.SelectedRows.Count > 0)
+                {
+                    int rowCount = dataGridView2.Rows.Count;
+                    int index = dataGridView2.SelectedCells[0].OwningRow.Index;
+
+                    if (index == 0)
+                    {
+                        return;
+                    }
+                    DataGridViewRowCollection rows = dataGridView2.Rows;
+
+                    // remove the previous row and add it behind the selected row.
+                    DataGridViewRow prevRow = rows[index - 1];
+                    rows.Remove(prevRow);
+                    prevRow.Frozen = false;
+                    rows.Insert(index, prevRow);
+                    dataGridView2.ClearSelection();
+                    dataGridView2.Rows[index - 1].Selected = true;
+                }
+            }
+        }
+
+        private void moveDown()
+        {
+            if (dataGridView2.RowCount > 0)
+            {
+                if (dataGridView2.SelectedRows.Count > 0)
+                {
+                    int rowCount = dataGridView2.Rows.Count;
+                    int index = dataGridView2.SelectedCells[0].OwningRow.Index;
+
+                    if (index == (rowCount - 2)) // include the header row
+                    {
+                        return;
+                    }
+                    DataGridViewRowCollection rows = dataGridView2.Rows;
+
+                    // remove the next row and add it in front of the selected row.
+                    DataGridViewRow nextRow = rows[index + 1];
+                    rows.Remove(nextRow);
+                    nextRow.Frozen = false;
+                    rows.Insert(index, nextRow);
+                    dataGridView2.ClearSelection();
+                    dataGridView2.Rows[index + 1].Selected = true;
+                }
+            }
+        }
+
+        private void txtQty_TextChanged(object sender, EventArgs e)
+        {
+            if (System.Text.RegularExpressions.Regex.IsMatch(txtQty.Text, "[^0-9]"))
+            {
+                MessageBox.Show("Please enter only numbers.");
+                txtQty.Text = txtQty.Text.Remove(txtQty.Text.Length - 1);
+            }
+        }
+
+        private void txtDiscPercentage_TextChanged(object sender, EventArgs e)
+        {
+            //TO DO -DECIMAL
+        //    if (System.Text.RegularExpressions.Regex.IsMatch(txtDiscPercentage.Text, "[^0-9]"))
+        //    {
+        //        MessageBox.Show("Please enter only numbers.");
+        //        txtDiscPercentage.Text = txtDiscPercentage.Text.Remove(txtDiscPercentage.Text.Length - 1);
+        //        return;
+        //    }
+        
+        }
+
+        private void txtDiscountValue_TextChanged(object sender, EventArgs e)
+        {
+            //TO DO -DECIMAL
+            //if (System.Text.RegularExpressions.Regex.IsMatch(txtDiscountValue.Text, "[^0-9]"))
+            //{
+            //    MessageBox.Show("Please enter only numbers.");
+            //    txtDiscountValue.Text = txtDiscPercentage.Text.Remove(txtDiscountValue.Text.Length - 1);
+            //    return;
+            //}
+
+        }
+    }
 }
+    
+
+
 

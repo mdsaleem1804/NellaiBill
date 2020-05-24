@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace NellaiBill
+﻿namespace NellaiBill
 {
     public class GlobalClass
     {
@@ -17,6 +11,11 @@ namespace NellaiBill
         {
             return string.Format("{0:0.00}", myNumber);
         }
-        
+        public string GetReportPath()
+        {
+            return "E:\\Dotnet\\NellaiBill\\NellaiBill\\CrystalReports\\";
+            //return System.Windows.Forms.Application.StartupPath + "\\CrystalReports\\" ;
+        }
+
     }
 }

@@ -63,6 +63,8 @@
             this.label13 = new System.Windows.Forms.Label();
             this.dtpFromDate = new System.Windows.Forms.DateTimePicker();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtItemNo = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -96,16 +98,16 @@
             // 
             // txtBatch
             // 
-            this.txtBatch.Location = new System.Drawing.Point(98, 82);
+            this.txtBatch.Location = new System.Drawing.Point(368, 19);
             this.txtBatch.Name = "txtBatch";
             this.txtBatch.ReadOnly = true;
-            this.txtBatch.Size = new System.Drawing.Size(104, 20);
+            this.txtBatch.Size = new System.Drawing.Size(69, 20);
             this.txtBatch.TabIndex = 53;
             // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(5, 78);
+            this.label11.Location = new System.Drawing.Point(284, 15);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(35, 13);
             this.label11.TabIndex = 57;
@@ -113,16 +115,16 @@
             // 
             // txtItemName
             // 
-            this.txtItemName.Location = new System.Drawing.Point(98, 46);
+            this.txtItemName.Location = new System.Drawing.Point(98, 76);
             this.txtItemName.Name = "txtItemName";
             this.txtItemName.ReadOnly = true;
-            this.txtItemName.Size = new System.Drawing.Size(104, 20);
+            this.txtItemName.Size = new System.Drawing.Size(146, 20);
             this.txtItemName.TabIndex = 52;
             // 
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(5, 46);
+            this.label12.Location = new System.Drawing.Point(5, 76);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(58, 13);
             this.label12.TabIndex = 56;
@@ -139,7 +141,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(401, 18);
+            this.label1.Location = new System.Drawing.Point(454, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(50, 13);
             this.label1.TabIndex = 51;
@@ -147,7 +149,7 @@
             // 
             // txtChangeQty
             // 
-            this.txtChangeQty.Location = new System.Drawing.Point(301, 57);
+            this.txtChangeQty.Location = new System.Drawing.Point(368, 85);
             this.txtChangeQty.Name = "txtChangeQty";
             this.txtChangeQty.Size = new System.Drawing.Size(69, 20);
             this.txtChangeQty.TabIndex = 55;
@@ -155,7 +157,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(217, 57);
+            this.label9.Location = new System.Drawing.Point(284, 85);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(63, 13);
             this.label9.TabIndex = 49;
@@ -164,7 +166,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(217, 25);
+            this.label7.Location = new System.Drawing.Point(284, 53);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(42, 13);
             this.label7.TabIndex = 47;
@@ -173,6 +175,8 @@
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.txtItemNo);
+            this.panel1.Controls.Add(this.label8);
             this.panel1.Controls.Add(this.txtBatch);
             this.panel1.Controls.Add(this.label11);
             this.panel1.Controls.Add(this.txtItemName);
@@ -193,7 +197,7 @@
             // 
             // txtOldQty
             // 
-            this.txtOldQty.Location = new System.Drawing.Point(301, 21);
+            this.txtOldQty.Location = new System.Drawing.Point(368, 49);
             this.txtOldQty.Name = "txtOldQty";
             this.txtOldQty.ReadOnly = true;
             this.txtOldQty.Size = new System.Drawing.Size(69, 20);
@@ -226,7 +230,7 @@
             this.txtCreditNoteNo.Location = new System.Drawing.Point(98, 18);
             this.txtCreditNoteNo.Name = "txtCreditNoteNo";
             this.txtCreditNoteNo.ReadOnly = true;
-            this.txtCreditNoteNo.Size = new System.Drawing.Size(104, 20);
+            this.txtCreditNoteNo.Size = new System.Drawing.Size(52, 20);
             this.txtCreditNoteNo.TabIndex = 51;
             // 
             // txtSalesInvoiceNo
@@ -430,6 +434,23 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Date Wise";
             // 
+            // txtItemNo
+            // 
+            this.txtItemNo.Location = new System.Drawing.Point(98, 46);
+            this.txtItemNo.Name = "txtItemNo";
+            this.txtItemNo.ReadOnly = true;
+            this.txtItemNo.Size = new System.Drawing.Size(52, 20);
+            this.txtItemNo.TabIndex = 58;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(5, 46);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(44, 13);
+            this.label8.TabIndex = 59;
+            this.label8.Text = "Item No";
+            // 
             // frmSalesReturn
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -500,5 +521,7 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.DateTimePicker dtpFromDate;
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.TextBox txtItemNo;
+        private System.Windows.Forms.Label label8;
     }
 }

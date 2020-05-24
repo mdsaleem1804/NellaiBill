@@ -1,12 +1,5 @@
 ﻿using CrystalDecisions.CrystalReports.Engine;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace NellaiBill.Reports
@@ -14,7 +7,7 @@ namespace NellaiBill.Reports
     public partial class frmSalesReport : Form
     {
         ReportDocument cryRpt = new ReportDocument();
-        DatabaseConnection xDb = new DatabaseConnection();
+        GlobalClass globalClass = new GlobalClass();
         public frmSalesReport()
         {
             InitializeComponent();
@@ -22,10 +15,9 @@ namespace NellaiBill.Reports
 
         private void btnViewData_Click(object sender, EventArgs e)
         {
-
             string xFromDate = dtpFromDate.Text;
             string xToDate = dtpToDate.Text;
-            string path = xDb.xReportPath + "rptSalesConsolidated.rpt";
+            string path = globalClass.GetReportPath() + "rptSalesConsolidated.rpt";
             cryRpt.Load(path);
             cryRpt.SetParameterValue("FromDate", DateTime.Parse(xFromDate));
             cryRpt.SetParameterValue("ToDate", DateTime.Parse(xToDate));

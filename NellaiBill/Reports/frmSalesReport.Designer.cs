@@ -46,7 +46,7 @@
             this.panel3.Controls.Add(this.label8);
             this.panel3.Location = new System.Drawing.Point(28, 10);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1044, 33);
+            this.panel3.Size = new System.Drawing.Size(1214, 33);
             this.panel3.TabIndex = 38;
             // 
             // label8
@@ -55,7 +55,7 @@
             this.label8.BackColor = System.Drawing.Color.Transparent;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.White;
-            this.label8.Location = new System.Drawing.Point(404, 0);
+            this.label8.Location = new System.Drawing.Point(545, 9);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(129, 24);
             this.label8.TabIndex = 0;
@@ -115,25 +115,24 @@
             this.crystalReportViewer1.ActiveViewIndex = -1;
             this.crystalReportViewer1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.crystalReportViewer1.Cursor = System.Windows.Forms.Cursors.Default;
-            this.crystalReportViewer1.Location = new System.Drawing.Point(28, 100);
+            this.crystalReportViewer1.Location = new System.Drawing.Point(28, 114);
             this.crystalReportViewer1.Name = "crystalReportViewer1";
-            this.crystalReportViewer1.Size = new System.Drawing.Size(992, 517);
-            this.crystalReportViewer1.TabIndex = 32;
-            this.crystalReportViewer1.ToolPanelView = CrystalDecisions.Windows.Forms.ToolPanelViewType.None;
+            this.crystalReportViewer1.Size = new System.Drawing.Size(1214, 600);
+            this.crystalReportViewer1.TabIndex = 39;
             // 
             // frmSalesReport
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(804, 582);
+            this.ClientSize = new System.Drawing.Size(1271, 599);
+            this.Controls.Add(this.crystalReportViewer1);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.btnViewData);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dtpToDate);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.dtpFromDate);
-            this.Controls.Add(this.crystalReportViewer1);
             this.Name = "frmSalesReport";
             this.Text = "frmSalesReport";
             this.panel3.ResumeLayout(false);

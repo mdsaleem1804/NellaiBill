@@ -15,7 +15,7 @@ namespace NellaiBill.Transaction
     {
         DatabaseConnection xDb = new DatabaseConnection();
 
-        string xQry = "select s.salesinvoiceno, s.date,i.itemname,s.batchid,s.qty" +
+        string xQry = "select s.salesinvoiceno, s.date,i.itemno,i.itemname,s.batchid,s.qty" +
             " from inv_salesentry1 s1, " +
             " inv_salesentry s, " +
             " m_item i " +
@@ -46,9 +46,10 @@ namespace NellaiBill.Transaction
         {
             if (e.RowIndex >= 0)
             {
-                txtItemName.Text = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
-                txtBatch.Text = dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString();
-                txtOldQty.Text = dataGridView1.Rows[e.RowIndex].Cells[4].Value.ToString();
+                txtItemNo.Text = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
+                txtItemName.Text = dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString();
+                txtBatch.Text = dataGridView1.Rows[e.RowIndex].Cells[4].Value.ToString();
+                txtOldQty.Text = dataGridView1.Rows[e.RowIndex].Cells[5].Value.ToString();
             }
             txtCreditNoteNo.Text = xDb.GetMaxId("accounts_credit_note_id", "accounts_credit_note").ToString();
         }
@@ -146,13 +147,13 @@ namespace NellaiBill.Transaction
                                " '" + Convert.ToInt32(txtChangeQty.Text) + "'," +
                                " '" + rchRemarks.Text + "'," +
                                " '" + txtBatch.Text + "')";
-                int xItemNo = Convert.ToInt32(cmbItem.FindStringExact(txtItemName.Text.ToString()));
+                int xItemNo = Convert.ToInt32(txtItemNo.Text);
                 int xNewQty = Convert.ToInt32(txtChangeQty.Text) - Convert.ToInt32(txtOldQty.Text);
 
                 string xQryStockUpdateEntry = "update inv_stockentry set stock= stock + " + Convert.ToInt32(txtChangeQty.Text) + " " +
                     " where itemno=" + xItemNo + " and batch='" + txtBatch.Text + "';";
 
-                int xStockHistoryId = xDb.GetMaxId("stock_history_id", "stock_history");
+                //int xStockHistoryId = xDb.GetMaxId("stock_history_id", "stock_history");
 
                 //string xQryStockDetails = "insert into   stock_history" +
                 //    " (stock_history_id,itemno,category,qty,remarks)" +
@@ -167,7 +168,7 @@ namespace NellaiBill.Transaction
                          + "," + 0
                          + ",'" + txtBatch.Text
                          + "','" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")
-                         + "','SALES RETURN -ID "+xStockHistoryId +"')";
+                         + "','SALES RETURN')";
 
 
                 myCommand.CommandText = xQryPurchaseReturn;

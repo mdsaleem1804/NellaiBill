@@ -202,16 +202,9 @@ namespace NellaiBill
        
         private void stockReportToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            StockReport stockReport = new StockReport();
-            stockReport.MdiParent = this;
-            stockReport.Show();
-        }
-
-        private void purchaseReportToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            PurchaseReportDG purchaseReport = new PurchaseReportDG();
-            purchaseReport.MdiParent = this;
-            purchaseReport.Show();
+            CR_Stock report = new CR_Stock();
+            report.MdiParent = this;
+            report.Show();
         }
 
         private void PurchaseEntryToolStripMenuItem_Click(object sender, EventArgs e)
@@ -274,7 +267,10 @@ namespace NellaiBill
 
         private void salesReportToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            SalesReportDG frmSalesReport = new SalesReportDG();
+            //SalesReportDG frmSalesReport = new SalesReportDG();
+            //frmSalesReport.MdiParent = this;
+            //frmSalesReport.Show();
+            frmSalesReport frmSalesReport = new frmSalesReport();
             frmSalesReport.MdiParent = this;
             frmSalesReport.Show();
         }
@@ -286,6 +282,27 @@ namespace NellaiBill
             webReports.Show();
         }
 
-      
+        private void purchaseReportToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            PurchaseReport frmPurchaseReport = new PurchaseReport();
+            frmPurchaseReport.MdiParent = this;
+            frmPurchaseReport.Show();
+        }
+
+        private void stockReportToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            StockReport stockReport = new StockReport();
+            stockReport.MdiParent = this;
+            stockReport.Show();
+
+        }
+
+        private void salesReturnReportToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+             CR_SalesReturn report = new CR_SalesReturn();
+           // SalesReportDG report = new SalesReportDG();
+            report.MdiParent = this;
+            report.Show();         
+        }
     }
 }

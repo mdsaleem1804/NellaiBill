@@ -44,6 +44,7 @@
             this.dtpExpDate = new System.Windows.Forms.DateTimePicker();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.txtTax = new System.Windows.Forms.TextBox();
             this.lblProductDetails = new MaterialSkin.Controls.MaterialLabel();
             this.txtPackOf = new System.Windows.Forms.TextBox();
             this.label18 = new System.Windows.Forms.Label();
@@ -82,7 +83,7 @@
             this.lblRoundOff = new System.Windows.Forms.Label();
             this.label25 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.txtTax = new System.Windows.Forms.TextBox();
+            this.ItemNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ItemName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Batch = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ExpDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -246,6 +247,7 @@
             this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ItemNo,
             this.ItemName,
             this.Batch,
             this.ExpDate,
@@ -304,6 +306,14 @@
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(1195, 76);
             this.panel4.TabIndex = 79;
+            // 
+            // txtTax
+            // 
+            this.txtTax.Location = new System.Drawing.Point(849, 22);
+            this.txtTax.Name = "txtTax";
+            this.txtTax.ReadOnly = true;
+            this.txtTax.Size = new System.Drawing.Size(76, 20);
+            this.txtTax.TabIndex = 54;
             // 
             // lblProductDetails
             // 
@@ -677,13 +687,11 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(330, 93);
             this.tableLayoutPanel1.TabIndex = 94;
             // 
-            // txtTax
+            // ItemNo
             // 
-            this.txtTax.Location = new System.Drawing.Point(849, 22);
-            this.txtTax.Name = "txtTax";
-            this.txtTax.ReadOnly = true;
-            this.txtTax.Size = new System.Drawing.Size(76, 20);
-            this.txtTax.TabIndex = 54;
+            this.ItemNo.HeaderText = "ItemNo";
+            this.ItemNo.Name = "ItemNo";
+            this.ItemNo.Visible = false;
             // 
             // ItemName
             // 
@@ -886,6 +894,7 @@
         private System.Windows.Forms.Label label25;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.TextBox txtTax;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ItemNo;
         private System.Windows.Forms.DataGridViewTextBoxColumn ItemName;
         private System.Windows.Forms.DataGridViewTextBoxColumn Batch;
         private System.Windows.Forms.DataGridViewTextBoxColumn ExpDate;

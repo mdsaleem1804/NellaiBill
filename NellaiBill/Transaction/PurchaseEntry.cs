@@ -15,12 +15,14 @@ namespace NellaiBill.Transaction
     {
         DatabaseConnection xDb = new DatabaseConnection();
         GlobalClass globalClass = new GlobalClass();
+       
         public PurchaseEntry()
         {
             InitializeComponent();
             LoadComboBox();
             txtDiscPercentage.Text = "0";
             txtDiscountValue.Text = "0";
+            dtpExpDate.Value= DateTime.Now.AddMonths(3);
         }
 
         private void LoadComboBox()
@@ -84,14 +86,18 @@ namespace NellaiBill.Transaction
             {
 
                 string xItemNameGrid = dr.Cells["ItemName"].Value.ToString();
-                if (cmbItem.Text == xItemNameGrid)
+                string xBatchGrid = dr.Cells["Batch"].Value.ToString();
+                
+                if ((cmbItem.Text == xItemNameGrid) &&(txtBatch.Text==xBatchGrid) )
                 {
-                    MessageBox.Show("Item entered already.");
+                    MessageBox.Show("Item entered already with same batch.");
                     return;
                 }
             }
+            int xItemNo=Int32.Parse(cmbItem.SelectedValue.ToString());
 
             this.dataGridView1.Rows.Add(
+                xItemNo,
                 cmbItem.Text,
                 txtBatch.Text,
                 Convert.ToDateTime(dtpExpDate.Text).ToString("yyyy-MM-dd"),
@@ -223,6 +229,7 @@ namespace NellaiBill.Transaction
             if (!(dataGridView1.Rows.Count > 0))
             {
                 MessageBox.Show("Please add data");
+                return;
             }
             int xPurchaseId = xDb.GetMaxId("purchaseinvoiceno", "inv_purchaseentry1");
             using (MySqlConnection myConnection = new MySqlConnection(xDb.conString))
@@ -234,7 +241,7 @@ namespace NellaiBill.Transaction
                 {
                     foreach (DataGridViewRow dr in dataGridView1.Rows)
                     {
-                        int xItemNo = Convert.ToInt32(cmbItem.FindStringExact(dr.Cells["ItemName"].Value.ToString()));
+                        int xItemNo = Convert.ToInt32(dr.Cells["ItemNo"].Value);
                         double xQty = Convert.ToDouble(dr.Cells["Qty"].Value);
                         double xFreeQty = Convert.ToDouble(dr.Cells["FreeQty"].Value);
                         double xPackOf = Convert.ToDouble(dr.Cells["PackOf"].Value);
@@ -463,6 +470,17 @@ namespace NellaiBill.Transaction
 
         private void cmbItem_SelectedIndexChanged(object sender, EventArgs e)
         {
+            txtBatch.Text = "";
+            txtQty.Text = "";
+            txtFreeQty.Text = "0";
+            txtPackOf.Text = "1";
+            txtTotalQty.Text = "";
+            txtPR.Text = "";
+            txtSR.Text = "";
+            txtDiscPercentage.Text = "0";
+            txtDiscountValue.Text = "0";
+            txtTax.Text = "Please select";
+            txtLessAmount.Text = "0";
             xDb.connection = new MySqlConnection(xDb.conString);
             string xItemNo = cmbItem.SelectedValue.ToString();
             if (xItemNo == "0")

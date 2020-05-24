@@ -63,6 +63,8 @@
             this.label9 = new System.Windows.Forms.Label();
             this.txtOldQty = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
+            this.txtItemNo = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
             this.panel3.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -300,7 +302,7 @@
             this.txtDebitNoteNo.Location = new System.Drawing.Point(98, 18);
             this.txtDebitNoteNo.Name = "txtDebitNoteNo";
             this.txtDebitNoteNo.ReadOnly = true;
-            this.txtDebitNoteNo.Size = new System.Drawing.Size(104, 20);
+            this.txtDebitNoteNo.Size = new System.Drawing.Size(56, 20);
             this.txtDebitNoteNo.TabIndex = 51;
             // 
             // mbtnPurchaseReturn
@@ -328,6 +330,8 @@
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.txtItemNo);
+            this.panel1.Controls.Add(this.label13);
             this.panel1.Controls.Add(this.txtBatch);
             this.panel1.Controls.Add(this.label11);
             this.panel1.Controls.Add(this.txtItemName);
@@ -348,7 +352,7 @@
             // 
             // txtBatch
             // 
-            this.txtBatch.Location = new System.Drawing.Point(98, 82);
+            this.txtBatch.Location = new System.Drawing.Point(331, 19);
             this.txtBatch.Name = "txtBatch";
             this.txtBatch.ReadOnly = true;
             this.txtBatch.Size = new System.Drawing.Size(104, 20);
@@ -357,7 +361,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(5, 78);
+            this.label11.Location = new System.Drawing.Point(262, 21);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(35, 13);
             this.label11.TabIndex = 57;
@@ -365,16 +369,16 @@
             // 
             // txtItemName
             // 
-            this.txtItemName.Location = new System.Drawing.Point(98, 46);
+            this.txtItemName.Location = new System.Drawing.Point(98, 76);
             this.txtItemName.Name = "txtItemName";
             this.txtItemName.ReadOnly = true;
-            this.txtItemName.Size = new System.Drawing.Size(104, 20);
+            this.txtItemName.Size = new System.Drawing.Size(137, 20);
             this.txtItemName.TabIndex = 52;
             // 
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(5, 46);
+            this.label12.Location = new System.Drawing.Point(5, 76);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(58, 13);
             this.label12.TabIndex = 56;
@@ -382,16 +386,16 @@
             // 
             // rchRemarks
             // 
-            this.rchRemarks.Location = new System.Drawing.Point(457, 18);
+            this.rchRemarks.Location = new System.Drawing.Point(457, 35);
             this.rchRemarks.Name = "rchRemarks";
-            this.rchRemarks.Size = new System.Drawing.Size(161, 82);
+            this.rchRemarks.Size = new System.Drawing.Size(161, 65);
             this.rchRemarks.TabIndex = 56;
             this.rchRemarks.Text = "";
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(401, 18);
+            this.label10.Location = new System.Drawing.Point(454, 15);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(50, 13);
             this.label10.TabIndex = 51;
@@ -399,16 +403,16 @@
             // 
             // txtChangeQty
             // 
-            this.txtChangeQty.Location = new System.Drawing.Point(301, 57);
+            this.txtChangeQty.Location = new System.Drawing.Point(346, 85);
             this.txtChangeQty.Name = "txtChangeQty";
-            this.txtChangeQty.Size = new System.Drawing.Size(69, 20);
+            this.txtChangeQty.Size = new System.Drawing.Size(89, 20);
             this.txtChangeQty.TabIndex = 55;
             this.txtChangeQty.Leave += new System.EventHandler(this.txtChangeQty_Leave);
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(217, 57);
+            this.label9.Location = new System.Drawing.Point(262, 85);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(63, 13);
             this.label9.TabIndex = 49;
@@ -416,20 +420,37 @@
             // 
             // txtOldQty
             // 
-            this.txtOldQty.Location = new System.Drawing.Point(301, 21);
+            this.txtOldQty.Location = new System.Drawing.Point(346, 49);
             this.txtOldQty.Name = "txtOldQty";
             this.txtOldQty.ReadOnly = true;
-            this.txtOldQty.Size = new System.Drawing.Size(69, 20);
+            this.txtOldQty.Size = new System.Drawing.Size(89, 20);
             this.txtOldQty.TabIndex = 54;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(217, 25);
+            this.label7.Location = new System.Drawing.Point(262, 53);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(42, 13);
             this.label7.TabIndex = 47;
             this.label7.Text = "Old Qty";
+            // 
+            // txtItemNo
+            // 
+            this.txtItemNo.Location = new System.Drawing.Point(98, 46);
+            this.txtItemNo.Name = "txtItemNo";
+            this.txtItemNo.ReadOnly = true;
+            this.txtItemNo.Size = new System.Drawing.Size(56, 20);
+            this.txtItemNo.TabIndex = 58;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(5, 46);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(44, 13);
+            this.label13.TabIndex = 59;
+            this.label13.Text = "Item No";
             // 
             // frmPurchaseReturn
             // 
@@ -501,5 +522,7 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox txtItemName;
         private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.TextBox txtItemNo;
+        private System.Windows.Forms.Label label13;
     }
 }

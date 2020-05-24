@@ -15,6 +15,7 @@ namespace NellaiBill.Reports
     {
         ReportDocument cryRpt = new ReportDocument();
         DatabaseConnection xDb = new DatabaseConnection();
+        GlobalClass globalClass = new GlobalClass();
         public PurchaseReport()
         {
             InitializeComponent();
@@ -30,12 +31,12 @@ namespace NellaiBill.Reports
         {
             string xFromDate = dtpFromDate.Text;
             string xToDate = dtpToDate.Text;
-            string path = xDb.xReportPath + "rptPurchaseConsolidated.rpt";
+            string path = globalClass.GetReportPath() + "rptPurchaseConsolidated.rpt";
             cryRpt.Load(path);
             cryRpt.SetParameterValue("FromDate", DateTime.Parse(xFromDate));
             cryRpt.SetParameterValue("ToDate", DateTime.Parse(xToDate));
             crystalReportViewer1.ReportSource = cryRpt;
-            crystalReportViewer1.Refresh(); 
+            crystalReportViewer1.Refresh();
 
 
         }

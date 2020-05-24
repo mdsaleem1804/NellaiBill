@@ -81,11 +81,9 @@ namespace NellaiBill.Reports
 
             xDb.LoadGrid(xQuery, dataGridView2);
             dataGridView2.Columns["DATETIME"].DefaultCellStyle.Format = "dd /MMMM/yyyy hh:mm:ss";
+            dataGridView2.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
         }
 
-        private void StockReport_Load(object sender, EventArgs e)
-        {
-
-        }
+      
     }
 }

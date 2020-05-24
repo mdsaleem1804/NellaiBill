@@ -32,5 +32,15 @@ namespace NellaiBill.Properties {
                 return ((string)(this["ConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("server=localhost;user id=root;password=nellaibill;database=test_pharmacy")]
+        public string test_pharmacyConnectionString {
+            get {
+                return ((string)(this["test_pharmacyConnectionString"]));
+            }
+        }
     }
 }

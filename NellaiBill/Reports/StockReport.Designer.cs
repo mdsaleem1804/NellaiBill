@@ -65,9 +65,9 @@
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(13, 125);
+            this.dataGridView1.Location = new System.Drawing.Point(12, 167);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(483, 394);
+            this.dataGridView1.Size = new System.Drawing.Size(613, 394);
             this.dataGridView1.TabIndex = 1;
             // 
             // cmbStockType
@@ -121,7 +121,7 @@
             this.mChkSelectAllItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.mChkSelectAllItem.Depth = 0;
             this.mChkSelectAllItem.Font = new System.Drawing.Font("Roboto", 10F);
-            this.mChkSelectAllItem.Location = new System.Drawing.Point(856, 12);
+            this.mChkSelectAllItem.Location = new System.Drawing.Point(944, 14);
             this.mChkSelectAllItem.Margin = new System.Windows.Forms.Padding(0);
             this.mChkSelectAllItem.MouseLocation = new System.Drawing.Point(-1, -1);
             this.mChkSelectAllItem.MouseState = MaterialSkin.MouseState.HOVER;
@@ -138,7 +138,7 @@
             this.materialLabel2.Depth = 0;
             this.materialLabel2.Font = new System.Drawing.Font("Roboto", 11F);
             this.materialLabel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel2.Location = new System.Drawing.Point(770, 16);
+            this.materialLabel2.Location = new System.Drawing.Point(858, 18);
             this.materialLabel2.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel2.Name = "materialLabel2";
             this.materialLabel2.Size = new System.Drawing.Size(83, 19);
@@ -149,7 +149,7 @@
             // 
             this.cmbItem.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbItem.FormattingEnabled = true;
-            this.cmbItem.Location = new System.Drawing.Point(771, 45);
+            this.cmbItem.Location = new System.Drawing.Point(859, 47);
             this.cmbItem.Name = "cmbItem";
             this.cmbItem.Size = new System.Drawing.Size(197, 21);
             this.cmbItem.TabIndex = 80;
@@ -157,7 +157,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(569, 60);
+            this.label1.Location = new System.Drawing.Point(657, 62);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(46, 13);
             this.label1.TabIndex = 79;
@@ -167,7 +167,7 @@
             // 
             this.dtpToDate.CustomFormat = "yyyy/MM/dd hh:mm:ss tt";
             this.dtpToDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpToDate.Location = new System.Drawing.Point(545, 80);
+            this.dtpToDate.Location = new System.Drawing.Point(633, 82);
             this.dtpToDate.Name = "dtpToDate";
             this.dtpToDate.Size = new System.Drawing.Size(180, 20);
             this.dtpToDate.TabIndex = 78;
@@ -175,7 +175,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(569, 13);
+            this.label3.Location = new System.Drawing.Point(657, 15);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(56, 13);
             this.label3.TabIndex = 77;
@@ -185,7 +185,7 @@
             // 
             this.dtpFromDate.CustomFormat = "yyyy/MM/dd hh:mm:ss tt";
             this.dtpFromDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpFromDate.Location = new System.Drawing.Point(545, 34);
+            this.dtpFromDate.Location = new System.Drawing.Point(633, 36);
             this.dtpFromDate.Name = "dtpFromDate";
             this.dtpFromDate.Size = new System.Drawing.Size(180, 20);
             this.dtpFromDate.TabIndex = 76;
@@ -193,7 +193,7 @@
             // btnLogs
             // 
             this.btnLogs.Depth = 0;
-            this.btnLogs.Location = new System.Drawing.Point(771, 72);
+            this.btnLogs.Location = new System.Drawing.Point(859, 74);
             this.btnLogs.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnLogs.Name = "btnLogs";
             this.btnLogs.Primary = true;
@@ -208,9 +208,9 @@
             this.dataGridView2.AllowUserToAddRows = false;
             this.dataGridView2.AllowUserToDeleteRows = false;
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(521, 125);
+            this.dataGridView2.Location = new System.Drawing.Point(631, 167);
             this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(495, 394);
+            this.dataGridView2.Size = new System.Drawing.Size(623, 394);
             this.dataGridView2.TabIndex = 83;
             // 
             // StockReport
@@ -218,7 +218,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(1028, 539);
+            this.ClientSize = new System.Drawing.Size(1283, 552);
             this.Controls.Add(this.dataGridView2);
             this.Controls.Add(this.mChkSelectAllItem);
             this.Controls.Add(this.materialLabel2);
@@ -236,7 +236,6 @@
             this.Controls.Add(this.btnViewData);
             this.Name = "StockReport";
             this.Text = "StockReport";
-            this.Load += new System.EventHandler(this.StockReport_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.ResumeLayout(false);
