@@ -200,3 +200,5 @@ E:\Dotnet\NellaiBill\NellaiBill\obj\Debug\NellaiBill.csproj.CopyComplete
 E:\Dotnet\NellaiBill\NellaiBill\obj\Debug\NellaiBill.exe
 E:\Dotnet\NellaiBill\NellaiBill\obj\Debug\NellaiBill.pdb
 E:\Dotnet\NellaiBill\NellaiBill\obj\Debug\NellaiBill.csprojAssemblyReference.cache
+E:\Dotnet\NellaiBill\NellaiBill\obj\Debug\NellaiBill.Master.SearchItem.resources
+E:\Dotnet\NellaiBill\NellaiBill\obj\Debug\NellaiBill.Master.SearchLedger.resources

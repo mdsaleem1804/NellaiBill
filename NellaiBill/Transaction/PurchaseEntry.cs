@@ -1,12 +1,6 @@
 ﻿using MySql.Data.MySqlClient;
+using NellaiBill.Master;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace NellaiBill.Transaction
@@ -15,22 +9,15 @@ namespace NellaiBill.Transaction
     {
         DatabaseConnection xDb = new DatabaseConnection();
         GlobalClass globalClass = new GlobalClass();
-       
+
         public PurchaseEntry()
         {
             InitializeComponent();
-            LoadComboBox();
             txtDiscPercentage.Text = "0";
             txtDiscountValue.Text = "0";
-            dtpExpDate.Value= DateTime.Now.AddMonths(3);
+            dtpExpDate.Value = DateTime.Now.AddMonths(3);
         }
 
-        private void LoadComboBox()
-        {
-            //xDb.LoadComboBox("select tax_no,tax_name from m_tax", cmbTax, "tax_name", "tax_name");
-            xDb.LoadComboBox("select account_ledger_id,ledger_name from account_ledger where ledger_undergroup_no=4", cmbCustomer, "account_ledger_id", "ledger_name");
-            xDb.LoadComboBox("select itemno,itemname from m_item", cmbItem, "itemno", "itemname");
-        }
 
         private void PurchaseEntry_Load(object sender, EventArgs e)
         {
@@ -38,91 +25,13 @@ namespace NellaiBill.Transaction
             DataClear();
             lblInvoiceNo.Text = xDb.GetMaxId("purchaseinvoiceno", "inv_purchaseentry1").ToString();
             dtpExpDate.Value.Date.AddDays(365);
-            
-        }
-
-        private void btnAdd_Click(object sender, EventArgs e)
-        {
-            if (cmbItem.Text == "" | cmbItem.Text == "Please select")
-            {
-                MessageBox.Show("Please Enter Item");
-                return;
-            }
-            if (txtBatch.Text == "")
-            {
-                MessageBox.Show("Please Enter Batch ");
-                txtBatch.Focus();
-                return;
-            }
-            if (txtQty.Text == "")
-            {
-                MessageBox.Show("Please Enter Qty ");
-                txtQty.Focus();
-                return;
-            }
-            if (txtPR.Text == "")
-            {
-                MessageBox.Show("Please Enter Purchase Rate");
-                txtPR.Focus();
-                return;
-            }
-            if (txtSR.Text == "")
-            {
-                MessageBox.Show("Please Enter Sales Rate");
-                txtSR.Focus();
-                return;
-            }
-            if (txtTax.Text == "" )
-            {
-                MessageBox.Show("Please Enter Tax");
-                return;
-            }
-
-            double xAmount = double.Parse(txtTotalQty.Text) * double.Parse(txtPR.Text);
-            double xAmountAfterDiscount = xAmount - double.Parse(txtDiscountValue.Text);
-            double xGstValue = xAmountAfterDiscount * (double.Parse(txtTax.Text) / 100);
-            double xTotalAmount = xAmountAfterDiscount + xGstValue;
-            foreach (DataGridViewRow dr in dataGridView1.Rows)
-            {
-
-                string xItemNameGrid = dr.Cells["ItemName"].Value.ToString();
-                string xBatchGrid = dr.Cells["Batch"].Value.ToString();
-                
-                if ((cmbItem.Text == xItemNameGrid) &&(txtBatch.Text==xBatchGrid) )
-                {
-                    MessageBox.Show("Item entered already with same batch.");
-                    return;
-                }
-            }
-            int xItemNo=Int32.Parse(cmbItem.SelectedValue.ToString());
-
-            this.dataGridView1.Rows.Add(
-                xItemNo,
-                cmbItem.Text,
-                txtBatch.Text,
-                Convert.ToDateTime(dtpExpDate.Text).ToString("yyyy-MM-dd"),
-                txtQty.Text,
-                txtFreeQty.Text,
-                txtPackOf.Text,
-                txtTotalQty.Text,
-                txtPR.Text,
-                txtSR.Text,
-                xAmount,
-                 globalClass.DoFormat(Convert.ToDouble(txtDiscPercentage.Text)),
-                 globalClass.DoFormat(Convert.ToDouble(txtDiscountValue.Text)),
-                 globalClass.DoFormat(Convert.ToDouble(xAmountAfterDiscount)),
-                 globalClass.DoFormat(Convert.ToDouble(txtTax.Text)),
-                 globalClass.DoFormat(Convert.ToDouble(xGstValue)),
-                 globalClass.DoFormat(Convert.ToDouble(xTotalAmount)),
-                  "DEL");
-            DataClear();
-            CalculateTotalAmount();
-
+            this.KeyPreview = true;
         }
 
         public void DataClear()
         {
-            cmbItem.Text = "Please select";
+            txtItemName.Text="";
+            txtItemNo.Text = "";
             txtBatch.Text = "";
             txtQty.Text = "";
             txtFreeQty.Text = "0";
@@ -141,34 +50,32 @@ namespace NellaiBill.Transaction
         {
             try
             {
-
-            
-            if (txtQty.Text == "")
-            {
-                MessageBox.Show("Please Enter Qty ");
-                txtQty.Focus();
-                return;
-            }
-            if (txtPR.Text == "")
-            {
-                MessageBox.Show("Please Enter Purchase Rate");
-                txtPR.Focus();
-                return;
-            }
-            if (txtDiscountValue.Text == "")
-            {
-                txtDiscountValue.Text = "0";
-            }
-            if (txtDiscPercentage.Text == "")
-            {
-                txtDiscPercentage.Text = "0";
-            }
-            if (txtTotalQty.Text == "")
-            {
-                txtTotalQty.Text = "0";
-            }
-            double xAmount = double.Parse(txtTotalQty.Text) * double.Parse(txtPR.Text);
-            txtDiscountValue.Text = (xAmount * (double.Parse(txtDiscPercentage.Text) / 100)).ToString();
+                if (txtQty.Text == "")
+                {
+                    MessageBox.Show("Please Enter Qty ");
+                    txtQty.Focus();
+                    return;
+                }
+                if (txtPR.Text == "")
+                {
+                    MessageBox.Show("Please Enter Purchase Rate");
+                    txtPR.Focus();
+                    return;
+                }
+                if (txtDiscountValue.Text == "")
+                {
+                    txtDiscountValue.Text = "0";
+                }
+                if (txtDiscPercentage.Text == "")
+                {
+                    txtDiscPercentage.Text = "0";
+                }
+                if (txtTotalQty.Text == "")
+                {
+                    txtTotalQty.Text = "0";
+                }
+                double xAmount = double.Parse(txtTotalQty.Text) * double.Parse(txtPR.Text);
+                txtDiscountValue.Text = (xAmount * (double.Parse(txtDiscPercentage.Text) / 100)).ToString();
             }
             catch (Exception ex)
             {
@@ -220,7 +127,7 @@ namespace NellaiBill.Transaction
 
         private void mbtnSaveBill_Click(object sender, EventArgs e)
         {
-            if (Int32.Parse(cmbCustomer.SelectedValue.ToString()) == 0)
+            if (Int32.Parse(txtCustomerNo.Text.ToString()) == 0)
             {
                 MessageBox.Show("Please Choose Suppliers");
                 return;
@@ -304,7 +211,7 @@ namespace NellaiBill.Transaction
                                   + "," + xSellingPrice
                                   + ",'" + xBatch
                                   + "','" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")
-                                  + "','" + xLogMessage+"')";
+                                  + "','" + xLogMessage + "')";
 
                         myCommand.CommandText = xQryStockDetails;
                         myCommand.ExecuteNonQuery();
@@ -314,7 +221,7 @@ namespace NellaiBill.Transaction
                            "(purchaseinvoiceno,supplierno,companyinvoiceno," +
                            "totalamount,date,freight,others) " +
                            "values(" + xPurchaseId + "," +
-                           " '" + Convert.ToInt32(cmbCustomer.SelectedValue.ToString()) + "'," +
+                           " '" + Convert.ToInt32(txtCustomerNo.Text.ToString()) + "'," +
                             " '" + txtCompanyInvoiceNo.Text.ToString() + "'," +
                             " '" + Convert.ToDouble(lbl_total_amount_value.Text) + "'," +
                                " '" + Convert.ToDateTime(dtpPEDate.Text).ToString("yyyy-MM-dd") + "'," +
@@ -444,8 +351,8 @@ namespace NellaiBill.Transaction
                 txtBatch.Focus();
                 return;
             }
-         
-            int xItemId = Convert.ToInt32(cmbItem.SelectedValue.ToString());
+
+            int xItemId = Convert.ToInt32(txtItemNo.Text.ToString());
             double xMrp = Convert.ToDouble(txtSR.Text.ToString());
             int xCount = xDb.GetTotalCount("select * from inv_stockentry where itemno = " + xItemId + " and batch = '" + txtBatch.Text + "' and mrp =" + xMrp);
             if (xCount >= 1)
@@ -482,7 +389,8 @@ namespace NellaiBill.Transaction
             txtTax.Text = "Please select";
             txtLessAmount.Text = "0";
             xDb.connection = new MySqlConnection(xDb.conString);
-            string xItemNo = cmbItem.SelectedValue.ToString();
+           
+            string xItemNo = txtItemNo.Text.ToString();
             if (xItemNo == "0")
             {
                 return;
@@ -497,9 +405,136 @@ namespace NellaiBill.Transaction
             while (reader.Read())
             {
                 //cmbTax.SelectedIndex = cmbTax.FindStringExact(reader[2].ToString());
-                txtTax.Text= reader[2].ToString();
+                txtTax.Text = reader[2].ToString();
             }
             xDb.connection.Close();
+
+        }
+
+        private void btnLedgerSearch_Click(object sender, EventArgs e)
+        {
+            SearchLedger search = new SearchLedger(4);
+            search.ShowDialog();
+            if (search.xLedgerNo.ToString() != "0")
+            {
+                txtCustomerNo.Text = search.xLedgerNo.ToString();
+                txtCustomerName.Text = search.xLedgerName.ToString();
+                txtCustomerMobileNo.Text = search.xLedgerMobileNo.ToString();
+                rchCustomerAddress.Text = search.xLedgerAddress.ToString();
+            }
+        }
+
+        private void btnItemSearch_Click(object sender, EventArgs e)
+        {
+            SearchItem search = new SearchItem();
+            search.ShowDialog();
+            if (search.xItemNo.ToString() != "0")
+            {
+                txtItemName.Text = search.xItemName.ToString();               
+                txtItemNo.Text = search.xItemNo.ToString();
+                txtTax.Text = search.xTax.ToString();
+                txtBatch.Select();
+            }
+        }
+
+        private void PurchaseEntry_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Control == true && e.KeyCode == Keys.L)
+            {
+                btnLedgerSearch.PerformClick();
+            }
+            if (e.Control == true && e.KeyCode == Keys.I)
+            {
+                btnItemSearch.PerformClick();
+            }
+            if (e.Control == true && e.KeyCode == Keys.A)
+            {
+                btnAdd.PerformClick();
+            }
+            if (e.Control == true && e.KeyCode == Keys.S)
+            {
+                mbtnSaveBill.PerformClick();
+            }
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+
+            if (txtItemName.Text == "")
+            {
+                MessageBox.Show("Please Fill Item");
+                return;
+            }
+            if (txtBatch.Text == "")
+            {
+                MessageBox.Show("Please Enter Batch ");
+                txtBatch.Focus();
+                return;
+            }
+            if (txtQty.Text == "")
+            {
+                MessageBox.Show("Please Enter Qty ");
+                txtQty.Focus();
+                return;
+            }
+            if (txtPR.Text == "")
+            {
+                MessageBox.Show("Please Enter Purchase Rate");
+                txtPR.Focus();
+                return;
+            }
+            if (txtSR.Text == "")
+            {
+                MessageBox.Show("Please Enter Sales Rate");
+                txtSR.Focus();
+                return;
+            }
+            if (txtTax.Text == "")
+            {
+                MessageBox.Show("Please Enter Tax");
+                return;
+            }
+
+
+            double xAmount = double.Parse(txtTotalQty.Text) * double.Parse(txtPR.Text);
+            double xAmountAfterDiscount = xAmount - double.Parse(txtDiscountValue.Text);
+            double xGstValue = xAmountAfterDiscount * (double.Parse(txtTax.Text) / 100);
+            double xTotalAmount = xAmountAfterDiscount + xGstValue;
+            foreach (DataGridViewRow dr in dataGridView1.Rows)
+            {
+
+                string xItemNameGrid = dr.Cells["ItemName"].Value.ToString();
+                string xBatchGrid = dr.Cells["Batch"].Value.ToString();
+
+                if ((txtItemName.Text == xItemNameGrid) && (txtBatch.Text == xBatchGrid))
+                {
+                    MessageBox.Show("Item entered already with same batch.");
+                    return;
+                }
+            }
+            int xItemNo = Int32.Parse(txtItemNo.Text.ToString());
+
+            this.dataGridView1.Rows.Add(
+                xItemNo,
+                txtItemName.Text,
+                txtBatch.Text,
+                Convert.ToDateTime(dtpExpDate.Text).ToString("yyyy-MM-dd"),
+                txtQty.Text,
+                txtFreeQty.Text,
+                txtPackOf.Text,
+                txtTotalQty.Text,
+                txtPR.Text,
+                txtSR.Text,
+                xAmount,
+                 globalClass.DoFormat(Convert.ToDouble(txtDiscPercentage.Text)),
+                 globalClass.DoFormat(Convert.ToDouble(txtDiscountValue.Text)),
+                 globalClass.DoFormat(Convert.ToDouble(xAmountAfterDiscount)),
+                 globalClass.DoFormat(Convert.ToDouble(txtTax.Text)),
+                 globalClass.DoFormat(Convert.ToDouble(xGstValue)),
+                 globalClass.DoFormat(Convert.ToDouble(xTotalAmount)),
+                  "DEL");
+            DataClear();
+            CalculateTotalAmount();
 
         }
     }

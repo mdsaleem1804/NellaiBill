@@ -254,6 +254,18 @@
     <Compile Include="Master\Employee.Designer.cs">
       <DependentUpon>Employee.cs</DependentUpon>
     </Compile>
+    <Compile Include="Master\SearchItem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Master\SearchItem.Designer.cs">
+      <DependentUpon>SearchItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Master\SearchLedger.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Master\SearchLedger.Designer.cs">
+      <DependentUpon>SearchLedger.cs</DependentUpon>
+    </Compile>
     <Compile Include="Reports\CR_SalesReturn.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -380,11 +392,11 @@
     <Compile Include="Transaction\PurchaseEntry.Designer.cs">
       <DependentUpon>PurchaseEntry.cs</DependentUpon>
     </Compile>
-    <Compile Include="Transaction\Sales.cs">
+    <Compile Include="Transaction\SalesEntry.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Transaction\Sales.Designer.cs">
-      <DependentUpon>Sales.cs</DependentUpon>
+    <Compile Include="Transaction\SalesEntry.Designer.cs">
+      <DependentUpon>SalesEntry.cs</DependentUpon>
     </Compile>
     <Compile Include="Transaction\SalesForm1.cs">
       <SubType>Form</SubType>
@@ -472,6 +484,12 @@
     <EmbeddedResource Include="Master\Employee.resx">
       <DependentUpon>Employee.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Master\SearchItem.resx">
+      <DependentUpon>SearchItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master\SearchLedger.resx">
+      <DependentUpon>SearchLedger.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reports\CR_SalesReturn.resx">
       <DependentUpon>CR_SalesReturn.cs</DependentUpon>
     </EmbeddedResource>
@@ -532,8 +550,8 @@
     <EmbeddedResource Include="Transaction\PurchaseEntry.resx">
       <DependentUpon>PurchaseEntry.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Transaction\Sales.resx">
-      <DependentUpon>Sales.cs</DependentUpon>
+    <EmbeddedResource Include="Transaction\SalesEntry.resx">
+      <DependentUpon>SalesEntry.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Transaction\SalesForm1.resx">
       <DependentUpon>SalesForm1.cs</DependentUpon>

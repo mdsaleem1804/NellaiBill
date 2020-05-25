@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Data;
 using System.Drawing;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
@@ -8,7 +7,6 @@ namespace NellaiBill.Master
     public partial class SalesEntry : Form
     {
         DatabaseConnection xDb = new DatabaseConnection();
-
         string xLoggedinUserName = "";
         public SalesEntry()
         {
@@ -17,17 +15,13 @@ namespace NellaiBill.Master
 
         private void Sales_Load(object sender, EventArgs e)
         {
-            LoadComboBox();
-            LoadGridView2();
             dataGridView1.Columns["Qty"].DefaultCellStyle.ForeColor = Color.Red;
             dataGridView1.Columns["ItemName"].DefaultCellStyle.ForeColor = Color.Red;
-            dataGridView1.Columns["ItemName"].DefaultCellStyle.Font = new Font("Tahoma", 9.75F, FontStyle.Bold);           
+            dataGridView1.Columns["ItemName"].DefaultCellStyle.Font = new Font("Tahoma", 9.75F, FontStyle.Bold);
             dataGridView1.Columns["Qty"].DefaultCellStyle.Font = new Font("Tahoma", 9.75F, FontStyle.Bold);
             dtpDate.Focus();
             cmbPaymentMode.SelectedIndex = 0;
             cmbBillType.SelectedIndex = 0;
-            cmbCustomer.Select();
-            btnAdd.Enabled = false;
             lblInvoiceNo.Text = xDb.GetMaxId("salesinvoiceno", "inv_salesentry1").ToString();
             dataGridView1.Columns[0].Visible = false;
             dataGridView1.RowHeadersVisible = false;
@@ -37,18 +31,14 @@ namespace NellaiBill.Master
             row.MinimumHeight = 20;
             dataGridView1.ColumnHeadersDefaultCellStyle.Font = new Font("Tahoma", 10, FontStyle.Bold);
             dataGridView1.ColumnHeadersDefaultCellStyle.ForeColor = Color.Yellow;
+            this.KeyPreview = true;
         }
-        private void LoadComboBox()
-        {
-            xDb.LoadComboBox("select account_ledger_id,ledger_name from account_ledger where ledger_undergroup_no=5", cmbCustomer, "account_ledger_id", "ledger_name");
-        }
-
 
         private void AddDataToGrid()
         {
-            if (txtTax.Text == "")
+            if (txtTax.Text == "" || txtQty.Text == "" || txtDiscountValue.Text == "" || txtDiscountValue.Text == "")
             {
-                MessageBox.Show("Please Enter Tax");
+                MessageBox.Show("Please Enter required fields ");
                 return;
             }
             try
@@ -116,7 +106,6 @@ namespace NellaiBill.Master
                     dataGridView1.Columns["AmountAfterDiscount"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
                     dataGridView1.Columns["TotalAmount"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
 
-                    txtSearch.Select();
 
                 }
                 else
@@ -124,7 +113,7 @@ namespace NellaiBill.Master
                     MessageBox.Show("Please Enter Lesser than Stock");
                     txtQty.Focus();
                 }
-                btnAdd.Enabled = false;
+
             }
             catch (Exception e)
             {
@@ -147,9 +136,6 @@ namespace NellaiBill.Master
             xTotalAmount = xAmount;
             lbl_total_amount_value.Text = xTotalAmount.ToString();
         }
-
-
-
         private void DataClear()
         {
             txtItem.Text = "";
@@ -164,9 +150,7 @@ namespace NellaiBill.Master
             txtStockId.Text = "";
             txtDiscPercentage.Text = "";
             txtDiscountValue.Text = "";
-            btnAdd.Enabled = false;
         }
-
 
         private void DataClearAfterSave()
         {
@@ -174,35 +158,11 @@ namespace NellaiBill.Master
             rchCustomerAddress.Text = "";
             txtPaid.Text = "0";
             txtBalance.Text = "";
+            txtUserPassword.Text = "";
             dataGridView1.Rows.Clear();
-
+            cmbPaymentMode.Text = "Please Select";
             lbl_total_amount_value.Text = "";
         }
-        private void cmb_customer_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                xDb.connection = new MySqlConnection(xDb.conString);
-
-                int xCustomerId = Int32.Parse(cmbCustomer.SelectedValue.ToString());
-                string selectQuery = "select ledger_address,ledger_mobile_no from account_ledger  where account_ledger_id=" + xCustomerId;
-                xDb.connection.Open();
-                MySqlCommand command = new MySqlCommand(selectQuery, xDb.connection);
-                MySqlDataReader reader = command.ExecuteReader();
-                while (reader.Read())
-                {
-                    rchCustomerAddress.Text = reader[0].ToString();
-                    txtCustomerMobileNo.Text = reader[1].ToString();
-                }
-                xDb.connection.Close();
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.ToString());
-            }
-        }
-
         private void btnAdd_Click(object sender, EventArgs e)
         {
             AddDataToGrid();
@@ -260,7 +220,6 @@ namespace NellaiBill.Master
             }
         }
 
-
         private void SaveData(string xBillStatus)
         {
 
@@ -276,10 +235,9 @@ namespace NellaiBill.Master
                 cmbBillType.Select();
                 return;
             }
-            if (Int32.Parse(cmbCustomer.SelectedValue.ToString()) == 0)
+            if (txtCustomerNo.Text == "")
             {
                 MessageBox.Show("Please Choose Ledger");
-                cmbCustomer.Select();
                 return;
             }
 
@@ -315,7 +273,7 @@ namespace NellaiBill.Master
                            "createdason,updatedason,unitmrp) " +
                            "values(" + xSalesId + "," +
                              " '" + Convert.ToDateTime(dtpDate.Text).ToString("yyyy-MM-dd") + "'," +
-                            " '" + Convert.ToInt32(cmbCustomer.SelectedValue.ToString()) + "'," +
+                            " '" + Convert.ToInt32(txtCustomerNo.Text.ToString()) + "'," +
                            " '" + xItemNo + "'," +
                             " '" + xBatch + "'," +
                             " '" + dr.Cells["ExpDate"].Value + "'," +
@@ -364,7 +322,7 @@ namespace NellaiBill.Master
                           "modeofpayment,termsofdelivery,servicecharges,salesperson_id) " +
                           "values(" + xSalesId + "," +
                           " '" + dtpDate.Value.ToString("yyyy-MM-dd") + "'," +
-                          " '" + Convert.ToInt32(cmbCustomer.SelectedValue.ToString()) + "'," +
+                          " '" + Convert.ToInt32(txtCustomerNo.Text.ToString()) + "'," +
                           " '" + Convert.ToDouble(lbl_total_amount_value.Text) + "'," +
                           " '" + xLessAmount + "'," +
                           " '" + cmbPaymentMode.Text.ToString() + "'," +
@@ -398,13 +356,6 @@ namespace NellaiBill.Master
 
             lblInvoiceNo.Text = xDb.GetMaxId("salesinvoiceno", "inv_salesentry1").ToString();
         }
-
-
-        private void cmbCustomer_Leave(object sender, EventArgs e)
-        {
-            txtSearch.Select();
-        }
-
 
         private void txtDiscPercentage_Leave(object sender, EventArgs e)
         {
@@ -467,65 +418,16 @@ namespace NellaiBill.Master
             txtDiscPercentage.Text = ((double.Parse(txtDiscountValue.Text) / xAmount) * 100).ToString();
         }
 
-        private void txtSearch_TextChanged(object sender, EventArgs e)
-        {
-            string xFilterSearch = "itemname Like '%" + txtSearch.Text + "%'";
-            (dataGridView2.DataSource as DataTable).DefaultView.RowFilter = string.Format(xFilterSearch);
-        }
-        private void LoadGridView2()
-        {
-      
-            xDb.LoadGrid("select s.stockno,s.itemno,i.itemname,s.stock,s.mrp,s.batch,s.expdate,i.gst from inv_stockentry s,m_item i where s.stock>0 and  s.itemno = i.itemno", dataGridView2);
-            //dataGridView2.RowHeadersVisible = true;
-            dataGridView2.ReadOnly = true;
-            dataGridView2.Columns[0].Visible = false;
-            dataGridView2.Columns[1].Visible = false;
-            dataGridView2.Columns[6].Visible = false;//expdate
-            dataGridView2.Columns[7].Visible = false;//gst
-            dataGridView2.Columns[2].FillWeight = 200;
-            dataGridView2.Columns[3].FillWeight = 60;
-            dataGridView2.Columns[4].FillWeight = 60;
-            dataGridView2.Columns[5].FillWeight = 60;
-
-        }
-      
-        private void FetchDataFromGrid(DataGridViewCellEventArgs e )
-        {
-            if (e.RowIndex >= 0)
-            {
-                txtStockId.Text = Convert.ToInt32(dataGridView2.Rows[e.RowIndex].Cells[0].Value.ToString()).ToString();
-                txtItemNo.Text = Convert.ToInt32(dataGridView2.Rows[e.RowIndex].Cells[1].Value.ToString()).ToString();
-                txtItem.Text = dataGridView2.Rows[e.RowIndex].Cells[2].Value.ToString();
-                txtStock.Text = dataGridView2.Rows[e.RowIndex].Cells[3].Value.ToString();
-                /*Included Gst Logic */
-                double xUnitMrp = double.Parse(dataGridView2.Rows[e.RowIndex].Cells[4].Value.ToString());
-                double xGstBefore = double.Parse(dataGridView2.Rows[e.RowIndex].Cells[7].Value.ToString()) / 100 + 1;
-                double xUnitRate = (((xUnitMrp / xGstBefore)));
-
-                txtUnitPrice.Text = xUnitRate.ToString("#.##");
-                txtMrp.Text = dataGridView2.Rows[e.RowIndex].Cells[4].Value.ToString();
-                //txtPrice.Text = dataGridView2.Rows[e.RowIndex].Cells[4].Value.ToString();
-                /*Included v Logic Ended */
-                txtBatch.Text = dataGridView2.Rows[e.RowIndex].Cells[5].Value.ToString();
-                txtExpDate.Text = dataGridView2.Rows[e.RowIndex].Cells[6].Value.ToString();
-                txtTax.Text = dataGridView2.Rows[e.RowIndex].Cells[7].Value.ToString();
-            }
-            txtQty.Select();
-            txtDiscountValue.Text = "0";
-            txtDiscPercentage.Text = "0";
-            btnAdd.Enabled = true;
-            btnAdd.BackColor = Color.Red;
-
-        }
         private void txtPaid_TextChanged(object sender, EventArgs e)
         {
-            if (txtPaid.Text != "") {
+            if (txtPaid.Text != "")
+            {
                 double xTotalAmount = Convert.ToDouble(lbl_total_amount_value.Text);
                 double xPaidAmount = Convert.ToDouble(txtPaid.Text);
                 double xBalanceAmount = xPaidAmount - xTotalAmount;
                 txtBalance.Text = xBalanceAmount.ToString();
             }
-            
+
         }
 
         private void txtUserPassword_TextChanged(object sender, EventArgs e)
@@ -547,116 +449,97 @@ namespace NellaiBill.Master
         {
             SaveData("S");
         }
-        private void dataGridView2_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-            FetchDataFromGrid(e);
-        }
-        private void dataGridView2_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            FetchDataFromGrid(e);
-        }
 
-       //TO DO 
-        private void dataGridView2_KeyDown(object sender, KeyEventArgs e)
+        private void btnSearch_Click(object sender, EventArgs e)
         {
-            if (e.KeyCode.Equals(Keys.Up))
+            SearchItem search = new SearchItem();
+            search.ShowDialog();
+            if (search.xItemNo.ToString() != "0")
             {
-                moveUp();
-            }
-            if (e.KeyCode.Equals(Keys.Down))
-            {
-                moveDown();
-            }
-            e.Handled = true;
-        }
-
-        private void moveUp()
-        {
-            if (dataGridView2.RowCount > 0)
-            {
-                if (dataGridView2.SelectedRows.Count > 0)
-                {
-                    int rowCount = dataGridView2.Rows.Count;
-                    int index = dataGridView2.SelectedCells[0].OwningRow.Index;
-
-                    if (index == 0)
-                    {
-                        return;
-                    }
-                    DataGridViewRowCollection rows = dataGridView2.Rows;
-
-                    // remove the previous row and add it behind the selected row.
-                    DataGridViewRow prevRow = rows[index - 1];
-                    rows.Remove(prevRow);
-                    prevRow.Frozen = false;
-                    rows.Insert(index, prevRow);
-                    dataGridView2.ClearSelection();
-                    dataGridView2.Rows[index - 1].Selected = true;
-                }
+                txtItem.Text = search.xItemName.ToString();
+                txtUnitPrice.Text = search.xUnitPrice.ToString();
+                txtMrp.Text = search.xMrp.ToString();
+                txtBatch.Text = search.xBatch.ToString();
+                txtExpDate.Text = search.xExpDate.ToString();
+                txtStock.Text = search.xStock.ToString();
+                txtStockId.Text = search.xStockId.ToString();
+                txtItemNo.Text = search.xItemNo.ToString();
+                txtTax.Text = search.xTax.ToString();
+                txtDiscountValue.Text = "0";
+                txtDiscPercentage.Text = "0";
+                txtQty.Select();
             }
         }
 
-        private void moveDown()
+        private void txtLedgerSearch_Click(object sender, EventArgs e)
         {
-            if (dataGridView2.RowCount > 0)
+            SearchLedger search = new SearchLedger(5);
+            search.ShowDialog();
+            if (search.xLedgerNo.ToString() != "0")
             {
-                if (dataGridView2.SelectedRows.Count > 0)
-                {
-                    int rowCount = dataGridView2.Rows.Count;
-                    int index = dataGridView2.SelectedCells[0].OwningRow.Index;
+                txtCustomerNo.Text = search.xLedgerNo.ToString();
+                txtCustomerName.Text = search.xLedgerName.ToString();
+                txtCustomerMobileNo.Text = search.xLedgerMobileNo.ToString();
+                rchCustomerAddress.Text = search.xLedgerAddress.ToString();
+            }
 
-                    if (index == (rowCount - 2)) // include the header row
-                    {
-                        return;
-                    }
-                    DataGridViewRowCollection rows = dataGridView2.Rows;
+        }
 
-                    // remove the next row and add it in front of the selected row.
-                    DataGridViewRow nextRow = rows[index + 1];
-                    rows.Remove(nextRow);
-                    nextRow.Frozen = false;
-                    rows.Insert(index, nextRow);
-                    dataGridView2.ClearSelection();
-                    dataGridView2.Rows[index + 1].Selected = true;
-                }
+        private void SalesEntry_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Control == true && e.KeyCode == Keys.L)
+            {
+                btnLedgerSearch.PerformClick();
+            }
+            if (e.Control == true && e.KeyCode == Keys.I)
+            {
+                btnItemSearch.PerformClick();
+            }
+            if (e.Control == true && e.KeyCode == Keys.A)
+            {
+                btnAdd.PerformClick();
+            }
+            if (e.Control == true && e.KeyCode == Keys.S)
+            {
+                btnSaveBill.PerformClick();
             }
         }
 
-        private void txtQty_TextChanged(object sender, EventArgs e)
+        private void txtPaid_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (System.Text.RegularExpressions.Regex.IsMatch(txtQty.Text, "[^0-9]"))
+            AcceptOnlyNumeric(e);      
+        }
+
+        private void AcceptOnlyNumeric(KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
             {
-                MessageBox.Show("Please enter only numbers.");
-                txtQty.Text = txtQty.Text.Remove(txtQty.Text.Length - 1);
+                e.Handled = true;
             }
         }
 
-        private void txtDiscPercentage_TextChanged(object sender, EventArgs e)
+        private void txtUserPassword_KeyPress(object sender, KeyPressEventArgs e)
         {
-            //TO DO -DECIMAL
-        //    if (System.Text.RegularExpressions.Regex.IsMatch(txtDiscPercentage.Text, "[^0-9]"))
-        //    {
-        //        MessageBox.Show("Please enter only numbers.");
-        //        txtDiscPercentage.Text = txtDiscPercentage.Text.Remove(txtDiscPercentage.Text.Length - 1);
-        //        return;
-        //    }
-        
+            AcceptOnlyNumeric(e);
         }
 
-        private void txtDiscountValue_TextChanged(object sender, EventArgs e)
+        private void txtQty_KeyPress(object sender, KeyPressEventArgs e)
         {
-            //TO DO -DECIMAL
-            //if (System.Text.RegularExpressions.Regex.IsMatch(txtDiscountValue.Text, "[^0-9]"))
-            //{
-            //    MessageBox.Show("Please enter only numbers.");
-            //    txtDiscountValue.Text = txtDiscPercentage.Text.Remove(txtDiscountValue.Text.Length - 1);
-            //    return;
-            //}
+            AcceptOnlyNumeric(e);
+        }
 
+        private void txtDiscPercentage_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            AcceptOnlyNumeric(e);
+        }
+
+        private void txtDiscountValue_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            AcceptOnlyNumeric(e);
         }
     }
 }
-    
+
 
 
 
