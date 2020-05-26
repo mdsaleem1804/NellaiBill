@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.cmbCategory = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -52,27 +53,27 @@
             this.cmbGst = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.label14 = new System.Windows.Forms.Label();
-            this.txtHsnCode = new System.Windows.Forms.TextBox();
+            this.panelOpeningStock = new System.Windows.Forms.Panel();
+            this.label12 = new System.Windows.Forms.Label();
+            this.txtOpeningStock = new System.Windows.Forms.TextBox();
             this.dtpExpDate = new System.Windows.Forms.DateTimePicker();
             this.label13 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.txtHsnCode = new System.Windows.Forms.TextBox();
             this.mBtnCancel = new MaterialSkin.Controls.MaterialRaisedButton();
             this.mBtnDelete = new MaterialSkin.Controls.MaterialRaisedButton();
             this.mBtnSaveUpdate = new MaterialSkin.Controls.MaterialRaisedButton();
-            this.txtOpeningStock = new System.Windows.Forms.TextBox();
-            this.label12 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label8 = new System.Windows.Forms.Label();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
             this.btnExcel = new MaterialSkin.Controls.MaterialRaisedButton();
             this.btnPDF = new MaterialSkin.Controls.MaterialRaisedButton();
-            this.panelOpeningStock = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
-            this.panel3.SuspendLayout();
             this.panelOpeningStock.SuspendLayout();
+            this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // cmbCategory
@@ -98,12 +99,20 @@
             // dataGridView1
             // 
             this.dataGridView1.AllowUserToAddRows = false;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(30, 347);
             this.dataGridView1.Name = "dataGridView1";
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.HotPink;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView1.Size = new System.Drawing.Size(1142, 294);
             this.dataGridView1.TabIndex = 18;
             this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
@@ -318,22 +327,36 @@
             this.panel2.Size = new System.Drawing.Size(1012, 231);
             this.panel2.TabIndex = 29;
             // 
-            // label14
+            // panelOpeningStock
             // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(3, 130);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(95, 24);
-            this.label14.TabIndex = 48;
-            this.label14.Text = "Hsn Code";
+            this.panelOpeningStock.Controls.Add(this.label12);
+            this.panelOpeningStock.Controls.Add(this.txtOpeningStock);
+            this.panelOpeningStock.Controls.Add(this.txtPrice);
+            this.panelOpeningStock.Controls.Add(this.dtpExpDate);
+            this.panelOpeningStock.Controls.Add(this.label5);
+            this.panelOpeningStock.Controls.Add(this.label13);
+            this.panelOpeningStock.Location = new System.Drawing.Point(407, 97);
+            this.panelOpeningStock.Name = "panelOpeningStock";
+            this.panelOpeningStock.Size = new System.Drawing.Size(297, 117);
+            this.panelOpeningStock.TabIndex = 49;
             // 
-            // txtHsnCode
+            // label12
             // 
-            this.txtHsnCode.Location = new System.Drawing.Point(148, 135);
-            this.txtHsnCode.Name = "txtHsnCode";
-            this.txtHsnCode.Size = new System.Drawing.Size(173, 20);
-            this.txtHsnCode.TabIndex = 4;
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(3, 13);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(153, 25);
+            this.label12.TabIndex = 42;
+            this.label12.Text = "Opening Stock";
+            // 
+            // txtOpeningStock
+            // 
+            this.txtOpeningStock.Location = new System.Drawing.Point(190, 18);
+            this.txtOpeningStock.Name = "txtOpeningStock";
+            this.txtOpeningStock.Size = new System.Drawing.Size(101, 20);
+            this.txtOpeningStock.TabIndex = 13;
+            this.txtOpeningStock.Text = "0";
             // 
             // dtpExpDate
             // 
@@ -352,6 +375,23 @@
             this.label13.Size = new System.Drawing.Size(94, 25);
             this.label13.TabIndex = 46;
             this.label13.Text = "ExpDate";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Location = new System.Drawing.Point(3, 130);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(95, 24);
+            this.label14.TabIndex = 48;
+            this.label14.Text = "Hsn Code";
+            // 
+            // txtHsnCode
+            // 
+            this.txtHsnCode.Location = new System.Drawing.Point(148, 135);
+            this.txtHsnCode.Name = "txtHsnCode";
+            this.txtHsnCode.Size = new System.Drawing.Size(173, 20);
+            this.txtHsnCode.TabIndex = 4;
             // 
             // mBtnCancel
             // 
@@ -391,24 +431,6 @@
             this.mBtnSaveUpdate.Text = "SAVE";
             this.mBtnSaveUpdate.UseVisualStyleBackColor = true;
             this.mBtnSaveUpdate.Click += new System.EventHandler(this.mBtnSaveUpdate_Click);
-            // 
-            // txtOpeningStock
-            // 
-            this.txtOpeningStock.Location = new System.Drawing.Point(190, 18);
-            this.txtOpeningStock.Name = "txtOpeningStock";
-            this.txtOpeningStock.Size = new System.Drawing.Size(101, 20);
-            this.txtOpeningStock.TabIndex = 13;
-            this.txtOpeningStock.Text = "0";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(3, 13);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(153, 25);
-            this.label12.TabIndex = 42;
-            this.label12.Text = "Opening Stock";
             // 
             // panel3
             // 
@@ -475,19 +497,6 @@
             this.btnPDF.UseVisualStyleBackColor = true;
             this.btnPDF.Click += new System.EventHandler(this.btnPDF_Click);
             // 
-            // panelOpeningStock
-            // 
-            this.panelOpeningStock.Controls.Add(this.label12);
-            this.panelOpeningStock.Controls.Add(this.txtOpeningStock);
-            this.panelOpeningStock.Controls.Add(this.txtPrice);
-            this.panelOpeningStock.Controls.Add(this.dtpExpDate);
-            this.panelOpeningStock.Controls.Add(this.label5);
-            this.panelOpeningStock.Controls.Add(this.label13);
-            this.panelOpeningStock.Location = new System.Drawing.Point(407, 97);
-            this.panelOpeningStock.Name = "panelOpeningStock";
-            this.panelOpeningStock.Size = new System.Drawing.Size(297, 117);
-            this.panelOpeningStock.TabIndex = 49;
-            // 
             // frmItem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -509,10 +518,10 @@
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
             this.panelOpeningStock.ResumeLayout(false);
             this.panelOpeningStock.PerformLayout();
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 

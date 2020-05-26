@@ -1,13 +1,11 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
-using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Drawing;
 using System.IO;
-using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace NellaiBill
@@ -20,8 +18,7 @@ namespace NellaiBill
         static string xPassword = ConfigurationManager.AppSettings["password"].ToString();
         static string xDatabaseName = ConfigurationManager.AppSettings["database"].ToString();
         public string xReportPath = "";
-
-        int xGBatch = 0;
+             int xGBatch = 0;
         public MySqlConnection connection;
         // public string conString = @"Data Source=localhost;port=3306;Initial Catalog=nellai_billing;User Id=root;password=nellaibill";
         public string conString =
@@ -29,15 +26,14 @@ namespace NellaiBill
         "port=" + xPort + ";" +
         "Initial Catalog=" + xDatabaseName + ";" +
         "User Id=" + xUserName + ";" +
-        "password=" + xPassword + "; Convert Zero Datetime=True";
+        "password=" + Decrypt(xPassword, "hana-sept-mber16") + "; Convert Zero Datetime=True";
 
         public DatabaseConnection()
         {
-            // this.ReportSettings();
+          
         }
         public void DataProcess(string xQry, MySqlConnection connection)
         {
-
             MySqlCommand command = new MySqlCommand(xQry, connection);
             command.ExecuteNonQuery();
         }
@@ -113,23 +109,21 @@ namespace NellaiBill
         {
             try
             {
+               connection = new MySqlConnection(conString);
+                string xQry = "SELECT * FROM `m_login` WHERE password='" + xPassword + "'";
+                connection.Open();
+                MySqlCommand comm = new MySqlCommand(xQry, connection);
 
-           
-            connection = new MySqlConnection(conString);
-            string xQry = "SELECT * FROM `m_login` WHERE password='" + xPassword + "'";
-            connection.Open();
-            MySqlCommand comm = new MySqlCommand(xQry, connection);
+                MySqlDataReader reader = comm.ExecuteReader();
+                int xUserNo = 0;
+                while (reader.Read())
+                {
+                    xUserNo = Convert.ToInt32(reader.GetString(0));
 
-            MySqlDataReader reader = comm.ExecuteReader();
-            int xUserNo = 0;
-            while (reader.Read())
-            {
-                xUserNo = Convert.ToInt32(reader.GetString(0));
+                }
+                connection.Close();
+                if (xUserNo > 0) return true;
 
-            }
-            connection.Close();
-            if (xUserNo > 0) return true;
-            
             }
             catch (Exception ex)
             {
@@ -193,7 +187,7 @@ namespace NellaiBill
                     xGridView.ColumnHeadersDefaultCellStyle.Font = new Font("Tahoma", 10, FontStyle.Bold);
                     //xGridView.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
                     //xGridView.ColumnHeadersDefaultCellStyle.BackColor = Color.DarkMagenta;
-                  
+
                     xGridView.RowHeadersVisible = false;
 
                 }
@@ -249,6 +243,31 @@ namespace NellaiBill
             da.Fill(dt);
             i = dt.Rows.Count;
             return i;
+        }
+
+        public static string Encrypt(string input, string key)
+        {
+            byte[] inputArray = UTF8Encoding.UTF8.GetBytes(input);
+            TripleDESCryptoServiceProvider tripleDES = new TripleDESCryptoServiceProvider();
+            tripleDES.Key = UTF8Encoding.UTF8.GetBytes(key);
+            tripleDES.Mode = CipherMode.ECB;
+            tripleDES.Padding = PaddingMode.PKCS7;
+            ICryptoTransform cTransform = tripleDES.CreateEncryptor();
+            byte[] resultArray = cTransform.TransformFinalBlock(inputArray, 0, inputArray.Length);
+            tripleDES.Clear();
+            return Convert.ToBase64String(resultArray, 0, resultArray.Length);
+        }
+        public static string Decrypt(string input, string key)
+        {
+            byte[] inputArray = Convert.FromBase64String(input);
+            TripleDESCryptoServiceProvider tripleDES = new TripleDESCryptoServiceProvider();
+            tripleDES.Key = UTF8Encoding.UTF8.GetBytes(key);
+            tripleDES.Mode = CipherMode.ECB;
+            tripleDES.Padding = PaddingMode.PKCS7;
+            ICryptoTransform cTransform = tripleDES.CreateDecryptor();
+            byte[] resultArray = cTransform.TransformFinalBlock(inputArray, 0, inputArray.Length);
+            tripleDES.Clear();
+            return UTF8Encoding.UTF8.GetString(resultArray);
         }
 
     }

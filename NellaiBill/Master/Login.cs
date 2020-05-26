@@ -1,13 +1,5 @@
-﻿using NellaiBill.Transaction;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
+﻿using System;
 using System.Net.NetworkInformation;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace NellaiBill.Master
@@ -22,8 +14,8 @@ namespace NellaiBill.Master
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            //xDb.CountRecord("select * from m_login")
-            if((txtUserName.Text=="admin") && (txtPassword.Text=="admin"))
+            if(xDb.CountRecord("select * from m_login where username='"+txtUserName.Text+ "' and password='"+txtPassword.Text+"'")>=1)
+            //if((txtUserName.Text=="admin") && (txtPassword.Text=="admin"))
             {
                 frm_main_mdi nextForm = new frm_main_mdi();
                 this.Hide();

@@ -37,6 +37,7 @@ namespace NellaiBill.Master
             xCategoryId = Int32.Parse(cmbCategory.SelectedValue.ToString());
             dataGridView1.ColumnHeadersDefaultCellStyle.Font = new System.Drawing.Font("Tahoma", 10, FontStyle.Bold);
             cmbCategory.Select();
+            dtpExpDate.Value = DateTime.Now.AddMonths(3);
         }
 
         private void LoadGrid()

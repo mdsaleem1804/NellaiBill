@@ -127,9 +127,9 @@ namespace NellaiBill.Transaction
 
         private void mbtnSaveBill_Click(object sender, EventArgs e)
         {
-            if (Int32.Parse(txtCustomerNo.Text.ToString()) == 0)
+            if (txtCustomerNo.Text == "")
             {
-                MessageBox.Show("Please Choose Suppliers");
+                MessageBox.Show("Please Choose Ledger");
                 return;
             }
 
@@ -426,7 +426,7 @@ namespace NellaiBill.Transaction
 
         private void btnItemSearch_Click(object sender, EventArgs e)
         {
-            SearchItem search = new SearchItem();
+            SearchItem search = new SearchItem("purchase");
             search.ShowDialog();
             if (search.xItemNo.ToString() != "0")
             {

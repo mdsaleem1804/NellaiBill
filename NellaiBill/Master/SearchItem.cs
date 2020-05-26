@@ -27,9 +27,12 @@ namespace NellaiBill.Master
         public string xBatch { get; set; }
         public string xExpDate { get; set; }
         public string xTax { get; set; }
-        public SearchItem()
+
+        public string xFormType { get; set; }
+        public SearchItem(string xForm)
         {
             InitializeComponent();
+            xFormType = xForm;
         }
 
         private void SearchItem_Load(object sender, EventArgs e)
@@ -37,8 +40,16 @@ namespace NellaiBill.Master
             this.KeyPreview = true; //refer key activities
             xItemNo = "0";
             txtSearch.Select();
-            xDb.LoadGrid("select s.stockno,s.itemno,i.itemname,s.stock,s.mrp,s.batch,s.expdate,i.gst from inv_stockentry s,m_item i " +
-                " where s.stock>0 and  s.itemno = i.itemno order by itemname", dataGridView1);
+            if (xFormType == "purchase")
+            {
+                xDb.LoadGrid("select s.stockno,s.itemno,i.itemname,s.stock,s.mrp,s.batch,s.expdate,i.gst from inv_stockentry s,m_item i " +
+                      " where s.itemno = i.itemno order by itemname", dataGridView1);
+            }
+            else
+            {
+                xDb.LoadGrid("select s.stockno,s.itemno,i.itemname,s.stock,s.mrp,s.batch,s.expdate,i.gst from inv_stockentry s,m_item i " +
+                    " where s.stock>0 and  s.itemno = i.itemno order by itemname", dataGridView1);
+            }
             dataGridView1.ReadOnly = true;
             dataGridView1.Columns[0].Visible = false;
             dataGridView1.Columns[1].Visible = false;

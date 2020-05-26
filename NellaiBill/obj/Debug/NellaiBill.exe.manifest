@@ -318,14 +318,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="NellaiBill.exe" size="1167856">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="NellaiBill.exe" size="1168880">
       <assemblyIdentity name="NellaiBill" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>+5t267GjKXpjVrPzVk7bpaHfAgQHt249/zs+5KXfyts=</dsig:DigestValue>
+        <dsig:DigestValue>0ILfKjXy46nrtXtHdzUMhVIBgTvQgbQai4DBVhc1Pjw=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -413,13 +413,13 @@
       </hash>
     </dependentAssembly>
   </dependency>
-  <file name="NellaiBill.exe.config" size="3364">
+  <file name="NellaiBill.exe.config" size="2710">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>icP+JGVXXcUzemcKY2M0UsnFv51n4KEuNOJOrEaq/EY=</dsig:DigestValue>
+      <dsig:DigestValue>Hpc7YolvVicNDxHdGcea5qQaYSrw7Zx3IPJO6qNaXCM=</dsig:DigestValue>
     </hash>
   </file>
 </asmv1:assembly>

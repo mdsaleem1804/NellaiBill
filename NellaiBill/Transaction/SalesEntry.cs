@@ -452,7 +452,7 @@ namespace NellaiBill.Master
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            SearchItem search = new SearchItem();
+            SearchItem search = new SearchItem("sales");
             search.ShowDialog();
             if (search.xItemNo.ToString() != "0")
             {
@@ -520,7 +520,7 @@ namespace NellaiBill.Master
 
         private void txtUserPassword_KeyPress(object sender, KeyPressEventArgs e)
         {
-            AcceptOnlyNumeric(e);
+            
         }
 
         private void txtQty_KeyPress(object sender, KeyPressEventArgs e)
