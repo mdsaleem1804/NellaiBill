@@ -1,4 +1,5 @@
 ﻿using CrystalDecisions.CrystalReports.Engine;
+using CrystalDecisions.Windows.Forms;
 using System;
 using System.Windows.Forms;
 
@@ -23,6 +24,7 @@ namespace NellaiBill.Reports
             cryRpt.SetParameterValue("ToDate", DateTime.Parse(xToDate));
             crystalReportViewer1.ReportSource = cryRpt;
             crystalReportViewer1.Refresh();
+            crystalReportViewer1.ToolPanelView = ToolPanelViewType.None;
         }
     }
 }

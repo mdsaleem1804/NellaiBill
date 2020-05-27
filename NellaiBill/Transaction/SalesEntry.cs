@@ -382,7 +382,8 @@ namespace NellaiBill.Master
                 txtDiscPercentage.Text = "0";
             }
 
-            double xAmount = double.Parse(txtQty.Text) * double.Parse(txtMrp.Text);
+            // double xAmount = double.Parse(txtQty.Text) * double.Parse(txtMrp.Text);
+            double xAmount = double.Parse(txtQty.Text) * double.Parse(txtUnitPrice.Text);
             txtDiscountValue.Text = (xAmount * (double.Parse(txtDiscPercentage.Text) / 100)).ToString();
 
         }
@@ -414,7 +415,8 @@ namespace NellaiBill.Master
                 txtDiscPercentage.Text = "0";
             }
 
-            double xAmount = double.Parse(txtQty.Text) * double.Parse(txtMrp.Text);
+            //double xAmount = double.Parse(txtQty.Text) * double.Parse(txtMrp.Text);
+            double xAmount = double.Parse(txtQty.Text) * double.Parse(txtUnitPrice.Text);
             txtDiscPercentage.Text = ((double.Parse(txtDiscountValue.Text) / xAmount) * 100).ToString();
         }
 

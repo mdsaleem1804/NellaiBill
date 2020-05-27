@@ -42,23 +42,36 @@ namespace NellaiBill.Master
             txtSearch.Select();
             if (xFormType == "purchase")
             {
-                xDb.LoadGrid("select s.stockno,s.itemno,i.itemname,s.stock,s.mrp,s.batch,s.expdate,i.gst from inv_stockentry s,m_item i " +
-                      " where s.itemno = i.itemno order by itemname", dataGridView1);
+                
+                xDb.LoadGrid("select 0,i.itemno,i.itemname,0,0,'','',i.gst from m_item i " +
+                      "  order by itemname", dataGridView1);
+                dataGridView1.ReadOnly = true;
+                dataGridView1.Columns[0].Visible = false;
+                dataGridView1.Columns[1].Visible = false;
+                dataGridView1.Columns[2].FillWeight = 200;
+                dataGridView1.Columns[3].Visible = false;
+                dataGridView1.Columns[4].Visible = false;
+                dataGridView1.Columns[5].Visible = false;
+                dataGridView1.Columns[6].Visible = false;//expdate
+                dataGridView1.Columns[7].Visible = false;//gst    
+            
             }
             else
             {
                 xDb.LoadGrid("select s.stockno,s.itemno,i.itemname,s.stock,s.mrp,s.batch,s.expdate,i.gst from inv_stockentry s,m_item i " +
                     " where s.stock>0 and  s.itemno = i.itemno order by itemname", dataGridView1);
+
+                dataGridView1.ReadOnly = true;
+                dataGridView1.Columns[0].Visible = false;
+                dataGridView1.Columns[1].Visible = false;
+                dataGridView1.Columns[6].Visible = false;//expdate
+                dataGridView1.Columns[7].Visible = false;//gst
+                dataGridView1.Columns[2].FillWeight = 200;
+                dataGridView1.Columns[3].FillWeight = 60;
+                dataGridView1.Columns[4].FillWeight = 60;
+                dataGridView1.Columns[5].FillWeight = 60;
             }
-            dataGridView1.ReadOnly = true;
-            dataGridView1.Columns[0].Visible = false;
-            dataGridView1.Columns[1].Visible = false;
-            dataGridView1.Columns[6].Visible = false;//expdate
-            dataGridView1.Columns[7].Visible = false;//gst
-            dataGridView1.Columns[2].FillWeight = 200;
-            dataGridView1.Columns[3].FillWeight = 60;
-            dataGridView1.Columns[4].FillWeight = 60;
-            dataGridView1.Columns[5].FillWeight = 60;
+            
            
         }
 

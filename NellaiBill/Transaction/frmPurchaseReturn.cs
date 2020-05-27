@@ -16,6 +16,7 @@ namespace NellaiBill.Transaction
                 " p.qty, " +
                 " p.freeqty, " +
                 " p.packno " +
+                " p.sellingprice " +
                 " from inv_purchaseentry p, " +
                 " inv_purchaseentry1 p1," +
                 " m_item i " +
@@ -166,7 +167,7 @@ namespace NellaiBill.Transaction
                      " audit_stock_datetime,audit_stock_mode)" +
                      " values(" + xItemNo
                      + "," + txtChangeQty.Text
-                     + "," + 0
+                     + "," + txtMrp.Text
                      + ",'" + txtBatch.Text
                      + "','" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")
                      + "','PURCHASE RETURN')";

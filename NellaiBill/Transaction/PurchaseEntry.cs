@@ -496,7 +496,7 @@ namespace NellaiBill.Transaction
             }
 
 
-            double xAmount = double.Parse(txtTotalQty.Text) * double.Parse(txtPR.Text);
+            double xAmount = (double.Parse(txtTotalQty.Text) - double.Parse(txtFreeQty.Text) ) * double.Parse(txtPR.Text);
             double xAmountAfterDiscount = xAmount - double.Parse(txtDiscountValue.Text);
             double xGstValue = xAmountAfterDiscount * (double.Parse(txtTax.Text) / 100);
             double xTotalAmount = xAmountAfterDiscount + xGstValue;

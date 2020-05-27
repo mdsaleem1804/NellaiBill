@@ -40,6 +40,8 @@
             this.label9 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.txtItemNo = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
             this.txtOldQty = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.mbtnSalesReturn = new MaterialSkin.Controls.MaterialRaisedButton();
@@ -63,8 +65,8 @@
             this.label13 = new System.Windows.Forms.Label();
             this.dtpFromDate = new System.Windows.Forms.DateTimePicker();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.txtItemNo = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
+            this.txtMrp = new System.Windows.Forms.TextBox();
+            this.label14 = new System.Windows.Forms.Label();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -98,7 +100,7 @@
             // 
             // txtBatch
             // 
-            this.txtBatch.Location = new System.Drawing.Point(368, 19);
+            this.txtBatch.Location = new System.Drawing.Point(368, 40);
             this.txtBatch.Name = "txtBatch";
             this.txtBatch.ReadOnly = true;
             this.txtBatch.Size = new System.Drawing.Size(69, 20);
@@ -107,7 +109,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(284, 15);
+            this.label11.Location = new System.Drawing.Point(284, 36);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(35, 13);
             this.label11.TabIndex = 57;
@@ -149,7 +151,7 @@
             // 
             // txtChangeQty
             // 
-            this.txtChangeQty.Location = new System.Drawing.Point(368, 85);
+            this.txtChangeQty.Location = new System.Drawing.Point(368, 106);
             this.txtChangeQty.Name = "txtChangeQty";
             this.txtChangeQty.Size = new System.Drawing.Size(69, 20);
             this.txtChangeQty.TabIndex = 55;
@@ -157,7 +159,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(284, 85);
+            this.label9.Location = new System.Drawing.Point(284, 106);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(63, 13);
             this.label9.TabIndex = 49;
@@ -166,7 +168,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(284, 53);
+            this.label7.Location = new System.Drawing.Point(284, 74);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(42, 13);
             this.label7.TabIndex = 47;
@@ -175,7 +177,9 @@
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.txtMrp);
             this.panel1.Controls.Add(this.txtItemNo);
+            this.panel1.Controls.Add(this.label14);
             this.panel1.Controls.Add(this.label8);
             this.panel1.Controls.Add(this.txtBatch);
             this.panel1.Controls.Add(this.label11);
@@ -192,12 +196,29 @@
             this.panel1.Controls.Add(this.txtCreditNoteNo);
             this.panel1.Location = new System.Drawing.Point(21, 426);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(758, 120);
+            this.panel1.Size = new System.Drawing.Size(758, 136);
             this.panel1.TabIndex = 86;
+            // 
+            // txtItemNo
+            // 
+            this.txtItemNo.Location = new System.Drawing.Point(98, 46);
+            this.txtItemNo.Name = "txtItemNo";
+            this.txtItemNo.ReadOnly = true;
+            this.txtItemNo.Size = new System.Drawing.Size(52, 20);
+            this.txtItemNo.TabIndex = 58;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(5, 46);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(44, 13);
+            this.label8.TabIndex = 59;
+            this.label8.Text = "Item No";
             // 
             // txtOldQty
             // 
-            this.txtOldQty.Location = new System.Drawing.Point(368, 49);
+            this.txtOldQty.Location = new System.Drawing.Point(368, 70);
             this.txtOldQty.Name = "txtOldQty";
             this.txtOldQty.ReadOnly = true;
             this.txtOldQty.Size = new System.Drawing.Size(69, 20);
@@ -434,22 +455,22 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Date Wise";
             // 
-            // txtItemNo
+            // txtMrp
             // 
-            this.txtItemNo.Location = new System.Drawing.Point(98, 46);
-            this.txtItemNo.Name = "txtItemNo";
-            this.txtItemNo.ReadOnly = true;
-            this.txtItemNo.Size = new System.Drawing.Size(52, 20);
-            this.txtItemNo.TabIndex = 58;
+            this.txtMrp.Location = new System.Drawing.Point(368, 13);
+            this.txtMrp.Name = "txtMrp";
+            this.txtMrp.ReadOnly = true;
+            this.txtMrp.Size = new System.Drawing.Size(69, 20);
+            this.txtMrp.TabIndex = 87;
             // 
-            // label8
+            // label14
             // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(5, 46);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(44, 13);
-            this.label8.TabIndex = 59;
-            this.label8.Text = "Item No";
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(284, 13);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(25, 13);
+            this.label14.TabIndex = 88;
+            this.label14.Text = "Mrp";
             // 
             // frmSalesReturn
             // 
@@ -523,5 +544,7 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.TextBox txtItemNo;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox txtMrp;
+        private System.Windows.Forms.Label label14;
     }
 }

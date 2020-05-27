@@ -15,7 +15,7 @@ namespace NellaiBill.Transaction
     {
         DatabaseConnection xDb = new DatabaseConnection();
 
-        string xQry = "select s.salesinvoiceno, s.date,i.itemno,i.itemname,s.batchid,s.qty" +
+        string xQry = "select s.salesinvoiceno, s.date,i.itemno,i.itemname,s.batchid,s.qty,s.unitmrp" +
             " from inv_salesentry1 s1, " +
             " inv_salesentry s, " +
             " m_item i " +
@@ -50,6 +50,7 @@ namespace NellaiBill.Transaction
                 txtItemName.Text = dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString();
                 txtBatch.Text = dataGridView1.Rows[e.RowIndex].Cells[4].Value.ToString();
                 txtOldQty.Text = dataGridView1.Rows[e.RowIndex].Cells[5].Value.ToString();
+                txtMrp.Text = dataGridView1.Rows[e.RowIndex].Cells[6].Value.ToString();
             }
             txtCreditNoteNo.Text = xDb.GetMaxId("accounts_credit_note_id", "accounts_credit_note").ToString();
         }
@@ -165,7 +166,7 @@ namespace NellaiBill.Transaction
                          " audit_stock_datetime,audit_stock_mode)" +
                          " values(" + xItemNo
                          + "," + txtChangeQty.Text
-                         + "," + 0
+                         + "," + txtMrp.Text
                          + ",'" + txtBatch.Text
                          + "','" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")
                          + "','SALES RETURN')";
