@@ -30,7 +30,7 @@ namespace NellaiBill
 
         public DatabaseConnection()
         {
-          
+
         }
         public void DataProcess(string xQry, MySqlConnection connection)
         {
@@ -103,6 +103,25 @@ namespace NellaiBill
             }
             connection.Close();
             return xId;
+
+        }
+
+        public string GetUserNameFromPassword(string  xPassword)
+        {
+            connection = new MySqlConnection(conString);
+            string xQry = "select username from m_login where password= '" + xPassword + "'";
+            connection.Open();
+            MySqlCommand comm = new MySqlCommand(xQry, connection);
+
+            MySqlDataReader reader = comm.ExecuteReader();
+
+            while (reader.Read())
+            {
+                return reader.GetString(0);
+
+            }
+            connection.Close();
+            return "";
 
         }
         public bool CheckUserExists(string xPassword)

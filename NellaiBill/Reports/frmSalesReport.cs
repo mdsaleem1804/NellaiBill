@@ -7,6 +7,7 @@ namespace NellaiBill.Reports
 {
     public partial class frmSalesReport : Form
     {
+
         ReportDocument cryRpt = new ReportDocument();
         GlobalClass globalClass = new GlobalClass();
         public frmSalesReport()
@@ -20,6 +21,7 @@ namespace NellaiBill.Reports
             string xToDate = dtpToDate.Text;
             string path = globalClass.GetReportPath() + "rptSalesConsolidated.rpt";
             cryRpt.Load(path);
+        
             cryRpt.SetParameterValue("FromDate", DateTime.Parse(xFromDate));
             cryRpt.SetParameterValue("ToDate", DateTime.Parse(xToDate));
             crystalReportViewer1.ReportSource = cryRpt;

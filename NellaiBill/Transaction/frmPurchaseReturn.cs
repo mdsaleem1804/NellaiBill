@@ -15,7 +15,7 @@ namespace NellaiBill.Transaction
                 " p.dateexpired, " +
                 " p.qty, " +
                 " p.freeqty, " +
-                " p.packno " +
+                " p.packno," +
                 " p.sellingprice " +
                 " from inv_purchaseentry p, " +
                 " inv_purchaseentry1 p1," +
@@ -109,6 +109,8 @@ namespace NellaiBill.Transaction
                 txtItemName.Text = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
                 txtBatch.Text = dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString();
                 txtOldQty.Text = dataGridView1.Rows[e.RowIndex].Cells[5].Value.ToString();
+                txtMrp.Text = dataGridView1.Rows[e.RowIndex].Cells[8].Value.ToString();
+
             }
             txtDebitNoteNo.Text = xDb.GetMaxId("accounts_debit_note_id", "accounts_debit_note").ToString();
 

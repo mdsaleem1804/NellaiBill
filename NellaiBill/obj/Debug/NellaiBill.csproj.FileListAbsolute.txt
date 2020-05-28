@@ -168,6 +168,8 @@ E:\Dotnet\NellaiBill\NellaiBill\obj\Debug\NellaiBill.Master.frmTax.resources
 E:\Dotnet\NellaiBill\NellaiBill\obj\Debug\NellaiBill.Master.Ledger.resources
 E:\Dotnet\NellaiBill\NellaiBill\obj\Debug\NellaiBill.Master.Login.resources
 E:\Dotnet\NellaiBill\NellaiBill\obj\Debug\NellaiBill.Master.Employee.resources
+E:\Dotnet\NellaiBill\NellaiBill\obj\Debug\NellaiBill.Master.SearchItem.resources
+E:\Dotnet\NellaiBill\NellaiBill\obj\Debug\NellaiBill.Master.SearchLedger.resources
 E:\Dotnet\NellaiBill\NellaiBill\obj\Debug\NellaiBill.Reports.CR_SalesReturn.resources
 E:\Dotnet\NellaiBill\NellaiBill\obj\Debug\NellaiBill.Reports.CR_Stock.resources
 E:\Dotnet\NellaiBill\NellaiBill\obj\Debug\NellaiBill.Reports.frmSalesReport.resources
@@ -199,6 +201,4 @@ E:\Dotnet\NellaiBill\NellaiBill\obj\Debug\NellaiBill.application
 E:\Dotnet\NellaiBill\NellaiBill\obj\Debug\NellaiBill.csproj.CopyComplete
 E:\Dotnet\NellaiBill\NellaiBill\obj\Debug\NellaiBill.exe
 E:\Dotnet\NellaiBill\NellaiBill\obj\Debug\NellaiBill.pdb
-E:\Dotnet\NellaiBill\NellaiBill\obj\Debug\NellaiBill.Master.SearchItem.resources
-E:\Dotnet\NellaiBill\NellaiBill\obj\Debug\NellaiBill.Master.SearchLedger.resources
 E:\Dotnet\NellaiBill\NellaiBill\obj\Debug\NellaiBill.csprojAssemblyReference.cache

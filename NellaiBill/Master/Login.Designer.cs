@@ -67,7 +67,6 @@
             this.txtUserName.Name = "txtUserName";
             this.txtUserName.Size = new System.Drawing.Size(138, 20);
             this.txtUserName.TabIndex = 1;
-            this.txtUserName.Text = "admin";
             // 
             // txtPassword
             // 
@@ -76,7 +75,6 @@
             this.txtPassword.PasswordChar = '*';
             this.txtPassword.Size = new System.Drawing.Size(138, 20);
             this.txtPassword.TabIndex = 2;
-            this.txtPassword.Text = "admin123";
             // 
             // groupBox1
             // 
@@ -131,7 +129,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1037, 514);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.groupBox1);
             this.Name = "Login";

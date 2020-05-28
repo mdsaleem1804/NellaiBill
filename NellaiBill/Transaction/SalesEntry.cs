@@ -8,6 +8,7 @@ namespace NellaiBill.Master
     {
         DatabaseConnection xDb = new DatabaseConnection();
         string xLoggedinUserName = "";
+        string xUserName = "";
         public SalesEntry()
         {
             InitializeComponent();
@@ -327,16 +328,14 @@ namespace NellaiBill.Master
                           " '" + xLessAmount + "'," +
                           " '" + cmbPaymentMode.Text.ToString() + "'," +
                           " '" + cmbBillType.Text.ToString() + "'," +
-                          " '" + xLoggedinUserName + "'," +
-                          " '0' )";
+                          " '0'," +
+                          " '" + xUserName + "' )";
 
                     myCommand.CommandText = xQrySalesMain;
                     myCommand.ExecuteNonQuery();
 
                     myTrans.Commit();
                     MessageBox.Show("Record Saved Succesfully Id is " + xSalesId);
-
-
                 }
                 catch (Exception ex)
                 {
@@ -434,10 +433,12 @@ namespace NellaiBill.Master
 
         private void txtUserPassword_TextChanged(object sender, EventArgs e)
         {
-            if (xDb.CheckUserExists(txtUserPassword.Text))
+            xUserName=(xDb.GetUserNameFromPassword(txtUserPassword.Text));
+            if (xUserName != "")
             {
                 btnSaveBill.Enabled = xDb.CheckUserExists(txtUserPassword.Text);
                 btnSaveBill.BackColor = Color.Red;
+               
             }
             else
             {
