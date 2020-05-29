@@ -31,7 +31,7 @@
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>x64</PlatformTarget>
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -214,6 +214,12 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="GlobalClass.cs" />
+    <Compile Include="Master\DoctorRegistration.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Master\DoctorRegistration.Designer.cs">
+      <DependentUpon>DoctorRegistration.cs</DependentUpon>
+    </Compile>
     <Compile Include="Master\frmCompany.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -263,6 +269,12 @@
     <Compile Include="Master\Employee.Designer.cs">
       <DependentUpon>Employee.cs</DependentUpon>
     </Compile>
+    <Compile Include="Master\SearchDoctor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Master\SearchDoctor.Designer.cs">
+      <DependentUpon>SearchDoctor.cs</DependentUpon>
+    </Compile>
     <Compile Include="Master\SearchItem.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -274,6 +286,12 @@
     </Compile>
     <Compile Include="Master\SearchLedger.Designer.cs">
       <DependentUpon>SearchLedger.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Master\SearchPatient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Master\SearchPatient.Designer.cs">
+      <DependentUpon>SearchPatient.cs</DependentUpon>
     </Compile>
     <Compile Include="Reports\CR_SalesReturn.cs">
       <SubType>Form</SubType>
@@ -395,6 +413,12 @@
     <Compile Include="Master\NewPatient.Designer.cs">
       <DependentUpon>NewPatient.cs</DependentUpon>
     </Compile>
+    <Compile Include="Transaction\OutPatientEntry.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction\OutPatientEntry.Designer.cs">
+      <DependentUpon>OutPatientEntry.cs</DependentUpon>
+    </Compile>
     <Compile Include="Transaction\PurchaseEntry.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -476,6 +500,9 @@
     <EmbeddedResource Include="frmMainMdi.resx">
       <DependentUpon>frmMainMdi.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Master\DoctorRegistration.resx">
+      <DependentUpon>DoctorRegistration.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Master\frmCategory.resx">
       <DependentUpon>frmCategory.cs</DependentUpon>
     </EmbeddedResource>
@@ -497,11 +524,17 @@
     <EmbeddedResource Include="Master\Employee.resx">
       <DependentUpon>Employee.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Master\SearchDoctor.resx">
+      <DependentUpon>SearchDoctor.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Master\SearchItem.resx">
       <DependentUpon>SearchItem.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Master\SearchLedger.resx">
       <DependentUpon>SearchLedger.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master\SearchPatient.resx">
+      <DependentUpon>SearchPatient.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\CR_SalesReturn.resx">
       <DependentUpon>CR_SalesReturn.cs</DependentUpon>
@@ -559,6 +592,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Master\NewPatient.resx">
       <DependentUpon>NewPatient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction\OutPatientEntry.resx">
+      <DependentUpon>OutPatientEntry.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Transaction\PurchaseEntry.resx">
       <DependentUpon>PurchaseEntry.cs</DependentUpon>

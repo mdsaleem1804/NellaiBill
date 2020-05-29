@@ -51,6 +51,24 @@
             this.label1 = new System.Windows.Forms.Label();
             this.dtpExpDate = new System.Windows.Forms.DateTimePicker();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.ItemNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ItemName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Batch = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ExpDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FreeQty = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PackOf = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TotalQty = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SellingPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DiscPercentage = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DiscValue = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AmountAfterDiscount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.GstPercentage = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.GstValue = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TotalAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DGDelete = new System.Windows.Forms.DataGridViewButtonColumn();
             this.panel4 = new System.Windows.Forms.Panel();
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnItemSearch = new System.Windows.Forms.Button();
@@ -94,24 +112,6 @@
             this.lblRoundOff = new System.Windows.Forms.Label();
             this.label25 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.ItemNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ItemName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Batch = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ExpDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FreeQty = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PackOf = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TotalQty = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SellingPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DiscPercentage = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DiscValue = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.AmountAfterDiscount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.GstPercentage = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.GstValue = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TotalAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DGDelete = new System.Windows.Forms.DataGridViewButtonColumn();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -272,7 +272,6 @@
             // 
             // dtpPEDate
             // 
-            this.dtpPEDate.Enabled = false;
             this.dtpPEDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpPEDate.Location = new System.Drawing.Point(129, 50);
             this.dtpPEDate.Name = "dtpPEDate";
@@ -370,6 +369,126 @@
             this.dataGridView1.Size = new System.Drawing.Size(1224, 217);
             this.dataGridView1.TabIndex = 80;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
+            // 
+            // ItemNo
+            // 
+            this.ItemNo.HeaderText = "ItemNo";
+            this.ItemNo.Name = "ItemNo";
+            this.ItemNo.ReadOnly = true;
+            this.ItemNo.Visible = false;
+            // 
+            // ItemName
+            // 
+            this.ItemName.FillWeight = 253.8071F;
+            this.ItemName.HeaderText = "ItemName";
+            this.ItemName.Name = "ItemName";
+            this.ItemName.ReadOnly = true;
+            // 
+            // Batch
+            // 
+            this.Batch.FillWeight = 129.7703F;
+            this.Batch.HeaderText = "Batch";
+            this.Batch.Name = "Batch";
+            this.Batch.ReadOnly = true;
+            // 
+            // ExpDate
+            // 
+            this.ExpDate.FillWeight = 75.35877F;
+            this.ExpDate.HeaderText = "ExpDate";
+            this.ExpDate.Name = "ExpDate";
+            this.ExpDate.ReadOnly = true;
+            // 
+            // Qty
+            // 
+            this.Qty.FillWeight = 72.75848F;
+            this.Qty.HeaderText = "Qty";
+            this.Qty.Name = "Qty";
+            this.Qty.ReadOnly = true;
+            // 
+            // FreeQty
+            // 
+            this.FreeQty.HeaderText = "FreeQty";
+            this.FreeQty.Name = "FreeQty";
+            this.FreeQty.ReadOnly = true;
+            // 
+            // PackOf
+            // 
+            this.PackOf.HeaderText = "Pack Of";
+            this.PackOf.Name = "PackOf";
+            this.PackOf.ReadOnly = true;
+            this.PackOf.Visible = false;
+            // 
+            // TotalQty
+            // 
+            this.TotalQty.HeaderText = "Total Qty";
+            this.TotalQty.Name = "TotalQty";
+            this.TotalQty.ReadOnly = true;
+            // 
+            // Price
+            // 
+            this.Price.FillWeight = 74.59606F;
+            this.Price.HeaderText = "Price";
+            this.Price.Name = "Price";
+            this.Price.ReadOnly = true;
+            // 
+            // SellingPrice
+            // 
+            this.SellingPrice.HeaderText = "SellingPrice";
+            this.SellingPrice.Name = "SellingPrice";
+            this.SellingPrice.ReadOnly = true;
+            this.SellingPrice.Visible = false;
+            // 
+            // Amount
+            // 
+            this.Amount.FillWeight = 96.89227F;
+            this.Amount.HeaderText = "Amount";
+            this.Amount.Name = "Amount";
+            this.Amount.ReadOnly = true;
+            // 
+            // DiscPercentage
+            // 
+            this.DiscPercentage.FillWeight = 76.29374F;
+            this.DiscPercentage.HeaderText = "Disc%";
+            this.DiscPercentage.Name = "DiscPercentage";
+            this.DiscPercentage.ReadOnly = true;
+            // 
+            // DiscValue
+            // 
+            this.DiscValue.HeaderText = "DiscVal";
+            this.DiscValue.Name = "DiscValue";
+            this.DiscValue.ReadOnly = true;
+            // 
+            // AmountAfterDiscount
+            // 
+            this.AmountAfterDiscount.HeaderText = "AAD";
+            this.AmountAfterDiscount.Name = "AmountAfterDiscount";
+            this.AmountAfterDiscount.ReadOnly = true;
+            // 
+            // GstPercentage
+            // 
+            this.GstPercentage.HeaderText = "Gst %";
+            this.GstPercentage.Name = "GstPercentage";
+            this.GstPercentage.ReadOnly = true;
+            // 
+            // GstValue
+            // 
+            this.GstValue.FillWeight = 76.99837F;
+            this.GstValue.HeaderText = "Gst Value";
+            this.GstValue.Name = "GstValue";
+            this.GstValue.ReadOnly = true;
+            // 
+            // TotalAmount
+            // 
+            this.TotalAmount.HeaderText = "Total Amount";
+            this.TotalAmount.Name = "TotalAmount";
+            this.TotalAmount.ReadOnly = true;
+            // 
+            // DGDelete
+            // 
+            this.DGDelete.HeaderText = "";
+            this.DGDelete.Name = "DGDelete";
+            this.DGDelete.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.DGDelete.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
             // panel4
             // 
@@ -823,126 +942,6 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 24F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(330, 93);
             this.tableLayoutPanel1.TabIndex = 94;
-            // 
-            // ItemNo
-            // 
-            this.ItemNo.HeaderText = "ItemNo";
-            this.ItemNo.Name = "ItemNo";
-            this.ItemNo.ReadOnly = true;
-            this.ItemNo.Visible = false;
-            // 
-            // ItemName
-            // 
-            this.ItemName.FillWeight = 253.8071F;
-            this.ItemName.HeaderText = "ItemName";
-            this.ItemName.Name = "ItemName";
-            this.ItemName.ReadOnly = true;
-            // 
-            // Batch
-            // 
-            this.Batch.FillWeight = 129.7703F;
-            this.Batch.HeaderText = "Batch";
-            this.Batch.Name = "Batch";
-            this.Batch.ReadOnly = true;
-            // 
-            // ExpDate
-            // 
-            this.ExpDate.FillWeight = 75.35877F;
-            this.ExpDate.HeaderText = "ExpDate";
-            this.ExpDate.Name = "ExpDate";
-            this.ExpDate.ReadOnly = true;
-            // 
-            // Qty
-            // 
-            this.Qty.FillWeight = 72.75848F;
-            this.Qty.HeaderText = "Qty";
-            this.Qty.Name = "Qty";
-            this.Qty.ReadOnly = true;
-            // 
-            // FreeQty
-            // 
-            this.FreeQty.HeaderText = "FreeQty";
-            this.FreeQty.Name = "FreeQty";
-            this.FreeQty.ReadOnly = true;
-            // 
-            // PackOf
-            // 
-            this.PackOf.HeaderText = "Pack Of";
-            this.PackOf.Name = "PackOf";
-            this.PackOf.ReadOnly = true;
-            this.PackOf.Visible = false;
-            // 
-            // TotalQty
-            // 
-            this.TotalQty.HeaderText = "Total Qty";
-            this.TotalQty.Name = "TotalQty";
-            this.TotalQty.ReadOnly = true;
-            // 
-            // Price
-            // 
-            this.Price.FillWeight = 74.59606F;
-            this.Price.HeaderText = "Price";
-            this.Price.Name = "Price";
-            this.Price.ReadOnly = true;
-            // 
-            // SellingPrice
-            // 
-            this.SellingPrice.HeaderText = "SellingPrice";
-            this.SellingPrice.Name = "SellingPrice";
-            this.SellingPrice.ReadOnly = true;
-            this.SellingPrice.Visible = false;
-            // 
-            // Amount
-            // 
-            this.Amount.FillWeight = 96.89227F;
-            this.Amount.HeaderText = "Amount";
-            this.Amount.Name = "Amount";
-            this.Amount.ReadOnly = true;
-            // 
-            // DiscPercentage
-            // 
-            this.DiscPercentage.FillWeight = 76.29374F;
-            this.DiscPercentage.HeaderText = "Disc%";
-            this.DiscPercentage.Name = "DiscPercentage";
-            this.DiscPercentage.ReadOnly = true;
-            // 
-            // DiscValue
-            // 
-            this.DiscValue.HeaderText = "DiscVal";
-            this.DiscValue.Name = "DiscValue";
-            this.DiscValue.ReadOnly = true;
-            // 
-            // AmountAfterDiscount
-            // 
-            this.AmountAfterDiscount.HeaderText = "AAD";
-            this.AmountAfterDiscount.Name = "AmountAfterDiscount";
-            this.AmountAfterDiscount.ReadOnly = true;
-            // 
-            // GstPercentage
-            // 
-            this.GstPercentage.HeaderText = "Gst %";
-            this.GstPercentage.Name = "GstPercentage";
-            this.GstPercentage.ReadOnly = true;
-            // 
-            // GstValue
-            // 
-            this.GstValue.FillWeight = 76.99837F;
-            this.GstValue.HeaderText = "Gst Value";
-            this.GstValue.Name = "GstValue";
-            this.GstValue.ReadOnly = true;
-            // 
-            // TotalAmount
-            // 
-            this.TotalAmount.HeaderText = "Total Amount";
-            this.TotalAmount.Name = "TotalAmount";
-            this.TotalAmount.ReadOnly = true;
-            // 
-            // DGDelete
-            // 
-            this.DGDelete.HeaderText = "";
-            this.DGDelete.Name = "DGDelete";
-            this.DGDelete.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.DGDelete.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
             // PurchaseEntry
             // 

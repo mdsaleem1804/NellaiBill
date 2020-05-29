@@ -304,5 +304,19 @@ namespace NellaiBill
             report.MdiParent = this;
             report.Show();         
         }
+
+        private void doctorRegistrationToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DoctorRegistration master = new DoctorRegistration();
+            master.MdiParent = this;
+            master.Show();
+        }
+
+        private void outPatientEntryToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            OutPatientEntry transaction = new OutPatientEntry();
+            transaction.MdiParent = this;
+            transaction.Show();
+        }
     }
 }

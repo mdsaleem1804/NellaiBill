@@ -30,7 +30,7 @@ namespace NellaiBill
 
         public DatabaseConnection()
         {
-
+            //string a = Encrypt("nellaisaleem", "hana-sept-mber16");
         }
         public void DataProcess(string xQry, MySqlConnection connection)
         {
@@ -110,6 +110,24 @@ namespace NellaiBill
         {
             connection = new MySqlConnection(conString);
             string xQry = "select username from m_login where password= '" + xPassword + "'";
+            connection.Open();
+            MySqlCommand comm = new MySqlCommand(xQry, connection);
+
+            MySqlDataReader reader = comm.ExecuteReader();
+
+            while (reader.Read())
+            {
+                return reader.GetString(0);
+
+            }
+            connection.Close();
+            return "";
+
+        }
+        public string GetTokenNoForOP(string xQry)
+        {
+            connection = new MySqlConnection(conString);
+           
             connection.Open();
             MySqlCommand comm = new MySqlCommand(xQry, connection);
 

@@ -44,6 +44,18 @@
             this.categoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.productToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.hMSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.patientRegistrationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.doctorRegistrationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.testMasterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.feesMasterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.SalesmanToolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
+            this.outPatientEntryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ecgEntryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.scanEntryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.labEntryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.iPEntryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.lABToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.StockToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.PurchaseEntryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.PurchaseReturnToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -62,18 +74,6 @@
             this.stockAdjustmentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.LogoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.purchaseReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.outPatientEntryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ecgEntryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.scanEntryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.labEntryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.iPEntryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.lABToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.SalesmanToolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
-            this.hMSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.patientRegistrationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.doctorRegistrationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.testMasterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.feesMasterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.StatusStrip1.SuspendLayout();
             this.menuStrip2.SuspendLayout();
             this.SuspendLayout();
@@ -127,7 +127,7 @@
             // ToolStripStatusLabel3
             // 
             this.ToolStripStatusLabel3.Name = "ToolStripStatusLabel3";
-            this.ToolStripStatusLabel3.Size = new System.Drawing.Size(437, 17);
+            this.ToolStripStatusLabel3.Size = new System.Drawing.Size(596, 17);
             this.ToolStripStatusLabel3.Spring = true;
             // 
             // lblDateTime
@@ -178,44 +178,135 @@
             // companyToolStripMenuItem
             // 
             this.companyToolStripMenuItem.Name = "companyToolStripMenuItem";
-            this.companyToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.companyToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
             this.companyToolStripMenuItem.Text = "Company";
             this.companyToolStripMenuItem.Click += new System.EventHandler(this.companyToolStripMenuItem_Click);
             // 
             // supplerToolStripMenuItem
             // 
             this.supplerToolStripMenuItem.Name = "supplerToolStripMenuItem";
-            this.supplerToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.supplerToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
             this.supplerToolStripMenuItem.Text = "Supplier";
             this.supplerToolStripMenuItem.Click += new System.EventHandler(this.supplerToolStripMenuItem_Click);
             // 
             // customerToolStripMenuItem
             // 
             this.customerToolStripMenuItem.Name = "customerToolStripMenuItem";
-            this.customerToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.customerToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
             this.customerToolStripMenuItem.Text = "Customer";
             this.customerToolStripMenuItem.Click += new System.EventHandler(this.customerToolStripMenuItem_Click_1);
             // 
             // categoryToolStripMenuItem
             // 
             this.categoryToolStripMenuItem.Name = "categoryToolStripMenuItem";
-            this.categoryToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.categoryToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
             this.categoryToolStripMenuItem.Text = "Category";
             this.categoryToolStripMenuItem.Click += new System.EventHandler(this.categoryToolStripMenuItem_Click_1);
             // 
             // groupToolStripMenuItem
             // 
             this.groupToolStripMenuItem.Name = "groupToolStripMenuItem";
-            this.groupToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.groupToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
             this.groupToolStripMenuItem.Text = "Group";
             this.groupToolStripMenuItem.Click += new System.EventHandler(this.groupToolStripMenuItem_Click_1);
             // 
             // productToolStripMenuItem
             // 
             this.productToolStripMenuItem.Name = "productToolStripMenuItem";
-            this.productToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.productToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
             this.productToolStripMenuItem.Text = "Product";
             this.productToolStripMenuItem.Click += new System.EventHandler(this.productToolStripMenuItem_Click);
+            // 
+            // hMSToolStripMenuItem
+            // 
+            this.hMSToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.patientRegistrationToolStripMenuItem,
+            this.doctorRegistrationToolStripMenuItem,
+            this.testMasterToolStripMenuItem,
+            this.feesMasterToolStripMenuItem});
+            this.hMSToolStripMenuItem.Name = "hMSToolStripMenuItem";
+            this.hMSToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
+            this.hMSToolStripMenuItem.Text = "HMS";
+            // 
+            // patientRegistrationToolStripMenuItem
+            // 
+            this.patientRegistrationToolStripMenuItem.Name = "patientRegistrationToolStripMenuItem";
+            this.patientRegistrationToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
+            this.patientRegistrationToolStripMenuItem.Text = "Patient Registration";
+            // 
+            // doctorRegistrationToolStripMenuItem
+            // 
+            this.doctorRegistrationToolStripMenuItem.Name = "doctorRegistrationToolStripMenuItem";
+            this.doctorRegistrationToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
+            this.doctorRegistrationToolStripMenuItem.Text = "Doctor Registration";
+            this.doctorRegistrationToolStripMenuItem.Click += new System.EventHandler(this.doctorRegistrationToolStripMenuItem_Click);
+            // 
+            // testMasterToolStripMenuItem
+            // 
+            this.testMasterToolStripMenuItem.Name = "testMasterToolStripMenuItem";
+            this.testMasterToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
+            this.testMasterToolStripMenuItem.Text = "Test Master";
+            // 
+            // feesMasterToolStripMenuItem
+            // 
+            this.feesMasterToolStripMenuItem.Name = "feesMasterToolStripMenuItem";
+            this.feesMasterToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
+            this.feesMasterToolStripMenuItem.Text = "Fees Master";
+            // 
+            // SalesmanToolStripMenuItem3
+            // 
+            this.SalesmanToolStripMenuItem3.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.outPatientEntryToolStripMenuItem,
+            this.ecgEntryToolStripMenuItem,
+            this.scanEntryToolStripMenuItem,
+            this.labEntryToolStripMenuItem,
+            this.iPEntryToolStripMenuItem,
+            this.lABToolStripMenuItem});
+            this.SalesmanToolStripMenuItem3.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SalesmanToolStripMenuItem3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.SalesmanToolStripMenuItem3.Image = ((System.Drawing.Image)(resources.GetObject("SalesmanToolStripMenuItem3.Image")));
+            this.SalesmanToolStripMenuItem3.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.SalesmanToolStripMenuItem3.Name = "SalesmanToolStripMenuItem3";
+            this.SalesmanToolStripMenuItem3.Size = new System.Drawing.Size(60, 67);
+            this.SalesmanToolStripMenuItem3.Text = "HMS";
+            this.SalesmanToolStripMenuItem3.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            // 
+            // outPatientEntryToolStripMenuItem
+            // 
+            this.outPatientEntryToolStripMenuItem.Name = "outPatientEntryToolStripMenuItem";
+            this.outPatientEntryToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.outPatientEntryToolStripMenuItem.Text = "OP";
+            this.outPatientEntryToolStripMenuItem.Click += new System.EventHandler(this.outPatientEntryToolStripMenuItem_Click);
+            // 
+            // ecgEntryToolStripMenuItem
+            // 
+            this.ecgEntryToolStripMenuItem.Name = "ecgEntryToolStripMenuItem";
+            this.ecgEntryToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.ecgEntryToolStripMenuItem.Text = "IP";
+            // 
+            // scanEntryToolStripMenuItem
+            // 
+            this.scanEntryToolStripMenuItem.Name = "scanEntryToolStripMenuItem";
+            this.scanEntryToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.scanEntryToolStripMenuItem.Text = "ECG";
+            // 
+            // labEntryToolStripMenuItem
+            // 
+            this.labEntryToolStripMenuItem.Name = "labEntryToolStripMenuItem";
+            this.labEntryToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.labEntryToolStripMenuItem.Text = "XRAY";
+            // 
+            // iPEntryToolStripMenuItem
+            // 
+            this.iPEntryToolStripMenuItem.Name = "iPEntryToolStripMenuItem";
+            this.iPEntryToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.iPEntryToolStripMenuItem.Text = "SCAN";
+            // 
+            // lABToolStripMenuItem
+            // 
+            this.lABToolStripMenuItem.Name = "lABToolStripMenuItem";
+            this.lABToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.lABToolStripMenuItem.Text = "LAB";
             // 
             // StockToolStripMenuItem
             // 
@@ -379,95 +470,6 @@
             // 
             this.purchaseReportToolStripMenuItem.Name = "purchaseReportToolStripMenuItem";
             this.purchaseReportToolStripMenuItem.Size = new System.Drawing.Size(32, 19);
-            // 
-            // outPatientEntryToolStripMenuItem
-            // 
-            this.outPatientEntryToolStripMenuItem.Name = "outPatientEntryToolStripMenuItem";
-            this.outPatientEntryToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.outPatientEntryToolStripMenuItem.Text = "OP";
-            // 
-            // ecgEntryToolStripMenuItem
-            // 
-            this.ecgEntryToolStripMenuItem.Name = "ecgEntryToolStripMenuItem";
-            this.ecgEntryToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.ecgEntryToolStripMenuItem.Text = "IP";
-            // 
-            // scanEntryToolStripMenuItem
-            // 
-            this.scanEntryToolStripMenuItem.Name = "scanEntryToolStripMenuItem";
-            this.scanEntryToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.scanEntryToolStripMenuItem.Text = "ECG";
-            // 
-            // labEntryToolStripMenuItem
-            // 
-            this.labEntryToolStripMenuItem.Name = "labEntryToolStripMenuItem";
-            this.labEntryToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.labEntryToolStripMenuItem.Text = "XRAY";
-            // 
-            // iPEntryToolStripMenuItem
-            // 
-            this.iPEntryToolStripMenuItem.Name = "iPEntryToolStripMenuItem";
-            this.iPEntryToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.iPEntryToolStripMenuItem.Text = "SCAN";
-            // 
-            // lABToolStripMenuItem
-            // 
-            this.lABToolStripMenuItem.Name = "lABToolStripMenuItem";
-            this.lABToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.lABToolStripMenuItem.Text = "LAB";
-            // 
-            // SalesmanToolStripMenuItem3
-            // 
-            this.SalesmanToolStripMenuItem3.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.outPatientEntryToolStripMenuItem,
-            this.ecgEntryToolStripMenuItem,
-            this.scanEntryToolStripMenuItem,
-            this.labEntryToolStripMenuItem,
-            this.iPEntryToolStripMenuItem,
-            this.lABToolStripMenuItem});
-            this.SalesmanToolStripMenuItem3.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SalesmanToolStripMenuItem3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
-            this.SalesmanToolStripMenuItem3.Image = ((System.Drawing.Image)(resources.GetObject("SalesmanToolStripMenuItem3.Image")));
-            this.SalesmanToolStripMenuItem3.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.SalesmanToolStripMenuItem3.Name = "SalesmanToolStripMenuItem3";
-            this.SalesmanToolStripMenuItem3.Size = new System.Drawing.Size(60, 67);
-            this.SalesmanToolStripMenuItem3.Text = "HMS";
-            this.SalesmanToolStripMenuItem3.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            // 
-            // hMSToolStripMenuItem
-            // 
-            this.hMSToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.patientRegistrationToolStripMenuItem,
-            this.doctorRegistrationToolStripMenuItem,
-            this.testMasterToolStripMenuItem,
-            this.feesMasterToolStripMenuItem});
-            this.hMSToolStripMenuItem.Name = "hMSToolStripMenuItem";
-            this.hMSToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.hMSToolStripMenuItem.Text = "HMS";
-            // 
-            // patientRegistrationToolStripMenuItem
-            // 
-            this.patientRegistrationToolStripMenuItem.Name = "patientRegistrationToolStripMenuItem";
-            this.patientRegistrationToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.patientRegistrationToolStripMenuItem.Text = "Patient Registration";
-            // 
-            // doctorRegistrationToolStripMenuItem
-            // 
-            this.doctorRegistrationToolStripMenuItem.Name = "doctorRegistrationToolStripMenuItem";
-            this.doctorRegistrationToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.doctorRegistrationToolStripMenuItem.Text = "Doctor Registration";
-            // 
-            // testMasterToolStripMenuItem
-            // 
-            this.testMasterToolStripMenuItem.Name = "testMasterToolStripMenuItem";
-            this.testMasterToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.testMasterToolStripMenuItem.Text = "Test Master";
-            // 
-            // feesMasterToolStripMenuItem
-            // 
-            this.feesMasterToolStripMenuItem.Name = "feesMasterToolStripMenuItem";
-            this.feesMasterToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.feesMasterToolStripMenuItem.Text = "Fees Master";
             // 
             // frm_main_mdi
             // 
