@@ -8,18 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace NellaiBill.Transaction
+namespace NellaiBill.Master
 {
-    public partial class NewPatient : Form
+    public partial class FeesMaster : Form
     {
-        public NewPatient()
+        public FeesMaster()
         {
             InitializeComponent();
-        }
-
-        private void NewPatient_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

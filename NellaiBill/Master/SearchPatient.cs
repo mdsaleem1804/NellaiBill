@@ -17,6 +17,7 @@ namespace NellaiBill.Master
         public int xPatientId { get; set; }
         public string xPatientName { get; set; }
         public string xPatientAddress { get; set; }
+        public string xUhid { get; set; }
         public SearchPatient()
         {
             InitializeComponent();
@@ -39,7 +40,9 @@ namespace NellaiBill.Master
         private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             xPatientId = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString());
+            xUhid = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
             xPatientName = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
+            xPatientAddress = dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString();
             if (xPatientName == "")
             {
                 MessageBox.Show("Please select different PatientName");
@@ -55,6 +58,7 @@ namespace NellaiBill.Master
                 DataGridViewRow dgr = dataGridView1.CurrentRow;
 
                 xPatientId = Convert.ToInt32(dgr.Cells[0].Value.ToString());
+                xUhid = dgr.Cells[1].Value.ToString();
                 xPatientName = dgr.Cells[2].Value.ToString();
                 xPatientAddress = dgr.Cells[3].Value.ToString();
                 if (xPatientName == "")
@@ -72,6 +76,12 @@ namespace NellaiBill.Master
             {
                 this.Close();
             }
+        }
+
+        private void txtSearch_TextChanged(object sender, EventArgs e)
+        {
+            string xFilterSearch = "patient_name Like '%" + txtSearch.Text + "%' OR uhid LIKE '%" + txtSearch.Text + "%'";
+            (dataGridView1.DataSource as DataTable).DefaultView.RowFilter = string.Format(xFilterSearch);
         }
     }
 }

@@ -305,18 +305,41 @@ namespace NellaiBill
             report.Show();         
         }
 
-        private void doctorRegistrationToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            DoctorRegistration master = new DoctorRegistration();
-            master.MdiParent = this;
-            master.Show();
-        }
+       
 
         private void outPatientEntryToolStripMenuItem_Click(object sender, EventArgs e)
         {
             OutPatientEntry transaction = new OutPatientEntry();
             transaction.MdiParent = this;
             transaction.Show();
+        }
+
+        private void patientRegistrationToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            NewPatient master = new NewPatient();
+            master.MdiParent = this;
+            master.Show();
+        }
+
+        private void doctorRegistrationToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            DoctorRegistration master = new DoctorRegistration();
+            master.MdiParent = this;
+            master.Show();
+        }
+
+        private void oPTodaysCollectionReportToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            OPSummaryReport report = new OPSummaryReport();
+            report.MdiParent = this;
+            report.Show();
+        }
+
+        private void oPCaseType1ReportToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            OPCaseType1Report report = new OPCaseType1Report();
+            report.MdiParent = this;
+            report.Show();
         }
     }
 }

@@ -36,10 +36,10 @@ namespace NellaiBill.Master
             else
             {
                 xQry = "update m_doctor set " +
-                    " ledger_name = '" + txtName.Text + "', " +
-                    " ledger_address = '" + rchAddress.Text + "', " +
-                    " ledger_mobile_no = '" + txtMobileNo.Text + "' " +
-                    " where  account_ledger_id= " + xDoctorId + "";
+                    " doctor_name = '" + txtName.Text + "', " +
+                    " address = '" + rchAddress.Text + "', " +
+                    " mobileno = '" + txtMobileNo.Text + "' " +
+                    " where  doctor_id= " + xDoctorId + "";
             }
             xDb.DataProcess(xQry);
             MessageBox.Show("Saved/Updated");

@@ -31,14 +31,14 @@
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
+    <PlatformTarget>x86</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>bin\Debug\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
+    <WarningLevel>1</WarningLevel>
     <Prefer32Bit>true</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
@@ -152,6 +152,24 @@
     </Compile>
     <Compile Include="Backup.Designer.cs">
       <DependentUpon>Backup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CrystalReports\rptOPCaseType1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptOPCaseType1.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CrystalReports\rptOPConsolidated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptOPConsolidated.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CrystalReports\rptOutpatientBill1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptOutpatientBill.rpt</DependentUpon>
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="CrystalReports\rptPurchaseByInvoice.cs">
       <AutoGen>True</AutoGen>
@@ -318,6 +336,18 @@
       <DependentUpon>frmStockHistory.cs</DependentUpon>
     </Compile>
     <Compile Include="Reports\ITextEvents.cs" />
+    <Compile Include="Reports\OPCaseType1Report.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\OPCaseType1Report.Designer.cs">
+      <DependentUpon>OPCaseType1Report.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\OPSummaryReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\OPSummaryReport.Designer.cs">
+      <DependentUpon>OPSummaryReport.cs</DependentUpon>
+    </Compile>
     <Compile Include="Reports\PurchaseReport.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -353,11 +383,6 @@
     </Compile>
     <Compile Include="Reports\WebReports.Designer.cs">
       <DependentUpon>WebReports.cs</DependentUpon>
-    </Compile>
-    <Compile Include="test_pharmacyDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>test_pharmacyDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="Transaction\EcgXrayLab.cs">
       <SubType>Form</SubType>
@@ -407,11 +432,11 @@
     <Compile Include="Reports\Report.Designer.cs">
       <DependentUpon>Report.cs</DependentUpon>
     </Compile>
-    <Compile Include="Master\NewPatient.cs">
+    <Compile Include="Master\PatientRegistration.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Master\NewPatient.Designer.cs">
-      <DependentUpon>NewPatient.cs</DependentUpon>
+    <Compile Include="Master\PatientRegistration.Designer.cs">
+      <DependentUpon>PatientRegistration.cs</DependentUpon>
     </Compile>
     <Compile Include="Transaction\OutPatientEntry.cs">
       <SubType>Form</SubType>
@@ -456,6 +481,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Backup.resx">
       <DependentUpon>Backup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReports\rptOPCaseType1.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptOPCaseType1.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReports\rptOPConsolidated.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptOPConsolidated.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReports\rptOutpatientBill.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptOutpatientBill1.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="CrystalReports\rptPurchaseByInvoice.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
@@ -548,6 +585,12 @@
     <EmbeddedResource Include="Reports\frmStockHistory.resx">
       <DependentUpon>frmStockHistory.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reports\OPCaseType1Report.resx">
+      <DependentUpon>OPCaseType1Report.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\OPSummaryReport.resx">
+      <DependentUpon>OPSummaryReport.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reports\PurchaseReport.resx">
       <DependentUpon>PurchaseReport.cs</DependentUpon>
     </EmbeddedResource>
@@ -590,8 +633,8 @@
     <EmbeddedResource Include="Reports\Report.resx">
       <DependentUpon>Report.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Master\NewPatient.resx">
-      <DependentUpon>NewPatient.cs</DependentUpon>
+    <EmbeddedResource Include="Master\PatientRegistration.resx">
+      <DependentUpon>PatientRegistration.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Transaction\OutPatientEntry.resx">
       <DependentUpon>OutPatientEntry.cs</DependentUpon>
@@ -646,17 +689,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="test_pharmacyDataSet.xsc">
-      <DependentUpon>test_pharmacyDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="test_pharmacyDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>test_pharmacyDataSet.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="test_pharmacyDataSet.xss">
-      <DependentUpon>test_pharmacyDataSet.xsd</DependentUpon>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">

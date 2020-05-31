@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NellaiBill.Transaction;
+using System;
 using System.Net.NetworkInformation;
 using System.Windows.Forms;
 
@@ -21,6 +22,11 @@ namespace NellaiBill.Master
                 this.Hide();
                 nextForm.ShowDialog();
                 this.Close();
+
+                //OutPatientEntry nextForm = new OutPatientEntry();
+                //this.Hide();
+                //nextForm.ShowDialog();
+                //this.Close();
 
             }
             else

@@ -30,7 +30,7 @@ namespace NellaiBill
 
         public DatabaseConnection()
         {
-            //string a = Encrypt("nellaisaleem", "hana-sept-mber16");
+            string a = Encrypt("", "hana-sept-mber16");
         }
         public void DataProcess(string xQry, MySqlConnection connection)
         {
@@ -232,8 +232,7 @@ namespace NellaiBill
 
         }
 
-
-
+    
         public void LoadComboBox(string xQry, ComboBox xComboBox, string xValueMember, string xDisplayMember)
         {
             using (MySqlConnection conn = new MySqlConnection(conString))
@@ -259,6 +258,37 @@ namespace NellaiBill
                     xComboBox.ValueMember = xValueMember;
                     xComboBox.DisplayMember = xDisplayMember;
                     xComboBox.DataSource = dt;
+                   
+                   
+                }
+            }
+
+
+
+        }
+        public void LoadComboBox1(string xQry, ComboBox xComboBox, string xValueMember, string xDisplayMember)
+        {
+            using (MySqlConnection conn = new MySqlConnection(conString))
+            {
+                using (MySqlDataAdapter adapter = new MySqlDataAdapter(xQry, conn))
+                {
+                    try
+                    {
+                        MySqlConnection connection = new MySqlConnection(conString);
+
+                        connection.Open();
+                        MySqlCommand command = new MySqlCommand(xQry, connection);
+                        MySqlDataReader reader = command.ExecuteReader();
+                        while (reader.Read())
+                        {
+                            xComboBox.Items.Add(reader.GetString(xDisplayMember));
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
+
                 }
             }
 
