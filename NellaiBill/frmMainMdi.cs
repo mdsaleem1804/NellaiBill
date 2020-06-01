@@ -40,9 +40,9 @@ namespace NellaiBill
         private void frm_main_mdi_Load(object sender, EventArgs e)
         {
      
-            SalesEntry s = new SalesEntry();
-            s.MdiParent = this;  
-            s.Show();
+            Dashboard dashboard = new Dashboard();
+            dashboard.MdiParent = this;
+            dashboard.Show();
         }
 
         private void yearEndToolStripMenuItem_Click(object sender, EventArgs e)
@@ -340,6 +340,20 @@ namespace NellaiBill
             OPCaseType1Report report = new OPCaseType1Report();
             report.MdiParent = this;
             report.Show();
+        }
+
+        private void feesMasterToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            FeesMaster master = new FeesMaster();
+            master.MdiParent = this;
+            master.Show();
+        }
+
+        private void testMasterToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            TestMaster master = new TestMaster();
+            master.MdiParent = this;
+            master.Show();
         }
     }
 }

@@ -44,10 +44,8 @@
             this.categoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.productToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.testMasterToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.feesMasterToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.patientRegistrationToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.doctorRegistrationToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.patientRegistrationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.doctorRegistrationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.SalesmanToolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
             this.outPatientEntryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ecgEntryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -69,13 +67,16 @@
             this.salesReturnReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.outPatientToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.oPTodaysCollectionReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.oPCaseType1ReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.DatabaseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.BackupToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.RestoreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.stockAdjustmentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.LogoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.purchaseReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.oPCaseType1ReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.feesMasterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.feesMasterToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.testMasterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.StatusStrip1.SuspendLayout();
             this.menuStrip2.SuspendLayout();
             this.SuspendLayout();
@@ -161,16 +162,16 @@
             // RegistrationToolStripMenuItem
             // 
             this.RegistrationToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.patientRegistrationToolStripMenuItem,
+            this.doctorRegistrationToolStripMenuItem,
             this.companyToolStripMenuItem,
             this.supplerToolStripMenuItem,
             this.customerToolStripMenuItem,
             this.categoryToolStripMenuItem,
             this.groupToolStripMenuItem,
             this.productToolStripMenuItem,
-            this.testMasterToolStripMenuItem1,
             this.feesMasterToolStripMenuItem1,
-            this.patientRegistrationToolStripMenuItem1,
-            this.doctorRegistrationToolStripMenuItem1});
+            this.testMasterToolStripMenuItem});
             this.RegistrationToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.RegistrationToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
             this.RegistrationToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("RegistrationToolStripMenuItem.Image")));
@@ -183,70 +184,58 @@
             // companyToolStripMenuItem
             // 
             this.companyToolStripMenuItem.Name = "companyToolStripMenuItem";
-            this.companyToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
+            this.companyToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.companyToolStripMenuItem.Text = "Company";
             this.companyToolStripMenuItem.Click += new System.EventHandler(this.companyToolStripMenuItem_Click);
             // 
             // supplerToolStripMenuItem
             // 
             this.supplerToolStripMenuItem.Name = "supplerToolStripMenuItem";
-            this.supplerToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
+            this.supplerToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.supplerToolStripMenuItem.Text = "Supplier";
             this.supplerToolStripMenuItem.Click += new System.EventHandler(this.supplerToolStripMenuItem_Click);
             // 
             // customerToolStripMenuItem
             // 
             this.customerToolStripMenuItem.Name = "customerToolStripMenuItem";
-            this.customerToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
+            this.customerToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.customerToolStripMenuItem.Text = "Customer";
             this.customerToolStripMenuItem.Click += new System.EventHandler(this.customerToolStripMenuItem_Click_1);
             // 
             // categoryToolStripMenuItem
             // 
             this.categoryToolStripMenuItem.Name = "categoryToolStripMenuItem";
-            this.categoryToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
+            this.categoryToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.categoryToolStripMenuItem.Text = "Category";
             this.categoryToolStripMenuItem.Click += new System.EventHandler(this.categoryToolStripMenuItem_Click_1);
             // 
             // groupToolStripMenuItem
             // 
             this.groupToolStripMenuItem.Name = "groupToolStripMenuItem";
-            this.groupToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
+            this.groupToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.groupToolStripMenuItem.Text = "Group";
             this.groupToolStripMenuItem.Click += new System.EventHandler(this.groupToolStripMenuItem_Click_1);
             // 
             // productToolStripMenuItem
             // 
             this.productToolStripMenuItem.Name = "productToolStripMenuItem";
-            this.productToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
+            this.productToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.productToolStripMenuItem.Text = "Product";
             this.productToolStripMenuItem.Click += new System.EventHandler(this.productToolStripMenuItem_Click);
             // 
-            // testMasterToolStripMenuItem1
+            // patientRegistrationToolStripMenuItem
             // 
-            this.testMasterToolStripMenuItem1.Name = "testMasterToolStripMenuItem1";
-            this.testMasterToolStripMenuItem1.Size = new System.Drawing.Size(177, 22);
-            this.testMasterToolStripMenuItem1.Text = "Test Master";
+            this.patientRegistrationToolStripMenuItem.Name = "patientRegistrationToolStripMenuItem";
+            this.patientRegistrationToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.patientRegistrationToolStripMenuItem.Text = "Patient Registration";
+            this.patientRegistrationToolStripMenuItem.Click += new System.EventHandler(this.patientRegistrationToolStripMenuItem1_Click);
             // 
-            // feesMasterToolStripMenuItem1
+            // doctorRegistrationToolStripMenuItem
             // 
-            this.feesMasterToolStripMenuItem1.Name = "feesMasterToolStripMenuItem1";
-            this.feesMasterToolStripMenuItem1.Size = new System.Drawing.Size(177, 22);
-            this.feesMasterToolStripMenuItem1.Text = "Fees Master";
-            // 
-            // patientRegistrationToolStripMenuItem1
-            // 
-            this.patientRegistrationToolStripMenuItem1.Name = "patientRegistrationToolStripMenuItem1";
-            this.patientRegistrationToolStripMenuItem1.Size = new System.Drawing.Size(177, 22);
-            this.patientRegistrationToolStripMenuItem1.Text = "Patient Registration";
-            this.patientRegistrationToolStripMenuItem1.Click += new System.EventHandler(this.patientRegistrationToolStripMenuItem1_Click);
-            // 
-            // doctorRegistrationToolStripMenuItem1
-            // 
-            this.doctorRegistrationToolStripMenuItem1.Name = "doctorRegistrationToolStripMenuItem1";
-            this.doctorRegistrationToolStripMenuItem1.Size = new System.Drawing.Size(177, 22);
-            this.doctorRegistrationToolStripMenuItem1.Text = "Doctor Registration";
-            this.doctorRegistrationToolStripMenuItem1.Click += new System.EventHandler(this.doctorRegistrationToolStripMenuItem1_Click);
+            this.doctorRegistrationToolStripMenuItem.Name = "doctorRegistrationToolStripMenuItem";
+            this.doctorRegistrationToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.doctorRegistrationToolStripMenuItem.Text = "Doctor Registration";
+            this.doctorRegistrationToolStripMenuItem.Click += new System.EventHandler(this.doctorRegistrationToolStripMenuItem1_Click);
             // 
             // SalesmanToolStripMenuItem3
             // 
@@ -269,38 +258,38 @@
             // outPatientEntryToolStripMenuItem
             // 
             this.outPatientEntryToolStripMenuItem.Name = "outPatientEntryToolStripMenuItem";
-            this.outPatientEntryToolStripMenuItem.Size = new System.Drawing.Size(105, 22);
+            this.outPatientEntryToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.outPatientEntryToolStripMenuItem.Text = "OP";
             this.outPatientEntryToolStripMenuItem.Click += new System.EventHandler(this.outPatientEntryToolStripMenuItem_Click);
             // 
             // ecgEntryToolStripMenuItem
             // 
             this.ecgEntryToolStripMenuItem.Name = "ecgEntryToolStripMenuItem";
-            this.ecgEntryToolStripMenuItem.Size = new System.Drawing.Size(105, 22);
+            this.ecgEntryToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.ecgEntryToolStripMenuItem.Text = "IP";
             // 
             // scanEntryToolStripMenuItem
             // 
             this.scanEntryToolStripMenuItem.Name = "scanEntryToolStripMenuItem";
-            this.scanEntryToolStripMenuItem.Size = new System.Drawing.Size(105, 22);
+            this.scanEntryToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.scanEntryToolStripMenuItem.Text = "ECG";
             // 
             // labEntryToolStripMenuItem
             // 
             this.labEntryToolStripMenuItem.Name = "labEntryToolStripMenuItem";
-            this.labEntryToolStripMenuItem.Size = new System.Drawing.Size(105, 22);
+            this.labEntryToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.labEntryToolStripMenuItem.Text = "XRAY";
             // 
             // iPEntryToolStripMenuItem
             // 
             this.iPEntryToolStripMenuItem.Name = "iPEntryToolStripMenuItem";
-            this.iPEntryToolStripMenuItem.Size = new System.Drawing.Size(105, 22);
+            this.iPEntryToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.iPEntryToolStripMenuItem.Text = "SCAN";
             // 
             // lABToolStripMenuItem
             // 
             this.lABToolStripMenuItem.Name = "lABToolStripMenuItem";
-            this.lABToolStripMenuItem.Size = new System.Drawing.Size(105, 22);
+            this.lABToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.lABToolStripMenuItem.Text = "LAB";
             // 
             // StockToolStripMenuItem
@@ -431,6 +420,13 @@
             this.oPTodaysCollectionReportToolStripMenuItem.Text = "OPTodaysCollectionReport";
             this.oPTodaysCollectionReportToolStripMenuItem.Click += new System.EventHandler(this.oPTodaysCollectionReportToolStripMenuItem_Click);
             // 
+            // oPCaseType1ReportToolStripMenuItem
+            // 
+            this.oPCaseType1ReportToolStripMenuItem.Name = "oPCaseType1ReportToolStripMenuItem";
+            this.oPCaseType1ReportToolStripMenuItem.Size = new System.Drawing.Size(215, 22);
+            this.oPCaseType1ReportToolStripMenuItem.Text = "OPCaseType1Report";
+            this.oPCaseType1ReportToolStripMenuItem.Click += new System.EventHandler(this.oPCaseType1ReportToolStripMenuItem_Click);
+            // 
             // DatabaseToolStripMenuItem
             // 
             this.DatabaseToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -449,20 +445,20 @@
             // BackupToolStripMenuItem
             // 
             this.BackupToolStripMenuItem.Name = "BackupToolStripMenuItem";
-            this.BackupToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
+            this.BackupToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.BackupToolStripMenuItem.Text = "Backup";
             this.BackupToolStripMenuItem.Click += new System.EventHandler(this.BackupToolStripMenuItem_Click);
             // 
             // RestoreToolStripMenuItem
             // 
             this.RestoreToolStripMenuItem.Name = "RestoreToolStripMenuItem";
-            this.RestoreToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
+            this.RestoreToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.RestoreToolStripMenuItem.Text = "Restore";
             // 
             // stockAdjustmentToolStripMenuItem
             // 
             this.stockAdjustmentToolStripMenuItem.Name = "stockAdjustmentToolStripMenuItem";
-            this.stockAdjustmentToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
+            this.stockAdjustmentToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.stockAdjustmentToolStripMenuItem.Text = "Stock Adjustment";
             this.stockAdjustmentToolStripMenuItem.Click += new System.EventHandler(this.stockAdjustmentToolStripMenuItem_Click);
             // 
@@ -483,12 +479,25 @@
             this.purchaseReportToolStripMenuItem.Name = "purchaseReportToolStripMenuItem";
             this.purchaseReportToolStripMenuItem.Size = new System.Drawing.Size(32, 19);
             // 
-            // oPCaseType1ReportToolStripMenuItem
+            // feesMasterToolStripMenuItem
             // 
-            this.oPCaseType1ReportToolStripMenuItem.Name = "oPCaseType1ReportToolStripMenuItem";
-            this.oPCaseType1ReportToolStripMenuItem.Size = new System.Drawing.Size(215, 22);
-            this.oPCaseType1ReportToolStripMenuItem.Text = "OPCaseType1Report";
-            this.oPCaseType1ReportToolStripMenuItem.Click += new System.EventHandler(this.oPCaseType1ReportToolStripMenuItem_Click);
+            this.feesMasterToolStripMenuItem.Name = "feesMasterToolStripMenuItem";
+            this.feesMasterToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
+            this.feesMasterToolStripMenuItem.Text = "Fees Master";
+            // 
+            // feesMasterToolStripMenuItem1
+            // 
+            this.feesMasterToolStripMenuItem1.Name = "feesMasterToolStripMenuItem1";
+            this.feesMasterToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.feesMasterToolStripMenuItem1.Text = "Fees Master";
+            this.feesMasterToolStripMenuItem1.Click += new System.EventHandler(this.feesMasterToolStripMenuItem1_Click);
+            // 
+            // testMasterToolStripMenuItem
+            // 
+            this.testMasterToolStripMenuItem.Name = "testMasterToolStripMenuItem";
+            this.testMasterToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.testMasterToolStripMenuItem.Text = "Test Master";
+            this.testMasterToolStripMenuItem.Click += new System.EventHandler(this.testMasterToolStripMenuItem_Click);
             // 
             // frm_main_mdi
             // 
@@ -555,13 +564,14 @@
         private System.Windows.Forms.ToolStripMenuItem labEntryToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem iPEntryToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem lABToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem testMasterToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem feesMasterToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem patientRegistrationToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem doctorRegistrationToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem patientRegistrationToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem doctorRegistrationToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem outPatientToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem oPTodaysCollectionReportToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem oPCaseType1ReportToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem feesMasterToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem feesMasterToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem testMasterToolStripMenuItem;
     }
 }
 

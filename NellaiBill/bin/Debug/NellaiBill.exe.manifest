@@ -319,14 +319,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="NellaiBill.exe" size="848880">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="NellaiBill.exe" size="954352">
       <assemblyIdentity name="NellaiBill" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>7E9PWV3QO9V1xUxS4iNLqvJ8Kmc8g5f9wWqDq3FQ38Y=</dsig:DigestValue>
+        <dsig:DigestValue>e1rEnURH4ykUqeV8K3U/7RjhXaOGnDxAgsi1QoWjqno=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

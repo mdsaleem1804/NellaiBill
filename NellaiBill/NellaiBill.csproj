@@ -231,12 +231,24 @@
       <DependentUpon>rptUsers.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Dashboard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dashboard.Designer.cs">
+      <DependentUpon>Dashboard.cs</DependentUpon>
+    </Compile>
     <Compile Include="GlobalClass.cs" />
     <Compile Include="Master\DoctorRegistration.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Master\DoctorRegistration.Designer.cs">
       <DependentUpon>DoctorRegistration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Master\FeesMaster.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Master\FeesMaster.Designer.cs">
+      <DependentUpon>FeesMaster.cs</DependentUpon>
     </Compile>
     <Compile Include="Master\frmCompany.cs">
       <SubType>Form</SubType>
@@ -310,6 +322,12 @@
     </Compile>
     <Compile Include="Master\SearchPatient.Designer.cs">
       <DependentUpon>SearchPatient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Master\TestMaster.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Master\TestMaster.Designer.cs">
+      <DependentUpon>TestMaster.cs</DependentUpon>
     </Compile>
     <Compile Include="Reports\CR_SalesReturn.cs">
       <SubType>Form</SubType>
@@ -534,11 +552,17 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>rptUsers.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Dashboard.resx">
+      <DependentUpon>Dashboard.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmMainMdi.resx">
       <DependentUpon>frmMainMdi.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Master\DoctorRegistration.resx">
       <DependentUpon>DoctorRegistration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master\FeesMaster.resx">
+      <DependentUpon>FeesMaster.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Master\frmCategory.resx">
       <DependentUpon>frmCategory.cs</DependentUpon>
@@ -572,6 +596,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Master\SearchPatient.resx">
       <DependentUpon>SearchPatient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master\TestMaster.resx">
+      <DependentUpon>TestMaster.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\CR_SalesReturn.resx">
       <DependentUpon>CR_SalesReturn.cs</DependentUpon>
@@ -723,6 +750,8 @@
     <Content Include="h_icon_cng_icon.ico" />
     <Content Include="logo.ico" />
     <Content Include="pharmacy.ico" />
+    <None Include="Resources\login_png.png" />
+    <None Include="Resources\bg.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

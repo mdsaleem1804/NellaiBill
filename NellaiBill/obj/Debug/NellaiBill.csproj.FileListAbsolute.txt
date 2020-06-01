@@ -207,3 +207,6 @@ E:\Dotnet\NellaiBill\NellaiBill\obj\Debug\NellaiBill.application
 E:\Dotnet\NellaiBill\NellaiBill\obj\Debug\NellaiBill.csproj.CopyComplete
 E:\Dotnet\NellaiBill\NellaiBill\obj\Debug\NellaiBill.exe
 E:\Dotnet\NellaiBill\NellaiBill\obj\Debug\NellaiBill.pdb
+E:\Dotnet\NellaiBill\NellaiBill\obj\Debug\NellaiBill.Dashboard.resources
+E:\Dotnet\NellaiBill\NellaiBill\obj\Debug\NellaiBill.Master.FeesMaster.resources
+E:\Dotnet\NellaiBill\NellaiBill\obj\Debug\NellaiBill.Master.TestMaster.resources
