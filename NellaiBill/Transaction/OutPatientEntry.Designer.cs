@@ -125,7 +125,7 @@
             this.txtUhid.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtUhid.Location = new System.Drawing.Point(124, 74);
             this.txtUhid.Name = "txtUhid";
-            this.txtUhid.Size = new System.Drawing.Size(113, 24);
+            this.txtUhid.Size = new System.Drawing.Size(146, 24);
             this.txtUhid.TabIndex = 118;
             // 
             // txtOpId
@@ -151,7 +151,7 @@
             // 
             this.rchPatientAddress.Enabled = false;
             this.rchPatientAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rchPatientAddress.Location = new System.Drawing.Point(539, 50);
+            this.rchPatientAddress.Location = new System.Drawing.Point(520, 46);
             this.rchPatientAddress.Name = "rchPatientAddress";
             this.rchPatientAddress.Size = new System.Drawing.Size(268, 48);
             this.rchPatientAddress.TabIndex = 106;
@@ -161,7 +161,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(439, 60);
+            this.label9.Location = new System.Drawing.Point(420, 56);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(62, 18);
             this.label9.TabIndex = 107;
@@ -190,9 +190,9 @@
             // 
             this.btnPatientSearch.BackColor = System.Drawing.Color.Lime;
             this.btnPatientSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPatientSearch.Location = new System.Drawing.Point(253, 54);
+            this.btnPatientSearch.Location = new System.Drawing.Point(276, 54);
             this.btnPatientSearch.Name = "btnPatientSearch";
-            this.btnPatientSearch.Size = new System.Drawing.Size(132, 44);
+            this.btnPatientSearch.Size = new System.Drawing.Size(121, 44);
             this.btnPatientSearch.TabIndex = 95;
             this.btnPatientSearch.Text = "SEARCH (CTRL+P)";
             this.btnPatientSearch.UseVisualStyleBackColor = false;
@@ -202,7 +202,7 @@
             // 
             this.txtDoctorId.Enabled = false;
             this.txtDoctorId.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDoctorId.Location = new System.Drawing.Point(1022, 13);
+            this.txtDoctorId.Location = new System.Drawing.Point(913, 15);
             this.txtDoctorId.Name = "txtDoctorId";
             this.txtDoctorId.Size = new System.Drawing.Size(58, 24);
             this.txtDoctorId.TabIndex = 94;
@@ -211,7 +211,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(903, 16);
+            this.label3.Location = new System.Drawing.Point(794, 18);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(69, 18);
             this.label3.TabIndex = 93;
@@ -221,7 +221,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(439, 24);
+            this.label2.Location = new System.Drawing.Point(420, 20);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(97, 18);
             this.label2.TabIndex = 91;
@@ -231,7 +231,7 @@
             // 
             this.txtPatientName.Enabled = false;
             this.txtPatientName.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPatientName.Location = new System.Drawing.Point(539, 20);
+            this.txtPatientName.Location = new System.Drawing.Point(520, 16);
             this.txtPatientName.Name = "txtPatientName";
             this.txtPatientName.Size = new System.Drawing.Size(268, 24);
             this.txtPatientName.TabIndex = 90;
@@ -240,7 +240,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(903, 69);
+            this.label1.Location = new System.Drawing.Point(794, 71);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(98, 18);
             this.label1.TabIndex = 89;
@@ -250,7 +250,7 @@
             // 
             this.txtDoctorName.Enabled = false;
             this.txtDoctorName.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDoctorName.Location = new System.Drawing.Point(1022, 64);
+            this.txtDoctorName.Location = new System.Drawing.Point(913, 66);
             this.txtDoctorName.Name = "txtDoctorName";
             this.txtDoctorName.Size = new System.Drawing.Size(214, 24);
             this.txtDoctorName.TabIndex = 88;
@@ -259,7 +259,7 @@
             // 
             this.btnDoctorSearch.BackColor = System.Drawing.Color.Lime;
             this.btnDoctorSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDoctorSearch.Location = new System.Drawing.Point(1095, 9);
+            this.btnDoctorSearch.Location = new System.Drawing.Point(986, 11);
             this.btnDoctorSearch.Name = "btnDoctorSearch";
             this.btnDoctorSearch.Size = new System.Drawing.Size(141, 49);
             this.btnDoctorSearch.TabIndex = 62;
@@ -368,7 +368,7 @@
             // 
             this.txtTokenNo.Enabled = false;
             this.txtTokenNo.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTokenNo.Location = new System.Drawing.Point(863, 221);
+            this.txtTokenNo.Location = new System.Drawing.Point(863, 216);
             this.txtTokenNo.Name = "txtTokenNo";
             this.txtTokenNo.Size = new System.Drawing.Size(76, 24);
             this.txtTokenNo.TabIndex = 133;
@@ -378,7 +378,7 @@
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(860, 200);
+            this.label13.Location = new System.Drawing.Point(765, 219);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(74, 18);
             this.label13.TabIndex = 132;
@@ -499,7 +499,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1281, 620);
+            this.ClientSize = new System.Drawing.Size(1287, 620);
             this.Controls.Add(this.cmbCaseType1);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.mBtnCancel);

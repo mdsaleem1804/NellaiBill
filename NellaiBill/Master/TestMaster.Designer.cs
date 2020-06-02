@@ -105,7 +105,7 @@
             this.panel3.BackColor = System.Drawing.Color.DarkMagenta;
             this.panel3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panel3.Controls.Add(this.label8);
-            this.panel3.Location = new System.Drawing.Point(47, 20);
+            this.panel3.Location = new System.Drawing.Point(47, 12);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(880, 35);
             this.panel3.TabIndex = 32;
@@ -186,7 +186,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(956, 604);
+            this.ClientSize = new System.Drawing.Size(1273, 604);
             this.Controls.Add(this.cmbTestMode);
             this.Controls.Add(this.materialLabel4);
             this.Controls.Add(this.rchTextDescription);

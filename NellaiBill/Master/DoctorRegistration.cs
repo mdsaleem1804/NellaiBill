@@ -30,8 +30,8 @@ namespace NellaiBill.Master
             if (mBtnSaveUpdate.Text == "SAVE")
             {
 
-                xQry = "insert into m_doctor (doctor_name,gender,address,mobileno,created_by) " +
-                    " values ( '" + txtName.Text + "','" + cmbGender.SelectedItem.ToString() + "','" + rchAddress.Text + "','" + txtMobileNo.Text + "','Saleem')";
+                xQry = "insert into m_doctor (doctor_name,address,mobileno) " +
+                    " values ( '" + txtName.Text + "','" + rchAddress.Text + "','" + txtMobileNo.Text + "')";
             }
             else
             {
@@ -50,8 +50,10 @@ namespace NellaiBill.Master
         private void LoadGrid()
         {
             string xQry = "select doctor_id as DoctorId,doctor_name as DoctorName," +
-                " gender as Gender,address as Address,mobileno as MobileNo,created_by as CreatedBy from m_doctor";
+                " address as Address,mobileno as MobileNo from m_doctor";
             xDb.LoadGrid(xQry, dataGridView1);
+            dataGridView1.ReadOnly = true;
+            dataGridView1.Columns[0].Visible = false;
         }
         private void DataClear()
         {
@@ -65,8 +67,8 @@ namespace NellaiBill.Master
 
             xDoctorId = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString());
             txtName.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
-            rchAddress.Text = dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString();
-            txtMobileNo.Text = dataGridView1.Rows[e.RowIndex].Cells[4].Value.ToString();
+            rchAddress.Text = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
+            txtMobileNo.Text = dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString();
             mBtnSaveUpdate.Text = "UPDATE";
             mBtnDelete.Enabled = true;
         }

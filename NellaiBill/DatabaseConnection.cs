@@ -18,7 +18,7 @@ namespace NellaiBill
         static string xPassword = ConfigurationManager.AppSettings["password"].ToString();
         static string xDatabaseName = ConfigurationManager.AppSettings["database"].ToString();
         public string xReportPath = "";
-             int xGBatch = 0;
+        int xGBatch = 0;
         public MySqlConnection connection;
         // public string conString = @"Data Source=localhost;port=3306;Initial Catalog=nellai_billing;User Id=root;password=nellaibill";
         public string conString =
@@ -106,7 +106,7 @@ namespace NellaiBill
 
         }
 
-        public string GetUserNameFromPassword(string  xPassword)
+        public string GetUserNameFromPassword(string xPassword)
         {
             connection = new MySqlConnection(conString);
             string xQry = "select username from m_login where password= '" + xPassword + "'";
@@ -127,7 +127,7 @@ namespace NellaiBill
         public string GetTokenNoForOP(string xQry)
         {
             connection = new MySqlConnection(conString);
-           
+
             connection.Open();
             MySqlCommand comm = new MySqlCommand(xQry, connection);
 
@@ -146,7 +146,7 @@ namespace NellaiBill
         {
             try
             {
-               connection = new MySqlConnection(conString);
+                connection = new MySqlConnection(conString);
                 string xQry = "SELECT * FROM `m_login` WHERE password='" + xPassword + "'";
                 connection.Open();
                 MySqlCommand comm = new MySqlCommand(xQry, connection);
@@ -222,6 +222,7 @@ namespace NellaiBill
                     xGridView.DataSource = ds.Tables[0];
                     xGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
                     xGridView.ColumnHeadersDefaultCellStyle.Font = new Font("Tahoma", 10, FontStyle.Bold);
+                    xGridView.AllowUserToAddRows = false;
                     //xGridView.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
                     //xGridView.ColumnHeadersDefaultCellStyle.BackColor = Color.DarkMagenta;
 
@@ -232,7 +233,7 @@ namespace NellaiBill
 
         }
 
-    
+
         public void LoadComboBox(string xQry, ComboBox xComboBox, string xValueMember, string xDisplayMember)
         {
             using (MySqlConnection conn = new MySqlConnection(conString))
@@ -243,7 +244,7 @@ namespace NellaiBill
                     adapter.Fill(ds);
                     DataTable dt = new DataTable();
                     adapter.Fill(dt);
-                    if (xDisplayMember == "itemgroupname")
+                    if (xDisplayMember == "itemgroupname" || xComboBox.Name == "cmbTest")
                     {
 
                     }
@@ -258,8 +259,8 @@ namespace NellaiBill
                     xComboBox.ValueMember = xValueMember;
                     xComboBox.DisplayMember = xDisplayMember;
                     xComboBox.DataSource = dt;
-                   
-                   
+
+
                 }
             }
 
@@ -311,7 +312,24 @@ namespace NellaiBill
             i = dt.Rows.Count;
             return i;
         }
+        public string GetTestFees(int xTestId)
+        {
+            using (connection = new MySqlConnection(conString))
+            {
+                string xQry = "select amount from m_ecg_xray_test_fees where ecg_xray_test_fees_id= " + xTestId + "";
+                connection.Open();
+                MySqlCommand comm = new MySqlCommand(xQry, connection);
 
+                MySqlDataReader reader = comm.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    return reader.GetString(0);
+                }
+                connection.Close();
+                return "";
+            }
+        }
         public static string Encrypt(string input, string key)
         {
             byte[] inputArray = UTF8Encoding.UTF8.GetBytes(input);

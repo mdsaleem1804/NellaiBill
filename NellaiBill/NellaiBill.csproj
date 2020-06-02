@@ -159,11 +159,23 @@
       <DependentUpon>rptOPCaseType1.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="CrystalReports\rptEcgXrayConsolidated.cs">
+      <DependentUpon>rptEcgXrayConsolidated.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
     <Compile Include="CrystalReports\rptOPConsolidated.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>rptOPConsolidated.rpt</DependentUpon>
       <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CrystalReports\rptEcgXrayBill.cs">
+      <DependentUpon>rptEcgXrayBill.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
     </Compile>
     <Compile Include="CrystalReports\rptOutpatientBill1.cs">
       <AutoGen>True</AutoGen>
@@ -329,6 +341,12 @@
     <Compile Include="Master\TestMaster.Designer.cs">
       <DependentUpon>TestMaster.cs</DependentUpon>
     </Compile>
+    <Compile Include="Master\UserMaster.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Master\UserMaster.Designer.cs">
+      <DependentUpon>UserMaster.cs</DependentUpon>
+    </Compile>
     <Compile Include="Reports\CR_SalesReturn.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -340,6 +358,12 @@
     </Compile>
     <Compile Include="Reports\CR_Stock.Designer.cs">
       <DependentUpon>CR_Stock.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\EcgXraySummaryReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\EcgXraySummaryReport.Designer.cs">
+      <DependentUpon>EcgXraySummaryReport.cs</DependentUpon>
     </Compile>
     <Compile Include="Reports\frmSalesReport.cs">
       <SubType>Form</SubType>
@@ -402,12 +426,6 @@
     <Compile Include="Reports\WebReports.Designer.cs">
       <DependentUpon>WebReports.cs</DependentUpon>
     </Compile>
-    <Compile Include="Transaction\EcgXrayLab.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Transaction\EcgXrayLab.Designer.cs">
-      <DependentUpon>EcgXrayLab.cs</DependentUpon>
-    </Compile>
     <Compile Include="Master\frmGroup.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -419,6 +437,12 @@
     </Compile>
     <Compile Include="Master\frmItem.Designer.cs">
       <DependentUpon>frmItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction\EcgXrayBilling.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction\EcgXrayBilling.Designer.cs">
+      <DependentUpon>EcgXrayBilling.cs</DependentUpon>
     </Compile>
     <Compile Include="Transaction\frmPurchaseReturn.cs">
       <SubType>Form</SubType>
@@ -504,9 +528,17 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>rptOPCaseType1.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReports\rptEcgXrayConsolidated.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptEcgXrayConsolidated.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="CrystalReports\rptOPConsolidated.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>rptOPConsolidated.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReports\rptEcgXrayBill.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptEcgXrayBill.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="CrystalReports\rptOutpatientBill.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
@@ -600,11 +632,17 @@
     <EmbeddedResource Include="Master\TestMaster.resx">
       <DependentUpon>TestMaster.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Master\UserMaster.resx">
+      <DependentUpon>UserMaster.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reports\CR_SalesReturn.resx">
       <DependentUpon>CR_SalesReturn.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\CR_Stock.resx">
       <DependentUpon>CR_Stock.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\EcgXraySummaryReport.resx">
+      <DependentUpon>EcgXraySummaryReport.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\frmSalesReport.resx">
       <DependentUpon>frmSalesReport.cs</DependentUpon>
@@ -636,14 +674,14 @@
     <EmbeddedResource Include="Reports\WebReports.resx">
       <DependentUpon>WebReports.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Transaction\EcgXrayLab.resx">
-      <DependentUpon>EcgXrayLab.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Master\frmGroup.resx">
       <DependentUpon>frmGroup.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Master\frmItem.resx">
       <DependentUpon>frmItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction\EcgXrayBilling.resx">
+      <DependentUpon>EcgXrayBilling.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Transaction\frmPurchaseReturn.resx">
       <DependentUpon>frmPurchaseReturn.cs</DependentUpon>

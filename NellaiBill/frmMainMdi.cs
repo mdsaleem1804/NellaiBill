@@ -75,12 +75,7 @@ namespace NellaiBill
             setPrice.Show();
         }
 
-        private void ecgXrayLabToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            EcgXrayLab ecgXrayLab = new EcgXrayLab();
-            ecgXrayLab.MdiParent = this;
-            ecgXrayLab.Show();
-        }
+      
 
         private void reportsToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -305,16 +300,7 @@ namespace NellaiBill
             report.Show();         
         }
 
-       
-
-        private void outPatientEntryToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            OutPatientEntry transaction = new OutPatientEntry();
-            transaction.MdiParent = this;
-            transaction.Show();
-        }
-
-        private void patientRegistrationToolStripMenuItem1_Click(object sender, EventArgs e)
+           private void patientRegistrationToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             NewPatient master = new NewPatient();
             master.MdiParent = this;
@@ -344,16 +330,44 @@ namespace NellaiBill
 
         private void feesMasterToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            FeesMaster master = new FeesMaster();
-            master.MdiParent = this;
-            master.Show();
+            //FeesMaster master = new FeesMaster();
+            //master.MdiParent = this;
+            //master.Show();
         }
 
         private void testMasterToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            TestMaster master = new TestMaster();
+            //TestMaster master = new TestMaster();
+            //master.MdiParent = this;
+            //master.Show();
+        }
+
+        private void userMasterToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            UserMaster master = new UserMaster();
             master.MdiParent = this;
             master.Show();
+        }
+
+
+        private void outPatientEntryToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            OutPatientEntry transaction = new OutPatientEntry();
+            transaction.MdiParent = this;
+            transaction.Show();
+        }
+        private void eCGBILLINGToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            EcgXrayBilling transaction = new EcgXrayBilling();
+            transaction.MdiParent = this;
+            transaction.Show();
+        }
+
+        private void ecgXraySummaryReportToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            EcgXraySummaryReport report = new EcgXraySummaryReport();
+            report.MdiParent = this;
+            report.Show();
         }
     }
 }

@@ -160,8 +160,10 @@ E:\Dotnet\NellaiBill\NellaiBill\bin\Debug\MySql.Data.xml
 E:\Dotnet\NellaiBill\NellaiBill\bin\Debug\System.Threading.Tasks.Extensions.xml
 E:\Dotnet\NellaiBill\NellaiBill\obj\Debug\NellaiBill.Activation.resources
 E:\Dotnet\NellaiBill\NellaiBill\obj\Debug\NellaiBill.Backup.resources
+E:\Dotnet\NellaiBill\NellaiBill\obj\Debug\NellaiBill.Dashboard.resources
 E:\Dotnet\NellaiBill\NellaiBill\obj\Debug\NellaiBill.frm_main_mdi.resources
 E:\Dotnet\NellaiBill\NellaiBill\obj\Debug\NellaiBill.Master.DoctorRegistration.resources
+E:\Dotnet\NellaiBill\NellaiBill\obj\Debug\NellaiBill.Master.FeesMaster.resources
 E:\Dotnet\NellaiBill\NellaiBill\obj\Debug\NellaiBill.Master.frmCategory.resources
 E:\Dotnet\NellaiBill\NellaiBill\obj\Debug\NellaiBill.Master.frmCompany.resources
 E:\Dotnet\NellaiBill\NellaiBill\obj\Debug\NellaiBill.Master.frmChangePassword.resources
@@ -173,6 +175,8 @@ E:\Dotnet\NellaiBill\NellaiBill\obj\Debug\NellaiBill.Master.SearchDoctor.resourc
 E:\Dotnet\NellaiBill\NellaiBill\obj\Debug\NellaiBill.Master.SearchItem.resources
 E:\Dotnet\NellaiBill\NellaiBill\obj\Debug\NellaiBill.Master.SearchLedger.resources
 E:\Dotnet\NellaiBill\NellaiBill\obj\Debug\NellaiBill.Master.SearchPatient.resources
+E:\Dotnet\NellaiBill\NellaiBill\obj\Debug\NellaiBill.Master.TestMaster.resources
+E:\Dotnet\NellaiBill\NellaiBill\obj\Debug\NellaiBill.Master.UserMaster.resources
 E:\Dotnet\NellaiBill\NellaiBill\obj\Debug\NellaiBill.Reports.CR_SalesReturn.resources
 E:\Dotnet\NellaiBill\NellaiBill\obj\Debug\NellaiBill.Reports.CR_Stock.resources
 E:\Dotnet\NellaiBill\NellaiBill\obj\Debug\NellaiBill.Reports.frmSalesReport.resources
@@ -185,7 +189,6 @@ E:\Dotnet\NellaiBill\NellaiBill\obj\Debug\NellaiBill.Reports.PurchaseSummaryRepo
 E:\Dotnet\NellaiBill\NellaiBill\obj\Debug\NellaiBill.Reports.SalesReportDG.resources
 E:\Dotnet\NellaiBill\NellaiBill\obj\Debug\NellaiBill.Reports.StockReport.resources
 E:\Dotnet\NellaiBill\NellaiBill\obj\Debug\NellaiBill.Reports.WebReports.resources
-E:\Dotnet\NellaiBill\NellaiBill\obj\Debug\NellaiBill.Master.EcgXrayLab.resources
 E:\Dotnet\NellaiBill\NellaiBill\obj\Debug\NellaiBill.Master.frmGroup.resources
 E:\Dotnet\NellaiBill\NellaiBill\obj\Debug\NellaiBill.Master.frmItem.resources
 E:\Dotnet\NellaiBill\NellaiBill\obj\Debug\NellaiBill.Transaction.frmPurchaseReturn.resources
@@ -194,7 +197,6 @@ E:\Dotnet\NellaiBill\NellaiBill\obj\Debug\NellaiBill.Master.LabEntry.resources
 E:\Dotnet\NellaiBill\NellaiBill\obj\Debug\NellaiBill.Master.LabReport.resources
 E:\Dotnet\NellaiBill\NellaiBill\obj\Debug\NellaiBill.Master.Report.resources
 E:\Dotnet\NellaiBill\NellaiBill\obj\Debug\NellaiBill.Transaction.NewPatient.resources
-E:\Dotnet\NellaiBill\NellaiBill\obj\Debug\NellaiBill.Transaction.OutPatientEntry.resources
 E:\Dotnet\NellaiBill\NellaiBill\obj\Debug\NellaiBill.Transaction.PurchaseEntry.resources
 E:\Dotnet\NellaiBill\NellaiBill\obj\Debug\NellaiBill.Master.SalesEntry.resources
 E:\Dotnet\NellaiBill\NellaiBill\obj\Debug\NellaiBill.Transaction.SalesForm1.resources
@@ -207,6 +209,6 @@ E:\Dotnet\NellaiBill\NellaiBill\obj\Debug\NellaiBill.application
 E:\Dotnet\NellaiBill\NellaiBill\obj\Debug\NellaiBill.csproj.CopyComplete
 E:\Dotnet\NellaiBill\NellaiBill\obj\Debug\NellaiBill.exe
 E:\Dotnet\NellaiBill\NellaiBill\obj\Debug\NellaiBill.pdb
-E:\Dotnet\NellaiBill\NellaiBill\obj\Debug\NellaiBill.Dashboard.resources
-E:\Dotnet\NellaiBill\NellaiBill\obj\Debug\NellaiBill.Master.FeesMaster.resources
-E:\Dotnet\NellaiBill\NellaiBill\obj\Debug\NellaiBill.Master.TestMaster.resources
+E:\Dotnet\NellaiBill\NellaiBill\obj\Debug\NellaiBill.Transaction.OutPatientEntry.resources
+E:\Dotnet\NellaiBill\NellaiBill\obj\Debug\NellaiBill.Transaction.EcgXrayBilling.resources
+E:\Dotnet\NellaiBill\NellaiBill\obj\Debug\NellaiBill.Reports.EcgXraySummaryReport.resources

@@ -64,6 +64,7 @@
             this.txtUserName.Name = "txtUserName";
             this.txtUserName.Size = new System.Drawing.Size(138, 20);
             this.txtUserName.TabIndex = 1;
+            this.txtUserName.Text = "admin";
             // 
             // txtPassword
             // 
@@ -72,6 +73,7 @@
             this.txtPassword.PasswordChar = '*';
             this.txtPassword.Size = new System.Drawing.Size(138, 20);
             this.txtPassword.TabIndex = 2;
+            this.txtPassword.Text = "admin";
             // 
             // groupBox1
             // 
@@ -82,7 +84,7 @@
             this.groupBox1.Controls.Add(this.btnLogin);
             this.groupBox1.Controls.Add(this.txtUserName);
             this.groupBox1.Controls.Add(this.txtPassword);
-            this.groupBox1.Location = new System.Drawing.Point(325, 156);
+            this.groupBox1.Location = new System.Drawing.Point(515, 126);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(306, 221);
             this.groupBox1.TabIndex = 6;
@@ -118,7 +120,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::NellaiBill.Properties.Resources.bg;
-            this.ClientSize = new System.Drawing.Size(1028, 514);
+            this.ClientSize = new System.Drawing.Size(1279, 514);
             this.Controls.Add(this.groupBox1);
             this.Name = "Login";
             this.Text = "Login";

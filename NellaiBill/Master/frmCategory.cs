@@ -20,12 +20,13 @@ namespace NellaiBill.Master
         }
         private void Category_Load(object sender, EventArgs e)
         {
-            btnDelete.Enabled = false;
-            LoadGrid();
-            DataClear();
-            dataGridView1.ReadOnly = true;
-            dataGridView1.Columns[0].Visible = false;
-            dataGridView1.ColumnHeadersDefaultCellStyle.Font = new Font("Tahoma", 10, FontStyle.Bold);
+          
+            //btnDelete.Enabled = false;
+            //LoadGrid();
+            //DataClear();
+            //dataGridView1.ReadOnly = true;
+            //dataGridView1.Columns[0].Visible = false;
+            //dataGridView1.ColumnHeadersDefaultCellStyle.Font = new Font("Tahoma", 10, FontStyle.Bold);
         }
         public void DataProcess()
         {
@@ -95,6 +96,7 @@ namespace NellaiBill.Master
             btnSaveUpdate.Text = "UPDATE";
             btnDelete.Enabled = true;
         }
+
     }
 }
 

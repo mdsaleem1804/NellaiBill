@@ -15,7 +15,7 @@ namespace NellaiBill.Master
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            if(xDb.CountRecord("select * from m_login where username='"+txtUserName.Text+ "' and password='"+txtPassword.Text+"'")>=1)
+            if(xDb.CountRecord("select * from m_user where username='" + txtUserName.Text+ "' and password='"+txtPassword.Text+"'")>=1)
             //if((txtUserName.Text=="admin") && (txtPassword.Text=="admin"))
             {
                 frm_main_mdi nextForm = new frm_main_mdi();
@@ -27,7 +27,6 @@ namespace NellaiBill.Master
                 //this.Hide();
                 //nextForm.ShowDialog();
                 //this.Close();
-
             }
             else
             {
@@ -51,7 +50,7 @@ namespace NellaiBill.Master
             }
 
             string xEncrypted = CryptoEngine.Encrypt(xMacAddress, "sblw-3hn8-sqoy19");
-            if (xDb.GetTotalCount("select * from m_login where password='"+ xEncrypted + "'") ==1)
+            if (xDb.GetTotalCount("select * from m_user where password='" + xEncrypted + "'") ==1)
             {       
                
             }
