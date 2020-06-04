@@ -38,20 +38,21 @@
             this.lblDateTime = new System.Windows.Forms.ToolStripStatusLabel();
             this.menuStrip2 = new System.Windows.Forms.MenuStrip();
             this.RegistrationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.companyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.patientRegistrationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.doctorRegistrationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.companyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.scanTestMasterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ScanFeesMasterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.userMasterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.supplerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.customerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.categoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.productToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.feesMasterToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.testMasterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.userMasterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.SalesmanToolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
             this.outPatientEntryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.eCGBILLINGToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sCANBILLINGToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.StockToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.PurchaseEntryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.PurchaseReturnToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -59,14 +60,15 @@
             this.POSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.SalesReturnToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.LogsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.outPatientToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.oPTodaysCollectionReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.oPCaseType1ReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ecgXraySummaryReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.stockReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salesReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.purchaseReportToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.stockReportToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.salesReturnReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.outPatientToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.oPTodaysCollectionReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.oPCaseType1ReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.DatabaseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.BackupToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.RestoreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -74,7 +76,7 @@
             this.LogoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.purchaseReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.feesMasterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ecgXraySummaryReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.scanSummaryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.StatusStrip1.SuspendLayout();
             this.menuStrip2.SuspendLayout();
             this.SuspendLayout();
@@ -160,17 +162,17 @@
             // RegistrationToolStripMenuItem
             // 
             this.RegistrationToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.companyToolStripMenuItem,
             this.patientRegistrationToolStripMenuItem,
             this.doctorRegistrationToolStripMenuItem,
-            this.companyToolStripMenuItem,
+            this.scanTestMasterToolStripMenuItem,
+            this.ScanFeesMasterToolStripMenuItem,
+            this.userMasterToolStripMenuItem,
             this.supplerToolStripMenuItem,
             this.customerToolStripMenuItem,
             this.categoryToolStripMenuItem,
             this.groupToolStripMenuItem,
-            this.productToolStripMenuItem,
-            this.feesMasterToolStripMenuItem1,
-            this.testMasterToolStripMenuItem,
-            this.userMasterToolStripMenuItem});
+            this.productToolStripMenuItem});
             this.RegistrationToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.RegistrationToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
             this.RegistrationToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("RegistrationToolStripMenuItem.Image")));
@@ -179,6 +181,13 @@
             this.RegistrationToolStripMenuItem.Size = new System.Drawing.Size(60, 67);
             this.RegistrationToolStripMenuItem.Text = "Master";
             this.RegistrationToolStripMenuItem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            // 
+            // companyToolStripMenuItem
+            // 
+            this.companyToolStripMenuItem.Name = "companyToolStripMenuItem";
+            this.companyToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
+            this.companyToolStripMenuItem.Text = "Company";
+            this.companyToolStripMenuItem.Click += new System.EventHandler(this.companyToolStripMenuItem_Click);
             // 
             // patientRegistrationToolStripMenuItem
             // 
@@ -194,12 +203,26 @@
             this.doctorRegistrationToolStripMenuItem.Text = "Doctor Registration";
             this.doctorRegistrationToolStripMenuItem.Click += new System.EventHandler(this.doctorRegistrationToolStripMenuItem1_Click);
             // 
-            // companyToolStripMenuItem
+            // scanTestMasterToolStripMenuItem
             // 
-            this.companyToolStripMenuItem.Name = "companyToolStripMenuItem";
-            this.companyToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
-            this.companyToolStripMenuItem.Text = "Company";
-            this.companyToolStripMenuItem.Click += new System.EventHandler(this.companyToolStripMenuItem_Click);
+            this.scanTestMasterToolStripMenuItem.Name = "scanTestMasterToolStripMenuItem";
+            this.scanTestMasterToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
+            this.scanTestMasterToolStripMenuItem.Text = "Scan Test Master";
+            this.scanTestMasterToolStripMenuItem.Click += new System.EventHandler(this.scanTestMasterToolStripMenuItem_Click);
+            // 
+            // ScanFeesMasterToolStripMenuItem
+            // 
+            this.ScanFeesMasterToolStripMenuItem.Name = "ScanFeesMasterToolStripMenuItem";
+            this.ScanFeesMasterToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
+            this.ScanFeesMasterToolStripMenuItem.Text = "Scan Fees Master";
+            this.ScanFeesMasterToolStripMenuItem.Click += new System.EventHandler(this.ScanFeesMasterToolStripMenuItem_Click);
+            // 
+            // userMasterToolStripMenuItem
+            // 
+            this.userMasterToolStripMenuItem.Name = "userMasterToolStripMenuItem";
+            this.userMasterToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
+            this.userMasterToolStripMenuItem.Text = "User Master";
+            this.userMasterToolStripMenuItem.Click += new System.EventHandler(this.userMasterToolStripMenuItem_Click);
             // 
             // supplerToolStripMenuItem
             // 
@@ -236,32 +259,12 @@
             this.productToolStripMenuItem.Text = "Product";
             this.productToolStripMenuItem.Click += new System.EventHandler(this.productToolStripMenuItem_Click);
             // 
-            // feesMasterToolStripMenuItem1
-            // 
-            this.feesMasterToolStripMenuItem1.Name = "feesMasterToolStripMenuItem1";
-            this.feesMasterToolStripMenuItem1.Size = new System.Drawing.Size(177, 22);
-            this.feesMasterToolStripMenuItem1.Text = "Fees Master";
-            this.feesMasterToolStripMenuItem1.Click += new System.EventHandler(this.feesMasterToolStripMenuItem1_Click);
-            // 
-            // testMasterToolStripMenuItem
-            // 
-            this.testMasterToolStripMenuItem.Name = "testMasterToolStripMenuItem";
-            this.testMasterToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
-            this.testMasterToolStripMenuItem.Text = "Test Master";
-            this.testMasterToolStripMenuItem.Click += new System.EventHandler(this.testMasterToolStripMenuItem_Click);
-            // 
-            // userMasterToolStripMenuItem
-            // 
-            this.userMasterToolStripMenuItem.Name = "userMasterToolStripMenuItem";
-            this.userMasterToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
-            this.userMasterToolStripMenuItem.Text = "User Master";
-            this.userMasterToolStripMenuItem.Click += new System.EventHandler(this.userMasterToolStripMenuItem_Click);
-            // 
             // SalesmanToolStripMenuItem3
             // 
             this.SalesmanToolStripMenuItem3.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.outPatientEntryToolStripMenuItem,
-            this.eCGBILLINGToolStripMenuItem});
+            this.eCGBILLINGToolStripMenuItem,
+            this.sCANBILLINGToolStripMenuItem});
             this.SalesmanToolStripMenuItem3.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SalesmanToolStripMenuItem3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
             this.SalesmanToolStripMenuItem3.Image = ((System.Drawing.Image)(resources.GetObject("SalesmanToolStripMenuItem3.Image")));
@@ -284,6 +287,13 @@
             this.eCGBILLINGToolStripMenuItem.Size = new System.Drawing.Size(175, 22);
             this.eCGBILLINGToolStripMenuItem.Text = "ECG/XRAY BILLING";
             this.eCGBILLINGToolStripMenuItem.Click += new System.EventHandler(this.eCGBILLINGToolStripMenuItem_Click);
+            // 
+            // sCANBILLINGToolStripMenuItem
+            // 
+            this.sCANBILLINGToolStripMenuItem.Name = "sCANBILLINGToolStripMenuItem";
+            this.sCANBILLINGToolStripMenuItem.Size = new System.Drawing.Size(175, 22);
+            this.sCANBILLINGToolStripMenuItem.Text = "SCAN BILLING";
+            this.sCANBILLINGToolStripMenuItem.Click += new System.EventHandler(this.sCANBILLINGToolStripMenuItem_Click);
             // 
             // StockToolStripMenuItem
             // 
@@ -349,6 +359,7 @@
             this.LogsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.outPatientToolStripMenuItem,
             this.ecgXraySummaryReportToolStripMenuItem,
+            this.scanSummaryToolStripMenuItem,
             this.stockReportToolStripMenuItem,
             this.salesReportToolStripMenuItem,
             this.purchaseReportToolStripMenuItem1,
@@ -362,6 +373,36 @@
             this.LogsToolStripMenuItem.Size = new System.Drawing.Size(60, 67);
             this.LogsToolStripMenuItem.Text = "Report";
             this.LogsToolStripMenuItem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            // 
+            // outPatientToolStripMenuItem
+            // 
+            this.outPatientToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.oPTodaysCollectionReportToolStripMenuItem,
+            this.oPCaseType1ReportToolStripMenuItem});
+            this.outPatientToolStripMenuItem.Name = "outPatientToolStripMenuItem";
+            this.outPatientToolStripMenuItem.Size = new System.Drawing.Size(214, 22);
+            this.outPatientToolStripMenuItem.Text = "OutPatient";
+            // 
+            // oPTodaysCollectionReportToolStripMenuItem
+            // 
+            this.oPTodaysCollectionReportToolStripMenuItem.Name = "oPTodaysCollectionReportToolStripMenuItem";
+            this.oPTodaysCollectionReportToolStripMenuItem.Size = new System.Drawing.Size(215, 22);
+            this.oPTodaysCollectionReportToolStripMenuItem.Text = "OPTodaysCollectionReport";
+            this.oPTodaysCollectionReportToolStripMenuItem.Click += new System.EventHandler(this.oPTodaysCollectionReportToolStripMenuItem_Click);
+            // 
+            // oPCaseType1ReportToolStripMenuItem
+            // 
+            this.oPCaseType1ReportToolStripMenuItem.Name = "oPCaseType1ReportToolStripMenuItem";
+            this.oPCaseType1ReportToolStripMenuItem.Size = new System.Drawing.Size(215, 22);
+            this.oPCaseType1ReportToolStripMenuItem.Text = "OPCaseType1Report";
+            this.oPCaseType1ReportToolStripMenuItem.Click += new System.EventHandler(this.oPCaseType1ReportToolStripMenuItem_Click);
+            // 
+            // ecgXraySummaryReportToolStripMenuItem
+            // 
+            this.ecgXraySummaryReportToolStripMenuItem.Name = "ecgXraySummaryReportToolStripMenuItem";
+            this.ecgXraySummaryReportToolStripMenuItem.Size = new System.Drawing.Size(214, 22);
+            this.ecgXraySummaryReportToolStripMenuItem.Text = "Ecg/Xray Summary Report";
+            this.ecgXraySummaryReportToolStripMenuItem.Click += new System.EventHandler(this.ecgXraySummaryReportToolStripMenuItem_Click);
             // 
             // stockReportToolStripMenuItem
             // 
@@ -397,29 +438,6 @@
             this.salesReturnReportToolStripMenuItem.Size = new System.Drawing.Size(214, 22);
             this.salesReturnReportToolStripMenuItem.Text = "Sales Return Report";
             this.salesReturnReportToolStripMenuItem.Click += new System.EventHandler(this.salesReturnReportToolStripMenuItem_Click);
-            // 
-            // outPatientToolStripMenuItem
-            // 
-            this.outPatientToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.oPTodaysCollectionReportToolStripMenuItem,
-            this.oPCaseType1ReportToolStripMenuItem});
-            this.outPatientToolStripMenuItem.Name = "outPatientToolStripMenuItem";
-            this.outPatientToolStripMenuItem.Size = new System.Drawing.Size(214, 22);
-            this.outPatientToolStripMenuItem.Text = "OutPatient";
-            // 
-            // oPTodaysCollectionReportToolStripMenuItem
-            // 
-            this.oPTodaysCollectionReportToolStripMenuItem.Name = "oPTodaysCollectionReportToolStripMenuItem";
-            this.oPTodaysCollectionReportToolStripMenuItem.Size = new System.Drawing.Size(215, 22);
-            this.oPTodaysCollectionReportToolStripMenuItem.Text = "OPTodaysCollectionReport";
-            this.oPTodaysCollectionReportToolStripMenuItem.Click += new System.EventHandler(this.oPTodaysCollectionReportToolStripMenuItem_Click);
-            // 
-            // oPCaseType1ReportToolStripMenuItem
-            // 
-            this.oPCaseType1ReportToolStripMenuItem.Name = "oPCaseType1ReportToolStripMenuItem";
-            this.oPCaseType1ReportToolStripMenuItem.Size = new System.Drawing.Size(215, 22);
-            this.oPCaseType1ReportToolStripMenuItem.Text = "OPCaseType1Report";
-            this.oPCaseType1ReportToolStripMenuItem.Click += new System.EventHandler(this.oPCaseType1ReportToolStripMenuItem_Click);
             // 
             // DatabaseToolStripMenuItem
             // 
@@ -479,12 +497,12 @@
             this.feesMasterToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
             this.feesMasterToolStripMenuItem.Text = "Fees Master";
             // 
-            // ecgXraySummaryReportToolStripMenuItem
+            // scanSummaryToolStripMenuItem
             // 
-            this.ecgXraySummaryReportToolStripMenuItem.Name = "ecgXraySummaryReportToolStripMenuItem";
-            this.ecgXraySummaryReportToolStripMenuItem.Size = new System.Drawing.Size(214, 22);
-            this.ecgXraySummaryReportToolStripMenuItem.Text = "Ecg/Xray Summary Report";
-            this.ecgXraySummaryReportToolStripMenuItem.Click += new System.EventHandler(this.ecgXraySummaryReportToolStripMenuItem_Click);
+            this.scanSummaryToolStripMenuItem.Name = "scanSummaryToolStripMenuItem";
+            this.scanSummaryToolStripMenuItem.Size = new System.Drawing.Size(214, 22);
+            this.scanSummaryToolStripMenuItem.Text = "Scan Summary";
+            this.scanSummaryToolStripMenuItem.Click += new System.EventHandler(this.scanSummaryToolStripMenuItem_Click);
             // 
             // frm_main_mdi
             // 
@@ -552,11 +570,13 @@
         private System.Windows.Forms.ToolStripMenuItem oPTodaysCollectionReportToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem oPCaseType1ReportToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem feesMasterToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem feesMasterToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem testMasterToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ScanFeesMasterToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem scanTestMasterToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem userMasterToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem eCGBILLINGToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ecgXraySummaryReportToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem sCANBILLINGToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem scanSummaryToolStripMenuItem;
     }
 }
 

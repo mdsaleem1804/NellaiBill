@@ -43,8 +43,9 @@ namespace NellaiBill.Reports
 
             cryRpt.SetParameterValue("FromDate", DateTime.Parse(xFromDate));
             cryRpt.SetParameterValue("ToDate", DateTime.Parse(xToDate));
-            cryRpt.SetParameterValue("CaseType", cmbCaseType.SelectedItem.ToString());
-            cryRpt.SetParameterValue("DoctorName", cmbDoctorName.SelectedItem.ToString());
+            cryRpt.SetParameterValue("CaseType", cmbCaseType.SelectedText);
+            cryRpt.SetParameterValue("CaseType1", cmbCaseType1.SelectedText);
+            cryRpt.SetParameterValue("DoctorName", cmbDoctorName.SelectedText);
             crystalReportViewer1.ReportSource = cryRpt;
             crystalReportViewer1.Refresh();
             crystalReportViewer1.ToolPanelView = ToolPanelViewType.None;
@@ -52,7 +53,9 @@ namespace NellaiBill.Reports
 
         private void OPSummaryReport_Load(object sender, EventArgs e)
         {
-            xDb.LoadComboBox1("select doctor_name,doctor_name from m_doctor", cmbDoctorName, "doctor_name", "doctor_name");
+            xDb.LoadComboBoxForReport("select doctor_id,doctor_name from m_doctor", cmbDoctorName, "doctor_id", "doctor_name");
+            cmbCaseType.SelectedIndex = 0;
+            cmbCaseType1.SelectedIndex = 0;
         }
     }
 }

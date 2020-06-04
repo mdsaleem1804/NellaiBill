@@ -122,7 +122,7 @@ namespace NellaiBill.CrystalReports {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.Shared.IParameterField Parameter_CaseType {
+        public CrystalDecisions.Shared.IParameterField Parameter_DoctorName {
             get {
                 return this.DataDefinition.ParameterFields[2];
             }
@@ -130,9 +130,17 @@ namespace NellaiBill.CrystalReports {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.Shared.IParameterField Parameter_DoctorName {
+        public CrystalDecisions.Shared.IParameterField Parameter_CaseType {
             get {
                 return this.DataDefinition.ParameterFields[3];
+            }
+        }
+        
+        [Browsable(false)]
+        [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
+        public CrystalDecisions.Shared.IParameterField Parameter_CaseType1 {
+            get {
+                return this.DataDefinition.ParameterFields[4];
             }
         }
     }

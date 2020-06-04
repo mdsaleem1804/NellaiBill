@@ -319,14 +319,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="NellaiBill.exe" size="1020400">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="NellaiBill.exe" size="1056752">
       <assemblyIdentity name="NellaiBill" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>5JomlPYfxmtXxAXXQuA6vQZ/FgMor/CBowf0nzNdFsY=</dsig:DigestValue>
+        <dsig:DigestValue>T5KN9bS8fxJedBVPAEW43/0z3Rj6Bgc60FDU9OOcFlg=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -432,13 +432,13 @@
       <dsig:DigestValue>ZXrVsTVSEb66VEGcKLOBv1uOzb2ztuolYjEaoA6nQLo=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="NellaiBill.exe.config" size="2704">
+  <file name="NellaiBill.exe.config" size="3567">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>3XPMqgxMP0E0WgBpA+aMB77PkOlXBLeFPIc5jQv1xsk=</dsig:DigestValue>
+      <dsig:DigestValue>ONj9henDhTRv+I3T9LiC2+2nhOUoui2Hijh8T9kY00I=</dsig:DigestValue>
     </hash>
   </file>
   <file name="pharmacy.ico" size="15086">

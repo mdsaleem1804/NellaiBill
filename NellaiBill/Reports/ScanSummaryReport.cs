@@ -12,21 +12,21 @@ using System.Windows.Forms;
 
 namespace NellaiBill.Reports
 {
-    public partial class EcgXraySummaryReport : Form
+    public partial class ScanSummaryReport : Form
     {
         DatabaseConnection xDb = new DatabaseConnection();
         ReportDocument cryRpt = new ReportDocument();
         GlobalClass globalClass = new GlobalClass();
-        public EcgXraySummaryReport()
+        public ScanSummaryReport()
         {
             InitializeComponent();
-        }
-
+        }     
         private void btnViewData_Click(object sender, EventArgs e)
         {
             string xFromDate = dtpFromDate.Text;
             string xToDate = dtpToDate.Text;
-            string path = globalClass.GetReportPath() + "rptEcgXrayConsolidated.rpt";
+            int xDoctorId = 1;
+            string path = globalClass.GetReportPath() + "rptScanSummary.rpt";
             cryRpt.Load(path);
 
             cryRpt.SetParameterValue("FromDate", DateTime.Parse(xFromDate));
@@ -38,10 +38,12 @@ namespace NellaiBill.Reports
             crystalReportViewer1.ToolPanelView = ToolPanelViewType.None;
         }
 
-        private void EcgXraySummaryReport_Load(object sender, EventArgs e)
+        private void ScanSummaryReport_Load(object sender, EventArgs e)
         {
-            xDb.LoadComboBoxForReport("select ecg_xray_test_fees_id,test_name from m_ecg_xray_test_fees", cmbTest, "ecg_xray_test_fees_id", "test_name");
+            xDb.LoadComboBoxForReport("select scan_test_id,test_name from m_scan_test", cmbTest, "scan_test_id", "test_name");
             xDb.LoadComboBoxForReport("select doctor_id,doctor_name from m_doctor", cmbDoctor, "doctor_id", "doctor_name");
+
         }
     }
 }
+

@@ -328,20 +328,6 @@ namespace NellaiBill
             report.Show();
         }
 
-        private void feesMasterToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            //FeesMaster master = new FeesMaster();
-            //master.MdiParent = this;
-            //master.Show();
-        }
-
-        private void testMasterToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            //TestMaster master = new TestMaster();
-            //master.MdiParent = this;
-            //master.Show();
-        }
-
         private void userMasterToolStripMenuItem_Click(object sender, EventArgs e)
         {
             UserMaster master = new UserMaster();
@@ -352,7 +338,7 @@ namespace NellaiBill
 
         private void outPatientEntryToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            OutPatientEntry transaction = new OutPatientEntry();
+            OPBilling transaction = new OPBilling();
             transaction.MdiParent = this;
             transaction.Show();
         }
@@ -366,6 +352,34 @@ namespace NellaiBill
         private void ecgXraySummaryReportToolStripMenuItem_Click(object sender, EventArgs e)
         {
             EcgXraySummaryReport report = new EcgXraySummaryReport();
+            report.MdiParent = this;
+            report.Show();
+        }
+
+        private void scanTestMasterToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ScanTestMaster master = new ScanTestMaster();
+            master.MdiParent = this;
+            master.Show();
+        }
+
+        private void ScanFeesMasterToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ScanFeesMaster master = new ScanFeesMaster();
+            master.MdiParent = this;
+            master.Show();
+        }
+
+        private void sCANBILLINGToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ScanBilling master = new ScanBilling();
+            master.MdiParent = this;
+            master.Show();
+        }
+
+        private void scanSummaryToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ScanSummaryReport report = new ScanSummaryReport();
             report.MdiParent = this;
             report.Show();
         }

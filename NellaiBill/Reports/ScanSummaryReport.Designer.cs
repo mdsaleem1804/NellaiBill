@@ -1,6 +1,6 @@
 ﻿namespace NellaiBill.Reports
 {
-    partial class EcgXraySummaryReport
+    partial class ScanSummaryReport
     {
         /// <summary>
         /// Required designer variable.
@@ -48,10 +48,10 @@
             this.panel3.BackColor = System.Drawing.Color.DarkMagenta;
             this.panel3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panel3.Controls.Add(this.label8);
-            this.panel3.Location = new System.Drawing.Point(33, 13);
+            this.panel3.Location = new System.Drawing.Point(27, 13);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1214, 33);
-            this.panel3.TabIndex = 140;
+            this.panel3.TabIndex = 147;
             // 
             // label8
             // 
@@ -59,31 +59,31 @@
             this.label8.BackColor = System.Drawing.Color.Transparent;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.White;
-            this.label8.Location = new System.Drawing.Point(545, 9);
+            this.label8.Location = new System.Drawing.Point(538, 9);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(276, 24);
+            this.label8.Size = new System.Drawing.Size(218, 24);
             this.label8.TabIndex = 0;
-            this.label8.Text = "ECG/XRAY Summary Report";
+            this.label8.Text = "Scan Summary Report";
             // 
             // crystalReportViewer1
             // 
             this.crystalReportViewer1.ActiveViewIndex = -1;
             this.crystalReportViewer1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.crystalReportViewer1.Cursor = System.Windows.Forms.Cursors.Default;
-            this.crystalReportViewer1.Location = new System.Drawing.Point(33, 117);
+            this.crystalReportViewer1.Location = new System.Drawing.Point(27, 123);
             this.crystalReportViewer1.Name = "crystalReportViewer1";
             this.crystalReportViewer1.Size = new System.Drawing.Size(1214, 600);
-            this.crystalReportViewer1.TabIndex = 141;
+            this.crystalReportViewer1.TabIndex = 148;
             // 
             // btnViewData
             // 
             this.btnViewData.Depth = 0;
-            this.btnViewData.Location = new System.Drawing.Point(916, 50);
+            this.btnViewData.Location = new System.Drawing.Point(901, 53);
             this.btnViewData.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnViewData.Name = "btnViewData";
             this.btnViewData.Primary = true;
-            this.btnViewData.Size = new System.Drawing.Size(109, 53);
-            this.btnViewData.TabIndex = 139;
+            this.btnViewData.Size = new System.Drawing.Size(109, 43);
+            this.btnViewData.TabIndex = 146;
             this.btnViewData.Text = "VIEW DATA";
             this.btnViewData.UseVisualStyleBackColor = true;
             this.btnViewData.Click += new System.EventHandler(this.btnViewData_Click);
@@ -92,10 +92,10 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(213, 60);
+            this.label1.Location = new System.Drawing.Point(204, 53);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(57, 16);
-            this.label1.TabIndex = 138;
+            this.label1.TabIndex = 145;
             this.label1.Text = "To Date";
             // 
             // dtpToDate
@@ -103,19 +103,19 @@
             this.dtpToDate.CustomFormat = "yyyy/MM/dd";
             this.dtpToDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpToDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpToDate.Location = new System.Drawing.Point(216, 77);
+            this.dtpToDate.Location = new System.Drawing.Point(207, 77);
             this.dtpToDate.Name = "dtpToDate";
             this.dtpToDate.Size = new System.Drawing.Size(169, 22);
-            this.dtpToDate.TabIndex = 134;
+            this.dtpToDate.TabIndex = 143;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(33, 60);
+            this.label3.Location = new System.Drawing.Point(24, 53);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(71, 16);
-            this.label3.TabIndex = 135;
+            this.label3.TabIndex = 144;
             this.label3.Text = "From Date";
             // 
             // dtpFromDate
@@ -123,10 +123,10 @@
             this.dtpFromDate.CustomFormat = "yyyy/MM/dd";
             this.dtpFromDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpFromDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpFromDate.Location = new System.Drawing.Point(36, 77);
+            this.dtpFromDate.Location = new System.Drawing.Point(27, 77);
             this.dtpFromDate.Name = "dtpFromDate";
             this.dtpFromDate.Size = new System.Drawing.Size(153, 22);
-            this.dtpFromDate.TabIndex = 133;
+            this.dtpFromDate.TabIndex = 142;
             // 
             // materialLabel2
             // 
@@ -134,11 +134,11 @@
             this.materialLabel2.Depth = 0;
             this.materialLabel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.materialLabel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel2.Location = new System.Drawing.Point(679, 50);
+            this.materialLabel2.Location = new System.Drawing.Point(670, 49);
             this.materialLabel2.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel2.Name = "materialLabel2";
             this.materialLabel2.Size = new System.Drawing.Size(88, 16);
-            this.materialLabel2.TabIndex = 159;
+            this.materialLabel2.TabIndex = 154;
             this.materialLabel2.Text = "Doctor Name";
             // 
             // cmbDoctor
@@ -146,10 +146,10 @@
             this.cmbDoctor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbDoctor.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbDoctor.FormattingEnabled = true;
-            this.cmbDoctor.Location = new System.Drawing.Point(674, 75);
+            this.cmbDoctor.Location = new System.Drawing.Point(665, 74);
             this.cmbDoctor.Name = "cmbDoctor";
             this.cmbDoctor.Size = new System.Drawing.Size(225, 24);
-            this.cmbDoctor.TabIndex = 157;
+            this.cmbDoctor.TabIndex = 151;
             // 
             // materialLabel1
             // 
@@ -157,11 +157,11 @@
             this.materialLabel1.Depth = 0;
             this.materialLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.materialLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel1.Location = new System.Drawing.Point(413, 54);
+            this.materialLabel1.Location = new System.Drawing.Point(404, 53);
             this.materialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel1.Name = "materialLabel1";
             this.materialLabel1.Size = new System.Drawing.Size(75, 16);
-            this.materialLabel1.TabIndex = 158;
+            this.materialLabel1.TabIndex = 152;
             this.materialLabel1.Text = "Test Name";
             // 
             // cmbTest
@@ -169,16 +169,16 @@
             this.cmbTest.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbTest.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbTest.FormattingEnabled = true;
-            this.cmbTest.Location = new System.Drawing.Point(416, 77);
+            this.cmbTest.Location = new System.Drawing.Point(407, 76);
             this.cmbTest.Name = "cmbTest";
             this.cmbTest.Size = new System.Drawing.Size(225, 24);
-            this.cmbTest.TabIndex = 156;
+            this.cmbTest.TabIndex = 149;
             // 
-            // EcgXraySummaryReport
+            // ScanSummaryReport
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1292, 729);
+            this.ClientSize = new System.Drawing.Size(1087, 619);
             this.Controls.Add(this.materialLabel2);
             this.Controls.Add(this.cmbDoctor);
             this.Controls.Add(this.materialLabel1);
@@ -190,9 +190,9 @@
             this.Controls.Add(this.dtpToDate);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.dtpFromDate);
-            this.Name = "EcgXraySummaryReport";
-            this.Text = "EcgXraySummaryReport";
-            this.Load += new System.EventHandler(this.EcgXraySummaryReport_Load);
+            this.Name = "ScanSummaryReport";
+            this.Text = "ScanSummaryReport";
+            this.Load += new System.EventHandler(this.ScanSummaryReport_Load);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.ResumeLayout(false);

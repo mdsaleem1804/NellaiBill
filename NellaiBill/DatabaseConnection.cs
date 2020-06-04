@@ -65,15 +65,12 @@ namespace NellaiBill
             connection.Open();
             MySqlCommand command = new MySqlCommand(xQry, connection);
             MySqlDataReader mySqlDataReader = command.ExecuteReader();
-
             while (mySqlDataReader.Read())
             {
                 xTotalCount = Convert.ToInt32(mySqlDataReader.GetString(0));
-
             }
             connection.Close();
             return xTotalCount;
-
         }
         public long DataProcess_GetId(string xQry)
         {
@@ -233,7 +230,34 @@ namespace NellaiBill
 
         }
 
+        public void LoadComboBoxForReport(string xQry, ComboBox xComboBox, string xValueMember, string xDisplayMember)
+        {
+            using (MySqlConnection conn = new MySqlConnection(conString))
+            {
+                using (MySqlDataAdapter adapter = new MySqlDataAdapter(xQry, conn))
+                {
+                    DataSet ds = new DataSet();
+                    adapter.Fill(ds);
+                    DataTable dt = new DataTable();
+                    adapter.Fill(dt);
 
+                    DataRow row = dt.NewRow();
+                    row[0] = 0;
+                    row[1] = "All";
+                    dt.Rows.InsertAt(row, 0);
+
+
+                    xComboBox.ValueMember = xValueMember;
+                    xComboBox.DisplayMember = xDisplayMember;
+                    xComboBox.DataSource = dt;
+
+
+                }
+            }
+
+
+
+        }
         public void LoadComboBox(string xQry, ComboBox xComboBox, string xValueMember, string xDisplayMember)
         {
             using (MySqlConnection conn = new MySqlConnection(conString))
@@ -267,36 +291,7 @@ namespace NellaiBill
 
 
         }
-        public void LoadComboBox1(string xQry, ComboBox xComboBox, string xValueMember, string xDisplayMember)
-        {
-            using (MySqlConnection conn = new MySqlConnection(conString))
-            {
-                using (MySqlDataAdapter adapter = new MySqlDataAdapter(xQry, conn))
-                {
-                    try
-                    {
-                        MySqlConnection connection = new MySqlConnection(conString);
-
-                        connection.Open();
-                        MySqlCommand command = new MySqlCommand(xQry, connection);
-                        MySqlDataReader reader = command.ExecuteReader();
-                        while (reader.Read())
-                        {
-                            xComboBox.Items.Add(reader.GetString(xDisplayMember));
-                        }
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show(ex.Message);
-                    }
-
-                }
-            }
-
-
-
-        }
-
+       
         public int CountRecord(string xQry)
         {
             MySqlConnection con = new MySqlConnection(conString);

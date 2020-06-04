@@ -52,7 +52,7 @@ namespace NellaiBill.Reports
 
         private void OPCaseType1Report_Load(object sender, EventArgs e)
         {
-            xDb.LoadComboBox1("select doctor_name,doctor_name from m_doctor", cmbDoctorName, "doctor_name", "doctor_name");
+            xDb.LoadComboBoxForReport("select doctor_name,doctor_name from m_doctor", cmbDoctorName, "doctor_name", "doctor_name");
         }
     }
 }

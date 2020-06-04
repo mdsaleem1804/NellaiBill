@@ -40,6 +40,8 @@
             this.label6 = new System.Windows.Forms.Label();
             this.cmbDoctorName = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.cmbCaseType1 = new System.Windows.Forms.ComboBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -78,7 +80,7 @@
             // btnViewData
             // 
             this.btnViewData.Depth = 0;
-            this.btnViewData.Location = new System.Drawing.Point(832, 66);
+            this.btnViewData.Location = new System.Drawing.Point(981, 66);
             this.btnViewData.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnViewData.Name = "btnViewData";
             this.btnViewData.Primary = true;
@@ -126,6 +128,7 @@
             // 
             // cmbCaseType
             // 
+            this.cmbCaseType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbCaseType.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbCaseType.FormattingEnabled = true;
             this.cmbCaseType.Items.AddRange(new object[] {
@@ -150,6 +153,7 @@
             // 
             // cmbDoctorName
             // 
+            this.cmbDoctorName.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbDoctorName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbDoctorName.FormattingEnabled = true;
             this.cmbDoctorName.Items.AddRange(new object[] {
@@ -169,11 +173,41 @@
             this.label2.TabIndex = 132;
             this.label2.Text = "DoctorName";
             // 
+            // cmbCaseType1
+            // 
+            this.cmbCaseType1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbCaseType1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbCaseType1.FormattingEnabled = true;
+            this.cmbCaseType1.Items.AddRange(new object[] {
+            "All",
+            "None",
+            "Injection",
+            "UrineTest",
+            "WardCase",
+            "Anc",
+            "GreenFile"});
+            this.cmbCaseType1.Location = new System.Drawing.Point(765, 71);
+            this.cmbCaseType1.Name = "cmbCaseType1";
+            this.cmbCaseType1.Size = new System.Drawing.Size(191, 21);
+            this.cmbCaseType1.TabIndex = 143;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(762, 55);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(61, 13);
+            this.label4.TabIndex = 144;
+            this.label4.Text = "CaseType1";
+            // 
             // OPSummaryReport
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1102, 574);
+            this.ClientSize = new System.Drawing.Size(1293, 749);
+            this.Controls.Add(this.cmbCaseType1);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.cmbDoctorName);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.cmbCaseType);
@@ -209,5 +243,7 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ComboBox cmbDoctorName;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ComboBox cmbCaseType1;
+        private System.Windows.Forms.Label label4;
     }
 }

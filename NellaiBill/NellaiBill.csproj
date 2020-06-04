@@ -153,95 +153,124 @@
     <Compile Include="Backup.Designer.cs">
       <DependentUpon>Backup.cs</DependentUpon>
     </Compile>
+    <Compile Include="CrystalReports\rptScanBill.cs">
+      <DependentUpon>rptScanBill.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
     <Compile Include="CrystalReports\rptOPCaseType1.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>rptOPCaseType1.rpt</DependentUpon>
       <SubType>Component</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Include="CrystalReports\rptEcgXrayConsolidated.cs">
       <DependentUpon>rptEcgXrayConsolidated.rpt</DependentUpon>
       <AutoGen>True</AutoGen>
       <SubType>Component</SubType>
       <DesignTime>True</DesignTime>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Include="CrystalReports\rptOPConsolidated.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>rptOPConsolidated.rpt</DependentUpon>
       <SubType>Component</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Include="CrystalReports\rptEcgXrayBill.cs">
       <DependentUpon>rptEcgXrayBill.rpt</DependentUpon>
       <AutoGen>True</AutoGen>
       <SubType>Component</SubType>
       <DesignTime>True</DesignTime>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Include="CrystalReports\rptOutpatientBill1.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>rptOutpatientBill.rpt</DependentUpon>
       <SubType>Component</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Include="CrystalReports\rptPurchaseByInvoice.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>rptPurchaseByInvoice.rpt</DependentUpon>
       <SubType>Component</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Include="CrystalReports\rptPurchaseConsolidated.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>rptPurchaseConsolidated.rpt</DependentUpon>
       <SubType>Component</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Include="CrystalReports\rptSalesByInvoice.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>rptSalesByInvoice.rpt</DependentUpon>
       <SubType>Component</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Include="CrystalReports\rptSalesConsolidated.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>rptSalesConsolidated.rpt</DependentUpon>
       <SubType>Component</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Include="CrystalReports\rptSalesReturn.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>rptSalesReturn.rpt</DependentUpon>
       <SubType>Component</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="CrystalReports\rptScanSummary.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptScanSummary.rpt</DependentUpon>
+      <SubType>Component</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Include="CrystalReports\rptStock.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>rptStock.rpt</DependentUpon>
       <SubType>Component</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Include="CrystalReports\rptStockByItemMrpBatch.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>rptStockByItemMrpBatch.rpt</DependentUpon>
       <SubType>Component</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Include="CrystalReports\rptStockHistory.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>rptStockHistory.rpt</DependentUpon>
       <SubType>Component</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Include="CrystalReports\rptTestCrossTab.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>rptTestCrossTab.rpt</DependentUpon>
       <SubType>Component</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Include="CrystalReports\rptUsers.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>rptUsers.rpt</DependentUpon>
       <SubType>Component</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Include="Dashboard.cs">
       <SubType>Form</SubType>
@@ -256,11 +285,11 @@
     <Compile Include="Master\DoctorRegistration.Designer.cs">
       <DependentUpon>DoctorRegistration.cs</DependentUpon>
     </Compile>
-    <Compile Include="Master\FeesMaster.cs">
+    <Compile Include="Master\ScanFeesMaster.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Master\FeesMaster.Designer.cs">
-      <DependentUpon>FeesMaster.cs</DependentUpon>
+    <Compile Include="Master\ScanFeesMaster.Designer.cs">
+      <DependentUpon>ScanFeesMaster.cs</DependentUpon>
     </Compile>
     <Compile Include="Master\frmCompany.cs">
       <SubType>Form</SubType>
@@ -311,35 +340,41 @@
     <Compile Include="Master\Employee.Designer.cs">
       <DependentUpon>Employee.cs</DependentUpon>
     </Compile>
-    <Compile Include="Master\SearchDoctor.cs">
+    <Compile Include="Reports\ScanSummaryReport.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Master\SearchDoctor.Designer.cs">
+    <Compile Include="Reports\ScanSummaryReport.Designer.cs">
+      <DependentUpon>ScanSummaryReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Search\SearchDoctor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Search\SearchDoctor.Designer.cs">
       <DependentUpon>SearchDoctor.cs</DependentUpon>
     </Compile>
-    <Compile Include="Master\SearchItem.cs">
+    <Compile Include="Search\SearchItem.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Master\SearchItem.Designer.cs">
+    <Compile Include="Search\SearchItem.Designer.cs">
       <DependentUpon>SearchItem.cs</DependentUpon>
     </Compile>
-    <Compile Include="Master\SearchLedger.cs">
+    <Compile Include="Search\SearchLedger.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Master\SearchLedger.Designer.cs">
+    <Compile Include="Search\SearchLedger.Designer.cs">
       <DependentUpon>SearchLedger.cs</DependentUpon>
     </Compile>
-    <Compile Include="Master\SearchPatient.cs">
+    <Compile Include="Search\SearchPatient.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Master\SearchPatient.Designer.cs">
+    <Compile Include="Search\SearchPatient.Designer.cs">
       <DependentUpon>SearchPatient.cs</DependentUpon>
     </Compile>
-    <Compile Include="Master\TestMaster.cs">
+    <Compile Include="Master\ScanTestMaster.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Master\TestMaster.Designer.cs">
-      <DependentUpon>TestMaster.cs</DependentUpon>
+    <Compile Include="Master\ScanTestMaster.Designer.cs">
+      <DependentUpon>ScanTestMaster.cs</DependentUpon>
     </Compile>
     <Compile Include="Master\UserMaster.cs">
       <SubType>Form</SubType>
@@ -438,6 +473,12 @@
     <Compile Include="Master\frmItem.Designer.cs">
       <DependentUpon>frmItem.cs</DependentUpon>
     </Compile>
+    <Compile Include="Search\SearchScanDoctorFees.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Search\SearchScanDoctorFees.Designer.cs">
+      <DependentUpon>SearchScanDoctorFees.cs</DependentUpon>
+    </Compile>
     <Compile Include="Transaction\EcgXrayBilling.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -480,11 +521,11 @@
     <Compile Include="Master\PatientRegistration.Designer.cs">
       <DependentUpon>PatientRegistration.cs</DependentUpon>
     </Compile>
-    <Compile Include="Transaction\OutPatientEntry.cs">
+    <Compile Include="Transaction\OPBilling.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Transaction\OutPatientEntry.Designer.cs">
-      <DependentUpon>OutPatientEntry.cs</DependentUpon>
+    <Compile Include="Transaction\OPBilling.Designer.cs">
+      <DependentUpon>OPBilling.cs</DependentUpon>
     </Compile>
     <Compile Include="Transaction\PurchaseEntry.cs">
       <SubType>Form</SubType>
@@ -503,6 +544,12 @@
     </Compile>
     <Compile Include="Transaction\SalesForm1.Designer.cs">
       <DependentUpon>SalesForm1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction\ScanBilling.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction\ScanBilling.Designer.cs">
+      <DependentUpon>ScanBilling.cs</DependentUpon>
     </Compile>
     <Compile Include="Transaction\SetPrice.cs">
       <SubType>Form</SubType>
@@ -524,65 +571,90 @@
     <EmbeddedResource Include="Backup.resx">
       <DependentUpon>Backup.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReports\rptScanBill.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptScanBill.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
     <EmbeddedResource Include="CrystalReports\rptOPCaseType1.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>rptOPCaseType1.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="CrystalReports\rptEcgXrayConsolidated.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>rptEcgXrayConsolidated.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="CrystalReports\rptOPConsolidated.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>rptOPConsolidated.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="CrystalReports\rptEcgXrayBill.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>rptEcgXrayBill.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="CrystalReports\rptOutpatientBill.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>rptOutpatientBill1.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="CrystalReports\rptPurchaseByInvoice.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>rptPurchaseByInvoice.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="CrystalReports\rptPurchaseConsolidated.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>rptPurchaseConsolidated.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="CrystalReports\rptSalesByInvoice.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>rptSalesByInvoice.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="CrystalReports\rptSalesConsolidated.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>rptSalesConsolidated.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="CrystalReports\rptSalesReturn.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>rptSalesReturn.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReports\rptScanSummary.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptScanSummary.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="CrystalReports\rptStock.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>rptStock.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="CrystalReports\rptStockByItemMrpBatch.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>rptStockByItemMrpBatch.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="CrystalReports\rptStockHistory.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>rptStockHistory.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="CrystalReports\rptTestCrossTab.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>rptTestCrossTab.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="CrystalReports\rptUsers.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>rptUsers.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="Dashboard.resx">
       <DependentUpon>Dashboard.cs</DependentUpon>
@@ -593,8 +665,8 @@
     <EmbeddedResource Include="Master\DoctorRegistration.resx">
       <DependentUpon>DoctorRegistration.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Master\FeesMaster.resx">
-      <DependentUpon>FeesMaster.cs</DependentUpon>
+    <EmbeddedResource Include="Master\ScanFeesMaster.resx">
+      <DependentUpon>ScanFeesMaster.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Master\frmCategory.resx">
       <DependentUpon>frmCategory.cs</DependentUpon>
@@ -617,20 +689,23 @@
     <EmbeddedResource Include="Master\Employee.resx">
       <DependentUpon>Employee.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Master\SearchDoctor.resx">
+    <EmbeddedResource Include="Reports\ScanSummaryReport.resx">
+      <DependentUpon>ScanSummaryReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Search\SearchDoctor.resx">
       <DependentUpon>SearchDoctor.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Master\SearchItem.resx">
+    <EmbeddedResource Include="Search\SearchItem.resx">
       <DependentUpon>SearchItem.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Master\SearchLedger.resx">
+    <EmbeddedResource Include="Search\SearchLedger.resx">
       <DependentUpon>SearchLedger.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Master\SearchPatient.resx">
+    <EmbeddedResource Include="Search\SearchPatient.resx">
       <DependentUpon>SearchPatient.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Master\TestMaster.resx">
-      <DependentUpon>TestMaster.cs</DependentUpon>
+    <EmbeddedResource Include="Master\ScanTestMaster.resx">
+      <DependentUpon>ScanTestMaster.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Master\UserMaster.resx">
       <DependentUpon>UserMaster.cs</DependentUpon>
@@ -680,6 +755,9 @@
     <EmbeddedResource Include="Master\frmItem.resx">
       <DependentUpon>frmItem.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Search\SearchScanDoctorFees.resx">
+      <DependentUpon>SearchScanDoctorFees.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Transaction\EcgXrayBilling.resx">
       <DependentUpon>EcgXrayBilling.cs</DependentUpon>
     </EmbeddedResource>
@@ -701,8 +779,8 @@
     <EmbeddedResource Include="Master\PatientRegistration.resx">
       <DependentUpon>PatientRegistration.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Transaction\OutPatientEntry.resx">
-      <DependentUpon>OutPatientEntry.cs</DependentUpon>
+    <EmbeddedResource Include="Transaction\OPBilling.resx">
+      <DependentUpon>OPBilling.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Transaction\PurchaseEntry.resx">
       <DependentUpon>PurchaseEntry.cs</DependentUpon>
@@ -712,6 +790,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Transaction\SalesForm1.resx">
       <DependentUpon>SalesForm1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction\ScanBilling.resx">
+      <DependentUpon>ScanBilling.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Transaction\SetPrice.resx">
       <DependentUpon>SetPrice.cs</DependentUpon>
@@ -783,6 +864,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Common\" />
+    <Folder Include="DataSet\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="h_icon_cng_icon.ico" />

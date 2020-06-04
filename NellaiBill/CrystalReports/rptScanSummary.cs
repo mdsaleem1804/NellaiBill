@@ -16,14 +16,14 @@ namespace NellaiBill.CrystalReports {
     using CrystalDecisions.CrystalReports.Engine;
     
     
-    public class rptEcgXrayConsolidated : ReportClass {
+    public class rptScanSummary : ReportClass {
         
-        public rptEcgXrayConsolidated() {
+        public rptScanSummary() {
         }
         
         public override string ResourceName {
             get {
-                return "rptEcgXrayConsolidated.rpt";
+                return "rptScanSummary.rpt";
             }
             set {
                 // Do nothing
@@ -41,7 +41,7 @@ namespace NellaiBill.CrystalReports {
         
         public override string FullResourceName {
             get {
-                return "NellaiBill.CrystalReports.rptEcgXrayConsolidated.rpt";
+                return "NellaiBill.CrystalReports.rptScanSummary.rpt";
             }
             set {
                 // Do nothing
@@ -138,9 +138,9 @@ namespace NellaiBill.CrystalReports {
     }
     
     [System.Drawing.ToolboxBitmapAttribute(typeof(CrystalDecisions.Shared.ExportOptions), "report.bmp")]
-    public class CachedrptEcgXrayConsolidated : Component, ICachedReport {
+    public class CachedrptScanSummary : Component, ICachedReport {
         
-        public CachedrptEcgXrayConsolidated() {
+        public CachedrptScanSummary() {
         }
         
         [Browsable(false)]
@@ -177,7 +177,7 @@ namespace NellaiBill.CrystalReports {
         }
         
         public virtual CrystalDecisions.CrystalReports.Engine.ReportDocument CreateReport() {
-            rptEcgXrayConsolidated rpt = new rptEcgXrayConsolidated();
+            rptScanSummary rpt = new rptScanSummary();
             rpt.Site = this.Site;
             return rpt;
         }

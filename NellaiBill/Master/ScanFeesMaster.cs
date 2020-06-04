@@ -10,18 +10,18 @@ using System.Windows.Forms;
 
 namespace NellaiBill.Master
 {
-    public partial class FeesMaster : Form
+    public partial class ScanFeesMaster : Form
     {
         DatabaseConnection xDb = new DatabaseConnection();
         int xTestFeesId = 0;
-        public FeesMaster()
+        public ScanFeesMaster()
         {
             InitializeComponent();
         }
 
         private void FeesMaster_Load(object sender, EventArgs e)
         {
-            xDb.LoadComboBox("select test_id,test_name from m_test", cmbTest, "test_id", "test_name");
+            xDb.LoadComboBox("select scan_test_id,test_name from m_scan_test", cmbTest, "scan_test_id", "test_name");
             xDb.LoadComboBox("select doctor_id,doctor_name from m_doctor", cmbDoctor, "doctor_id", "doctor_name");
             LoadGrid();
             DataClear();
@@ -29,9 +29,9 @@ namespace NellaiBill.Master
 
         private void btnSaveUpdate_Click(object sender, EventArgs e)
         {
-            int xTestId=Convert.ToInt32(cmbTest.SelectedValue.ToString());
+            int xScanTestId=Convert.ToInt32(cmbTest.SelectedValue.ToString());
             int xDoctorId = Convert.ToInt32(cmbDoctor.SelectedValue.ToString());
-            if (xTestId == 0)
+            if (xScanTestId == 0)
             {
                 MessageBox.Show("Please Enter Test");
                 cmbTest.Select();
@@ -52,18 +52,18 @@ namespace NellaiBill.Master
             string xQry = "";
             if (btnSaveUpdate.Text == "SAVE")
             {
-                xQry = "insert into   m_test_fees(test_id,doctor_id,fees) " +
-                    " values(" + xTestId + ", " +
+                xQry = "insert into   m_scan_test_fees(scan_test_id,doctor_id,fees) " +
+                    " values(" + xScanTestId + ", " +
                     " " + xDoctorId + " , " +
                     " '" + txtFees.Text + "')";
             }
             else
             {
-                xQry = "update m_test_fees " +
-                    " set test_id=" + xTestId + ", " +
+                xQry = "update m_scan_test_fees " +
+                    " set scan_test_id=" + xScanTestId + ", " +
                     " doctor_id = " + xDoctorId + ",  " +
                     " fees = '" + txtFees.Text + "'  " +
-                    " where  test_fees_id= " + xTestFeesId + "";
+                    " where  scan_test_fees_id= " + xTestFeesId + "";
             }
             xDb.DataProcess(xQry);
             LoadGrid();
@@ -72,9 +72,8 @@ namespace NellaiBill.Master
         }
         private void LoadGrid()
         {
-            string xQuery = "select f.test_fees_id,f.test_id,f.doctor_id,d.doctor_name,t.test_name,f.fees " +
-                " from m_test_fees f, m_doctor d, m_test t " +
-                " where d.doctor_id = f.doctor_id and t.test_id = f.test_id";
+            string xQuery = "select f.scan_test_fees_id,f.scan_test_id,f.doctor_id,d.doctor_name,t.test_name,f.fees " +
+                " from m_scan_test_fees f,  m_doctor d,m_scan_test t where d.doctor_id = f.doctor_id and t.scan_test_id = f.scan_test_id";
             xDb.LoadGrid(xQuery, dataGridView1);
             dataGridView1.ReadOnly = true;
             dataGridView1.Columns[0].Visible = false;
@@ -88,7 +87,6 @@ namespace NellaiBill.Master
         {
             txtFees.Text = "";
             btnSaveUpdate.Text = "SAVE";
-            cmbTestGroup.SelectedIndex = 0;
             cmbTest.SelectedIndex = 0;
             cmbDoctor.SelectedIndex = 0;
             txtFees.Focus();
@@ -97,8 +95,6 @@ namespace NellaiBill.Master
         private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             xTestFeesId = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString());
-            //cmbDoctor.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
-            //txtTestName.Text = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
             cmbDoctor.Text = dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString();
             cmbTest.Text = dataGridView1.Rows[e.RowIndex].Cells[4].Value.ToString();
             txtFees.Text = dataGridView1.Rows[e.RowIndex].Cells[5].Value.ToString();
@@ -106,14 +102,5 @@ namespace NellaiBill.Master
 
         }
 
-        private void cmbTestGroup_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (cmbTestGroup.Text != "ALL")
-            {
-                String xSelectedTestGroup = cmbTestGroup.Text;
-                xDb.LoadComboBox("select test_id,test_name from m_test " +
-                    " where test_group='" + xSelectedTestGroup + "'", cmbTest, "test_id", "test_name");
-            }
-        }
     }
 }

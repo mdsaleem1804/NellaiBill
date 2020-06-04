@@ -175,7 +175,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(996, 540);
+            this.ClientSize = new System.Drawing.Size(1291, 540);
             this.Controls.Add(this.cmbCaseType1);
             this.Controls.Add(this.cmbDoctorName);
             this.Controls.Add(this.label2);

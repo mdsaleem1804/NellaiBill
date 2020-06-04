@@ -13,10 +13,10 @@ using System.Windows.Forms;
 
 namespace NellaiBill.Transaction
 {
-    public partial class OutPatientEntry : Form
+    public partial class OPBilling : Form
     {
         DatabaseConnection xDb = new DatabaseConnection();
-        public OutPatientEntry()
+        public OPBilling()
         {
             InitializeComponent();
         }
@@ -114,6 +114,7 @@ namespace NellaiBill.Transaction
                 " and d.doctor_id = o.doctor_id " +
                 " and  o.date ='" + Convert.ToDateTime(DateTime.Today).ToString("yyyy-MM-dd") + "'";
             xDb.LoadGrid(xQry, dataGridView1);
+            dataGridView1.ReadOnly = true;
             dataGridView1.Columns[0].Visible = false;
             dataGridView1.Columns[8].Visible = false;
         }

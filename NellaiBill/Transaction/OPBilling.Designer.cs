@@ -1,6 +1,6 @@
 ﻿namespace NellaiBill.Transaction
 {
-    partial class OutPatientEntry
+    partial class OPBilling
     {
         /// <summary>
         /// Required designer variable.
@@ -294,7 +294,7 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(35, 248);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(1240, 360);
+            this.dataGridView1.Size = new System.Drawing.Size(1240, 489);
             this.dataGridView1.TabIndex = 116;
             this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
             // 
@@ -495,11 +495,11 @@
             this.label5.TabIndex = 127;
             this.label5.Text = "NoonType";
             // 
-            // OutPatientEntry
+            // OPBilling
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1287, 620);
+            this.ClientSize = new System.Drawing.Size(1348, 749);
             this.Controls.Add(this.cmbCaseType1);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.mBtnCancel);
@@ -519,7 +519,7 @@
             this.Controls.Add(this.label5);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.groupBox2);
-            this.Name = "OutPatientEntry";
+            this.Name = "OPBilling";
             this.Text = "OutPatientEntry";
             this.Load += new System.EventHandler(this.OutPatientEntry_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.OutPatientEntry_KeyDown);
