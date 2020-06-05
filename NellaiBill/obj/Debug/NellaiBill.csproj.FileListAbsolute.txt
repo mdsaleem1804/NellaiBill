@@ -185,7 +185,6 @@ E:\Dotnet\NellaiBill\NellaiBill\obj\Debug\NellaiBill.Reports.CR_Stock.resources
 E:\Dotnet\NellaiBill\NellaiBill\obj\Debug\NellaiBill.Reports.EcgXraySummaryReport.resources
 E:\Dotnet\NellaiBill\NellaiBill\obj\Debug\NellaiBill.Reports.frmSalesReport.resources
 E:\Dotnet\NellaiBill\NellaiBill\obj\Debug\NellaiBill.Reports.frmStockHistory.resources
-E:\Dotnet\NellaiBill\NellaiBill\obj\Debug\NellaiBill.Reports.OPCaseType1Report.resources
 E:\Dotnet\NellaiBill\NellaiBill\obj\Debug\NellaiBill.Reports.OPSummaryReport.resources
 E:\Dotnet\NellaiBill\NellaiBill\obj\Debug\NellaiBill.Reports.PurchaseReport.resources
 E:\Dotnet\NellaiBill\NellaiBill\obj\Debug\NellaiBill.Reports.PurchaseDetailsReport.resources
@@ -199,7 +198,6 @@ E:\Dotnet\NellaiBill\NellaiBill\obj\Debug\NellaiBill.Search.SearchScanDoctorFees
 E:\Dotnet\NellaiBill\NellaiBill\obj\Debug\NellaiBill.Transaction.EcgXrayBilling.resources
 E:\Dotnet\NellaiBill\NellaiBill\obj\Debug\NellaiBill.Transaction.frmPurchaseReturn.resources
 E:\Dotnet\NellaiBill\NellaiBill\obj\Debug\NellaiBill.Transaction.frmSalesReturn.resources
-E:\Dotnet\NellaiBill\NellaiBill\obj\Debug\NellaiBill.Master.LabEntry.resources
 E:\Dotnet\NellaiBill\NellaiBill\obj\Debug\NellaiBill.Master.LabReport.resources
 E:\Dotnet\NellaiBill\NellaiBill\obj\Debug\NellaiBill.Master.Report.resources
 E:\Dotnet\NellaiBill\NellaiBill\obj\Debug\NellaiBill.Transaction.NewPatient.resources
@@ -217,7 +215,6 @@ E:\Dotnet\NellaiBill\NellaiBill\obj\Debug\NellaiBill.application
 E:\Dotnet\NellaiBill\NellaiBill\obj\Debug\NellaiBill.csproj.CopyComplete
 E:\Dotnet\NellaiBill\NellaiBill\obj\Debug\NellaiBill.exe
 E:\Dotnet\NellaiBill\NellaiBill\obj\Debug\NellaiBill.pdb
-E:\Dotnet\NellaiBill\NellaiBill\bin\Debug\CrystalReports\rptOPCaseType1.rpt
 E:\Dotnet\NellaiBill\NellaiBill\bin\Debug\CrystalReports\rptEcgXrayConsolidated.rpt
 E:\Dotnet\NellaiBill\NellaiBill\bin\Debug\CrystalReports\rptOPConsolidated.rpt
 E:\Dotnet\NellaiBill\NellaiBill\bin\Debug\CrystalReports\rptEcgXrayBill.rpt
@@ -233,7 +230,6 @@ E:\Dotnet\NellaiBill\NellaiBill\bin\Debug\CrystalReports\rptStockByItemMrpBatch.
 E:\Dotnet\NellaiBill\NellaiBill\bin\Debug\CrystalReports\rptStockHistory.rpt
 E:\Dotnet\NellaiBill\NellaiBill\bin\Debug\CrystalReports\rptTestCrossTab.rpt
 E:\Dotnet\NellaiBill\NellaiBill\bin\Debug\CrystalReports\rptUsers.rpt
-E:\Dotnet\NellaiBill\NellaiBill\bin\Debug\CrystalReports\rptOPCaseType1.cs
 E:\Dotnet\NellaiBill\NellaiBill\bin\Debug\CrystalReports\rptEcgXrayConsolidated.cs
 E:\Dotnet\NellaiBill\NellaiBill\bin\Debug\CrystalReports\rptOPConsolidated.cs
 E:\Dotnet\NellaiBill\NellaiBill\bin\Debug\CrystalReports\rptEcgXrayBill.cs
@@ -250,3 +246,5 @@ E:\Dotnet\NellaiBill\NellaiBill\bin\Debug\CrystalReports\rptStockHistory.cs
 E:\Dotnet\NellaiBill\NellaiBill\bin\Debug\CrystalReports\rptTestCrossTab.cs
 E:\Dotnet\NellaiBill\NellaiBill\bin\Debug\CrystalReports\rptUsers.cs
 E:\Dotnet\NellaiBill\NellaiBill\obj\Debug\NellaiBill.csprojAssemblyReference.cache
+E:\Dotnet\NellaiBill\NellaiBill\obj\Debug\NellaiBill.Master.LabBilling.resources
+E:\Dotnet\NellaiBill\NellaiBill\obj\Debug\NellaiBill.Transaction.IP.IPAdmission.resources

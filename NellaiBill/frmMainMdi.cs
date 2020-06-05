@@ -3,6 +3,7 @@ using MySql.Data.MySqlClient;
 using NellaiBill.Master;
 using NellaiBill.Reports;
 using NellaiBill.Transaction;
+using NellaiBill.Transaction.IP;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -92,7 +93,7 @@ namespace NellaiBill
 
         private void updateTestDetailsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            LabEntry labEntry = new LabEntry();
+            LabBilling labEntry = new LabBilling();
             labEntry.MdiParent = this;
             labEntry.Show();
         }
@@ -321,12 +322,6 @@ namespace NellaiBill
             report.Show();
         }
 
-        private void oPCaseType1ReportToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            OPCaseType1Report report = new OPCaseType1Report();
-            report.MdiParent = this;
-            report.Show();
-        }
 
         private void userMasterToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -382,6 +377,27 @@ namespace NellaiBill
             ScanSummaryReport report = new ScanSummaryReport();
             report.MdiParent = this;
             report.Show();
+        }
+
+        private void oPSummaryReportToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            OPSummaryReport report = new OPSummaryReport();
+            report.MdiParent = this;
+            report.Show();
+        }
+
+        private void lABBILLINGToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            LabBilling billing = new LabBilling();
+            billing.MdiParent = this;
+            billing.Show();
+        }
+
+        private void iPADMISSIONToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            IPAdmission billing = new IPAdmission();
+            billing.MdiParent = this;
+            billing.Show();
         }
     }
 }

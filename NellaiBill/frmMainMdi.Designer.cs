@@ -44,6 +44,10 @@
             this.scanTestMasterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ScanFeesMasterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.userMasterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.caseTypeMasterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.roomMasterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.supplerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.customerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.categoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -53,6 +57,10 @@
             this.outPatientEntryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.eCGBILLINGToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sCANBILLINGToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.lABBILLINGToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.iPADMISSIONToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.iPADVANCEPAYMENTToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.iPROOMCHANGEToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.StockToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.PurchaseEntryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.PurchaseReturnToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -60,10 +68,10 @@
             this.POSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.SalesReturnToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.LogsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.outPatientToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.oPTodaysCollectionReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.oPCaseType1ReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.oPSummaryReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ecgXraySummaryReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.scanSummaryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.stockReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salesReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.purchaseReportToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -76,7 +84,6 @@
             this.LogoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.purchaseReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.feesMasterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.scanSummaryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.StatusStrip1.SuspendLayout();
             this.menuStrip2.SuspendLayout();
             this.SuspendLayout();
@@ -168,6 +175,10 @@
             this.scanTestMasterToolStripMenuItem,
             this.ScanFeesMasterToolStripMenuItem,
             this.userMasterToolStripMenuItem,
+            this.toolStripSeparator3,
+            this.caseTypeMasterToolStripMenuItem,
+            this.roomMasterToolStripMenuItem,
+            this.toolStripSeparator2,
             this.supplerToolStripMenuItem,
             this.customerToolStripMenuItem,
             this.categoryToolStripMenuItem,
@@ -224,6 +235,28 @@
             this.userMasterToolStripMenuItem.Text = "User Master";
             this.userMasterToolStripMenuItem.Click += new System.EventHandler(this.userMasterToolStripMenuItem_Click);
             // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(174, 6);
+            // 
+            // caseTypeMasterToolStripMenuItem
+            // 
+            this.caseTypeMasterToolStripMenuItem.Name = "caseTypeMasterToolStripMenuItem";
+            this.caseTypeMasterToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
+            this.caseTypeMasterToolStripMenuItem.Text = "Case Type Master";
+            // 
+            // roomMasterToolStripMenuItem
+            // 
+            this.roomMasterToolStripMenuItem.Name = "roomMasterToolStripMenuItem";
+            this.roomMasterToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
+            this.roomMasterToolStripMenuItem.Text = "Room Master";
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(174, 6);
+            // 
             // supplerToolStripMenuItem
             // 
             this.supplerToolStripMenuItem.Name = "supplerToolStripMenuItem";
@@ -264,7 +297,11 @@
             this.SalesmanToolStripMenuItem3.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.outPatientEntryToolStripMenuItem,
             this.eCGBILLINGToolStripMenuItem,
-            this.sCANBILLINGToolStripMenuItem});
+            this.sCANBILLINGToolStripMenuItem,
+            this.lABBILLINGToolStripMenuItem,
+            this.iPADMISSIONToolStripMenuItem,
+            this.iPADVANCEPAYMENTToolStripMenuItem,
+            this.iPROOMCHANGEToolStripMenuItem});
             this.SalesmanToolStripMenuItem3.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SalesmanToolStripMenuItem3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
             this.SalesmanToolStripMenuItem3.Image = ((System.Drawing.Image)(resources.GetObject("SalesmanToolStripMenuItem3.Image")));
@@ -277,23 +314,49 @@
             // outPatientEntryToolStripMenuItem
             // 
             this.outPatientEntryToolStripMenuItem.Name = "outPatientEntryToolStripMenuItem";
-            this.outPatientEntryToolStripMenuItem.Size = new System.Drawing.Size(175, 22);
+            this.outPatientEntryToolStripMenuItem.Size = new System.Drawing.Size(198, 22);
             this.outPatientEntryToolStripMenuItem.Text = "OP BILLING";
             this.outPatientEntryToolStripMenuItem.Click += new System.EventHandler(this.outPatientEntryToolStripMenuItem_Click);
             // 
             // eCGBILLINGToolStripMenuItem
             // 
             this.eCGBILLINGToolStripMenuItem.Name = "eCGBILLINGToolStripMenuItem";
-            this.eCGBILLINGToolStripMenuItem.Size = new System.Drawing.Size(175, 22);
+            this.eCGBILLINGToolStripMenuItem.Size = new System.Drawing.Size(198, 22);
             this.eCGBILLINGToolStripMenuItem.Text = "ECG/XRAY BILLING";
             this.eCGBILLINGToolStripMenuItem.Click += new System.EventHandler(this.eCGBILLINGToolStripMenuItem_Click);
             // 
             // sCANBILLINGToolStripMenuItem
             // 
             this.sCANBILLINGToolStripMenuItem.Name = "sCANBILLINGToolStripMenuItem";
-            this.sCANBILLINGToolStripMenuItem.Size = new System.Drawing.Size(175, 22);
+            this.sCANBILLINGToolStripMenuItem.Size = new System.Drawing.Size(198, 22);
             this.sCANBILLINGToolStripMenuItem.Text = "SCAN BILLING";
             this.sCANBILLINGToolStripMenuItem.Click += new System.EventHandler(this.sCANBILLINGToolStripMenuItem_Click);
+            // 
+            // lABBILLINGToolStripMenuItem
+            // 
+            this.lABBILLINGToolStripMenuItem.Name = "lABBILLINGToolStripMenuItem";
+            this.lABBILLINGToolStripMenuItem.Size = new System.Drawing.Size(198, 22);
+            this.lABBILLINGToolStripMenuItem.Text = "LAB BILLING";
+            this.lABBILLINGToolStripMenuItem.Click += new System.EventHandler(this.lABBILLINGToolStripMenuItem_Click);
+            // 
+            // iPADMISSIONToolStripMenuItem
+            // 
+            this.iPADMISSIONToolStripMenuItem.Name = "iPADMISSIONToolStripMenuItem";
+            this.iPADMISSIONToolStripMenuItem.Size = new System.Drawing.Size(198, 22);
+            this.iPADMISSIONToolStripMenuItem.Text = "IP ADMISSION";
+            this.iPADMISSIONToolStripMenuItem.Click += new System.EventHandler(this.iPADMISSIONToolStripMenuItem_Click);
+            // 
+            // iPADVANCEPAYMENTToolStripMenuItem
+            // 
+            this.iPADVANCEPAYMENTToolStripMenuItem.Name = "iPADVANCEPAYMENTToolStripMenuItem";
+            this.iPADVANCEPAYMENTToolStripMenuItem.Size = new System.Drawing.Size(198, 22);
+            this.iPADVANCEPAYMENTToolStripMenuItem.Text = "IP ADVANCE PAYMENT";
+            // 
+            // iPROOMCHANGEToolStripMenuItem
+            // 
+            this.iPROOMCHANGEToolStripMenuItem.Name = "iPROOMCHANGEToolStripMenuItem";
+            this.iPROOMCHANGEToolStripMenuItem.Size = new System.Drawing.Size(198, 22);
+            this.iPROOMCHANGEToolStripMenuItem.Text = "IP ROOM CHANGE";
             // 
             // StockToolStripMenuItem
             // 
@@ -357,9 +420,10 @@
             // LogsToolStripMenuItem
             // 
             this.LogsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.outPatientToolStripMenuItem,
+            this.oPSummaryReportToolStripMenuItem,
             this.ecgXraySummaryReportToolStripMenuItem,
             this.scanSummaryToolStripMenuItem,
+            this.toolStripSeparator1,
             this.stockReportToolStripMenuItem,
             this.salesReportToolStripMenuItem,
             this.purchaseReportToolStripMenuItem1,
@@ -374,28 +438,12 @@
             this.LogsToolStripMenuItem.Text = "Report";
             this.LogsToolStripMenuItem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             // 
-            // outPatientToolStripMenuItem
+            // oPSummaryReportToolStripMenuItem
             // 
-            this.outPatientToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.oPTodaysCollectionReportToolStripMenuItem,
-            this.oPCaseType1ReportToolStripMenuItem});
-            this.outPatientToolStripMenuItem.Name = "outPatientToolStripMenuItem";
-            this.outPatientToolStripMenuItem.Size = new System.Drawing.Size(214, 22);
-            this.outPatientToolStripMenuItem.Text = "OutPatient";
-            // 
-            // oPTodaysCollectionReportToolStripMenuItem
-            // 
-            this.oPTodaysCollectionReportToolStripMenuItem.Name = "oPTodaysCollectionReportToolStripMenuItem";
-            this.oPTodaysCollectionReportToolStripMenuItem.Size = new System.Drawing.Size(215, 22);
-            this.oPTodaysCollectionReportToolStripMenuItem.Text = "OPTodaysCollectionReport";
-            this.oPTodaysCollectionReportToolStripMenuItem.Click += new System.EventHandler(this.oPTodaysCollectionReportToolStripMenuItem_Click);
-            // 
-            // oPCaseType1ReportToolStripMenuItem
-            // 
-            this.oPCaseType1ReportToolStripMenuItem.Name = "oPCaseType1ReportToolStripMenuItem";
-            this.oPCaseType1ReportToolStripMenuItem.Size = new System.Drawing.Size(215, 22);
-            this.oPCaseType1ReportToolStripMenuItem.Text = "OPCaseType1Report";
-            this.oPCaseType1ReportToolStripMenuItem.Click += new System.EventHandler(this.oPCaseType1ReportToolStripMenuItem_Click);
+            this.oPSummaryReportToolStripMenuItem.Name = "oPSummaryReportToolStripMenuItem";
+            this.oPSummaryReportToolStripMenuItem.Size = new System.Drawing.Size(214, 22);
+            this.oPSummaryReportToolStripMenuItem.Text = "OP Summary Report";
+            this.oPSummaryReportToolStripMenuItem.Click += new System.EventHandler(this.oPSummaryReportToolStripMenuItem_Click);
             // 
             // ecgXraySummaryReportToolStripMenuItem
             // 
@@ -403,6 +451,18 @@
             this.ecgXraySummaryReportToolStripMenuItem.Size = new System.Drawing.Size(214, 22);
             this.ecgXraySummaryReportToolStripMenuItem.Text = "Ecg/Xray Summary Report";
             this.ecgXraySummaryReportToolStripMenuItem.Click += new System.EventHandler(this.ecgXraySummaryReportToolStripMenuItem_Click);
+            // 
+            // scanSummaryToolStripMenuItem
+            // 
+            this.scanSummaryToolStripMenuItem.Name = "scanSummaryToolStripMenuItem";
+            this.scanSummaryToolStripMenuItem.Size = new System.Drawing.Size(214, 22);
+            this.scanSummaryToolStripMenuItem.Text = "Scan Summary Report";
+            this.scanSummaryToolStripMenuItem.Click += new System.EventHandler(this.scanSummaryToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(211, 6);
             // 
             // stockReportToolStripMenuItem
             // 
@@ -497,13 +557,6 @@
             this.feesMasterToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
             this.feesMasterToolStripMenuItem.Text = "Fees Master";
             // 
-            // scanSummaryToolStripMenuItem
-            // 
-            this.scanSummaryToolStripMenuItem.Name = "scanSummaryToolStripMenuItem";
-            this.scanSummaryToolStripMenuItem.Size = new System.Drawing.Size(214, 22);
-            this.scanSummaryToolStripMenuItem.Text = "Scan Summary";
-            this.scanSummaryToolStripMenuItem.Click += new System.EventHandler(this.scanSummaryToolStripMenuItem_Click);
-            // 
             // frm_main_mdi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -566,9 +619,6 @@
         private System.Windows.Forms.ToolStripMenuItem outPatientEntryToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem patientRegistrationToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem doctorRegistrationToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem outPatientToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem oPTodaysCollectionReportToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem oPCaseType1ReportToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem feesMasterToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ScanFeesMasterToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem scanTestMasterToolStripMenuItem;
@@ -577,6 +627,16 @@
         private System.Windows.Forms.ToolStripMenuItem ecgXraySummaryReportToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem sCANBILLINGToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem scanSummaryToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem oPSummaryReportToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem lABBILLINGToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem iPADMISSIONToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
+        private System.Windows.Forms.ToolStripMenuItem caseTypeMasterToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem roomMasterToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+        private System.Windows.Forms.ToolStripMenuItem iPADVANCEPAYMENTToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem iPROOMCHANGEToolStripMenuItem;
     }
 }
 

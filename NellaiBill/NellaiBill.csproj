@@ -160,13 +160,6 @@
       <DesignTime>True</DesignTime>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
-    <Compile Include="CrystalReports\rptOPCaseType1.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>rptOPCaseType1.rpt</DependentUpon>
-      <SubType>Component</SubType>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Compile>
     <Compile Include="CrystalReports\rptEcgXrayConsolidated.cs">
       <DependentUpon>rptEcgXrayConsolidated.rpt</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -413,12 +406,6 @@
       <DependentUpon>frmStockHistory.cs</DependentUpon>
     </Compile>
     <Compile Include="Reports\ITextEvents.cs" />
-    <Compile Include="Reports\OPCaseType1Report.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Reports\OPCaseType1Report.Designer.cs">
-      <DependentUpon>OPCaseType1Report.cs</DependentUpon>
-    </Compile>
     <Compile Include="Reports\OPSummaryReport.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -497,11 +484,17 @@
     <Compile Include="Transaction\frmSalesReturn.Designer.cs">
       <DependentUpon>frmSalesReturn.cs</DependentUpon>
     </Compile>
-    <Compile Include="Transaction\LabEntry.cs">
+    <Compile Include="Transaction\IP\IPAdmission.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Transaction\LabEntry.Designer.cs">
-      <DependentUpon>LabEntry.cs</DependentUpon>
+    <Compile Include="Transaction\IP\IPAdmission.Designer.cs">
+      <DependentUpon>IPAdmission.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction\LabBilling.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction\LabBilling.Designer.cs">
+      <DependentUpon>LabBilling.cs</DependentUpon>
     </Compile>
     <Compile Include="Reports\LabReport.cs">
       <SubType>Form</SubType>
@@ -574,11 +567,6 @@
     <EmbeddedResource Include="CrystalReports\rptScanBill.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>rptScanBill.cs</LastGenOutput>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CrystalReports\rptOPCaseType1.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>rptOPCaseType1.cs</LastGenOutput>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="CrystalReports\rptEcgXrayConsolidated.rpt">
@@ -725,9 +713,6 @@
     <EmbeddedResource Include="Reports\frmStockHistory.resx">
       <DependentUpon>frmStockHistory.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Reports\OPCaseType1Report.resx">
-      <DependentUpon>OPCaseType1Report.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Reports\OPSummaryReport.resx">
       <DependentUpon>OPSummaryReport.cs</DependentUpon>
     </EmbeddedResource>
@@ -767,8 +752,11 @@
     <EmbeddedResource Include="Transaction\frmSalesReturn.resx">
       <DependentUpon>frmSalesReturn.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Transaction\LabEntry.resx">
-      <DependentUpon>LabEntry.cs</DependentUpon>
+    <EmbeddedResource Include="Transaction\IP\IPAdmission.resx">
+      <DependentUpon>IPAdmission.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction\LabBilling.resx">
+      <DependentUpon>LabBilling.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\LabReport.resx">
       <DependentUpon>LabReport.cs</DependentUpon>
@@ -870,6 +858,8 @@
     <Content Include="h_icon_cng_icon.ico" />
     <Content Include="logo.ico" />
     <Content Include="pharmacy.ico" />
+    <None Include="Resources\arrow1.png" />
+    <None Include="Resources\arrow.png" />
     <None Include="Resources\login_png.png" />
     <None Include="Resources\bg.jpg" />
   </ItemGroup>

@@ -128,6 +128,7 @@ namespace NellaiBill.Transaction
         {
             string xQry = "select patient_id,uhid,patient_name,patient_address,patient_mobileno,age,gender from m_patient_registration";
             xDb.LoadGrid(xQry, dataGridView1);
+            dataGridView1.ReadOnly = true;
             dataGridView1.Columns[0].Visible = false;
         }
         private void DataClear()
@@ -199,7 +200,7 @@ namespace NellaiBill.Transaction
 
         private void txtSearch_TextChanged(object sender, EventArgs e)
         {
-            string xFilterSearch = "patient_name Like '%" + txtSearch.Text + "%' OR uhid LIKE '%" + txtSearch.Text + "%'";
+            string xFilterSearch = "patient_name Like '%" + txtSearch.Text + "%' OR uhid LIKE '%" + txtSearch.Text + "%' OR patient_mobileno LIKE '%" + txtSearch.Text + "%' OR patient_address LIKE '%" + txtSearch.Text + "%'";
             (dataGridView1.DataSource as DataTable).DefaultView.RowFilter = string.Format(xFilterSearch);
         }
     }

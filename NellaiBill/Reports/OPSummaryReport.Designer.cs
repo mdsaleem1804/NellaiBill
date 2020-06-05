@@ -80,11 +80,11 @@
             // btnViewData
             // 
             this.btnViewData.Depth = 0;
-            this.btnViewData.Location = new System.Drawing.Point(981, 66);
+            this.btnViewData.Location = new System.Drawing.Point(849, 47);
             this.btnViewData.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnViewData.Name = "btnViewData";
             this.btnViewData.Primary = true;
-            this.btnViewData.Size = new System.Drawing.Size(109, 26);
+            this.btnViewData.Size = new System.Drawing.Size(109, 45);
             this.btnViewData.TabIndex = 44;
             this.btnViewData.Text = "VIEW DATA";
             this.btnViewData.UseVisualStyleBackColor = true;
@@ -93,7 +93,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(203, 55);
+            this.label1.Location = new System.Drawing.Point(182, 55);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(46, 13);
             this.label1.TabIndex = 43;
@@ -103,7 +103,7 @@
             // 
             this.dtpToDate.CustomFormat = "yyyy/MM/dd";
             this.dtpToDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpToDate.Location = new System.Drawing.Point(206, 72);
+            this.dtpToDate.Location = new System.Drawing.Point(185, 72);
             this.dtpToDate.Name = "dtpToDate";
             this.dtpToDate.Size = new System.Drawing.Size(169, 20);
             this.dtpToDate.TabIndex = 41;
@@ -136,16 +136,16 @@
             "General",
             "Emergency",
             "Others"});
-            this.cmbCaseType.Location = new System.Drawing.Point(582, 71);
+            this.cmbCaseType.Location = new System.Drawing.Point(561, 71);
             this.cmbCaseType.Name = "cmbCaseType";
-            this.cmbCaseType.Size = new System.Drawing.Size(171, 21);
+            this.cmbCaseType.Size = new System.Drawing.Size(137, 21);
             this.cmbCaseType.TabIndex = 43;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(579, 55);
+            this.label6.Location = new System.Drawing.Point(558, 55);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(55, 13);
             this.label6.TabIndex = 130;
@@ -158,7 +158,7 @@
             this.cmbDoctorName.FormattingEnabled = true;
             this.cmbDoctorName.Items.AddRange(new object[] {
             "All"});
-            this.cmbDoctorName.Location = new System.Drawing.Point(398, 71);
+            this.cmbDoctorName.Location = new System.Drawing.Point(377, 71);
             this.cmbDoctorName.Name = "cmbDoctorName";
             this.cmbDoctorName.Size = new System.Drawing.Size(171, 21);
             this.cmbDoctorName.TabIndex = 42;
@@ -167,7 +167,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(395, 55);
+            this.label2.Location = new System.Drawing.Point(374, 55);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(67, 13);
             this.label2.TabIndex = 132;
@@ -186,16 +186,16 @@
             "WardCase",
             "Anc",
             "GreenFile"});
-            this.cmbCaseType1.Location = new System.Drawing.Point(765, 71);
+            this.cmbCaseType1.Location = new System.Drawing.Point(710, 71);
             this.cmbCaseType1.Name = "cmbCaseType1";
-            this.cmbCaseType1.Size = new System.Drawing.Size(191, 21);
+            this.cmbCaseType1.Size = new System.Drawing.Size(133, 21);
             this.cmbCaseType1.TabIndex = 143;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(762, 55);
+            this.label4.Location = new System.Drawing.Point(707, 55);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(61, 13);
             this.label4.TabIndex = 144;
@@ -205,7 +205,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1293, 749);
+            this.ClientSize = new System.Drawing.Size(1028, 749);
             this.Controls.Add(this.cmbCaseType1);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.cmbDoctorName);

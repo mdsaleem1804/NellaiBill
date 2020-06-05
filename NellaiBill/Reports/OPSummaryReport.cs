@@ -43,9 +43,9 @@ namespace NellaiBill.Reports
 
             cryRpt.SetParameterValue("FromDate", DateTime.Parse(xFromDate));
             cryRpt.SetParameterValue("ToDate", DateTime.Parse(xToDate));
-            cryRpt.SetParameterValue("CaseType", cmbCaseType.SelectedText);
-            cryRpt.SetParameterValue("CaseType1", cmbCaseType1.SelectedText);
-            cryRpt.SetParameterValue("DoctorName", cmbDoctorName.SelectedText);
+            cryRpt.SetParameterValue("CaseType", cmbCaseType.Text);
+            cryRpt.SetParameterValue("CaseType1", cmbCaseType1.Text);
+            cryRpt.SetParameterValue("DoctorName", cmbDoctorName.Text);
             crystalReportViewer1.ReportSource = cryRpt;
             crystalReportViewer1.Refresh();
             crystalReportViewer1.ToolPanelView = ToolPanelViewType.None;
