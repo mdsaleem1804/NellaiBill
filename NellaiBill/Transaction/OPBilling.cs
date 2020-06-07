@@ -38,16 +38,10 @@ namespace NellaiBill.Transaction
         private void OutPatientEntry_Load(object sender, EventArgs e)
         {
             this.KeyPreview = true;
-            //cmbCaseType.SelectedText = "None";
-            //cmbNoonType.SelectedText = "Morning";
-            //cmbCaseType1.SelectedText = "General";
-            //cmbPaymentStatus.SelectedText = "Paid";
-            //cmbOpPatientStatus.SelectedText = "Processing";
             txtOpId.Text = xDb.GetMaxId("txno", "outpatientdetails").ToString();
             mBtnDelete.Visible = false;
             mBtnCancel.Visible = false;
             cmbCaseType.Select();
-            // mBtnSaveUpdate.Enabled = false;
             LoadGrid();
         }
 

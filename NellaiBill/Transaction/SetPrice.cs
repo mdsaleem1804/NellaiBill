@@ -15,6 +15,7 @@ namespace NellaiBill.Master
     {
         DatabaseConnection xDb = new DatabaseConnection();
         int xStockId;
+        int xItemId;
         public SetPrice()
         {
             InitializeComponent();
@@ -62,7 +63,8 @@ namespace NellaiBill.Master
             if (e.RowIndex >= 0)
             {
                 xStockId = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString());
-                txtItemName.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
+                xItemId = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString());
+                txtItemName.Text = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
                 txtPrice.Text = dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString();
                 txtStock.Text = dataGridView1.Rows[e.RowIndex].Cells[4].Value.ToString();
                 txtBatch.Text = dataGridView1.Rows[e.RowIndex].Cells[5].Value.ToString();
@@ -81,7 +83,7 @@ namespace NellaiBill.Master
                 try
                 {
                     string xUpdateStockQry = "update inv_stockentry " +
-                   " set mrp=" + Convert.ToInt32(txtPrice.Text) + "," +
+                   " set mrp=" + Convert.ToDecimal(txtPrice.Text) + "," +
                    " stock=" + Convert.ToInt32(txtStock.Text) + "," +
                    " batch='" + txtBatch.Text + "'" +
                    " where  stockno= " + xStockId + "";
@@ -93,10 +95,10 @@ namespace NellaiBill.Master
                                   " (audit_stock_itemno,audit_stock_qty," +
                                   " audit_stock_mrp,audit_stock_batch," +
                                   " audit_stock_datetime,audit_stock_mode)" +
-                                  " values(" + txtItemName.Text 
+                                  " values(" + xItemId
                                   + ","  + Convert.ToInt32(txtStock.Text)
-                                  + "," + Convert.ToInt32(txtPrice.Text)
-                                  + ",'" + Convert.ToInt32(txtBatch.Text)
+                                  + "," + Convert.ToDouble(txtPrice.Text)
+                                  + ",'" + txtBatch.Text.ToString()
                                   + "','" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") 
                                   + "','STOCK ADJUSTMENT')";
 
@@ -124,6 +126,20 @@ namespace NellaiBill.Master
         private void btnCancel_Click(object sender, EventArgs e)
         {
             DataClear();
+        }
+
+        private void txtSearch_TextChanged(object sender, EventArgs e)
+        {
+            string xFilterSearch = "itemname Like '%" + txtSearch.Text + "%'";
+            (dataGridView1.DataSource as DataTable).DefaultView.RowFilter = string.Format(xFilterSearch);
+        }
+
+        private void btnLoadSameBatch_Click(object sender, EventArgs e)
+        {
+
+            string xQuery = "select s.stockno,s.itemno,i.itemname,s.mrp,s.stock,s.batch,s.expdate,i.gst from inv_stockentry s, m_item i  " +
+                " where s.stock > 0 and s.itemno = i.itemno group by s.batch having count(s.batch) > 1 order by itemname";               
+            xDb.LoadGrid(xQuery, dataGridView2);
         }
     }
 }

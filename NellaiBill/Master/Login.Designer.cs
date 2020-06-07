@@ -64,7 +64,7 @@
             this.txtUserName.Name = "txtUserName";
             this.txtUserName.Size = new System.Drawing.Size(138, 20);
             this.txtUserName.TabIndex = 1;
-            this.txtUserName.Text = "admin";
+            this.txtUserName.Text = "user";
             // 
             // txtPassword
             // 
@@ -73,7 +73,7 @@
             this.txtPassword.PasswordChar = '*';
             this.txtPassword.Size = new System.Drawing.Size(138, 20);
             this.txtPassword.TabIndex = 2;
-            this.txtPassword.Text = "admin";
+            this.txtPassword.Text = "user";
             // 
             // groupBox1
             // 

@@ -28,12 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_main_mdi));
             this.StatusStrip1 = new System.Windows.Forms.StatusStrip();
             this.ToolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.lblUserType = new System.Windows.Forms.ToolStripStatusLabel();
             this.ToolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.lblUser = new System.Windows.Forms.ToolStripStatusLabel();
             this.ToolStripStatusLabel3 = new System.Windows.Forms.ToolStripStatusLabel();
             this.lblDateTime = new System.Windows.Forms.ToolStripStatusLabel();
             this.menuStrip2 = new System.Windows.Forms.MenuStrip();
@@ -71,6 +71,7 @@
             this.oPSummaryReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ecgXraySummaryReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.scanSummaryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.auditorDiagnosisSummaryReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.stockReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salesReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -84,6 +85,7 @@
             this.LogoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.purchaseReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.feesMasterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.StatusStrip1.SuspendLayout();
             this.menuStrip2.SuspendLayout();
             this.SuspendLayout();
@@ -94,7 +96,6 @@
             this.ToolStripStatusLabel1,
             this.lblUserType,
             this.ToolStripStatusLabel2,
-            this.lblUser,
             this.ToolStripStatusLabel3,
             this.lblDateTime});
             this.StatusStrip1.Location = new System.Drawing.Point(0, 445);
@@ -126,18 +127,10 @@
             this.ToolStripStatusLabel2.Size = new System.Drawing.Size(11, 17);
             this.ToolStripStatusLabel2.Text = ":";
             // 
-            // lblUser
-            // 
-            this.lblUser.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUser.ForeColor = System.Drawing.Color.Black;
-            this.lblUser.Name = "lblUser";
-            this.lblUser.Size = new System.Drawing.Size(75, 17);
-            this.lblUser.Text = "User Name";
-            // 
             // ToolStripStatusLabel3
             // 
             this.ToolStripStatusLabel3.Name = "ToolStripStatusLabel3";
-            this.ToolStripStatusLabel3.Size = new System.Drawing.Size(596, 17);
+            this.ToolStripStatusLabel3.Size = new System.Drawing.Size(671, 17);
             this.ToolStripStatusLabel3.Spring = true;
             // 
             // lblDateTime
@@ -423,6 +416,7 @@
             this.oPSummaryReportToolStripMenuItem,
             this.ecgXraySummaryReportToolStripMenuItem,
             this.scanSummaryToolStripMenuItem,
+            this.auditorDiagnosisSummaryReportToolStripMenuItem,
             this.toolStripSeparator1,
             this.stockReportToolStripMenuItem,
             this.salesReportToolStripMenuItem,
@@ -441,61 +435,68 @@
             // oPSummaryReportToolStripMenuItem
             // 
             this.oPSummaryReportToolStripMenuItem.Name = "oPSummaryReportToolStripMenuItem";
-            this.oPSummaryReportToolStripMenuItem.Size = new System.Drawing.Size(214, 22);
+            this.oPSummaryReportToolStripMenuItem.Size = new System.Drawing.Size(262, 22);
             this.oPSummaryReportToolStripMenuItem.Text = "OP Summary Report";
             this.oPSummaryReportToolStripMenuItem.Click += new System.EventHandler(this.oPSummaryReportToolStripMenuItem_Click);
             // 
             // ecgXraySummaryReportToolStripMenuItem
             // 
             this.ecgXraySummaryReportToolStripMenuItem.Name = "ecgXraySummaryReportToolStripMenuItem";
-            this.ecgXraySummaryReportToolStripMenuItem.Size = new System.Drawing.Size(214, 22);
+            this.ecgXraySummaryReportToolStripMenuItem.Size = new System.Drawing.Size(262, 22);
             this.ecgXraySummaryReportToolStripMenuItem.Text = "Ecg/Xray Summary Report";
             this.ecgXraySummaryReportToolStripMenuItem.Click += new System.EventHandler(this.ecgXraySummaryReportToolStripMenuItem_Click);
             // 
             // scanSummaryToolStripMenuItem
             // 
             this.scanSummaryToolStripMenuItem.Name = "scanSummaryToolStripMenuItem";
-            this.scanSummaryToolStripMenuItem.Size = new System.Drawing.Size(214, 22);
+            this.scanSummaryToolStripMenuItem.Size = new System.Drawing.Size(262, 22);
             this.scanSummaryToolStripMenuItem.Text = "Scan Summary Report";
             this.scanSummaryToolStripMenuItem.Click += new System.EventHandler(this.scanSummaryToolStripMenuItem_Click);
+            // 
+            // auditorDiagnosisSummaryReportToolStripMenuItem
+            // 
+            this.auditorDiagnosisSummaryReportToolStripMenuItem.Name = "auditorDiagnosisSummaryReportToolStripMenuItem";
+            this.auditorDiagnosisSummaryReportToolStripMenuItem.Size = new System.Drawing.Size(262, 22);
+            this.auditorDiagnosisSummaryReportToolStripMenuItem.Text = "Auditor Diagnosis Summary Report";
+            this.auditorDiagnosisSummaryReportToolStripMenuItem.Click += new System.EventHandler(this.auditorDiagnosisSummaryReportToolStripMenuItem_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(211, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(259, 6);
             // 
             // stockReportToolStripMenuItem
             // 
             this.stockReportToolStripMenuItem.Name = "stockReportToolStripMenuItem";
-            this.stockReportToolStripMenuItem.Size = new System.Drawing.Size(214, 22);
+            this.stockReportToolStripMenuItem.Size = new System.Drawing.Size(262, 22);
             this.stockReportToolStripMenuItem.Text = "Stock Report";
             this.stockReportToolStripMenuItem.Click += new System.EventHandler(this.stockReportToolStripMenuItem_Click);
             // 
             // salesReportToolStripMenuItem
             // 
             this.salesReportToolStripMenuItem.Name = "salesReportToolStripMenuItem";
-            this.salesReportToolStripMenuItem.Size = new System.Drawing.Size(214, 22);
+            this.salesReportToolStripMenuItem.Size = new System.Drawing.Size(262, 22);
             this.salesReportToolStripMenuItem.Text = "Sales Report";
             this.salesReportToolStripMenuItem.Click += new System.EventHandler(this.salesReportToolStripMenuItem_Click);
             // 
             // purchaseReportToolStripMenuItem1
             // 
             this.purchaseReportToolStripMenuItem1.Name = "purchaseReportToolStripMenuItem1";
-            this.purchaseReportToolStripMenuItem1.Size = new System.Drawing.Size(214, 22);
+            this.purchaseReportToolStripMenuItem1.Size = new System.Drawing.Size(262, 22);
             this.purchaseReportToolStripMenuItem1.Text = "Purchase Report";
             this.purchaseReportToolStripMenuItem1.Click += new System.EventHandler(this.purchaseReportToolStripMenuItem1_Click);
             // 
             // stockReportToolStripMenuItem1
             // 
             this.stockReportToolStripMenuItem1.Name = "stockReportToolStripMenuItem1";
-            this.stockReportToolStripMenuItem1.Size = new System.Drawing.Size(214, 22);
+            this.stockReportToolStripMenuItem1.Size = new System.Drawing.Size(262, 22);
             this.stockReportToolStripMenuItem1.Text = "Stock_Report and Logs";
             this.stockReportToolStripMenuItem1.Click += new System.EventHandler(this.stockReportToolStripMenuItem1_Click);
             // 
             // salesReturnReportToolStripMenuItem
             // 
             this.salesReturnReportToolStripMenuItem.Name = "salesReturnReportToolStripMenuItem";
-            this.salesReturnReportToolStripMenuItem.Size = new System.Drawing.Size(214, 22);
+            this.salesReturnReportToolStripMenuItem.Size = new System.Drawing.Size(262, 22);
             this.salesReturnReportToolStripMenuItem.Text = "Sales Return Report";
             this.salesReturnReportToolStripMenuItem.Click += new System.EventHandler(this.salesReturnReportToolStripMenuItem_Click);
             // 
@@ -557,6 +558,12 @@
             this.feesMasterToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
             this.feesMasterToolStripMenuItem.Text = "Fees Master";
             // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Interval = 1000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // frm_main_mdi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -586,8 +593,6 @@
         internal System.Windows.Forms.ToolStripStatusLabel ToolStripStatusLabel1;
         internal System.Windows.Forms.ToolStripStatusLabel lblUserType;
         internal System.Windows.Forms.ToolStripStatusLabel ToolStripStatusLabel2;
-        internal System.Windows.Forms.ToolStripStatusLabel lblUser;
-        internal System.Windows.Forms.ToolStripStatusLabel ToolStripStatusLabel3;
         internal System.Windows.Forms.ToolStripStatusLabel lblDateTime;
         internal System.Windows.Forms.MenuStrip menuStrip2;
         internal System.Windows.Forms.ToolStripMenuItem RegistrationToolStripMenuItem;
@@ -637,6 +642,9 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripMenuItem iPADVANCEPAYMENTToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem iPROOMCHANGEToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem auditorDiagnosisSummaryReportToolStripMenuItem;
+        internal System.Windows.Forms.ToolStripStatusLabel ToolStripStatusLabel3;
+        private System.Windows.Forms.Timer timer1;
     }
 }
 

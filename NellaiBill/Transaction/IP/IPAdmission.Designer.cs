@@ -44,9 +44,9 @@
             this.txtPatientName = new System.Windows.Forms.TextBox();
             this.dtpBillDate = new System.Windows.Forms.DateTimePicker();
             this.label10 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cmbCaseType = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.cmbRoom = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -229,17 +229,17 @@
             this.label10.TabIndex = 122;
             this.label10.Text = "Date";
             // 
-            // comboBox1
+            // cmbCaseType
             // 
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.cmbCaseType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbCaseType.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbCaseType.FormattingEnabled = true;
+            this.cmbCaseType.Items.AddRange(new object[] {
             "All"});
-            this.comboBox1.Location = new System.Drawing.Point(235, 42);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(183, 26);
-            this.comboBox1.TabIndex = 168;
+            this.cmbCaseType.Location = new System.Drawing.Point(235, 42);
+            this.cmbCaseType.Name = "cmbCaseType";
+            this.cmbCaseType.Size = new System.Drawing.Size(183, 26);
+            this.cmbCaseType.TabIndex = 168;
             // 
             // label1
             // 
@@ -251,17 +251,17 @@
             this.label1.TabIndex = 169;
             this.label1.Text = "Case";
             // 
-            // comboBox2
+            // cmbRoom
             // 
-            this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Items.AddRange(new object[] {
+            this.cmbRoom.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbRoom.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbRoom.FormattingEnabled = true;
+            this.cmbRoom.Items.AddRange(new object[] {
             "All"});
-            this.comboBox2.Location = new System.Drawing.Point(432, 42);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(183, 26);
-            this.comboBox2.TabIndex = 170;
+            this.cmbRoom.Location = new System.Drawing.Point(432, 42);
+            this.cmbRoom.Name = "cmbRoom";
+            this.cmbRoom.Size = new System.Drawing.Size(183, 26);
+            this.cmbRoom.TabIndex = 170;
             // 
             // label3
             // 
@@ -317,9 +317,9 @@
             this.panel2.Controls.Add(this.button1);
             this.panel2.Controls.Add(this.textBox1);
             this.panel2.Controls.Add(this.label6);
-            this.panel2.Controls.Add(this.comboBox2);
+            this.panel2.Controls.Add(this.cmbRoom);
             this.panel2.Controls.Add(this.label3);
-            this.panel2.Controls.Add(this.comboBox1);
+            this.panel2.Controls.Add(this.cmbCaseType);
             this.panel2.Controls.Add(this.label1);
             this.panel2.Controls.Add(this.cmbDoctor);
             this.panel2.Controls.Add(this.label5);
@@ -339,6 +339,7 @@
             this.Controls.Add(this.panel1);
             this.Name = "IPAdmission";
             this.Text = "IPAdmission";
+            this.Load += new System.EventHandler(this.IPAdmission_Load);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.panel1.ResumeLayout(false);
@@ -368,9 +369,9 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.TextBox txtUhid;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cmbCaseType;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox cmbRoom;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label6;

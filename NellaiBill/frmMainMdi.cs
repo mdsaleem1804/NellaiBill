@@ -1,5 +1,6 @@
 ﻿using MySql.Data;
 using MySql.Data.MySqlClient;
+using NellaiBill.Common;
 using NellaiBill.Master;
 using NellaiBill.Reports;
 using NellaiBill.Transaction;
@@ -23,7 +24,15 @@ namespace NellaiBill
             InitializeComponent();
         }
         GlobalClass globalClass = new GlobalClass();
-  
+        string xUserName = LoginInfo.UserID;
+
+        private void frm_main_mdi_Load(object sender, EventArgs e)
+        {
+            lblUserType.Text = xUserName;         
+            Dashboard dashboard = new Dashboard();
+            dashboard.MdiParent = this;
+            dashboard.Show();
+        }
         private void groupToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmGroup g = new frmGroup();
@@ -38,13 +47,6 @@ namespace NellaiBill
             s.Show();
         }
 
-        private void frm_main_mdi_Load(object sender, EventArgs e)
-        {
-     
-            Dashboard dashboard = new Dashboard();
-            dashboard.MdiParent = this;
-            dashboard.Show();
-        }
 
         private void yearEndToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -55,7 +57,7 @@ namespace NellaiBill
 
         private void categoryToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmCategory  category = new frmCategory();
+            frmCategory category = new frmCategory();
             category.MdiParent = this;
             category.Show();
         }
@@ -67,7 +69,7 @@ namespace NellaiBill
             item.Show();
         }
 
-  
+
 
         private void setPriceToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -76,14 +78,8 @@ namespace NellaiBill
             setPrice.Show();
         }
 
-      
 
-        private void reportsToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-       
-        }
 
-     
         private void dateWiseReportToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Report report = new Report();
@@ -133,7 +129,7 @@ namespace NellaiBill
 
         private void setPriceToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
-            SetPrice setPrice  = new SetPrice();
+            SetPrice setPrice = new SetPrice();
             setPrice.MdiParent = this;
             setPrice.Show();
         }
@@ -150,14 +146,14 @@ namespace NellaiBill
             System.Windows.Forms.Application.Exit();
         }
 
-       
+
 
         private void groupToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
             frmGroup frmGroup = new frmGroup();
             frmGroup.MdiParent = this;
             frmGroup.Show();
-            
+
         }
 
         private void categoryToolStripMenuItem_Click_1(object sender, EventArgs e)
@@ -195,7 +191,7 @@ namespace NellaiBill
             backup.Show();
         }
 
-       
+
         private void stockReportToolStripMenuItem_Click(object sender, EventArgs e)
         {
             CR_Stock report = new CR_Stock();
@@ -209,8 +205,6 @@ namespace NellaiBill
             purchaseEntry.MdiParent = this;
             purchaseEntry.Show();
         }
-
-      
 
         private void stockAdjustmentToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -295,13 +289,13 @@ namespace NellaiBill
 
         private void salesReturnReportToolStripMenuItem_Click(object sender, EventArgs e)
         {
-             CR_SalesReturn report = new CR_SalesReturn();
-           // SalesReportDG report = new SalesReportDG();
+            CR_SalesReturn report = new CR_SalesReturn();
+            // SalesReportDG report = new SalesReportDG();
             report.MdiParent = this;
-            report.Show();         
+            report.Show();
         }
 
-           private void patientRegistrationToolStripMenuItem1_Click(object sender, EventArgs e)
+        private void patientRegistrationToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             NewPatient master = new NewPatient();
             master.MdiParent = this;
@@ -325,9 +319,18 @@ namespace NellaiBill
 
         private void userMasterToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            UserMaster master = new UserMaster();
-            master.MdiParent = this;
-            master.Show();
+            if (xUserName == "admin")
+            {
+                UserMaster master = new UserMaster();
+                master.MdiParent = this;
+                master.Show();
+            }
+            else
+            {
+                MessageBox.Show("Acces is denied");
+                return;
+            }
+        
         }
 
 
@@ -398,6 +401,26 @@ namespace NellaiBill
             IPAdmission billing = new IPAdmission();
             billing.MdiParent = this;
             billing.Show();
+        }
+
+        private void auditorDiagnosisSummaryReportToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            if (xUserName == "admin")
+            {
+                DiagnosisDateWiseSummaryReport report = new DiagnosisDateWiseSummaryReport();
+                report.MdiParent = this;
+                report.Show();
+            }
+            else
+            {
+                MessageBox.Show("Sorry !!! Please contact Admin");
+            }
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            lblDateTime.Text = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
         }
     }
 }

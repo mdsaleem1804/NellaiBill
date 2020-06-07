@@ -1,4 +1,6 @@
-﻿using System;
+﻿using CrystalDecisions.CrystalReports.Engine;
+using NellaiBill.Common;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -14,6 +16,7 @@ namespace NellaiBill.Transaction
     {
 
         DatabaseConnection xDb = new DatabaseConnection();
+        private string xUserName = LoginInfo.UserID;
         public NewPatient()
         {
             InitializeComponent();
@@ -21,6 +24,8 @@ namespace NellaiBill.Transaction
 
         private void NewPatient_Load(object sender, EventArgs e)
         {
+            cmbGender.SelectedIndex = 0;
+            txtMobileNo.MaxLength = 10;
             DataClear();
             LoadGrid();
         }
@@ -50,7 +55,19 @@ namespace NellaiBill.Transaction
             }
             string Month = DateTime.Now.ToString("MM");
             string Year = DateTime.Now.ToString("yy");
-            txtUhid.Text = xAfterAddingZero +"-" + Month+ "" +Year;
+            if (txtPatientId.Text != "")
+            {
+                int xPatientId = Convert.ToInt32(txtPatientId.Text.ToString());
+                if (xPatientId > 12000)
+                {
+                    txtUhid.Text = xAfterAddingZero + "-" + Month + "" + Year;
+                }
+                else
+                {
+                    txtUhid.Text = xAfterAddingZero;
+                }
+            }
+
         }
         private void btnSave_Click(object sender, EventArgs e)
         {
@@ -66,7 +83,7 @@ namespace NellaiBill.Transaction
                 txtUhid.Focus();
                 return;
             }
-          
+
             if (txtName.Text == "")
             {
                 MessageBox.Show("Please Choose Name");
@@ -85,37 +102,55 @@ namespace NellaiBill.Transaction
                 cmbGender.Select();
                 return;
             }
-            
 
+            if (txtAge.Text == "")
+            {
+                MessageBox.Show("Please Enter Dob");
+                txtAge.Select();
+                return;
+            }
+            String xGender = "M";
+            if (cmbGender.Text == "Male")
+            {
+                xGender = "M";
+            }
+            else
+            {
+                xGender = "F";
+            }
             string xQry = "";
             if (btnSave.Text == "SAVE(CTRL+S)")
             {
-                String xGender = "M";
-                if (cmbGender.Text== "Male")
-                {
-                    xGender = "M";
-                }else
-                {
-                    xGender = "F";
-                }
+
                 xQry = "insert into m_patient_registration " +
-                    " (patient_id,uhid,patient_name,age,gender,patient_address,patient_mobileno) " +
+                    " (patient_id,uhid,patient_name,age,gender,date_of_birth,patient_address,patient_mobileno,next_of_kin,date_of_reg,created_by,created_on) " +
                     " values ( " + txtPatientId.Text + ", " +
                     " '" + txtUhid.Text + "'," +
-                     " '" + txtName.Text + "'," +
-                     " " + txtAge.Text + "," +
-                     " '" + xGender + "'," +
-                     " '" + rchAddress.Text + "', " +
-                     "'" + txtMobileNo.Text + "')";
+                    " '" + txtName.Text + "'," +
+                    " " + txtAge.Text + "," +
+                    " '" + xGender + "'," +
+                    " '" + dtpDob.Value.ToString("yyyy-MM-dd") + "'," +
+                    " '" + rchAddress.Text + "', " +
+                    " '" + txtMobileNo.Text + "', " +
+                    "'" + rchNextOfKin.Text + "'," +
+                    " '" + dtpEntryDate.Value.ToString("yyyy-MM-dd") + "'," +
+                    " '" + xUserName + "'," +
+                    " '" + Convert.ToDateTime(DateTime.Now).ToString("yyyy-MM-dd HH:mm:ss") + "' )";
             }
+
             else
             {
                 xQry = "update m_patient_registration set " +
                     " uhid = '" + txtUhid.Text + "', " +
                     " patient_name = '" + txtName.Text + "', " +
                     " patient_address = '" + rchAddress.Text + "', " +
+                     " gender = '" + xGender + "', " +
+                     " date_of_birth = '" + dtpDob.Value.ToString("yyyy-MM-dd") + "', " +
+                     "next_of_kin = '" + rchNextOfKin.Text + "', " +
                      "patient_mobileno = '" + txtMobileNo.Text + "'," +
-                     "age = " + txtAge.Text + " " +
+                     "age = " + txtAge.Text + "," +
+                     "updated_by = '" + xUserName + "'," +
+                     "updated_on = '" + Convert.ToDateTime(DateTime.Now).ToString("yyyy-MM-dd HH:mm:ss") + "'" +
                     " where  patient_id= " + txtPatientId.Text + "";
             }
             xDb.DataProcess(xQry);
@@ -126,17 +161,24 @@ namespace NellaiBill.Transaction
         }
         private void LoadGrid()
         {
-            string xQry = "select patient_id,uhid,patient_name,patient_address,patient_mobileno,age,gender from m_patient_registration";
+            string xQry = "select patient_id,uhid,patient_name,patient_address,patient_mobileno,age,gender,date_of_birth,next_of_kin from m_patient_registration order by patient_id desc";
             xDb.LoadGrid(xQry, dataGridView1);
             dataGridView1.ReadOnly = true;
-            dataGridView1.Columns[0].Visible = false;
+            //dataGridView1.Columns[0].Visible = false;
+            dataGridView1.Columns[0].Width = 50;
+            dataGridView1.Columns[2].Width = 200;
+            dataGridView1.Columns[3].Width = 350;
+            dataGridView1.Columns[4].Width = 100;
+            dataGridView1.Columns[5].Width = 50;
+            dataGridView1.Columns[6].Width = 50;
         }
         private void DataClear()
         {
             txtName.Text = "";
             rchAddress.Text = "";
+            rchNextOfKin.Text = "";
             txtAge.Text = "";
-            txtPatientId.Text = "";
+            txtPatientId.Text = xDb.GetMaxId("patient_id", "m_patient_registration").ToString();
             txtUhid.Text = "";
             txtMobileNo.Text = "";
             txtName.Focus();
@@ -157,7 +199,11 @@ namespace NellaiBill.Transaction
 
         private void dtpDob_Leave(object sender, EventArgs e)
         {
+            GetAgeFromDOB();
+        }
 
+        private void GetAgeFromDOB()
+        {
             DateTime Now = DateTime.Now;
             int Years = new DateTime(DateTime.Now.Subtract(dtpDob.Value).Ticks).Year - 1;
             txtAge.Text = Years.ToString();
@@ -182,9 +228,7 @@ namespace NellaiBill.Transaction
             int Seconds = Now.Subtract(PastYearDate).Seconds;
             //return String.Format("Age: {0} Year(s) {1} Month(s) {2} Day(s) {3} Hour(s) {4} Second(s)",
             //Years, Months, Days, Hours, Seconds);
-
         }
-
         private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
@@ -194,6 +238,15 @@ namespace NellaiBill.Transaction
                 txtName.Text = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
                 rchAddress.Text = dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString();
                 txtMobileNo.Text = dataGridView1.Rows[e.RowIndex].Cells[4].Value.ToString();
+                cmbGender.Text = dataGridView1.Rows[e.RowIndex].Cells[6].Value.ToString();
+                string xDateFromGrid = dataGridView1.Rows[e.RowIndex].Cells[7].Value.ToString();
+                if(xDateFromGrid== "1/1/0001 12:00:00 AM")
+                {
+                    dtpDob.Value = DateTime.Now;
+                }
+                else { dtpDob.Value = Convert.ToDateTime(dataGridView1.Rows[e.RowIndex].Cells[7].Value.ToString()); }
+
+                rchNextOfKin.Text = dataGridView1.Rows[e.RowIndex].Cells[8].Value.ToString();
                 btnSave.Text = "UPDATE";
             }
         }
@@ -202,6 +255,34 @@ namespace NellaiBill.Transaction
         {
             string xFilterSearch = "patient_name Like '%" + txtSearch.Text + "%' OR uhid LIKE '%" + txtSearch.Text + "%' OR patient_mobileno LIKE '%" + txtSearch.Text + "%' OR patient_address LIKE '%" + txtSearch.Text + "%'";
             (dataGridView1.DataSource as DataTable).DefaultView.RowFilter = string.Format(xFilterSearch);
+        }
+
+        private void btnPrint_Click(object sender, EventArgs e)
+        {
+            int xPatientId = Convert.ToInt32(txtPatientId.Text);
+            if (xPatientId <= 12000)
+            {
+                MessageBox.Show("Sorry - Printing is temporarily blocked before 12001");
+                return;
+            }
+            if (txtName.Text == "")
+            {
+                MessageBox.Show("Data is not available");
+                txtName.Focus();
+                return;
+            }
+
+            ReportDocument reportDocument = new ReportDocument();
+            GlobalClass globalClass = new GlobalClass();
+            string path = globalClass.GetReportPath() + "rptPatientInformation.rpt";
+            reportDocument.Load(path);
+            reportDocument.SetParameterValue("PatientId", xPatientId);
+            reportDocument.PrintToPrinter(1, true, 0, 0);
+        }
+
+        private void dtpDob_ValueChanged(object sender, EventArgs e)
+        {
+            GetAgeFromDOB();
         }
     }
 }
