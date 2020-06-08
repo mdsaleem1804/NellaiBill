@@ -21,7 +21,8 @@ namespace NellaiBill
                     MessageBox.Show("Please Choose Folder");
                     return;
                 }
-                string file =   txtFilePath.Text + xCompanyName + "_" + DateTime.Now + "_" + "backup.sql";
+                // string file =   txtFilePath.Text + xCompanyName + "_" + DateTime.Now + "_" + "backup.sql";
+                string file = txtFilePath.Text +"backup.sql";
                 using (xDb.connection = new MySqlConnection(xDb.conString))
                 {
                     using (MySqlCommand cmd = new MySqlCommand())

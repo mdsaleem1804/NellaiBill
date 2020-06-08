@@ -1,4 +1,5 @@
 ﻿using MySql.Data.MySqlClient;
+using NellaiBill.Models;
 using System;
 using System.Configuration;
 using System.Data;
@@ -284,12 +285,24 @@ namespace NellaiBill
                     xComboBox.DisplayMember = xDisplayMember;
                     xComboBox.DataSource = dt;
 
-
                 }
             }
+        }
+        public void LoadComboBoxData(string xQry, ComboBox xComboBox)
+        {
+            DataTable table = new DataTable("ip_admission");
+            using (MySqlConnection conn = new MySqlConnection(conString))
+            {
 
-
-
+                using (MySqlDataAdapter adapter = new MySqlDataAdapter(xQry, conn))
+                {
+                    adapter.Fill(table);
+                }
+            }
+            foreach (DataRow da in table.Rows)
+            {
+                xComboBox.Items.Add(da[0].ToString());
+            }
         }
        
         public int CountRecord(string xQry)
@@ -312,6 +325,73 @@ namespace NellaiBill
             using (connection = new MySqlConnection(conString))
             {
                 string xQry = "select amount from m_ecg_xray_test_fees where ecg_xray_test_fees_id= " + xTestId + "";
+                connection.Open();
+                MySqlCommand comm = new MySqlCommand(xQry, connection);
+
+                MySqlDataReader reader = comm.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    return reader.GetString(0);
+                }
+                connection.Close();
+                return "";
+            }
+        }
+        public string GetAdvancePaymentFromIpNo(int xIpNo)
+        {
+            using (connection = new MySqlConnection(conString))
+            {
+                string xQry = "SELECT CASE WHEN sum(amount) IS NULL OR sum(amount) = '' THEN  0 ELSE sum(amount) END as amount from ip_advance_payment where ipno = " + xIpNo + "";
+                connection.Open();
+                MySqlCommand comm = new MySqlCommand(xQry, connection);
+
+                MySqlDataReader reader = comm.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    return reader.GetString(0);
+                }
+                connection.Close();
+                return "";
+            }
+        }
+        public IPDetailModel GetIpDetailsFromIpNo(int xIpNo)
+        {
+            IPDetailModel model =new IPDetailModel();
+            using (connection = new MySqlConnection(conString))
+            {
+                string xQry = "select p.patient_id,p.patient_name,p.patient_address," +
+                    "ip.room_id  from " +
+                    " ip_admission ip, " +
+                    " m_patient_registration p " +
+                    " where " +
+                    " p.patient_id = ip.patient_id " +
+                    " and ip.ipno  = " + xIpNo + "";
+                connection.Open();
+                MySqlCommand comm = new MySqlCommand(xQry, connection);
+
+                MySqlDataReader reader = comm.ExecuteReader();
+
+                while (reader.Read())
+                {
+                   model = new IPDetailModel()
+                    {
+                        PatientId = Convert.ToInt32(reader.GetInt32(0)),
+                        PatientName = reader.GetString(1),
+                        PatientAddress = reader.GetString(2),
+                        RoomId=reader.GetInt32(3)
+                   };
+                }
+                connection.Close();
+            }
+            return model;
+        }
+        public string GetRoomFees(int xRoomId)
+        {
+            using (connection = new MySqlConnection(conString))
+            {
+                string xQry = "select amount from m_room where room_id= " + xRoomId + "";
                 connection.Open();
                 MySqlCommand comm = new MySqlCommand(xQry, connection);
 

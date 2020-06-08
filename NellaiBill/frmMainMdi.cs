@@ -422,5 +422,19 @@ namespace NellaiBill
         {
             lblDateTime.Text = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
         }
-    }
+
+        private void iPADVANCEPAYMENTToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            IPPayment billing = new IPPayment();
+            billing.MdiParent = this;
+            billing.Show();
+        }
+
+        private void iPINVOICEBILLToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            IPInvoice billing = new IPInvoice();
+            billing.MdiParent = this;
+            billing.Show();
+        }
+    }   
 }

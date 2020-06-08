@@ -348,6 +348,7 @@
     <Compile Include="Master\Employee.Designer.cs">
       <DependentUpon>Employee.cs</DependentUpon>
     </Compile>
+    <Compile Include="Models\IPDetailModel.cs" />
     <Compile Include="Reports\DiagnosisDateWiseSummaryReport.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -510,6 +511,18 @@
     </Compile>
     <Compile Include="Transaction\IP\IPAdmission.Designer.cs">
       <DependentUpon>IPAdmission.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction\IP\IPInvoice.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction\IP\IPInvoice.Designer.cs">
+      <DependentUpon>IPInvoice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction\IP\IPPayment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction\IP\IPPayment.Designer.cs">
+      <DependentUpon>IPPayment.cs</DependentUpon>
     </Compile>
     <Compile Include="Transaction\LabBilling.cs">
       <SubType>Form</SubType>
@@ -789,6 +802,12 @@
     <EmbeddedResource Include="Transaction\IP\IPAdmission.resx">
       <DependentUpon>IPAdmission.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Transaction\IP\IPInvoice.resx">
+      <DependentUpon>IPInvoice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction\IP\IPPayment.resx">
+      <DependentUpon>IPPayment.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Transaction\LabBilling.resx">
       <DependentUpon>LabBilling.cs</DependentUpon>
     </EmbeddedResource>
@@ -891,6 +910,7 @@
     <Content Include="h_icon_cng_icon.ico" />
     <Content Include="logo.ico" />
     <Content Include="pharmacy.ico" />
+    <None Include="Resources\print.png" />
     <None Include="Resources\arrow1.png" />
     <None Include="Resources\arrow.png" />
     <None Include="Resources\login_png.png" />

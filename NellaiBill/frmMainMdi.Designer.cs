@@ -86,6 +86,7 @@
             this.purchaseReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.feesMasterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.iPINVOICEBILLToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.StatusStrip1.SuspendLayout();
             this.menuStrip2.SuspendLayout();
             this.SuspendLayout();
@@ -294,7 +295,8 @@
             this.lABBILLINGToolStripMenuItem,
             this.iPADMISSIONToolStripMenuItem,
             this.iPADVANCEPAYMENTToolStripMenuItem,
-            this.iPROOMCHANGEToolStripMenuItem});
+            this.iPROOMCHANGEToolStripMenuItem,
+            this.iPINVOICEBILLToolStripMenuItem});
             this.SalesmanToolStripMenuItem3.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SalesmanToolStripMenuItem3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
             this.SalesmanToolStripMenuItem3.Image = ((System.Drawing.Image)(resources.GetObject("SalesmanToolStripMenuItem3.Image")));
@@ -344,6 +346,7 @@
             this.iPADVANCEPAYMENTToolStripMenuItem.Name = "iPADVANCEPAYMENTToolStripMenuItem";
             this.iPADVANCEPAYMENTToolStripMenuItem.Size = new System.Drawing.Size(198, 22);
             this.iPADVANCEPAYMENTToolStripMenuItem.Text = "IP ADVANCE PAYMENT";
+            this.iPADVANCEPAYMENTToolStripMenuItem.Click += new System.EventHandler(this.iPADVANCEPAYMENTToolStripMenuItem_Click);
             // 
             // iPROOMCHANGEToolStripMenuItem
             // 
@@ -564,6 +567,13 @@
             this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // iPINVOICEBILLToolStripMenuItem
+            // 
+            this.iPINVOICEBILLToolStripMenuItem.Name = "iPINVOICEBILLToolStripMenuItem";
+            this.iPINVOICEBILLToolStripMenuItem.Size = new System.Drawing.Size(198, 22);
+            this.iPINVOICEBILLToolStripMenuItem.Text = "IP INVOICE BILL";
+            this.iPINVOICEBILLToolStripMenuItem.Click += new System.EventHandler(this.iPINVOICEBILLToolStripMenuItem_Click);
+            // 
             // frm_main_mdi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -645,6 +655,7 @@
         private System.Windows.Forms.ToolStripMenuItem auditorDiagnosisSummaryReportToolStripMenuItem;
         internal System.Windows.Forms.ToolStripStatusLabel ToolStripStatusLabel3;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.ToolStripMenuItem iPINVOICEBILLToolStripMenuItem;
     }
 }
 

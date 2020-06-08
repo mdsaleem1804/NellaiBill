@@ -136,6 +136,7 @@ namespace NellaiBill.Master
 
             xTotalAmount = xAmount;
             lbl_total_amount_value.Text = xTotalAmount.ToString();
+
         }
         private void DataClear()
         {
