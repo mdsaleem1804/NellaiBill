@@ -436,5 +436,46 @@ namespace NellaiBill
             billing.MdiParent = this;
             billing.Show();
         }
+        private void iPConsolidatedReportToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            IpInvoiceReport report = new IpInvoiceReport();
+            report.MdiParent = this;
+            report.Show();
+        }
+
+        private void iPAdvanceReportToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            IPAdvanceReport report = new IPAdvanceReport();
+            report.MdiParent = this;
+            report.Show();
+        }
+
+        private void iPAdmissionReportToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            IPAdmissionReport report = new IPAdmissionReport();
+            report.MdiParent = this;
+            report.Show();
+        }
+
+        private void caseTypeMasterToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CaseTypeMaster master = new CaseTypeMaster();
+            master.MdiParent = this;
+            master.Show();
+        }
+
+        private void roomMasterToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            RoomMaster master = new RoomMaster();
+            master.MdiParent = this;
+            master.Show();
+        }
+
+        private void labReportToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            LabSummaryReport report = new LabSummaryReport();
+            report.MdiParent = this;
+            report.Show();
+        }
     }   
 }

@@ -40,18 +40,16 @@
             this.label7 = new System.Windows.Forms.Label();
             this.txtParticularFees = new System.Windows.Forms.TextBox();
             this.cmbParticulars = new System.Windows.Forms.ComboBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvAdvanceSummary = new System.Windows.Forms.DataGridView();
             this.lblAdv = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.dgvFinalSummary = new System.Windows.Forms.DataGridView();
             this.Particulars = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Fees = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label9 = new System.Windows.Forms.Label();
             this.txtLessAmount = new System.Windows.Forms.TextBox();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btnSave = new System.Windows.Forms.Button();
             this.lblPatientName = new System.Windows.Forms.Label();
-            this.lblTotalAdvancePaid = new System.Windows.Forms.Label();
+            this.lblAddress = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.txtSubTotal = new System.Windows.Forms.TextBox();
             this.lblAdvance = new System.Windows.Forms.Label();
@@ -60,8 +58,7 @@
             this.lblTotalAmont = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.panel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAdvanceSummary)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFinalSummary)).BeginInit();
             this.SuspendLayout();
             // 
@@ -113,7 +110,7 @@
             this.cmbIPNo.Location = new System.Drawing.Point(370, 48);
             this.cmbIPNo.Name = "cmbIPNo";
             this.cmbIPNo.Size = new System.Drawing.Size(167, 26);
-            this.cmbIPNo.TabIndex = 185;
+            this.cmbIPNo.TabIndex = 11;
             this.cmbIPNo.SelectedIndexChanged += new System.EventHandler(this.cmbIPNo_SelectedIndexChanged);
             // 
             // label5
@@ -146,7 +143,7 @@
             this.btnParticularsAdd.Location = new System.Drawing.Point(428, 27);
             this.btnParticularsAdd.Name = "btnParticularsAdd";
             this.btnParticularsAdd.Size = new System.Drawing.Size(51, 28);
-            this.btnParticularsAdd.TabIndex = 196;
+            this.btnParticularsAdd.TabIndex = 14;
             this.btnParticularsAdd.Text = "+";
             this.btnParticularsAdd.UseVisualStyleBackColor = false;
             this.btnParticularsAdd.Click += new System.EventHandler(this.btnParticularsAdd_Click);
@@ -177,7 +174,7 @@
             this.txtParticularFees.Location = new System.Drawing.Point(274, 31);
             this.txtParticularFees.Name = "txtParticularFees";
             this.txtParticularFees.Size = new System.Drawing.Size(148, 24);
-            this.txtParticularFees.TabIndex = 193;
+            this.txtParticularFees.TabIndex = 13;
             // 
             // cmbParticulars
             // 
@@ -196,15 +193,15 @@
             this.cmbParticulars.Location = new System.Drawing.Point(11, 35);
             this.cmbParticulars.Name = "cmbParticulars";
             this.cmbParticulars.Size = new System.Drawing.Size(245, 21);
-            this.cmbParticulars.TabIndex = 191;
+            this.cmbParticulars.TabIndex = 12;
             // 
-            // dataGridView1
+            // dgvAdvanceSummary
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(34, 258);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(515, 115);
-            this.dataGridView1.TabIndex = 200;
+            this.dgvAdvanceSummary.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvAdvanceSummary.Location = new System.Drawing.Point(34, 259);
+            this.dgvAdvanceSummary.Name = "dgvAdvanceSummary";
+            this.dgvAdvanceSummary.Size = new System.Drawing.Size(515, 150);
+            this.dgvAdvanceSummary.TabIndex = 200;
             // 
             // lblAdv
             // 
@@ -217,34 +214,16 @@
             this.lblAdv.TabIndex = 197;
             this.lblAdv.Text = "Advance Payment Summary";
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.label1.Location = new System.Drawing.Point(43, 376);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(130, 18);
-            this.label1.TabIndex = 201;
-            this.label1.Text = "Room Summary";
-            // 
-            // dataGridView2
-            // 
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(34, 397);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(515, 129);
-            this.dataGridView2.TabIndex = 202;
-            // 
             // dgvFinalSummary
             // 
+            this.dgvFinalSummary.AllowUserToAddRows = false;
             this.dgvFinalSummary.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvFinalSummary.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Particulars,
             this.Fees});
-            this.dgvFinalSummary.Location = new System.Drawing.Point(585, 89);
+            this.dgvFinalSummary.Location = new System.Drawing.Point(585, 30);
             this.dgvFinalSummary.Name = "dgvFinalSummary";
-            this.dgvFinalSummary.Size = new System.Drawing.Size(513, 320);
+            this.dgvFinalSummary.Size = new System.Drawing.Size(513, 379);
             this.dgvFinalSummary.TabIndex = 203;
             this.dgvFinalSummary.UserDeletedRow += new System.Windows.Forms.DataGridViewRowEventHandler(this.dgvFinalSummary_UserDeletedRow);
             // 
@@ -276,17 +255,19 @@
             this.txtLessAmount.Size = new System.Drawing.Size(148, 24);
             this.txtLessAmount.TabIndex = 205;
             this.txtLessAmount.Text = "0";
+            this.txtLessAmount.TextChanged += new System.EventHandler(this.txtLessAmount_TextChanged);
             // 
-            // button3
+            // btnSave
             // 
-            this.button3.BackColor = System.Drawing.Color.Lime;
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(950, 536);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(148, 34);
-            this.button3.TabIndex = 197;
-            this.button3.Text = "Save";
-            this.button3.UseVisualStyleBackColor = false;
+            this.btnSave.BackColor = System.Drawing.Color.Lime;
+            this.btnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSave.Location = new System.Drawing.Point(950, 536);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(148, 34);
+            this.btnSave.TabIndex = 197;
+            this.btnSave.Text = "Save";
+            this.btnSave.UseVisualStyleBackColor = false;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // lblPatientName
             // 
@@ -299,16 +280,16 @@
             this.lblPatientName.TabIndex = 207;
             this.lblPatientName.Text = "Name";
             // 
-            // lblTotalAdvancePaid
+            // lblAddress
             // 
-            this.lblTotalAdvancePaid.AutoSize = true;
-            this.lblTotalAdvancePaid.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotalAdvancePaid.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.lblTotalAdvancePaid.Location = new System.Drawing.Point(290, 89);
-            this.lblTotalAdvancePaid.Name = "lblTotalAdvancePaid";
-            this.lblTotalAdvancePaid.Size = new System.Drawing.Size(145, 18);
-            this.lblTotalAdvancePaid.TabIndex = 208;
-            this.lblTotalAdvancePaid.Text = "Advance Received";
+            this.lblAddress.AutoSize = true;
+            this.lblAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAddress.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.lblAddress.Location = new System.Drawing.Point(191, 89);
+            this.lblAddress.Name = "lblAddress";
+            this.lblAddress.Size = new System.Drawing.Size(69, 18);
+            this.lblAddress.TabIndex = 208;
+            this.lblAddress.Text = "Address";
             // 
             // label8
             // 
@@ -375,7 +356,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.label3.Location = new System.Drawing.Point(587, 53);
+            this.label3.Location = new System.Drawing.Point(582, 9);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(154, 18);
             this.label3.TabIndex = 215;
@@ -393,17 +374,15 @@
             this.Controls.Add(this.txtAdvance);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.txtSubTotal);
-            this.Controls.Add(this.lblTotalAdvancePaid);
+            this.Controls.Add(this.lblAddress);
             this.Controls.Add(this.lblPatientName);
-            this.Controls.Add(this.button3);
+            this.Controls.Add(this.btnSave);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.txtLessAmount);
             this.Controls.Add(this.dgvFinalSummary);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.dataGridView2);
             this.Controls.Add(this.lblAdv);
             this.Controls.Add(this.panel4);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dgvAdvanceSummary);
             this.Controls.Add(this.dtpBillDate);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.txtInvoiceNo);
@@ -415,8 +394,7 @@
             this.Load += new System.EventHandler(this.IPInvoice_Load);
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAdvanceSummary)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFinalSummary)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -437,16 +415,14 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox txtParticularFees;
         private System.Windows.Forms.ComboBox cmbParticulars;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvAdvanceSummary;
         private System.Windows.Forms.Label lblAdv;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DataGridView dataGridView2;
         private System.Windows.Forms.DataGridView dgvFinalSummary;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox txtLessAmount;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Label lblPatientName;
-        private System.Windows.Forms.Label lblTotalAdvancePaid;
+        private System.Windows.Forms.Label lblAddress;
         private System.Windows.Forms.DataGridViewTextBoxColumn Particulars;
         private System.Windows.Forms.DataGridViewTextBoxColumn Fees;
         private System.Windows.Forms.Label label8;

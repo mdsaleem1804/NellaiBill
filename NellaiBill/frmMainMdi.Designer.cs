@@ -61,6 +61,7 @@
             this.iPADMISSIONToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.iPADVANCEPAYMENTToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.iPROOMCHANGEToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.iPINVOICEBILLToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.StockToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.PurchaseEntryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.PurchaseReturnToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -71,6 +72,10 @@
             this.oPSummaryReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ecgXraySummaryReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.scanSummaryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.iPToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.iPAdmissionReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.iPAdvanceReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.iPConsolidatedReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.auditorDiagnosisSummaryReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.stockReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -86,7 +91,7 @@
             this.purchaseReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.feesMasterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.iPINVOICEBILLToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.labReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.StatusStrip1.SuspendLayout();
             this.menuStrip2.SuspendLayout();
             this.SuspendLayout();
@@ -239,12 +244,14 @@
             this.caseTypeMasterToolStripMenuItem.Name = "caseTypeMasterToolStripMenuItem";
             this.caseTypeMasterToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
             this.caseTypeMasterToolStripMenuItem.Text = "Case Type Master";
+            this.caseTypeMasterToolStripMenuItem.Click += new System.EventHandler(this.caseTypeMasterToolStripMenuItem_Click);
             // 
             // roomMasterToolStripMenuItem
             // 
             this.roomMasterToolStripMenuItem.Name = "roomMasterToolStripMenuItem";
             this.roomMasterToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
             this.roomMasterToolStripMenuItem.Text = "Room Master";
+            this.roomMasterToolStripMenuItem.Click += new System.EventHandler(this.roomMasterToolStripMenuItem_Click);
             // 
             // toolStripSeparator2
             // 
@@ -354,6 +361,13 @@
             this.iPROOMCHANGEToolStripMenuItem.Size = new System.Drawing.Size(198, 22);
             this.iPROOMCHANGEToolStripMenuItem.Text = "IP ROOM CHANGE";
             // 
+            // iPINVOICEBILLToolStripMenuItem
+            // 
+            this.iPINVOICEBILLToolStripMenuItem.Name = "iPINVOICEBILLToolStripMenuItem";
+            this.iPINVOICEBILLToolStripMenuItem.Size = new System.Drawing.Size(198, 22);
+            this.iPINVOICEBILLToolStripMenuItem.Text = "IP INVOICE BILL";
+            this.iPINVOICEBILLToolStripMenuItem.Click += new System.EventHandler(this.iPINVOICEBILLToolStripMenuItem_Click);
+            // 
             // StockToolStripMenuItem
             // 
             this.StockToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -419,6 +433,8 @@
             this.oPSummaryReportToolStripMenuItem,
             this.ecgXraySummaryReportToolStripMenuItem,
             this.scanSummaryToolStripMenuItem,
+            this.labReportToolStripMenuItem,
+            this.iPToolStripMenuItem,
             this.auditorDiagnosisSummaryReportToolStripMenuItem,
             this.toolStripSeparator1,
             this.stockReportToolStripMenuItem,
@@ -455,6 +471,37 @@
             this.scanSummaryToolStripMenuItem.Size = new System.Drawing.Size(262, 22);
             this.scanSummaryToolStripMenuItem.Text = "Scan Summary Report";
             this.scanSummaryToolStripMenuItem.Click += new System.EventHandler(this.scanSummaryToolStripMenuItem_Click);
+            // 
+            // iPToolStripMenuItem
+            // 
+            this.iPToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.iPAdmissionReportToolStripMenuItem,
+            this.iPAdvanceReportToolStripMenuItem,
+            this.iPConsolidatedReportToolStripMenuItem});
+            this.iPToolStripMenuItem.Name = "iPToolStripMenuItem";
+            this.iPToolStripMenuItem.Size = new System.Drawing.Size(262, 22);
+            this.iPToolStripMenuItem.Text = "IP";
+            // 
+            // iPAdmissionReportToolStripMenuItem
+            // 
+            this.iPAdmissionReportToolStripMenuItem.Name = "iPAdmissionReportToolStripMenuItem";
+            this.iPAdmissionReportToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
+            this.iPAdmissionReportToolStripMenuItem.Text = "IP Admission Report";
+            this.iPAdmissionReportToolStripMenuItem.Click += new System.EventHandler(this.iPAdmissionReportToolStripMenuItem_Click);
+            // 
+            // iPAdvanceReportToolStripMenuItem
+            // 
+            this.iPAdvanceReportToolStripMenuItem.Name = "iPAdvanceReportToolStripMenuItem";
+            this.iPAdvanceReportToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
+            this.iPAdvanceReportToolStripMenuItem.Text = "IP Advance Report";
+            this.iPAdvanceReportToolStripMenuItem.Click += new System.EventHandler(this.iPAdvanceReportToolStripMenuItem_Click);
+            // 
+            // iPConsolidatedReportToolStripMenuItem
+            // 
+            this.iPConsolidatedReportToolStripMenuItem.Name = "iPConsolidatedReportToolStripMenuItem";
+            this.iPConsolidatedReportToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
+            this.iPConsolidatedReportToolStripMenuItem.Text = "IP Invoice Report";
+            this.iPConsolidatedReportToolStripMenuItem.Click += new System.EventHandler(this.iPConsolidatedReportToolStripMenuItem_Click);
             // 
             // auditorDiagnosisSummaryReportToolStripMenuItem
             // 
@@ -567,12 +614,12 @@
             this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // iPINVOICEBILLToolStripMenuItem
+            // labReportToolStripMenuItem
             // 
-            this.iPINVOICEBILLToolStripMenuItem.Name = "iPINVOICEBILLToolStripMenuItem";
-            this.iPINVOICEBILLToolStripMenuItem.Size = new System.Drawing.Size(198, 22);
-            this.iPINVOICEBILLToolStripMenuItem.Text = "IP INVOICE BILL";
-            this.iPINVOICEBILLToolStripMenuItem.Click += new System.EventHandler(this.iPINVOICEBILLToolStripMenuItem_Click);
+            this.labReportToolStripMenuItem.Name = "labReportToolStripMenuItem";
+            this.labReportToolStripMenuItem.Size = new System.Drawing.Size(262, 22);
+            this.labReportToolStripMenuItem.Text = "Lab Report";
+            this.labReportToolStripMenuItem.Click += new System.EventHandler(this.labReportToolStripMenuItem_Click_1);
             // 
             // frm_main_mdi
             // 
@@ -656,6 +703,11 @@
         internal System.Windows.Forms.ToolStripStatusLabel ToolStripStatusLabel3;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.ToolStripMenuItem iPINVOICEBILLToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem iPToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem iPAdvanceReportToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem iPConsolidatedReportToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem iPAdmissionReportToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem labReportToolStripMenuItem;
     }
 }
 

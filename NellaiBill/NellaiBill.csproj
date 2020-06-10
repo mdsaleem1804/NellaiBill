@@ -154,10 +154,38 @@
       <DependentUpon>Backup.cs</DependentUpon>
     </Compile>
     <Compile Include="Common\LoginInfo.cs" />
+    <Compile Include="CrystalReports\rptIpAdmissionReport.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptIpAdmissionReport.rpt</DependentUpon>
+      <SubType>Component</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="CrystalReports\rptIpAdvanceReport.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptIpAdvanceReport.rpt</DependentUpon>
+      <SubType>Component</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
     <Compile Include="CrystalReports\rptDiagnosisConsolidated.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>rptDiagnosisConsolidated.rpt</DependentUpon>
+      <SubType>Component</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="CrystalReports\rptIpInvoiceReport.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptIpInvoiceReport.rpt</DependentUpon>
+      <SubType>Component</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="CrystalReports\rptLabConsolidated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptLabConsolidated.rpt</DependentUpon>
       <SubType>Component</SubType>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
@@ -287,11 +315,23 @@
       <DependentUpon>Dashboard.cs</DependentUpon>
     </Compile>
     <Compile Include="GlobalClass.cs" />
+    <Compile Include="Master\CaseTypeMaster.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Master\CaseTypeMaster.Designer.cs">
+      <DependentUpon>CaseTypeMaster.cs</DependentUpon>
+    </Compile>
     <Compile Include="Master\DoctorRegistration.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Master\DoctorRegistration.Designer.cs">
       <DependentUpon>DoctorRegistration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Master\RoomMaster.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Master\RoomMaster.Designer.cs">
+      <DependentUpon>RoomMaster.cs</DependentUpon>
     </Compile>
     <Compile Include="Master\ScanFeesMaster.cs">
       <SubType>Form</SubType>
@@ -349,11 +389,37 @@
       <DependentUpon>Employee.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\IPDetailModel.cs" />
+    <Compile Include="Models\IpInvoiceDetailModel.cs" />
+    <Compile Include="Models\IpInvoiceModel.cs" />
     <Compile Include="Reports\DiagnosisDateWiseSummaryReport.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Reports\DiagnosisDateWiseSummaryReport.Designer.cs">
       <DependentUpon>DiagnosisDateWiseSummaryReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\IPAdvanceReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\IPAdvanceReport.Designer.cs">
+      <DependentUpon>IPAdvanceReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\IPAdmissionReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\IPAdmissionReport.Designer.cs">
+      <DependentUpon>IPAdmissionReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\IpInvoiceReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\IpInvoiceReport.Designer.cs">
+      <DependentUpon>IpInvoiceReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\LabSummaryReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\LabSummaryReport.Designer.cs">
+      <DependentUpon>LabSummaryReport.cs</DependentUpon>
     </Compile>
     <Compile Include="Reports\ScanSummaryReport.cs">
       <SubType>Form</SubType>
@@ -598,9 +664,29 @@
     <EmbeddedResource Include="Backup.resx">
       <DependentUpon>Backup.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReports\rptIpAdmissionReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptIpAdmissionReport.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReports\rptIpAdvanceReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptIpAdvanceReport.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
     <EmbeddedResource Include="CrystalReports\rptDiagnosisConsolidated.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>rptDiagnosisConsolidated.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReports\rptIpInvoiceReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptIpInvoiceReport.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReports\rptLabConsolidated.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptLabConsolidated.cs</LastGenOutput>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="CrystalReports\rptPatientInformation.rpt">
@@ -694,8 +780,14 @@
     <EmbeddedResource Include="frmMainMdi.resx">
       <DependentUpon>frmMainMdi.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Master\CaseTypeMaster.resx">
+      <DependentUpon>CaseTypeMaster.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Master\DoctorRegistration.resx">
       <DependentUpon>DoctorRegistration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master\RoomMaster.resx">
+      <DependentUpon>RoomMaster.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Master\ScanFeesMaster.resx">
       <DependentUpon>ScanFeesMaster.cs</DependentUpon>
@@ -723,6 +815,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\DiagnosisDateWiseSummaryReport.resx">
       <DependentUpon>DiagnosisDateWiseSummaryReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\IPAdvanceReport.resx">
+      <DependentUpon>IPAdvanceReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\IPAdmissionReport.resx">
+      <DependentUpon>IPAdmissionReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\IpInvoiceReport.resx">
+      <DependentUpon>IpInvoiceReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\LabSummaryReport.resx">
+      <DependentUpon>LabSummaryReport.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\ScanSummaryReport.resx">
       <DependentUpon>ScanSummaryReport.cs</DependentUpon>
