@@ -356,6 +356,56 @@ namespace NellaiBill
                 return "";
             }
         }
+        public PatientResponseModel GetPatientFromPatientId(int xPatientId)
+        {
+            PatientResponseModel model = new PatientResponseModel();
+            using (connection = new MySqlConnection(conString))
+            {
+                string xQry = "select p.patient_id,p.uhid,p.patient_name,p.patient_address from " +
+                    " m_patient_registration p " +
+                    " where  p.patient_id = " + xPatientId + "";
+                connection.Open();
+                MySqlCommand comm = new MySqlCommand(xQry, connection);
+
+                MySqlDataReader reader = comm.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    model = new PatientResponseModel()
+                    {
+                        PatientId = Convert.ToInt32(reader.GetInt32(0)),
+                        UHID = reader.GetString(1),
+                        PatientName=reader.GetString(2),
+                        PatientAddress = reader.GetString(3)
+                    };
+                }
+                connection.Close();
+            }
+            return model;
+        }
+        public DoctorResponseModel GetDoctorFromDoctorId(int xDoctorId)
+        {
+            DoctorResponseModel model = new DoctorResponseModel();
+            using (connection = new MySqlConnection(conString))
+            {
+                string xQry = "select * from m_doctor where  doctor_id = " + xDoctorId + "";
+                connection.Open();
+                MySqlCommand comm = new MySqlCommand(xQry, connection);
+
+                MySqlDataReader reader = comm.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    model = new DoctorResponseModel()
+                    {
+                        DoctorId = Convert.ToInt32(reader.GetInt32(0)),
+                        DoctorName = reader.GetString(1)
+                    };
+                }
+                connection.Close();
+            }
+            return model;
+        }
         public IPDetailModel GetIpDetailsFromIpNo(int xIpNo)
         {
             IPDetailModel model =new IPDetailModel();
@@ -382,6 +432,30 @@ namespace NellaiBill
                         PatientAddress = reader.GetString(2),
                         RoomId=reader.GetInt32(3)
                    };
+                }
+                connection.Close();
+            }
+            return model;
+        }
+        public LabResponseModel GetLabRecordFromLabId(int xLabId)
+        {
+            LabResponseModel model = new LabResponseModel();
+            using (connection = new MySqlConnection(conString))
+            {
+                string xQry = "select * from billing_lab where lab_id  = " + xLabId + "";
+                connection.Open();
+                MySqlCommand comm = new MySqlCommand(xQry, connection);
+
+                MySqlDataReader reader = comm.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    model = new LabResponseModel()
+                    {
+                        PatientId = Convert.ToInt32(reader.GetInt32("patient_id")),
+                        DoctorId = Convert.ToInt32(reader.GetInt32("doctor_id")),
+                        BillDate = reader.GetDateTime("created_on")
+                    };
                 }
                 connection.Close();
             }

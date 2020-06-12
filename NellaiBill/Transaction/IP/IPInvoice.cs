@@ -23,8 +23,8 @@ namespace NellaiBill.Transaction.IP
 
         private void IPInvoice_Load(object sender, EventArgs e)
         {
-            xDb.LoadComboBoxData("select ipno,admitted_by from ip_admission", cmbIPNo);
-            xDb.LoadComboBox("select m_ip_fees_id,ip_fees_name from m_ip_fees", cmbParticulars, "m_ip_fees_id", "ip_fees_name");
+            xDb.LoadComboBoxData("select ipno,admitted_by from ip_admission where is_discharged=0", cmbIPNo);
+            xDb.LoadComboBox("select ip_fees_id,ip_fees_name from m_ip_fees", cmbParticulars, "ip_fees_id", "ip_fees_name");
             cmbParticulars.SelectedIndex = 1;
             dgvFinalSummary.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvFinalSummary.Columns["Fees"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
@@ -61,6 +61,9 @@ namespace NellaiBill.Transaction.IP
         {
             lblPatientName.Text = "Name";
             lblAddress.Text = "Address";
+            txtAdvance.Text = xDb.GetAdvancePaymentFromIpNo(Convert.ToInt32(cmbIPNo.Text));
+            txtSubTotal.Text = "";
+            txtParticularFees.Text = "";
         }
 
         private void LoadAdvanceGrid()
@@ -73,12 +76,21 @@ namespace NellaiBill.Transaction.IP
         {
             double xSubAmount = 0;
             double xTotalAmount = 0;
+            double xLessAmount = 0;
             foreach (DataGridViewRow dr in dgvFinalSummary.Rows)
             {
                 xSubAmount += Convert.ToDouble(dr.Cells["Fees"].Value);
             }
             txtSubTotal.Text = xSubAmount.ToString();
-            double xLessAmount = Convert.ToDouble(txtLessAmount.Text.ToString());
+            if (txtLessAmount.Text == "") 
+            {
+                xLessAmount = 0;
+            }
+            else
+            {
+                 xLessAmount = Convert.ToDouble(txtLessAmount.Text.ToString());
+            }
+
             double xAdvance = Convert.ToDouble(txtAdvance.Text.ToString());
             xTotalAmount = xSubAmount - xAdvance - xLessAmount;
             lblTotalAmont.Text = xTotalAmount.ToString();
@@ -143,11 +155,25 @@ namespace NellaiBill.Transaction.IP
                           " '" + LoginInfo.UserID+ "'," +
                           " '" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "')";
 
+                    
                     myCommand.CommandText = xQryIpInvoice;
                     myCommand.ExecuteNonQuery();
 
+                    string xQryUpdateAdmission = "update ip_admission set is_discharged=1 where ipno=" + txtInvoiceNo.Text;
+                    myCommand.CommandText = xQryUpdateAdmission;
+
+                    myCommand.ExecuteNonQuery();
                     myTrans.Commit();
                     MessageBox.Show("Record Saved Succesfully Id is " + txtInvoiceNo.Text);
+                    DataClear();
+                    txtLessAmount.Text = "";
+                    txtSubTotal.Text = "0";
+                    lblTotalAmont.Text = "0";
+                    cmbIPNo.SelectedIndex = 0;
+                    txtAdvance.Text = "0";
+                    dgvAdvanceSummary.DataSource = null;
+                    dgvFinalSummary.Rows.Clear();
+                    xDb.LoadComboBoxData("select ipno,admitted_by from ip_admission where is_discharged=0", cmbIPNo);
                 }
                 catch (Exception ex)
                 {

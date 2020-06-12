@@ -175,6 +175,13 @@
       <SubType>Component</SubType>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
+    <Compile Include="CrystalReports\rptIpInvoiceDetails.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptIpInvoiceDetails.rpt</DependentUpon>
+      <SubType>Component</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
     <Compile Include="CrystalReports\rptIpInvoiceReport.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -186,6 +193,13 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>rptLabConsolidated.rpt</DependentUpon>
+      <SubType>Component</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="CrystalReports\rptLabPatientTestReport.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptLabPatientTestReport.rpt</DependentUpon>
       <SubType>Component</SubType>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
@@ -388,9 +402,17 @@
     <Compile Include="Master\Employee.Designer.cs">
       <DependentUpon>Employee.cs</DependentUpon>
     </Compile>
+    <Compile Include="Models\DoctorResponseModel.cs" />
     <Compile Include="Models\IPDetailModel.cs" />
     <Compile Include="Models\IpInvoiceDetailModel.cs" />
     <Compile Include="Models\IpInvoiceModel.cs" />
+    <Compile Include="Models\LabResponseModel.cs" />
+    <Compile Include="Models\PatientResponseModel.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Reports\DiagnosisDateWiseSummaryReport.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -414,6 +436,12 @@
     </Compile>
     <Compile Include="Reports\IpInvoiceReport.Designer.cs">
       <DependentUpon>IpInvoiceReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\LabPatientTestReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\LabPatientTestReport.Designer.cs">
+      <DependentUpon>LabPatientTestReport.cs</DependentUpon>
     </Compile>
     <Compile Include="Reports\LabSummaryReport.cs">
       <SubType>Form</SubType>
@@ -596,12 +624,6 @@
     <Compile Include="Transaction\LabBilling.Designer.cs">
       <DependentUpon>LabBilling.cs</DependentUpon>
     </Compile>
-    <Compile Include="Reports\LabReport.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Reports\LabReport.Designer.cs">
-      <DependentUpon>LabReport.cs</DependentUpon>
-    </Compile>
     <Compile Include="Reports\Report.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -613,6 +635,12 @@
     </Compile>
     <Compile Include="Master\PatientRegistration.Designer.cs">
       <DependentUpon>PatientRegistration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction\LAB\LabTestEntry.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction\LAB\LabTestEntry.Designer.cs">
+      <DependentUpon>LabTestEntry.cs</DependentUpon>
     </Compile>
     <Compile Include="Transaction\OPBilling.cs">
       <SubType>Form</SubType>
@@ -679,6 +707,11 @@
       <LastGenOutput>rptDiagnosisConsolidated.cs</LastGenOutput>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReports\rptIpInvoiceDetails.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptIpInvoiceDetails.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
     <EmbeddedResource Include="CrystalReports\rptIpInvoiceReport.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>rptIpInvoiceReport.cs</LastGenOutput>
@@ -687,6 +720,11 @@
     <EmbeddedResource Include="CrystalReports\rptLabConsolidated.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>rptLabConsolidated.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReports\rptLabPatientTestReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptLabPatientTestReport.cs</LastGenOutput>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="CrystalReports\rptPatientInformation.rpt">
@@ -825,6 +863,9 @@
     <EmbeddedResource Include="Reports\IpInvoiceReport.resx">
       <DependentUpon>IpInvoiceReport.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reports\LabPatientTestReport.resx">
+      <DependentUpon>LabPatientTestReport.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reports\LabSummaryReport.resx">
       <DependentUpon>LabSummaryReport.cs</DependentUpon>
     </EmbeddedResource>
@@ -915,14 +956,14 @@
     <EmbeddedResource Include="Transaction\LabBilling.resx">
       <DependentUpon>LabBilling.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Reports\LabReport.resx">
-      <DependentUpon>LabReport.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Reports\Report.resx">
       <DependentUpon>Report.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Master\PatientRegistration.resx">
       <DependentUpon>PatientRegistration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction\LAB\LabTestEntry.resx">
+      <DependentUpon>LabTestEntry.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Transaction\OPBilling.resx">
       <DependentUpon>OPBilling.cs</DependentUpon>
@@ -944,14 +985,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <EmbeddedResource Include="YearEnd.resx">
       <DependentUpon>YearEnd.cs</DependentUpon>
     </EmbeddedResource>

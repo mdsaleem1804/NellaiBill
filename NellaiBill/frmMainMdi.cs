@@ -5,6 +5,7 @@ using NellaiBill.Master;
 using NellaiBill.Reports;
 using NellaiBill.Transaction;
 using NellaiBill.Transaction.IP;
+using NellaiBill.Transaction.LAB;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -96,9 +97,6 @@ namespace NellaiBill
 
         private void labReportToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            LabReport labReport = new LabReport();
-            labReport.MdiParent = this;
-            labReport.Show();
         }
 
         private void employeeToolStripMenuItem_Click(object sender, EventArgs e)
@@ -476,6 +474,12 @@ namespace NellaiBill
             LabSummaryReport report = new LabSummaryReport();
             report.MdiParent = this;
             report.Show();
+        }
+        private void lABTESTENTRYToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            LabTestEntry transaction = new LabTestEntry();
+            transaction.MdiParent = this;
+            transaction.Show();
         }
     }   
 }

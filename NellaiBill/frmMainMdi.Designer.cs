@@ -58,9 +58,9 @@
             this.eCGBILLINGToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sCANBILLINGToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lABBILLINGToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.lABTESTENTRYToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.iPADMISSIONToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.iPADVANCEPAYMENTToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.iPROOMCHANGEToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.iPINVOICEBILLToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.StockToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.PurchaseEntryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -72,6 +72,7 @@
             this.oPSummaryReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ecgXraySummaryReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.scanSummaryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.labReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.iPToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.iPAdmissionReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.iPAdvanceReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -83,15 +84,14 @@
             this.purchaseReportToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.stockReportToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.salesReturnReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.DatabaseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.BackupToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.RestoreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.stockAdjustmentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
             this.LogoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.purchaseReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.feesMasterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.labReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.StatusStrip1.SuspendLayout();
             this.menuStrip2.SuspendLayout();
             this.SuspendLayout();
@@ -157,7 +157,7 @@
             this.StockToolStripMenuItem,
             this.BillingToolStripMenuItem,
             this.LogsToolStripMenuItem,
-            this.DatabaseToolStripMenuItem,
+            this.toolStripMenuItem1,
             this.LogoutToolStripMenuItem});
             this.menuStrip2.Location = new System.Drawing.Point(0, 0);
             this.menuStrip2.Name = "menuStrip2";
@@ -300,9 +300,9 @@
             this.eCGBILLINGToolStripMenuItem,
             this.sCANBILLINGToolStripMenuItem,
             this.lABBILLINGToolStripMenuItem,
+            this.lABTESTENTRYToolStripMenuItem,
             this.iPADMISSIONToolStripMenuItem,
             this.iPADVANCEPAYMENTToolStripMenuItem,
-            this.iPROOMCHANGEToolStripMenuItem,
             this.iPINVOICEBILLToolStripMenuItem});
             this.SalesmanToolStripMenuItem3.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SalesmanToolStripMenuItem3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
@@ -341,6 +341,13 @@
             this.lABBILLINGToolStripMenuItem.Text = "LAB BILLING";
             this.lABBILLINGToolStripMenuItem.Click += new System.EventHandler(this.lABBILLINGToolStripMenuItem_Click);
             // 
+            // lABTESTENTRYToolStripMenuItem
+            // 
+            this.lABTESTENTRYToolStripMenuItem.Name = "lABTESTENTRYToolStripMenuItem";
+            this.lABTESTENTRYToolStripMenuItem.Size = new System.Drawing.Size(198, 22);
+            this.lABTESTENTRYToolStripMenuItem.Text = "LAB TEST ENTRY";
+            this.lABTESTENTRYToolStripMenuItem.Click += new System.EventHandler(this.lABTESTENTRYToolStripMenuItem_Click);
+            // 
             // iPADMISSIONToolStripMenuItem
             // 
             this.iPADMISSIONToolStripMenuItem.Name = "iPADMISSIONToolStripMenuItem";
@@ -354,12 +361,6 @@
             this.iPADVANCEPAYMENTToolStripMenuItem.Size = new System.Drawing.Size(198, 22);
             this.iPADVANCEPAYMENTToolStripMenuItem.Text = "IP ADVANCE PAYMENT";
             this.iPADVANCEPAYMENTToolStripMenuItem.Click += new System.EventHandler(this.iPADVANCEPAYMENTToolStripMenuItem_Click);
-            // 
-            // iPROOMCHANGEToolStripMenuItem
-            // 
-            this.iPROOMCHANGEToolStripMenuItem.Name = "iPROOMCHANGEToolStripMenuItem";
-            this.iPROOMCHANGEToolStripMenuItem.Size = new System.Drawing.Size(198, 22);
-            this.iPROOMCHANGEToolStripMenuItem.Text = "IP ROOM CHANGE";
             // 
             // iPINVOICEBILLToolStripMenuItem
             // 
@@ -472,6 +473,13 @@
             this.scanSummaryToolStripMenuItem.Text = "Scan Summary Report";
             this.scanSummaryToolStripMenuItem.Click += new System.EventHandler(this.scanSummaryToolStripMenuItem_Click);
             // 
+            // labReportToolStripMenuItem
+            // 
+            this.labReportToolStripMenuItem.Name = "labReportToolStripMenuItem";
+            this.labReportToolStripMenuItem.Size = new System.Drawing.Size(262, 22);
+            this.labReportToolStripMenuItem.Text = "Lab Report";
+            this.labReportToolStripMenuItem.Click += new System.EventHandler(this.labReportToolStripMenuItem_Click_1);
+            // 
             // iPToolStripMenuItem
             // 
             this.iPToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -550,40 +558,38 @@
             this.salesReturnReportToolStripMenuItem.Text = "Sales Return Report";
             this.salesReturnReportToolStripMenuItem.Click += new System.EventHandler(this.salesReturnReportToolStripMenuItem_Click);
             // 
-            // DatabaseToolStripMenuItem
+            // toolStripMenuItem1
             // 
-            this.DatabaseToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.BackupToolStripMenuItem,
-            this.RestoreToolStripMenuItem,
-            this.stockAdjustmentToolStripMenuItem});
-            this.DatabaseToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DatabaseToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
-            this.DatabaseToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("DatabaseToolStripMenuItem.Image")));
-            this.DatabaseToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.DatabaseToolStripMenuItem.Name = "DatabaseToolStripMenuItem";
-            this.DatabaseToolStripMenuItem.Size = new System.Drawing.Size(68, 67);
-            this.DatabaseToolStripMenuItem.Text = "Database";
-            this.DatabaseToolStripMenuItem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.toolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem2,
+            this.toolStripMenuItem3,
+            this.toolStripMenuItem4});
+            this.toolStripMenuItem1.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolStripMenuItem1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.toolStripMenuItem1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripMenuItem1.Image")));
+            this.toolStripMenuItem1.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(60, 67);
+            this.toolStripMenuItem1.Text = "Tools";
+            this.toolStripMenuItem1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             // 
-            // BackupToolStripMenuItem
+            // toolStripMenuItem2
             // 
-            this.BackupToolStripMenuItem.Name = "BackupToolStripMenuItem";
-            this.BackupToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
-            this.BackupToolStripMenuItem.Text = "Backup";
-            this.BackupToolStripMenuItem.Click += new System.EventHandler(this.BackupToolStripMenuItem_Click);
+            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(169, 22);
+            this.toolStripMenuItem2.Text = "Backup";
             // 
-            // RestoreToolStripMenuItem
+            // toolStripMenuItem3
             // 
-            this.RestoreToolStripMenuItem.Name = "RestoreToolStripMenuItem";
-            this.RestoreToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
-            this.RestoreToolStripMenuItem.Text = "Restore";
+            this.toolStripMenuItem3.Name = "toolStripMenuItem3";
+            this.toolStripMenuItem3.Size = new System.Drawing.Size(169, 22);
+            this.toolStripMenuItem3.Text = "Restore";
             // 
-            // stockAdjustmentToolStripMenuItem
+            // toolStripMenuItem4
             // 
-            this.stockAdjustmentToolStripMenuItem.Name = "stockAdjustmentToolStripMenuItem";
-            this.stockAdjustmentToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
-            this.stockAdjustmentToolStripMenuItem.Text = "Stock Adjustment";
-            this.stockAdjustmentToolStripMenuItem.Click += new System.EventHandler(this.stockAdjustmentToolStripMenuItem_Click);
+            this.toolStripMenuItem4.Name = "toolStripMenuItem4";
+            this.toolStripMenuItem4.Size = new System.Drawing.Size(169, 22);
+            this.toolStripMenuItem4.Text = "Stock Adjustment";
             // 
             // LogoutToolStripMenuItem
             // 
@@ -613,13 +619,6 @@
             this.timer1.Enabled = true;
             this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
-            // labReportToolStripMenuItem
-            // 
-            this.labReportToolStripMenuItem.Name = "labReportToolStripMenuItem";
-            this.labReportToolStripMenuItem.Size = new System.Drawing.Size(262, 22);
-            this.labReportToolStripMenuItem.Text = "Lab Report";
-            this.labReportToolStripMenuItem.Click += new System.EventHandler(this.labReportToolStripMenuItem_Click_1);
             // 
             // frm_main_mdi
             // 
@@ -654,9 +653,6 @@
         internal System.Windows.Forms.MenuStrip menuStrip2;
         internal System.Windows.Forms.ToolStripMenuItem RegistrationToolStripMenuItem;
         internal System.Windows.Forms.ToolStripMenuItem LogsToolStripMenuItem;
-        internal System.Windows.Forms.ToolStripMenuItem DatabaseToolStripMenuItem;
-        internal System.Windows.Forms.ToolStripMenuItem BackupToolStripMenuItem;
-        internal System.Windows.Forms.ToolStripMenuItem RestoreToolStripMenuItem;
         internal System.Windows.Forms.ToolStripMenuItem StockToolStripMenuItem;
         internal System.Windows.Forms.ToolStripMenuItem PurchaseEntryToolStripMenuItem;
         internal System.Windows.Forms.ToolStripMenuItem PurchaseReturnToolStripMenuItem;
@@ -668,7 +664,6 @@
         private System.Windows.Forms.ToolStripMenuItem groupToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem productToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem stockReportToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem stockAdjustmentToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem companyToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem supplerToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem customerToolStripMenuItem;
@@ -698,7 +693,6 @@
         private System.Windows.Forms.ToolStripMenuItem roomMasterToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripMenuItem iPADVANCEPAYMENTToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem iPROOMCHANGEToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem auditorDiagnosisSummaryReportToolStripMenuItem;
         internal System.Windows.Forms.ToolStripStatusLabel ToolStripStatusLabel3;
         private System.Windows.Forms.Timer timer1;
@@ -708,6 +702,11 @@
         private System.Windows.Forms.ToolStripMenuItem iPConsolidatedReportToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem iPAdmissionReportToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem labReportToolStripMenuItem;
+        internal System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
+        internal System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
+        internal System.Windows.Forms.ToolStripMenuItem toolStripMenuItem3;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem4;
+        private System.Windows.Forms.ToolStripMenuItem lABTESTENTRYToolStripMenuItem;
     }
 }
 

@@ -29,9 +29,9 @@ namespace NellaiBill.Reports
             string path = globalClass.GetReportPath() + "rptIpInvoiceReport.rpt";
             cryRpt.Load(path);
 
-            //cryRpt.SetParameterValue("FromDate", DateTime.Parse(xFromDate));
-            //cryRpt.SetParameterValue("ToDate", DateTime.Parse(xToDate));
-         
+            cryRpt.SetParameterValue("FromDate", DateTime.Parse(xFromDate));
+            cryRpt.SetParameterValue("ToDate", DateTime.Parse(xToDate));
+
             crystalReportViewer1.ReportSource = cryRpt;
             crystalReportViewer1.Refresh();
             crystalReportViewer1.ToolPanelView = ToolPanelViewType.None;

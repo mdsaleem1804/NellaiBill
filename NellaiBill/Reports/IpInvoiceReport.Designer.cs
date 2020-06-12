@@ -74,11 +74,11 @@
             // btnViewData
             // 
             this.btnViewData.Depth = 0;
-            this.btnViewData.Location = new System.Drawing.Point(457, 49);
+            this.btnViewData.Location = new System.Drawing.Point(457, 63);
             this.btnViewData.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnViewData.Name = "btnViewData";
             this.btnViewData.Primary = true;
-            this.btnViewData.Size = new System.Drawing.Size(109, 53);
+            this.btnViewData.Size = new System.Drawing.Size(109, 39);
             this.btnViewData.TabIndex = 164;
             this.btnViewData.Text = "VIEW DATA";
             this.btnViewData.UseVisualStyleBackColor = true;
@@ -128,7 +128,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1275, 450);
+            this.ClientSize = new System.Drawing.Size(1275, 692);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.crystalReportViewer1);
             this.Controls.Add(this.btnViewData);

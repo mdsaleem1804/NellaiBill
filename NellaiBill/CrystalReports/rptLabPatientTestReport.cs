@@ -16,14 +16,14 @@ namespace NellaiBill.CrystalReports {
     using CrystalDecisions.CrystalReports.Engine;
     
     
-    public class rptIpInvoiceReport : ReportClass {
+    public class rptLabPatientTestReport : ReportClass {
         
-        public rptIpInvoiceReport() {
+        public rptLabPatientTestReport() {
         }
         
         public override string ResourceName {
             get {
-                return "rptIpInvoiceReport.rpt";
+                return "rptLabPatientTestReport.rpt";
             }
             set {
                 // Do nothing
@@ -41,7 +41,7 @@ namespace NellaiBill.CrystalReports {
         
         public override string FullResourceName {
             get {
-                return "NellaiBill.CrystalReports.rptIpInvoiceReport.rpt";
+                return "NellaiBill.CrystalReports.rptLabPatientTestReport.rpt";
             }
             set {
                 // Do nothing
@@ -90,25 +90,17 @@ namespace NellaiBill.CrystalReports {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.Shared.IParameterField Parameter_FromDate {
+        public CrystalDecisions.Shared.IParameterField Parameter_LabId {
             get {
                 return this.DataDefinition.ParameterFields[0];
-            }
-        }
-        
-        [Browsable(false)]
-        [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.Shared.IParameterField Parameter_ToDate {
-            get {
-                return this.DataDefinition.ParameterFields[1];
             }
         }
     }
     
     [System.Drawing.ToolboxBitmapAttribute(typeof(CrystalDecisions.Shared.ExportOptions), "report.bmp")]
-    public class CachedrptIpInvoiceReport : Component, ICachedReport {
+    public class CachedrptLabPatientTestReport : Component, ICachedReport {
         
-        public CachedrptIpInvoiceReport() {
+        public CachedrptLabPatientTestReport() {
         }
         
         [Browsable(false)]
@@ -145,7 +137,7 @@ namespace NellaiBill.CrystalReports {
         }
         
         public virtual CrystalDecisions.CrystalReports.Engine.ReportDocument CreateReport() {
-            rptIpInvoiceReport rpt = new rptIpInvoiceReport();
+            rptLabPatientTestReport rpt = new rptLabPatientTestReport();
             rpt.Site = this.Site;
             return rpt;
         }
