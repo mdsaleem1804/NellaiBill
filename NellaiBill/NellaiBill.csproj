@@ -610,17 +610,17 @@
     <Compile Include="Transaction\EcgXrayBilling.Designer.cs">
       <DependentUpon>EcgXrayBilling.cs</DependentUpon>
     </Compile>
-    <Compile Include="Transaction\frmPurchaseReturn.cs">
+    <Compile Include="Transaction\PurchaseReturn.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Transaction\frmPurchaseReturn.Designer.cs">
-      <DependentUpon>frmPurchaseReturn.cs</DependentUpon>
+    <Compile Include="Transaction\PurchaseReturn.Designer.cs">
+      <DependentUpon>PurchaseReturn.cs</DependentUpon>
     </Compile>
-    <Compile Include="Transaction\frmSalesReturn.cs">
+    <Compile Include="Transaction\SalesReturn.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Transaction\frmSalesReturn.Designer.cs">
-      <DependentUpon>frmSalesReturn.cs</DependentUpon>
+    <Compile Include="Transaction\SalesReturn.Designer.cs">
+      <DependentUpon>SalesReturn.cs</DependentUpon>
     </Compile>
     <Compile Include="Transaction\IP\IPAdmission.cs">
       <SubType>Form</SubType>
@@ -971,11 +971,11 @@
     <EmbeddedResource Include="Transaction\EcgXrayBilling.resx">
       <DependentUpon>EcgXrayBilling.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Transaction\frmPurchaseReturn.resx">
-      <DependentUpon>frmPurchaseReturn.cs</DependentUpon>
+    <EmbeddedResource Include="Transaction\PurchaseReturn.resx">
+      <DependentUpon>PurchaseReturn.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Transaction\frmSalesReturn.resx">
-      <DependentUpon>frmSalesReturn.cs</DependentUpon>
+    <EmbeddedResource Include="Transaction\SalesReturn.resx">
+      <DependentUpon>SalesReturn.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Transaction\IP\IPAdmission.resx">
       <DependentUpon>IPAdmission.cs</DependentUpon>

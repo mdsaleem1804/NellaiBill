@@ -47,7 +47,7 @@ namespace NellaiBill.Master
 
         private void LoadGrid()
         {
-            string xQuery = "select s.stock_id,i.product_id,i.product_name,s.mrp,s.stock,s.batch from m_product i, stock s where i.product_id = s.product_id";
+            string xQuery = "select s.stock_id,i.product_id,i.product_name,s.mrp,s.stock,s.batch_id from m_product i, stock s where i.product_id = s.product_id";
             xDb.LoadGrid(xQuery, dataGridView1);
         }
         private void DataClear()
@@ -85,7 +85,7 @@ namespace NellaiBill.Master
                     string xUpdateStockQry = "update stock " +
                    " set mrp=" + Convert.ToDecimal(txtPrice.Text) + "," +
                    " stock=" + Convert.ToInt32(txtStock.Text) + "," +
-                   " batch='" + txtBatch.Text + "'" +
+                   " batch_id='" + txtBatch.Text + "'" +
                    " where  stock_id= " + xStockId + "";
          
                     myCommand.CommandText = xUpdateStockQry;
@@ -137,8 +137,8 @@ namespace NellaiBill.Master
         private void btnLoadSameBatch_Click(object sender, EventArgs e)
         {
 
-            string xQuery = "select s.stock_id,s.product_id,i.product_name,s.mrp,s.stock,s.batch,s.expdate,i.gst from stock s, m_product i  " +
-                " where s.stock > 0 and s.product_id = i.product_id group by s.batch having count(s.batch) > 1 order by product_name";               
+            string xQuery = "select s.stock_id,s.product_id,i.product_name,s.mrp,s.stock,s.batch_id,s.expiry_date,i.gst from stock s, m_product i  " +
+                " where s.stock > 0 and s.product_id = i.product_id group by s.batch_id having count(s.batch_id) > 1 order by product_name";               
             xDb.LoadGrid(xQuery, dataGridView2);
         }
     }

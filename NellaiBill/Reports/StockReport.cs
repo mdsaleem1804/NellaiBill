@@ -44,7 +44,7 @@ namespace NellaiBill.Reports
             }
             dataGridView1.ReadOnly = true;
             //dataGridView1.Columns[0].Width = 200;
-            string xQuery = "SELECT i.product_name, s.stock, s.mrp, s.batch,s.expdate FROM stock s, m_product i WHERE i.product_id = s.product_id " + xQry;
+            string xQuery = "SELECT i.product_name, s.stock, s.mrp, s.batch_id,s.expiry_date FROM stock s, m_product i WHERE i.product_id = s.product_id " + xQry;
 
             xDb.LoadGrid(xQuery, dataGridView1);
         }

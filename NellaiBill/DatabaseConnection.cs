@@ -169,7 +169,7 @@ namespace NellaiBill
         public void GetConfigValues()
         {
             connection = new MySqlConnection(conString);
-            string xQry = "select batch,exp_date,stock,gst from config";
+            string xQry = "select batch_id,exp_date,stock,gst from config";
             connection.Open();
             MySqlCommand comm = new MySqlCommand(xQry, connection);
 
@@ -481,8 +481,8 @@ namespace NellaiBill
                         ProductId = reader.GetInt32("product_id"),
                         Qty = reader.GetInt32("qty"),
                         Mrp = reader.GetDouble("mrp"),
-                        Batch = reader.GetString("batch"),
-                        ExpDate = reader.GetDateTime("expdate")
+                        Batch = reader.GetString("batch_id"),
+                        ExpDate = reader.GetDateTime("expiry_date")
                     };
                 }
                 connection.Close();

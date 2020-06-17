@@ -234,7 +234,7 @@ namespace NellaiBill
 
         private void PurchaseReturnToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmPurchaseReturn frmPurchaseReturn = new frmPurchaseReturn();
+            PurchaseReturn frmPurchaseReturn = new PurchaseReturn();
             frmPurchaseReturn.MdiParent = this;
             frmPurchaseReturn.Show();
         }
@@ -248,7 +248,7 @@ namespace NellaiBill
 
         private void SalesReturnToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmSalesReturn frmSalesReturn = new frmSalesReturn();
+            SalesReturn frmSalesReturn = new SalesReturn();
             frmSalesReturn.MdiParent = this;
             frmSalesReturn.Show();
         }

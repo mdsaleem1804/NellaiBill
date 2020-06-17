@@ -177,7 +177,7 @@ namespace NellaiBill.Transaction
                         myCommand.CommandText = xQryInsertPurchase;
                         myCommand.ExecuteNonQuery();
                         string xLogMessage = "";
-                        StockResponseModel  stockResponseModel= xDb.GetStockFromQuery("select * from stock where product_id = " + xProductId + " and batch = '" + xBatch + "' and mrp = '" + xMrp + "'");
+                        StockResponseModel  stockResponseModel= xDb.GetStockFromQuery("select * from stock where product_id = " + xProductId + " and batch_id = '" + xBatch + "' and mrp = '" + xMrp + "'");
                         int xOldQty = 0;
                         int xNewQty = 0;
                         if (stockResponseModel.Mrp>0)
@@ -186,7 +186,7 @@ namespace NellaiBill.Transaction
                              xNewQty = xTotalQty + xOldQty;
                             String xQryUpdateStock = "update stock set  " +
                                 " qty=" + xNewQty + ",updated_by = '" + xUser + "', updated_on = '" + xCurrentDateTime + "' " +
-                                " where product_id=" + xProductId + " and batch = '" + xBatch + "' " +
+                                " where product_id=" + xProductId + " and batch_id = '" + xBatch + "' " +
                                 " and mrp = '" + xMrp + "'";
                             myCommand.CommandText = xQryUpdateStock;
                             myCommand.ExecuteNonQuery();
@@ -196,7 +196,7 @@ namespace NellaiBill.Transaction
                         {
 
                             string xQryStockEntry = "insert into   stock" +
-                                "(product_id,qty,mrp,batch,expdate,gst,created_by,created_on) " +
+                                "(product_id,qty,mrp,batch_id,expiry_date,created_by,created_on) " +
                                 " values(" + xProductId + "," + xTotalQty + "," + xMrp + ",'" + xBatch + "'," +
                                 " '" + xExpDate + "','" + xUser + "','" + xCurrentDateTime + "')";
                             myCommand.CommandText = xQryStockEntry;
@@ -207,7 +207,7 @@ namespace NellaiBill.Transaction
                          xOldQty = stockResponseModel.Qty;
                         xNewQty = xTotalQty + xOldQty;
                         string xQryStockDetails = "insert into stock_history" +
-                                  " (product_id,old_qty,change_qty,current_qty,mrp,batch,expdate,reason,created_by,created_on)" +
+                                  " (product_id,old_qty,change_qty,current_qty,mrp,batch_id,expiry_date,reason,created_by,created_on)" +
                                   "values(" + xProductId + "," + xOldQty + "," + xTotalQty + "," + xNewQty + "," + xMrp + ",'" + xBatch + "'," +
                                 " '" + xExpDate + "','" + xLogMessage + "','" + xUser + "','" + xCurrentDateTime + "')";
 
@@ -349,10 +349,10 @@ namespace NellaiBill.Transaction
 
             int xItemId = Convert.ToInt32(txtItemNo.Text.ToString());
             double xMrp = Convert.ToDouble(txtSR.Text.ToString());
-            int xCount = xDb.GetTotalCount("select * from stock where product_id = " + xItemId + " and batch = '" + txtBatch.Text + "' and mrp =" + xMrp);
+            int xCount = xDb.GetTotalCount("select * from stock where product_id = " + xItemId + " and batch_id = '" + txtBatch.Text + "' and mrp =" + xMrp);
             if (xCount >= 1)
             {
-                string selectQuery = "select qty from stock where product_id = " + xItemId + " and batch = '" + txtBatch.Text + "' and mrp =" + xMrp;
+                string selectQuery = "select qty from stock where product_id = " + xItemId + " and batch_id = '" + txtBatch.Text + "' and mrp =" + xMrp;
                 xDb.connection.Open();
                 MySqlCommand command = new MySqlCommand(selectQuery, xDb.connection);
                 MySqlDataReader reader = command.ExecuteReader();

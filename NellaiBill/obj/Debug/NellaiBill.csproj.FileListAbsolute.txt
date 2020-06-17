@@ -160,8 +160,6 @@ E:\Dotnet\NellaiBill\NellaiBill\obj\Debug\NellaiBill.Reports.WebReports.resource
 E:\Dotnet\NellaiBill\NellaiBill\obj\Debug\NellaiBill.Master.frmItem.resources
 E:\Dotnet\NellaiBill\NellaiBill\obj\Debug\NellaiBill.Search.SearchScanDoctorFees.resources
 E:\Dotnet\NellaiBill\NellaiBill\obj\Debug\NellaiBill.Transaction.EcgXrayBilling.resources
-E:\Dotnet\NellaiBill\NellaiBill\obj\Debug\NellaiBill.Transaction.frmPurchaseReturn.resources
-E:\Dotnet\NellaiBill\NellaiBill\obj\Debug\NellaiBill.Transaction.frmSalesReturn.resources
 E:\Dotnet\NellaiBill\NellaiBill\obj\Debug\NellaiBill.Transaction.IP.IPAdmission.resources
 E:\Dotnet\NellaiBill\NellaiBill\obj\Debug\NellaiBill.Transaction.IP.IPDischargeSummary.resources
 E:\Dotnet\NellaiBill\NellaiBill\obj\Debug\NellaiBill.Transaction.IP.IPInvoice.resources
@@ -277,3 +275,5 @@ E:\Dotnet\NellaiBill\NellaiBill\bin\Debug\CrystalReports\rptDischargeBill.cs
 E:\Dotnet\NellaiBill\NellaiBill\obj\Debug\NellaiBill.csprojAssemblyReference.cache
 E:\Dotnet\NellaiBill\NellaiBill\obj\Debug\NellaiBill.Master.Category.resources
 E:\Dotnet\NellaiBill\NellaiBill\obj\Debug\NellaiBill.Master.Group.resources
+E:\Dotnet\NellaiBill\NellaiBill\obj\Debug\NellaiBill.Transaction.PurchaseReturn.resources
+E:\Dotnet\NellaiBill\NellaiBill\obj\Debug\NellaiBill.Transaction.SalesReturn.resources
