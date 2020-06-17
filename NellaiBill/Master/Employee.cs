@@ -76,7 +76,7 @@ namespace NellaiBill.Master
             }
             else
             {
-                //xQry = "update " + xTableName + " set itemcategoryname = '" + txtCategoryName.Text + "'  where  itemcategoryno= " + xCategoryId + "";
+                //xQry = "update " + xTableName + " set category_name = '" + txtCategoryName.Text + "'  where  category_id= " + xCategoryId + "";
             }
             xDb.DataProcess(xQry);
             LoadGrid();

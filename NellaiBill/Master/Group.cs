@@ -1,4 +1,5 @@
 ﻿using MySql.Data.MySqlClient;
+using NellaiBill.Common;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -11,19 +12,19 @@ using System.Windows.Forms;
 
 namespace NellaiBill.Master
 {
-    public partial class frmGroup : Form
+    public partial class Group : Form
     {
         DatabaseConnection xDb = new DatabaseConnection();
         int xCategoryId;
         int xGroupId;
-        public frmGroup()
+        public Group()
         {
             InitializeComponent();
         }
 
         private void Group_Load(object sender, EventArgs e)
         {
-            xDb.LoadComboBox("select itemcategoryno,itemcategoryname from m_itemcategory", cmbCategory, "itemcategoryno", "itemcategoryname");
+            xDb.LoadComboBox("select category_id,category_name from m_category", cmbCategory, "category_id", "category_name");
             btnDelete.Enabled = false;
             LoadGrid();
             DataClear();
@@ -35,7 +36,7 @@ namespace NellaiBill.Master
         }
         private void LoadGrid()
         {
-            string xQuery = "select c.itemcategoryno,g.itemgroupno,c.itemcategoryname,g.itemgroupname from m_itemcategory c,m_itemgroup g where c.itemcategoryno = g.itemcategoryno";
+            string xQuery = "select c.category_id,g.group_id,c.category_name,g.group_name from m_category c,m_group g where c.category_id = g.category_id";
             xDb.LoadGrid(xQuery, dataGridView1);
             btnSaveUpdate.Text = "SAVE";
         }
@@ -71,7 +72,17 @@ namespace NellaiBill.Master
         }
         public void DataProcess()
         {
+            string xUser = LoginInfo.UserID;
+            string xCurrentDateTime = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+
             xCategoryId = Int32.Parse(cmbCategory.SelectedValue.ToString());
+            if (xCategoryId==0)
+            {
+                MessageBox.Show("Please Choose Group");
+                cmbCategory.Focus();
+                return;
+            }
+            
             if (txtGroupName.Text == "")
             {
                 MessageBox.Show("Please Enter  Name");
@@ -81,14 +92,16 @@ namespace NellaiBill.Master
             string xQry = "";
             if (btnSaveUpdate.Text == "SAVE")
             {
-                xQry = "insert into   m_itemgroup(itemcategoryno,itemgroupname) values(" + xCategoryId + ",'" + txtGroupName.Text + "' )";
+                xQry = "insert into   m_group(category_id,group_name,created_by,created_on) values(" + xCategoryId + ",'" + txtGroupName.Text + "' ,'" + xUser + "','" + xCurrentDateTime + "' )";
             }
             else
             {
-                xQry = "update m_itemgroup " +
-                    " set itemcategoryno=" + xCategoryId + ", " +
-                    " itemgroupname = '" + txtGroupName.Text + "'  " +
-                    " where  itemgroupno= " + xGroupId + "";
+                xQry = "update m_group " +
+                    " set category_id=" + xCategoryId + ", " +
+                    " group_name = '" + txtGroupName.Text + "',  " +
+                    " updated_by = '" + xUser + "',  " +
+                    " updated_on = '" + xCurrentDateTime + "'  " +
+                    " where  group_id= " + xGroupId + "";
             }
             xDb.DataProcess(xQry);
             LoadGrid();
@@ -97,14 +110,14 @@ namespace NellaiBill.Master
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            if (xDb.CountRecord("select * from m_item where itemgroupno  = " + xGroupId + " ") >= 1)
+            if (xDb.CountRecord("select * from m_product where group_id  = " + xGroupId + " ") >= 1)
             {
                 MessageBox.Show("Selected Group mapped with other Item[Please delete item first]");
                 return;
             }
             else
             {
-                string xQry = "delete from m_itemgroup where  itemgroupno= " + xGroupId + "";
+                string xQry = "delete from m_group where  group_id= " + xGroupId + "";
                 xDb.DataProcess(xQry);
             }
 

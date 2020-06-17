@@ -36,7 +36,7 @@ namespace NellaiBill
         }
         private void groupToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmGroup g = new frmGroup();
+            Group g = new Group();
             g.MdiParent = this;
             g.Show();
         }
@@ -58,7 +58,7 @@ namespace NellaiBill
 
         private void categoryToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmCategory category = new frmCategory();
+            Category category = new Category();
             category.MdiParent = this;
             category.Show();
         }
@@ -148,7 +148,7 @@ namespace NellaiBill
 
         private void groupToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
-            frmGroup frmGroup = new frmGroup();
+            Group frmGroup = new Group();
             frmGroup.MdiParent = this;
             frmGroup.Show();
 
@@ -156,7 +156,7 @@ namespace NellaiBill
 
         private void categoryToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
-            frmCategory frmCategory = new frmCategory();
+            Category frmCategory = new Category();
             frmCategory.MdiParent = this;
             frmCategory.Show();
         }
@@ -478,6 +478,13 @@ namespace NellaiBill
         private void lABTESTENTRYToolStripMenuItem_Click(object sender, EventArgs e)
         {
             LabTestEntry transaction = new LabTestEntry();
+            transaction.MdiParent = this;
+            transaction.Show();
+        }
+
+        private void iPDISCHARGESUMMARYToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            IPDischargeSummary transaction = new IPDischargeSummary();
             transaction.MdiParent = this;
             transaction.Show();
         }

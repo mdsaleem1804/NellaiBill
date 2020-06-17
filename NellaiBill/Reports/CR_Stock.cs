@@ -23,7 +23,6 @@ namespace NellaiBill.Reports
 
         private void CR_Stock_Load(object sender, EventArgs e)
         {
-
             string path = globalClass.GetReportPath() + "rptStock.rpt";
             reportDocument.Load(path);
             crystalReportViewer1.ReportSource = reportDocument;

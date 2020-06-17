@@ -47,7 +47,7 @@ namespace NellaiBill.Master
 
         private void LoadGrid()
         {
-            string xQuery = "select s.stockno,i.itemno,i.itemname,s.mrp,s.stock,s.batch from m_item i, inv_stockentry s where i.itemno = s.itemno";
+            string xQuery = "select s.stock_id,i.product_id,i.product_name,s.mrp,s.stock,s.batch from m_product i, stock s where i.product_id = s.product_id";
             xDb.LoadGrid(xQuery, dataGridView1);
         }
         private void DataClear()
@@ -82,19 +82,19 @@ namespace NellaiBill.Master
                 MySqlCommand myCommand = myConnection.CreateCommand();
                 try
                 {
-                    string xUpdateStockQry = "update inv_stockentry " +
+                    string xUpdateStockQry = "update stock " +
                    " set mrp=" + Convert.ToDecimal(txtPrice.Text) + "," +
                    " stock=" + Convert.ToInt32(txtStock.Text) + "," +
                    " batch='" + txtBatch.Text + "'" +
-                   " where  stockno= " + xStockId + "";
+                   " where  stock_id= " + xStockId + "";
          
                     myCommand.CommandText = xUpdateStockQry;
                     myCommand.ExecuteNonQuery();
 
-                    string xQryStockDetails = "insert into audit_stock" +
-                                  " (audit_stock_itemno,audit_stock_qty," +
-                                  " audit_stock_mrp,audit_stock_batch," +
-                                  " audit_stock_datetime,audit_stock_mode)" +
+                    string xQryStockDetails = "insert into stock_history" +
+                                  " (stock_history_itemno,stock_history_qty," +
+                                  " stock_history_mrp,stock_history_batch," +
+                                  " stock_history_datetime,stock_history_mode)" +
                                   " values(" + xItemId
                                   + ","  + Convert.ToInt32(txtStock.Text)
                                   + "," + Convert.ToDouble(txtPrice.Text)
@@ -130,15 +130,15 @@ namespace NellaiBill.Master
 
         private void txtSearch_TextChanged(object sender, EventArgs e)
         {
-            string xFilterSearch = "itemname Like '%" + txtSearch.Text + "%'";
+            string xFilterSearch = "product_name Like '%" + txtSearch.Text + "%'";
             (dataGridView1.DataSource as DataTable).DefaultView.RowFilter = string.Format(xFilterSearch);
         }
 
         private void btnLoadSameBatch_Click(object sender, EventArgs e)
         {
 
-            string xQuery = "select s.stockno,s.itemno,i.itemname,s.mrp,s.stock,s.batch,s.expdate,i.gst from inv_stockentry s, m_item i  " +
-                " where s.stock > 0 and s.itemno = i.itemno group by s.batch having count(s.batch) > 1 order by itemname";               
+            string xQuery = "select s.stock_id,s.product_id,i.product_name,s.mrp,s.stock,s.batch,s.expdate,i.gst from stock s, m_product i  " +
+                " where s.stock > 0 and s.product_id = i.product_id group by s.batch having count(s.batch) > 1 order by product_name";               
             xDb.LoadGrid(xQuery, dataGridView2);
         }
     }

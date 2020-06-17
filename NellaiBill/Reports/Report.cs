@@ -26,7 +26,7 @@ namespace NellaiBill.Master
         private void LoadGrid()
         {
             dataGridView1.ReadOnly = true;
-            string xQuery = "select  bb.salesid as BILL_NO,bb.name as PATIENT_NAME,i.itemname as ITEM_NAME,bb.total as AMOUNT from basic_billing bb ,m_item i where i.itemno=bb.itemno " +
+            string xQuery = "select  bb.salesid as BILL_NO,bb.name as PATIENT_NAME,i.product_name as ITEM_NAME,bb.total as AMOUNT from basic_billing bb ,m_product i where i.product_id=bb.product_id " +
                 " and date>='" + dtpFromDate.Text + "' and date <= '"+dtpToDate.Text + "'" ;
 
             xDb.LoadGrid(xQuery, dataGridView1);

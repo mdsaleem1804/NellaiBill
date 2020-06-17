@@ -30,9 +30,9 @@ namespace NellaiBill.Reports
         }
         private void LoadComboBox()
         {
-            //xDb.LoadComboBox("select s.stockno,i.itemname from inv_stockentry s,m_item i " +
-            //    " where s.itemno = i.itemno group by s.itemno", cmbItem, "stockno", "itemname");
-            xDb.LoadComboBox("select i.itemno,i.itemname from m_item i", cmbItem, "itemno", "itemname");
+            //xDb.LoadComboBox("select s.stock_id,i.product_name from stock s,m_product i " +
+            //    " where s.product_id = i.product_id group by s.product_id", cmbItem, "stock_id", "product_name");
+            xDb.LoadComboBox("select i.product_id,i.product_name from m_product i", cmbItem, "product_id", "product_name");
         }
 
         private void btnViewData_Click(object sender, EventArgs e)
@@ -50,7 +50,7 @@ namespace NellaiBill.Reports
             else
             {
                 string xItemNo = cmbItem.SelectedValue.ToString();
-                xFilter += " and p.itemno=" + xItemNo;
+                xFilter += " and p.product_id=" + xItemNo;
             }
             //if (mChkSelectAllSupplier.Checked)
             //{
@@ -63,17 +63,17 @@ namespace NellaiBill.Reports
             //}
             if (txtInvoiceNo.Text.Length > 0)
             {
-                xFilter += " and p.purchaseinvoiceno= " + txtInvoiceNo.Text.ToString();
+                xFilter += " and p.purchase_id= " + txtInvoiceNo.Text.ToString();
             }
 
-            string xQuery = "SELECT p.purchaseinvoiceno as INVNO,p.date as DATE,i.itemname as ITEMNAME," +
+            string xQuery = "SELECT p.purchase_id as INVNO,p.date as DATE,i.product_name as product_name," +
                 "p.batchid as BATCH,p.dateexpired as DATEEXPIRED,p.qty as QTY,p.freeqty as FREEQTY,p.packno as PACKNO," +
                 "p.originalprice as HSR,p.vat as GST,p.nettotal as TOTAL " +
-                "from inv_purchaseentry p ,m_item i where i.itemno=p.itemno " +
-                " and date>='" + dtpFromDate.Text + "' and date <= '" + dtpToDate.Text + "' " + xFilter + " order by p.purchaseinvoiceno desc";
+                "from purchase_details p ,m_product i where i.product_id=p.product_id " +
+                " and date>='" + dtpFromDate.Text + "' and date <= '" + dtpToDate.Text + "' " + xFilter + " order by p.purchase_id desc";
 
             xDb.LoadGrid(xQuery, dataGridView1);
-            dataGridView1.Columns["ITEMNAME"].Width = 200;
+            dataGridView1.Columns["product_name"].Width = 200;
             dataGridView1.Columns["DATE"].DefaultCellStyle.Format = "dd /MMMM/yyyy";
             dataGridView1.Columns["INVNO"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
             dataGridView1.Columns["QTY"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;

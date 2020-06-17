@@ -21,7 +21,7 @@ namespace NellaiBill.Transaction.IP
 
         private void IPPayment_Load(object sender, EventArgs e)
         {
-            xDb.LoadComboBoxData("select ipno,admitted_by from ip_admission", cmbIPNo);
+            xDb.LoadComboBoxData("select ipno,admitted_by from ip_admission where is_paid=0", cmbIPNo);
             txtAdvanceBillNo.Text = xDb.GetMaxId("advance_payment_id", "ip_advance_payment").ToString();
             this.KeyPreview = true;
             cmbIPNo.SelectedIndex = 0;

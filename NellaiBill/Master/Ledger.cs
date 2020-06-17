@@ -88,7 +88,7 @@ namespace NellaiBill.Master
 
         private void mBtnDelete_Click(object sender, EventArgs e)
         {
-            string xTableName = (xFormName == "Supplier" ? "inv_purchaseentry1" : "inv_salesentry1");
+            string xTableName = (xFormName == "Supplier" ? "purchase" : "sales");
             string xColumnName = (xFormName == "Supplier" ? "supplierno" : "customerno");
             if (xDb.CountRecord("select * from " + xTableName + " where " + xColumnName + " = " + xLedgerId + " ") >= 1)
             {

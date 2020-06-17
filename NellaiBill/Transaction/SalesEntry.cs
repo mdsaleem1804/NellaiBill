@@ -2,13 +2,14 @@
 using System.Drawing;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
+using NellaiBill.Common;
+using NellaiBill.Models;
+
 namespace NellaiBill.Master
 {
     public partial class SalesEntry : Form
     {
         DatabaseConnection xDb = new DatabaseConnection();
-        string xLoggedinUserName = "";
-        string xUserName = "";
         public SalesEntry()
         {
             InitializeComponent();
@@ -17,13 +18,13 @@ namespace NellaiBill.Master
         private void Sales_Load(object sender, EventArgs e)
         {
             dataGridView1.Columns["Qty"].DefaultCellStyle.ForeColor = Color.Red;
-            dataGridView1.Columns["ItemName"].DefaultCellStyle.ForeColor = Color.Red;
-            dataGridView1.Columns["ItemName"].DefaultCellStyle.Font = new Font("Tahoma", 9.75F, FontStyle.Bold);
+            dataGridView1.Columns["product_name"].DefaultCellStyle.ForeColor = Color.Red;
+            dataGridView1.Columns["product_name"].DefaultCellStyle.Font = new Font("Tahoma", 9.75F, FontStyle.Bold);
             dataGridView1.Columns["Qty"].DefaultCellStyle.Font = new Font("Tahoma", 9.75F, FontStyle.Bold);
             dtpDate.Focus();
             cmbPaymentMode.SelectedIndex = 0;
             cmbBillType.SelectedIndex = 0;
-            lblInvoiceNo.Text = xDb.GetMaxId("salesinvoiceno", "inv_salesentry1").ToString();
+            lblInvoiceNo.Text = xDb.GetMaxId("sales_id", "sales").ToString();
             dataGridView1.Columns[0].Visible = false;
             dataGridView1.RowHeadersVisible = false;
 
@@ -33,6 +34,7 @@ namespace NellaiBill.Master
             dataGridView1.ColumnHeadersDefaultCellStyle.Font = new Font("Tahoma", 10, FontStyle.Bold);
             dataGridView1.ColumnHeadersDefaultCellStyle.ForeColor = Color.Yellow;
             this.KeyPreview = true;
+            btnSaveBill.Enabled = true;
         }
 
         private void AddDataToGrid()
@@ -92,7 +94,7 @@ namespace NellaiBill.Master
                     CalculateTotalAmount();
                     DataClear();
 
-                    dataGridView1.Columns["ItemName"].Width = 200;
+                    dataGridView1.Columns["product_name"].Width = 200;
                     dataGridView1.Columns["ExpDate"].Width = 100;
                     dataGridView1.Columns["DGDelete"].Width = 40;
                     dataGridView1.Columns["Qty"].ReadOnly = false;
@@ -160,7 +162,6 @@ namespace NellaiBill.Master
             rchCustomerAddress.Text = "";
             txtPaid.Text = "0";
             txtBalance.Text = "";
-            txtUserPassword.Text = "";
             dataGridView1.Rows.Clear();
             cmbPaymentMode.Text = "Please Select";
             lbl_total_amount_value.Text = "";
@@ -248,7 +249,9 @@ namespace NellaiBill.Master
                 MessageBox.Show("Please add data");
                 return;
             }
-            int xSalesId = xDb.GetMaxId("salesinvoiceno", "inv_salesentry1");
+            int xSalesId = xDb.GetMaxId("sales_id", "sales");
+            string xUser = LoginInfo.UserID;
+            string xCurrentDateTime = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
             double xLessAmount = 0;
             using (MySqlConnection myConnection = new MySqlConnection(xDb.conString))
             {
@@ -259,78 +262,79 @@ namespace NellaiBill.Master
                 {
                     foreach (DataGridViewRow dr in dataGridView1.Rows)
                     {
+                        int xTxNo = dr.Index + 1;
                         int xStockId = Convert.ToInt32(dr.Cells["Id"].Value);
-                        int xItemNo = Convert.ToInt32(dr.Cells["ItemNoDg1"].Value);
-                        double xQty = Convert.ToDouble(dr.Cells["Qty"].Value);
+                        int xProductId = Convert.ToInt32(dr.Cells["ItemNoDg1"].Value);
+                        int xSalesQty = Convert.ToInt32(dr.Cells["Qty"].Value);
                         double UnitPrice = Convert.ToDouble(dr.Cells["UnitPrice"].Value);
-                        double xAmount = xQty * UnitPrice;
+                        double xAmount = xSalesQty * UnitPrice;
                         double xGstPercentage = Convert.ToDouble(dr.Cells["GstPercentage"].Value);
                         //double xUnitMrp = UnitPrice + (UnitPrice * xGstPercentage / 100);
                         double xMrp = Convert.ToDouble(dr.Cells["Mrp"].Value);
                         string xBatch = dr.Cells["Batch"].Value.ToString();
-                        string xQrySalesDetails = "insert into   inv_salesentry" +
-                           "(salesinvoiceno,date,customerno,itemno,batchid," +
-                           "dateexpired,qty,unitrate,amount," +
-                           "vat,discountpercentage," +
-                           "createdason,updatedason,unitmrp) " +
+                        string xQrySalesDetails = "insert into   sales_details" +
+                           "(sales_id,txno,product_id,batch_id,expiry_date,qty,unit_rate,amount,gst,discount_percentage,unit_mrp) " +
                            "values(" + xSalesId + "," +
-                             " '" + Convert.ToDateTime(dtpDate.Text).ToString("yyyy-MM-dd") + "'," +
-                            " '" + Convert.ToInt32(txtCustomerNo.Text.ToString()) + "'," +
-                           " '" + xItemNo + "'," +
+                             " '" + xTxNo + "'," +
+                           " '" + xProductId + "'," +
                             " '" + xBatch + "'," +
                             " '" + dr.Cells["ExpDate"].Value + "'," +
-                           " " + Convert.ToDouble(dr.Cells["Qty"].Value) + "," +
+                           " " + xSalesQty + "," +
                            " " + Convert.ToDouble(dr.Cells["UnitPrice"].Value) + "," +
                            " " + xAmount + "," +
                            " " + Convert.ToDouble(dr.Cells["GstPercentage"].Value) + "," +
                            " " + Convert.ToDouble(dr.Cells["DiscPercentage"].Value) + "," +
-                           " '" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "'," +
-                           " '" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "'," +
                            " " + xMrp + " )";
                         xLessAmount += Convert.ToDouble(dr.Cells["DiscValue"].Value);
-
-                        string xUpdateStockQry = "update inv_stockentry set " +
-                            " stock = stock - " + xQty + " " +
-                            " where itemno=" + xItemNo + " " +
-                            " and batch = '" + xBatch + "' " +
-                            " and mrp = '" + xMrp + "'";
-
-
                         myCommand.CommandText = xQrySalesDetails;
                         myCommand.ExecuteNonQuery();
 
+                        StockResponseModel stockResponseModel = xDb.GetStockFromQuery("select * from stock where product_id = " + xProductId + " and batch = '" + xBatch + "' and mrp = '" + xMrp + "'");
+
+                        int xOldQty = 0;
+                        int xNewQty = 0;
+                        xOldQty = stockResponseModel.Qty;
+                        xNewQty =  xOldQty- xSalesQty;
+                        string xUpdateStockQry = "update stock set " +
+                            " qty =  " + xNewQty + ", updated_by = '" + xUser + "', updated_on = '" + xCurrentDateTime + "' " +
+                            " where product_id=" + xProductId + " " +
+
+
+                            " and batch = '" + xBatch + "' " +
+                            " and mrp = '" + xMrp + "'";
+                        
+
+                  
                         myCommand.CommandText = xUpdateStockQry;
                         myCommand.ExecuteNonQuery();
 
+                        string xReason = "NEW SALES";
+                        string xQryStockHistory = "insert into stock_history" +
+                         " (product_id,old_qty,change_qty,current_qty," +
+                         " mrp,batch,expdate,reason,created_by,created_on)" +
+                         " values(" + xProductId  + "," + xOldQty + "," + xSalesQty + "," + xNewQty + "," + xMrp + "," +
+                         " '" + xBatch + "','" + txtExpDate.Text + "','" + xReason + "'," +
+                         " '" + xUser  + "','" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")
+                         + "')";
 
-                        string xQryStockDetails = "insert into audit_stock" +
-                         " (audit_stock_itemno,audit_stock_qty," +
-                         " audit_stock_mrp,audit_stock_batch," +
-                         " audit_stock_datetime,audit_stock_mode)" +
-                         " values(" + xItemNo
-                         + "," + xQty
-                         + "," + xMrp
-                         + ",'" + xBatch
-                         + "','" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")
-                         + "','NEW SALES')";
-
-                        myCommand.CommandText = xQryStockDetails;
+                        myCommand.CommandText = xQryStockHistory;
                         myCommand.ExecuteNonQuery();
 
                     }
 
-                    string xQrySalesMain = "insert into   inv_salesentry1" +
-                          "(salesinvoiceno,date,customerno,totalamount,lessamount," +
-                          "modeofpayment,termsofdelivery,servicecharges,salesperson_id) " +
+
+                    string xQrySalesMain = "insert into   sales" +
+                          "(sales_id,date,customer_id,less_amount,service_amount,total_amount," +
+                          "mode_of_payment,terms_of_delivery,created_by,created_on) " +
                           "values(" + xSalesId + "," +
                           " '" + dtpDate.Value.ToString("yyyy-MM-dd") + "'," +
                           " '" + Convert.ToInt32(txtCustomerNo.Text.ToString()) + "'," +
-                          " '" + Convert.ToDouble(lbl_total_amount_value.Text) + "'," +
                           " '" + xLessAmount + "'," +
+                          " '0'," +
+                          " '" + Convert.ToDouble(lbl_total_amount_value.Text) + "'," +
                           " '" + cmbPaymentMode.Text.ToString() + "'," +
                           " '" + cmbBillType.Text.ToString() + "'," +
-                          " '0'," +
-                          " '" + xUserName + "' )";
+                          " '" + xUser + "','" + xCurrentDateTime + "' )";
 
                     myCommand.CommandText = xQrySalesMain;
                     myCommand.ExecuteNonQuery();
@@ -354,7 +358,7 @@ namespace NellaiBill.Master
             DataClear();
             DataClearAfterSave();
 
-            lblInvoiceNo.Text = xDb.GetMaxId("salesinvoiceno", "inv_salesentry1").ToString();
+            lblInvoiceNo.Text = xDb.GetMaxId("sales_id", "sales").ToString();
         }
 
         private void txtDiscPercentage_Leave(object sender, EventArgs e)
@@ -434,18 +438,18 @@ namespace NellaiBill.Master
 
         private void txtUserPassword_TextChanged(object sender, EventArgs e)
         {
-            xUserName=(xDb.GetUserNameFromPassword(txtUserPassword.Text));
-            if (xUserName != "")
-            {
-                btnSaveBill.Enabled = xDb.CheckUserExists(txtUserPassword.Text);
-                btnSaveBill.BackColor = Color.Red;
+           //string  xUserName=(xDb.GetUserNameFromPassword(txtUserPassword.Text));
+           // if (xUserName != "")
+           // {
+           //     btnSaveBill.Enabled = xDb.CheckUserExists(txtUserPassword.Text);
+           //     btnSaveBill.BackColor = Color.Red;
                
-            }
-            else
-            {
-                btnSaveBill.Enabled = xDb.CheckUserExists(txtUserPassword.Text);
-                btnSaveBill.BackColor = Color.LavenderBlush;
-            }
+           // }
+           // else
+           // {
+           //     btnSaveBill.Enabled = xDb.CheckUserExists(txtUserPassword.Text);
+           //     btnSaveBill.BackColor = Color.LavenderBlush;
+           // }
 
         }
 

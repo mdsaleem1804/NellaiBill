@@ -23,7 +23,7 @@ namespace NellaiBill.Transaction.IP
 
         private void IPInvoice_Load(object sender, EventArgs e)
         {
-            xDb.LoadComboBoxData("select ipno,admitted_by from ip_admission where is_discharged=0", cmbIPNo);
+            xDb.LoadComboBoxData("select ipno,admitted_by from ip_admission where is_paid=0", cmbIPNo);
             xDb.LoadComboBox("select ip_fees_id,ip_fees_name from m_ip_fees", cmbParticulars, "ip_fees_id", "ip_fees_name");
             cmbParticulars.SelectedIndex = 1;
             dgvFinalSummary.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;

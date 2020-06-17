@@ -1,6 +1,6 @@
 ﻿namespace NellaiBill.Master
 {
-    partial class frmCategory
+    partial class Category
     {
         /// <summary>
         /// Required designer variable.

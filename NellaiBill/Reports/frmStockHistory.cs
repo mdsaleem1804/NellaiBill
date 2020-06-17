@@ -24,13 +24,13 @@ namespace NellaiBill.Reports
             cryRpt.Load(path);
             if (mChkSelectAllItem.Checked)
             {
-                cryRpt.SetParameterValue("ItemNo", 0);
+                cryRpt.SetParameterValue("product_id", 0);
             }
 
             else
             {
 
-                cryRpt.SetParameterValue("ItemNo", cmbItem.SelectedValue);
+                cryRpt.SetParameterValue("product_id", cmbItem.SelectedValue);
             }
             // cryRpt.SetParameterValue("ToDate", DateTime.Parse(xToDate));
           //  crystalReportViewer1.ReportSource = cryRpt;
@@ -40,7 +40,7 @@ namespace NellaiBill.Reports
         private void frmStockHistory_Load(object sender, EventArgs e)
         {
 
-          xDb.LoadComboBox("select itemno,itemname from m_item", cmbItem, "itemno", "itemname");
+          xDb.LoadComboBox("select product_id,product_name from m_product", cmbItem, "product_id", "product_name");
         }
 
        

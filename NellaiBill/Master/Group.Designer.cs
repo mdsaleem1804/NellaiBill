@@ -1,6 +1,6 @@
 ﻿namespace NellaiBill.Master
 {
-    partial class frmGroup
+    partial class Group
     {
         /// <summary>
         /// Required designer variable.
@@ -109,6 +109,7 @@
             // 
             // cmbCategory
             // 
+            this.cmbCategory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbCategory.FormattingEnabled = true;
             this.cmbCategory.Location = new System.Drawing.Point(114, 96);
             this.cmbCategory.Name = "cmbCategory";
@@ -137,7 +138,7 @@
             this.label8.TabIndex = 0;
             this.label8.Text = "GROUP";
             // 
-            // frmGroup
+            // Group
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -152,7 +153,7 @@
             this.Controls.Add(this.btnSaveUpdate);
             this.Controls.Add(this.txtGroupName);
             this.Controls.Add(this.label1);
-            this.Name = "frmGroup";
+            this.Name = "Group";
             this.Text = " Group";
             this.Load += new System.EventHandler(this.Group_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();

@@ -11,8 +11,9 @@ namespace NellaiBill.Models
         public int PatientId { get; set; }
         public string PatientName { get; set; }
         public string PatientAddress { get; set; }
-
         public int RoomId { get; set; }
+        public int DoctorId { get; set; }
+        public int CaseTypeId { get; set; }
     }
 }
 

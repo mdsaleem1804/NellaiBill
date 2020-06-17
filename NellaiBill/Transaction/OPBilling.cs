@@ -203,8 +203,8 @@ namespace NellaiBill.Transaction
                     " " + txtFees.Text + "," +
                     " '" + cmbPaymentStatus.SelectedItem.ToString() + "'," +
                     " '" + cmbOpPatientStatus.SelectedItem.ToString() + "'," +
-                    " '" + DateTime.Now + "'," +
-                    " '" + DateTime.Now + "' )";
+                    " '" + Convert.ToDateTime(DateTime.Now).ToString("yyyy-MM-dd HH:mm:ss") + "'," +
+                    " '" + Convert.ToDateTime(DateTime.Now).ToString("yyyy-MM-dd HH:mm:ss") + "' )";
 
                 xDb.DataProcess(xQry);
                 if (cmbCaseType1.Text == "Injection" || cmbCaseType1.Text == "Anc" || cmbCaseType1.Text == "GreenFile")
@@ -222,6 +222,7 @@ namespace NellaiBill.Transaction
                     " casetype1 = '" + cmbCaseType1.SelectedItem.ToString() + "', " +
                     " fees = " + txtFees.Text + ", " +
                     " payment_status = '" + cmbPaymentStatus.SelectedItem.ToString() + "', " +
+                    " updatedason = '" + Convert.ToDateTime(DateTime.Now).ToString("yyyy-MM-dd HH:mm:ss") + "', " +
                     " op_status = '" + cmbOpPatientStatus.SelectedItem.ToString() + "' " +
                     " where  txno= " + txtOpId.Text + "";
                 xDb.DataProcess(xQry);

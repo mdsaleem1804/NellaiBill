@@ -107,7 +107,7 @@ namespace NellaiBill
         public string GetUserNameFromPassword(string xPassword)
         {
             connection = new MySqlConnection(conString);
-            string xQry = "select username from m_login where password= '" + xPassword + "'";
+            string xQry = "select username from m_user where password= '" + xPassword + "'";
             connection.Open();
             MySqlCommand comm = new MySqlCommand(xQry, connection);
 
@@ -256,8 +256,6 @@ namespace NellaiBill
                 }
             }
 
-
-
         }
         public void LoadComboBox(string xQry, ComboBox xComboBox, string xValueMember, string xDisplayMember)
         {
@@ -269,7 +267,7 @@ namespace NellaiBill
                     adapter.Fill(ds);
                     DataTable dt = new DataTable();
                     adapter.Fill(dt);
-                    if (xDisplayMember == "itemgroupname" || xComboBox.Name == "cmbTest")
+                    if (xDisplayMember == "group_name" || xComboBox.Name == "cmbTest")
                     {
 
                     }
@@ -412,7 +410,7 @@ namespace NellaiBill
             using (connection = new MySqlConnection(conString))
             {
                 string xQry = "select p.patient_id,p.patient_name,p.patient_address," +
-                    "ip.room_id  from " +
+                    "ip.room_id,doctor_id,case_type_id  from " +
                     " ip_admission ip, " +
                     " m_patient_registration p " +
                     " where " +
@@ -430,7 +428,9 @@ namespace NellaiBill
                         PatientId = Convert.ToInt32(reader.GetInt32(0)),
                         PatientName = reader.GetString(1),
                         PatientAddress = reader.GetString(2),
-                        RoomId=reader.GetInt32(3)
+                        RoomId=reader.GetInt32(3),
+                        DoctorId = reader.GetInt32(4),
+                        CaseTypeId = reader.GetInt32(5)
                    };
                 }
                 connection.Close();
@@ -455,6 +455,34 @@ namespace NellaiBill
                         PatientId = Convert.ToInt32(reader.GetInt32("patient_id")),
                         DoctorId = Convert.ToInt32(reader.GetInt32("doctor_id")),
                         BillDate = reader.GetDateTime("created_on")
+                    };
+                }
+                connection.Close();
+            }
+            return model;
+        }
+
+        public StockResponseModel GetStockFromQuery(String xQry)
+        {
+            StockResponseModel model = new StockResponseModel();
+            using (connection = new MySqlConnection(conString))
+            {
+                
+                connection.Open();
+                MySqlCommand comm = new MySqlCommand(xQry, connection);
+
+                MySqlDataReader reader = comm.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    model = new StockResponseModel()
+                    {
+                        StockId = reader.GetInt32("stock_id"),
+                        ProductId = reader.GetInt32("product_id"),
+                        Qty = reader.GetInt32("qty"),
+                        Mrp = reader.GetDouble("mrp"),
+                        Batch = reader.GetString("batch"),
+                        ExpDate = reader.GetDateTime("expdate")
                     };
                 }
                 connection.Close();
@@ -504,5 +532,24 @@ namespace NellaiBill
             return UTF8Encoding.UTF8.GetString(resultArray);
         }
 
+        public string GetCaseTypeNameFromCaseTypeId(int xCaseTypeId)
+        {
+            string xCaseTypeName = "";
+            using (connection = new MySqlConnection(conString))
+            {
+                string xQry = "select case_type_name from m_case_type where  case_type_id = " + xCaseTypeId + "";
+                connection.Open();
+                MySqlCommand comm = new MySqlCommand(xQry, connection);
+
+                MySqlDataReader reader = comm.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    xCaseTypeName = reader.GetString(0);
+                }
+                connection.Close();
+            }
+            return xCaseTypeName;
+        }
     }
 }

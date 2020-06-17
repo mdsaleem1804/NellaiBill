@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.txtQty = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -52,7 +52,7 @@
             this.txtUnitPrice = new System.Windows.Forms.TextBox();
             this.label22 = new System.Windows.Forms.Label();
             this.txtStockId = new System.Windows.Forms.TextBox();
-            this.ItemNo = new System.Windows.Forms.Label();
+            this.product_id = new System.Windows.Forms.Label();
             this.txtItemNo = new System.Windows.Forms.TextBox();
             this.txtItem = new System.Windows.Forms.TextBox();
             this.txtBatch = new System.Windows.Forms.TextBox();
@@ -67,7 +67,7 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ItemNoDg1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ItemName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.product_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Batch = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ExpDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Stock = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -98,8 +98,6 @@
             this.txtBalance = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.txtPaid = new System.Windows.Forms.TextBox();
-            this.txtUserPassword = new System.Windows.Forms.TextBox();
-            this.label13 = new System.Windows.Forms.Label();
             this.btnSaveBill = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txtCustomerName = new System.Windows.Forms.TextBox();
@@ -138,9 +136,9 @@
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(10, 11);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(79, 17);
+            this.label2.Size = new System.Drawing.Size(49, 17);
             this.label2.TabIndex = 7;
-            this.label2.Text = "ItemName";
+            this.label2.Text = "Name";
             // 
             // label4
             // 
@@ -276,7 +274,7 @@
             this.panel4.Controls.Add(this.txtUnitPrice);
             this.panel4.Controls.Add(this.label22);
             this.panel4.Controls.Add(this.txtStockId);
-            this.panel4.Controls.Add(this.ItemNo);
+            this.panel4.Controls.Add(this.product_id);
             this.panel4.Controls.Add(this.txtItemNo);
             this.panel4.Controls.Add(this.txtItem);
             this.panel4.Controls.Add(this.txtBatch);
@@ -352,15 +350,15 @@
             this.txtStockId.Size = new System.Drawing.Size(78, 23);
             this.txtStockId.TabIndex = 58;
             // 
-            // ItemNo
+            // product_id
             // 
-            this.ItemNo.AutoSize = true;
-            this.ItemNo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ItemNo.Location = new System.Drawing.Point(280, 44);
-            this.ItemNo.Name = "ItemNo";
-            this.ItemNo.Size = new System.Drawing.Size(58, 17);
-            this.ItemNo.TabIndex = 55;
-            this.ItemNo.Text = "ItemNo";
+            this.product_id.AutoSize = true;
+            this.product_id.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.product_id.Location = new System.Drawing.Point(280, 44);
+            this.product_id.Name = "product_id";
+            this.product_id.Size = new System.Drawing.Size(21, 17);
+            this.product_id.TabIndex = 55;
+            this.product_id.Text = "Id";
             // 
             // txtItemNo
             // 
@@ -475,24 +473,24 @@
             this.dataGridView1.AccessibleDescription = "";
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.LightGoldenrodYellow;
-            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.LightGoldenrodYellow;
+            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
             this.dataGridView1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.DarkMagenta;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.DarkMagenta;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Id,
             this.ItemNoDg1,
-            this.ItemName,
+            this.product_name,
             this.Batch,
             this.ExpDate,
             this.Stock,
@@ -528,12 +526,12 @@
             this.ItemNoDg1.Name = "ItemNoDg1";
             this.ItemNoDg1.Visible = false;
             // 
-            // ItemName
+            // product_name
             // 
-            this.ItemName.FillWeight = 253.8071F;
-            this.ItemName.HeaderText = "Item Name";
-            this.ItemName.Name = "ItemName";
-            this.ItemName.ReadOnly = true;
+            this.product_name.FillWeight = 253.8071F;
+            this.product_name.HeaderText = "Item Name";
+            this.product_name.Name = "product_name";
+            this.product_name.ReadOnly = true;
             // 
             // Batch
             // 
@@ -800,26 +798,6 @@
             this.txtPaid.TextChanged += new System.EventHandler(this.txtPaid_TextChanged);
             this.txtPaid.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPaid_KeyPress);
             // 
-            // txtUserPassword
-            // 
-            this.txtUserPassword.Location = new System.Drawing.Point(667, 601);
-            this.txtUserPassword.Name = "txtUserPassword";
-            this.txtUserPassword.PasswordChar = '*';
-            this.txtUserPassword.Size = new System.Drawing.Size(100, 20);
-            this.txtUserPassword.TabIndex = 53;
-            this.txtUserPassword.TextChanged += new System.EventHandler(this.txtUserPassword_TextChanged);
-            this.txtUserPassword.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtUserPassword_KeyPress);
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(527, 601);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(77, 17);
-            this.label13.TabIndex = 83;
-            this.label13.Text = "Password";
-            // 
             // btnSaveBill
             // 
             this.btnSaveBill.BackColor = System.Drawing.Color.White;
@@ -896,10 +874,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.ClientSize = new System.Drawing.Size(1273, 624);
+            this.ClientSize = new System.Drawing.Size(1290, 624);
             this.Controls.Add(this.btnSaveBill);
-            this.Controls.Add(this.label13);
-            this.Controls.Add(this.txtUserPassword);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.cmbPaymentMode);
@@ -975,20 +951,18 @@
         private System.Windows.Forms.TextBox txtItem;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.TextBox txtStockId;
-        private System.Windows.Forms.Label ItemNo;
+        private System.Windows.Forms.Label product_id;
         private System.Windows.Forms.TextBox txtItemNo;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox txtBalance;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.TextBox txtPaid;
-        private System.Windows.Forms.TextBox txtUserPassword;
-        private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Button btnSaveBill;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.TextBox txtUnitPrice;
         private System.Windows.Forms.DataGridViewTextBoxColumn Id;
         private System.Windows.Forms.DataGridViewTextBoxColumn ItemNoDg1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ItemName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn product_name;
         private System.Windows.Forms.DataGridViewTextBoxColumn Batch;
         private System.Windows.Forms.DataGridViewTextBoxColumn ExpDate;
         private System.Windows.Forms.DataGridViewTextBoxColumn Stock;

@@ -92,6 +92,7 @@
             this.purchaseReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.feesMasterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.iPDISCHARGESUMMARYToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.StatusStrip1.SuspendLayout();
             this.menuStrip2.SuspendLayout();
             this.SuspendLayout();
@@ -303,7 +304,8 @@
             this.lABTESTENTRYToolStripMenuItem,
             this.iPADMISSIONToolStripMenuItem,
             this.iPADVANCEPAYMENTToolStripMenuItem,
-            this.iPINVOICEBILLToolStripMenuItem});
+            this.iPINVOICEBILLToolStripMenuItem,
+            this.iPDISCHARGESUMMARYToolStripMenuItem});
             this.SalesmanToolStripMenuItem3.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SalesmanToolStripMenuItem3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
             this.SalesmanToolStripMenuItem3.Image = ((System.Drawing.Image)(resources.GetObject("SalesmanToolStripMenuItem3.Image")));
@@ -620,6 +622,13 @@
             this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // iPDISCHARGESUMMARYToolStripMenuItem
+            // 
+            this.iPDISCHARGESUMMARYToolStripMenuItem.Name = "iPDISCHARGESUMMARYToolStripMenuItem";
+            this.iPDISCHARGESUMMARYToolStripMenuItem.Size = new System.Drawing.Size(198, 22);
+            this.iPDISCHARGESUMMARYToolStripMenuItem.Text = "IP DISCHARGE ENTRY";
+            this.iPDISCHARGESUMMARYToolStripMenuItem.Click += new System.EventHandler(this.iPDISCHARGESUMMARYToolStripMenuItem_Click);
+            // 
             // frm_main_mdi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -707,6 +716,7 @@
         internal System.Windows.Forms.ToolStripMenuItem toolStripMenuItem3;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem4;
         private System.Windows.Forms.ToolStripMenuItem lABTESTENTRYToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem iPDISCHARGESUMMARYToolStripMenuItem;
     }
 }
 

@@ -46,7 +46,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.mbtnSalesReturn = new MaterialSkin.Controls.MaterialRaisedButton();
             this.txtCreditNoteNo = new System.Windows.Forms.TextBox();
-            this.txtSalesInvoiceNo = new System.Windows.Forms.TextBox();
+            this.txtsales_id = new System.Windows.Forms.TextBox();
             this.btnView_Invoice = new MaterialSkin.Controls.MaterialRaisedButton();
             this.label5 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
@@ -254,12 +254,12 @@
             this.txtCreditNoteNo.Size = new System.Drawing.Size(52, 20);
             this.txtCreditNoteNo.TabIndex = 51;
             // 
-            // txtSalesInvoiceNo
+            // txtsales_id
             // 
-            this.txtSalesInvoiceNo.Location = new System.Drawing.Point(9, 48);
-            this.txtSalesInvoiceNo.Name = "txtSalesInvoiceNo";
-            this.txtSalesInvoiceNo.Size = new System.Drawing.Size(153, 20);
-            this.txtSalesInvoiceNo.TabIndex = 46;
+            this.txtsales_id.Location = new System.Drawing.Point(9, 48);
+            this.txtsales_id.Name = "txtsales_id";
+            this.txtsales_id.Size = new System.Drawing.Size(153, 20);
+            this.txtsales_id.TabIndex = 46;
             // 
             // btnView_Invoice
             // 
@@ -296,7 +296,7 @@
             // 
             // groupBox4
             // 
-            this.groupBox4.Controls.Add(this.txtSalesInvoiceNo);
+            this.groupBox4.Controls.Add(this.txtsales_id);
             this.groupBox4.Controls.Add(this.btnView_Invoice);
             this.groupBox4.Controls.Add(this.label5);
             this.groupBox4.Location = new System.Drawing.Point(601, 61);
@@ -523,7 +523,7 @@
         private System.Windows.Forms.Label label6;
         private MaterialSkin.Controls.MaterialRaisedButton mbtnSalesReturn;
         private System.Windows.Forms.TextBox txtCreditNoteNo;
-        private System.Windows.Forms.TextBox txtSalesInvoiceNo;
+        private System.Windows.Forms.TextBox txtsales_id;
         private MaterialSkin.Controls.MaterialRaisedButton btnView_Invoice;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.DataGridView dataGridView1;

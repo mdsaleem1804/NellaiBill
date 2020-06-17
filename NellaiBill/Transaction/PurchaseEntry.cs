@@ -1,5 +1,7 @@
 ﻿using MySql.Data.MySqlClient;
+using NellaiBill.Common;
 using NellaiBill.Master;
+using NellaiBill.Models;
 using System;
 using System.Windows.Forms;
 
@@ -23,7 +25,7 @@ namespace NellaiBill.Transaction
         {
 
             DataClear();
-            lblInvoiceNo.Text = xDb.GetMaxId("purchaseinvoiceno", "inv_purchaseentry1").ToString();
+            lblInvoiceNo.Text = xDb.GetMaxId("purchase_id", "purchase").ToString();
             dtpExpDate.Value.Date.AddDays(365);
             this.KeyPreview = true;
         }
@@ -34,14 +36,13 @@ namespace NellaiBill.Transaction
             txtItemNo.Text = "";
             txtBatch.Text = "";
             txtQty.Text = "";
-            txtFreeQty.Text = "0";
             txtPackOf.Text = "1";
             txtTotalQty.Text = "";
             txtPR.Text = "";
             txtSR.Text = "";
             txtDiscPercentage.Text = "0";
             txtDiscountValue.Text = "0";
-            txtTax.Text = "Please select";
+           // txtTax.Text = "Please select";
             txtLessAmount.Text = "0";
 
 
@@ -138,7 +139,9 @@ namespace NellaiBill.Transaction
                 MessageBox.Show("Please add data");
                 return;
             }
-            int xPurchaseId = xDb.GetMaxId("purchaseinvoiceno", "inv_purchaseentry1");
+            int xPurchaseId = xDb.GetMaxId("purchase_id", "purchase");
+            string xUser = LoginInfo.UserID;
+            string xCurrentDateTime = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
             using (MySqlConnection myConnection = new MySqlConnection(xDb.conString))
             {
                 myConnection.Open();
@@ -148,44 +151,43 @@ namespace NellaiBill.Transaction
                 {
                     foreach (DataGridViewRow dr in dataGridView1.Rows)
                     {
-                        int xItemNo = Convert.ToInt32(dr.Cells["ItemNo"].Value);
-                        double xQty = Convert.ToDouble(dr.Cells["Qty"].Value);
-                        double xFreeQty = Convert.ToDouble(dr.Cells["FreeQty"].Value);
-                        double xPackOf = Convert.ToDouble(dr.Cells["PackOf"].Value);
-                        double xTotalQty = (xQty + xFreeQty) * xPackOf;
-                        double xSellingPrice = Convert.ToDouble(dr.Cells["SellingPrice"].Value);
+                        int xTxNo = dr.Index + 1;
+                        int xProductId = Convert.ToInt32(dr.Cells["product_id"].Value);
+                        int xQty = Convert.ToInt32(dr.Cells["Qty"].Value);
+                        int xPackOf = Convert.ToInt32(dr.Cells["PackOf"].Value);
+                        int xTotalQty = xQty  * xPackOf;
                         string xBatch = dr.Cells["Batch"].Value.ToString();
                         string xExpDate = dr.Cells["ExpDate"].Value.ToString();
-                        double xProfit = 0.00;
-                        string xQryInsertPurchase = "insert into   inv_purchaseentry" +
-                           "(purchaseinvoiceno,itemno,dateexpired,batchid,qty," +
-                           "freeqty,packno,originalprice,sellingprice,discount,vat," +
-                           "total,nettotal,profit,date,createdason,updatedason) " +
+                        double xMrp = Convert.ToDouble(dr.Cells["SellingPrice"].Value);
+                        double xGst = Convert.ToDouble(dr.Cells["GstPercentage"].Value);
+                        string xQryInsertPurchase = "insert into   purchase_details" +
+                           "(purchase_id,txno,product_id,qty,batch_id,expiry_date,mrp,purchase_rate,discount,gst,total) " +
                            "values(" + xPurchaseId + "," +
-                           " '" + xItemNo + "'," +
+                            " '" + xTxNo + "'," +
+                           " '" + xProductId + "'," +
+                           " '" + xTotalQty + "'," +
+                           " '" + xBatch + "'," +
                            " '" + xExpDate + "'," +
-                            " '" + xBatch + "'," +
-                           " " + xQty + "," +
-                           " " + xFreeQty + "," +
-                           " " + xPackOf + "," +
+                           " " + xMrp + "," +
                            " " + Convert.ToDouble(dr.Cells["Price"].Value) + "," +
-                           " " + Convert.ToDouble(dr.Cells["SellingPrice"].Value) + "," +
                            " " + Convert.ToDouble(dr.Cells["DiscPercentage"].Value) + "," +
-                           " " + Convert.ToDouble(dr.Cells["GstPercentage"].Value) + "," +
-                           " " + Convert.ToDouble(dr.Cells["Amount"].Value) + "," +
-                           " " + Convert.ToDouble(dr.Cells["TotalAmount"].Value) + "," +
-                           " " + xProfit + "," +
-                           " '" + Convert.ToDateTime(DateTime.Now).ToString("yyyy-MM-dd") + "'," +
-                           " '" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "'," +
-                           " '" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "' )";
+                           " " + xGst+ "," +
+                           " " + Convert.ToDouble(dr.Cells["TotalAmount"].Value) +  " )";
 
                         myCommand.CommandText = xQryInsertPurchase;
                         myCommand.ExecuteNonQuery();
                         string xLogMessage = "";
-                        int xCount = xDb.GetTotalCount("select * from inv_stockentry where itemno = " + xItemNo + " and batch = '" + xBatch + "' and mrp = '" + xSellingPrice + "'");
-                        if (xCount >= 1)
+                        StockResponseModel  stockResponseModel= xDb.GetStockFromQuery("select * from stock where product_id = " + xProductId + " and batch = '" + xBatch + "' and mrp = '" + xMrp + "'");
+                        int xOldQty = 0;
+                        int xNewQty = 0;
+                        if (stockResponseModel.Mrp>0)
                         {
-                            String xQryUpdateStock = "update inv_stockentry set stock=stock+" + xTotalQty + " where itemno=" + xItemNo + " and batch = '" + xBatch + "' and mrp = '" + xSellingPrice + "'";
+                             xOldQty = stockResponseModel.Qty;
+                             xNewQty = xTotalQty + xOldQty;
+                            String xQryUpdateStock = "update stock set  " +
+                                " qty=" + xNewQty + ",updated_by = '" + xUser + "', updated_on = '" + xCurrentDateTime + "' " +
+                                " where product_id=" + xProductId + " and batch = '" + xBatch + "' " +
+                                " and mrp = '" + xMrp + "'";
                             myCommand.CommandText = xQryUpdateStock;
                             myCommand.ExecuteNonQuery();
                             xLogMessage = "PURCHASE  UPDATED FOR OLD BATCH MRP";
@@ -193,40 +195,36 @@ namespace NellaiBill.Transaction
                         else
                         {
 
-                            string xQryStockEntry = "insert into   inv_stockentry" +
-                                "(itemno,stock,mrp,batch,expdate) " +
-                                " values(" + xItemNo + "," + xTotalQty + "," + xSellingPrice + ",'" + xBatch + "','" + xExpDate + "')";
+                            string xQryStockEntry = "insert into   stock" +
+                                "(product_id,qty,mrp,batch,expdate,gst,created_by,created_on) " +
+                                " values(" + xProductId + "," + xTotalQty + "," + xMrp + ",'" + xBatch + "'," +
+                                " '" + xExpDate + "','" + xUser + "','" + xCurrentDateTime + "')";
                             myCommand.CommandText = xQryStockEntry;
                             myCommand.ExecuteNonQuery();
                             xLogMessage = "PURCHASE CREATED FOR NEW BATCH MRP";
                         }
 
-
-                        string xQryStockDetails = "insert into audit_stock" +
-                                  " (audit_stock_itemno,audit_stock_qty," +
-                                  " audit_stock_mrp,audit_stock_batch," +
-                                  " audit_stock_datetime,audit_stock_mode)" +
-                                  " values(" + xItemNo
-                                  + "," + xTotalQty
-                                  + "," + xSellingPrice
-                                  + ",'" + xBatch
-                                  + "','" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")
-                                  + "','" + xLogMessage + "')";
+                         xOldQty = stockResponseModel.Qty;
+                        xNewQty = xTotalQty + xOldQty;
+                        string xQryStockDetails = "insert into stock_history" +
+                                  " (product_id,old_qty,change_qty,current_qty,mrp,batch,expdate,reason,created_by,created_on)" +
+                                  "values(" + xProductId + "," + xOldQty + "," + xTotalQty + "," + xNewQty + "," + xMrp + ",'" + xBatch + "'," +
+                                " '" + xExpDate + "','" + xLogMessage + "','" + xUser + "','" + xCurrentDateTime + "')";
 
                         myCommand.CommandText = xQryStockDetails;
                         myCommand.ExecuteNonQuery();
                     }
 
-                    string xQryPurchaseMain = "insert into   inv_purchaseentry1" +
-                           "(purchaseinvoiceno,supplierno,companyinvoiceno," +
-                           "totalamount,date,freight,others) " +
+                    string xQryPurchaseMain = "insert into   purchase" +
+                           "(purchase_id,date,supplier_id,bill_invoice_no,freight,others,less_amount,total_amount) " +
                            "values(" + xPurchaseId + "," +
-                           " '" + Convert.ToInt32(txtCustomerNo.Text.ToString()) + "'," +
-                            " '" + txtCompanyInvoiceNo.Text.ToString() + "'," +
-                            " '" + Convert.ToDouble(lbl_total_amount_value.Text) + "'," +
-                               " '" + Convert.ToDateTime(dtpPEDate.Text).ToString("yyyy-MM-dd") + "'," +
-                            " '0'," +
-                            " '0' )";
+                             " '" + Convert.ToDateTime(dtpPEDate.Text).ToString("yyyy-MM-dd") + "'," +
+                             " '" + Convert.ToInt32(txtCustomerNo.Text.ToString()) + "'," +
+                             " '" + txtCompanyInvoiceNo.Text.ToString() + "'," +
+                             " '0'," +
+                             " '0'," +
+                            " '" + txtLessAmount.Text.ToString() + "'," +
+                             " '" + Convert.ToDouble(lbl_total_amount_value.Text) + "')";
 
                     myCommand.CommandText = xQryPurchaseMain;
                     myCommand.ExecuteNonQuery();
@@ -234,7 +232,7 @@ namespace NellaiBill.Transaction
                     dataGridView1.Rows.Clear();
                     DataClear();
                     MessageBox.Show("Record Saved Succesfully Id is " + xPurchaseId);
-                    lblInvoiceNo.Text = xDb.GetMaxId("purchaseinvoiceno", "inv_purchaseentry1").ToString();
+                    lblInvoiceNo.Text = xDb.GetMaxId("purchase_id", "purchase").ToString();
                     txtCompanyInvoiceNo.Text = "";
                     lblGoodsValue.Text = "0";
                     lblTotalDiscount.Text = "0";
@@ -276,11 +274,8 @@ namespace NellaiBill.Transaction
                 txtQty.Focus();
                 return;
             }
-            if (txtFreeQty.Text == "")
-            {
-                txtFreeQty.Text = "0";
-            }
-            txtTotalQty.Text = ((double.Parse(txtQty.Text) + double.Parse(txtFreeQty.Text)) * double.Parse(txtPackOf.Text)).ToString("#.##");
+           
+            txtTotalQty.Text = ((double.Parse(txtQty.Text) ) * double.Parse(txtPackOf.Text)).ToString("#.##");
 
         }
 
@@ -354,10 +349,10 @@ namespace NellaiBill.Transaction
 
             int xItemId = Convert.ToInt32(txtItemNo.Text.ToString());
             double xMrp = Convert.ToDouble(txtSR.Text.ToString());
-            int xCount = xDb.GetTotalCount("select * from inv_stockentry where itemno = " + xItemId + " and batch = '" + txtBatch.Text + "' and mrp =" + xMrp);
+            int xCount = xDb.GetTotalCount("select * from stock where product_id = " + xItemId + " and batch = '" + txtBatch.Text + "' and mrp =" + xMrp);
             if (xCount >= 1)
             {
-                string selectQuery = "select stock from inv_stockentry where itemno = " + xItemId + " and batch = '" + txtBatch.Text + "' and mrp =" + xMrp;
+                string selectQuery = "select qty from stock where product_id = " + xItemId + " and batch = '" + txtBatch.Text + "' and mrp =" + xMrp;
                 xDb.connection.Open();
                 MySqlCommand command = new MySqlCommand(selectQuery, xDb.connection);
                 MySqlDataReader reader = command.ExecuteReader();
@@ -375,41 +370,7 @@ namespace NellaiBill.Transaction
             }
         }
 
-        private void cmbItem_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            txtBatch.Text = "";
-            txtQty.Text = "";
-            txtFreeQty.Text = "0";
-            txtPackOf.Text = "1";
-            txtTotalQty.Text = "";
-            txtPR.Text = "";
-            txtSR.Text = "";
-            txtDiscPercentage.Text = "0";
-            txtDiscountValue.Text = "0";
-            txtTax.Text = "Please select";
-            txtLessAmount.Text = "0";
-            xDb.connection = new MySqlConnection(xDb.conString);
-           
-            string xItemNo = txtItemNo.Text.ToString();
-            if (xItemNo == "0")
-            {
-                return;
-            }
-            //string selectQuery = "select i.itemno,i.itemname,t.tax_name " +
-            //   " from m_item i,m_tax t where i.gst = t.tax_no and i.itemno=" + xItemNo;
-            string selectQuery = "select i.itemno,i.itemname,i.gst" +
-               " from m_item i where  i.itemno=" + xItemNo;
-            xDb.connection.Open();
-            MySqlCommand command = new MySqlCommand(selectQuery, xDb.connection);
-            MySqlDataReader reader = command.ExecuteReader();
-            while (reader.Read())
-            {
-                //cmbTax.SelectedIndex = cmbTax.FindStringExact(reader[2].ToString());
-                txtTax.Text = reader[2].ToString();
-            }
-            xDb.connection.Close();
-
-        }
+       
 
         private void btnLedgerSearch_Click(object sender, EventArgs e)
         {
@@ -432,7 +393,7 @@ namespace NellaiBill.Transaction
             {
                 txtItemName.Text = search.xItemName.ToString();               
                 txtItemNo.Text = search.xItemNo.ToString();
-                txtTax.Text = search.xTax.ToString();
+                cmbTax.Text = search.xTax.ToString();
                 txtBatch.Select();
             }
         }
@@ -489,21 +450,21 @@ namespace NellaiBill.Transaction
                 txtSR.Focus();
                 return;
             }
-            if (txtTax.Text == "")
+            if (cmbTax.Text == "")
             {
                 MessageBox.Show("Please Enter Tax");
                 return;
             }
 
 
-            double xAmount = (double.Parse(txtTotalQty.Text) - double.Parse(txtFreeQty.Text) ) * double.Parse(txtPR.Text);
+            double xAmount = (double.Parse(txtTotalQty.Text)  ) * double.Parse(txtPR.Text);
             double xAmountAfterDiscount = xAmount - double.Parse(txtDiscountValue.Text);
-            double xGstValue = xAmountAfterDiscount * (double.Parse(txtTax.Text) / 100);
+            double xGstValue = xAmountAfterDiscount * (double.Parse(cmbTax.Text) / 100);
             double xTotalAmount = xAmountAfterDiscount + xGstValue;
             foreach (DataGridViewRow dr in dataGridView1.Rows)
             {
 
-                string xItemNameGrid = dr.Cells["ItemName"].Value.ToString();
+                string xItemNameGrid = dr.Cells["product_name"].Value.ToString();
                 string xBatchGrid = dr.Cells["Batch"].Value.ToString();
 
                 if ((txtItemName.Text == xItemNameGrid) && (txtBatch.Text == xBatchGrid))
@@ -520,7 +481,6 @@ namespace NellaiBill.Transaction
                 txtBatch.Text,
                 Convert.ToDateTime(dtpExpDate.Text).ToString("yyyy-MM-dd"),
                 txtQty.Text,
-                txtFreeQty.Text,
                 txtPackOf.Text,
                 txtTotalQty.Text,
                 txtPR.Text,
@@ -529,7 +489,7 @@ namespace NellaiBill.Transaction
                  globalClass.DoFormat(Convert.ToDouble(txtDiscPercentage.Text)),
                  globalClass.DoFormat(Convert.ToDouble(txtDiscountValue.Text)),
                  globalClass.DoFormat(Convert.ToDouble(xAmountAfterDiscount)),
-                 globalClass.DoFormat(Convert.ToDouble(txtTax.Text)),
+                 globalClass.DoFormat(Convert.ToDouble(cmbTax.Text)),
                  globalClass.DoFormat(Convert.ToDouble(xGstValue)),
                  globalClass.DoFormat(Convert.ToDouble(xTotalAmount)),
                   "DEL");

@@ -8,20 +8,20 @@ namespace NellaiBill.Transaction
     {
         DatabaseConnection xDb = new DatabaseConnection();
         string xQry = "select  " +
-                " p.purchaseinvoiceno, " +
-                " i.itemno, " +
-                " i.itemname, " +
+                " p.purchase_id, " +
+                " i.product_id, " +
+                " i.product_name, " +
                 " p.batchid, " +
                 " p.dateexpired, " +
                 " p.qty, " +
                 " p.freeqty, " +
                 " p.packno," +
                 " p.sellingprice " +
-                " from inv_purchaseentry p, " +
-                " inv_purchaseentry1 p1," +
-                " m_item i " +
-                " where i.itemno = p.itemno " +
-                " and p.purchaseinvoiceno = p1.purchaseinvoiceno";
+                " from purchase_details p, " +
+                " purchase p1," +
+                " m_product i " +
+                " where i.product_id = p.product_id " +
+                " and p.purchase_id = p1.purchase_id";
         public frmPurchaseReturn()
         {
             InitializeComponent();
@@ -30,7 +30,7 @@ namespace NellaiBill.Transaction
         private void frmPurchaseReturn_Load(object sender, EventArgs e)
         {
             xDb.LoadComboBox("select account_ledger_id,ledger_name from account_ledger where ledger_undergroup_no=4", cmbSupplier, "account_ledger_id", "ledger_name");
-            xDb.LoadComboBox("select itemno,itemname from m_item", cmbItem, "itemno", "itemname");
+            xDb.LoadComboBox("select product_id,product_name from m_product", cmbItem, "product_id", "product_name");
             dataGridView1.ReadOnly = true;
         }
 
@@ -52,14 +52,14 @@ namespace NellaiBill.Transaction
         private void btnView_Item_Click(object sender, EventArgs e)
         {
             xDb.LoadGrid(xQry +
-                  " and p.itemno=" + cmbItem.SelectedValue + " " +
+                  " and p.product_id=" + cmbItem.SelectedValue + " " +
                     " ", dataGridView1);
         }
 
         private void btnView_Invoice_Click(object sender, EventArgs e)
         {
             xDb.LoadGrid(xQry +
-                " and p.purchaseinvoiceno=" + Convert.ToInt32(txtPurchaseInvoiceNo.Text.ToString()) + " " +
+                " and p.purchase_id=" + Convert.ToInt32(txtPurchaseInvoiceNo.Text.ToString()) + " " +
         " ", dataGridView1);
         }
 
@@ -144,7 +144,7 @@ namespace NellaiBill.Transaction
 
                 string xQryPurchaseReturn = "insert into   accounts_debit_note" +
                                "(accounts_debit_note_id,ledger_no," +
-                               " debit_note_date,itemno,qty," +
+                               " debit_note_date,product_id,qty," +
                                " details,batchid) " +
                                " values(" + txtDebitNoteNo.Text + "," +
                                " " + cmbSupplier.SelectedValue + "," +
@@ -156,17 +156,17 @@ namespace NellaiBill.Transaction
                 int xItemNo = Convert.ToInt32(txtItemNo.Text);
                 int xNewQty = Convert.ToInt32(txtChangeQty.Text) - Convert.ToInt32(txtOldQty.Text);
 
-                string xQryStockUpdateEntry = "update inv_stockentry set stock= stock - " + Convert.ToInt32(txtChangeQty.Text) + " " +
-                    " where itemno="+xItemNo +" and batch='"+txtBatch.Text+"';";
+                string xQryStockUpdateEntry = "update stock set stock= stock - " + Convert.ToInt32(txtChangeQty.Text) + " " +
+                    " where product_id="+xItemNo +" and batch='"+txtBatch.Text+"';";
                     
                 //int xStockHistoryId = xDb.GetMaxId("stock_history_id", "stock_history");
                 //string xQryStockDetails = "insert into   stock_history" +
-                //    " (stock_history_id,itemno,category,qty,remarks)" +
+                //    " (stock_history_id,product_id,category,qty,remarks)" +
                 //    "  values(" + xStockHistoryId + "," + xItemNo + ",'PURCHASE RETURN'," + Convert.ToInt32(txtChangeQty.Text) + ",'Item Returned')";
-                string xQryStockDetails = "insert into audit_stock" +
-                     " (audit_stock_itemno,audit_stock_qty," +
-                     " audit_stock_mrp,audit_stock_batch," +
-                     " audit_stock_datetime,audit_stock_mode)" +
+                string xQryStockDetails = "insert into stock_history" +
+                     " (stock_history_itemno,stock_history_qty," +
+                     " stock_history_mrp,stock_history_batch," +
+                     " stock_history_datetime,stock_history_mode)" +
                      " values(" + xItemNo
                      + "," + txtChangeQty.Text
                      + "," + txtMrp.Text

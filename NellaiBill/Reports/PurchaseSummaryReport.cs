@@ -55,10 +55,10 @@ namespace NellaiBill.Reports
             }
 
           
-            string xQuery = "SELECT p.purchaseinvoiceno as INVNO,p.date as DATE,l.ledger_name as SUPPLIERNAME," +
+            string xQuery = "SELECT p.purchase_id as INVNO,p.date as DATE,l.ledger_name as SUPPLIERNAME," +
                 "p.companyinvoiceno as COMPANYINVNO,p.totalamount as AMOUNT " +
-                "from inv_purchaseentry1 p ,account_ledger l where l.account_ledger_id=p.supplierno " +
-                " and date>='" + dtpFromDate.Text + "' and date <= '" + dtpToDate.Text + "' " + xFilter + " order by p.purchaseinvoiceno desc";
+                "from purchase p ,account_ledger l where l.account_ledger_id=p.supplierno " +
+                " and date>='" + dtpFromDate.Text + "' and date <= '" + dtpToDate.Text + "' " + xFilter + " order by p.purchase_id desc";
 
             xDb.LoadGrid(xQuery, dataGridView1);
             dataGridView1.Columns["SUPPLIERNAME"].Width = 200;

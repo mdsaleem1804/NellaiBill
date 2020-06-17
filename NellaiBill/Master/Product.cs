@@ -1,6 +1,7 @@
 ﻿using iTextSharp.text;
 using iTextSharp.text.pdf;
 using MySql.Data.MySqlClient;
+using NellaiBill.Common;
 using System;
 using System.Data;
 using System.Drawing;
@@ -23,11 +24,10 @@ namespace NellaiBill.Master
 
         private void Item_Load(object sender, EventArgs e)
         {
-            xDb.LoadComboBox("select itemcategoryno,itemcategoryname from m_itemcategory", cmbCategory, "itemcategoryno", "itemcategoryname");
+            xDb.LoadComboBox("select category_id,category_name from m_category", cmbCategory, "category_id", "category_name");
             //xDb.LoadComboBox("select unit_no,unit_name from m_unit", cmbUnit, "unit_no", "unit_name");
             //xDb.LoadComboBox("select tax_no,tax_name from m_tax", cmbGst, "tax_no", "tax_name");
             cmbGroup.Enabled = false;
-            mBtnDelete.Enabled = false;
             LoadGrid();
             DataClear();
             dataGridView1.ReadOnly = true;
@@ -37,26 +37,21 @@ namespace NellaiBill.Master
             xCategoryId = Int32.Parse(cmbCategory.SelectedValue.ToString());
             dataGridView1.ColumnHeadersDefaultCellStyle.Font = new System.Drawing.Font("Tahoma", 10, FontStyle.Bold);
             cmbCategory.Select();
-            dtpExpDate.Value = DateTime.Now.AddMonths(3);
+            cmbTax.SelectedIndex = 0;
         }
 
         private void LoadGrid()
         {
             string xQuery = "select  " +
-                " c.itemcategoryno,g.itemgroupno,i.itemno," +
-                " c.itemcategoryname as CATEGORY," +
-                " g.itemgroupname as GROUP_NAME," +
-                " i.itemname as ITEMNAME, " +
-                 " i.hsncode as HSNCODE, " +
-                 " i.gst as TAX," +
-                //" t.tax_name as TAX," +
-                " i.packdescription as UNIT" +
-                " from m_itemcategory c,m_itemgroup g, " +
-                " m_item i " +
-                // ", m_tax t" +
-                " where c.itemcategoryno = i.itemcategoryno " +
-                //" and t.tax_no = i.gst " +
-                " and g.itemgroupno = i.itemgroupno" +
+                " c.category_id,g.group_id,i.product_id," +
+                " c.category_name as CATEGORY," +
+                " g.group_name as GROUP_NAME," +
+                " i.product_name as product_name, " +
+                 " i.hsn_code as hsn_code " +           
+                " from m_category c,m_group g, " +
+                " m_product i " +
+                " where c.category_id = i.category_id " +
+                " and g.group_id = i.group_id" +
                 " ";
 
             xDb.LoadGrid(xQuery, dataGridView1);
@@ -66,12 +61,10 @@ namespace NellaiBill.Master
 
         private void DataClear()
         {
-            txtItemName.Text = "";
-            txtOpeningStock.Text = "0";
-            txtPrice.Text = "0";
+            txtProductName.Text = "";
+            txtHsnCode.Text = "";
             mBtnSaveUpdate.Text = "SAVE";
-            mBtnDelete.Enabled = false;
-            txtItemName.Focus();
+            txtProductName.Focus();
         }
 
 
@@ -79,106 +72,46 @@ namespace NellaiBill.Master
         {
             xCategoryId = Int32.Parse(cmbCategory.SelectedValue.ToString());
             xGroupId = Int32.Parse(cmbGroup.SelectedValue.ToString());
-            //xUnitNo = Int32.Parse(cmbUnit.SelectedValue.ToString());
-            xTaxNo = Int32.Parse(cmbGst.SelectedItem.ToString());
-            double xPrice = double.Parse(txtPrice.Text.ToString());
+
+            string xUser = LoginInfo.UserID;
+            string xCurrentDateTime = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
             string xHsnCode = txtHsnCode.Text.ToString();
-            string xOpeningStockExpDate = Convert.ToDateTime(dtpExpDate.Text).ToString("yyyy-MM-dd");
-            if (txtItemName.Text == "")
+            if (txtProductName.Text == "")
             {
                 MessageBox.Show("Please Enter  Name");
-                txtItemName.Focus();
+                txtProductName.Focus();
                 return;
             }
             string xQry = "";
             if (mBtnSaveUpdate.Text == "SAVE")
+
             {
-                if (txtOpeningStock.Text == "")
-                {
-                    MessageBox.Show("It Should not be Empty/Atleast Zero");
-                    txtOpeningStock.Focus();
-                    return;
-                }
-                using (MySqlConnection myConnection = new MySqlConnection(xDb.conString))
-                {
-                    myConnection.Open();
-                    MySqlTransaction myTrans = myConnection.BeginTransaction(System.Data.IsolationLevel.ReadCommitted);
-                    MySqlCommand myCommand = myConnection.CreateCommand();
-                    try
-                    {
-                        xItemId = xDb.GetMaxId("itemno", "m_item");
-
-
-                        int xStockPointNo = 1;
-                        xQry = "insert into   m_item" +
-                            "(itemno,stockpointno,itemcategoryno,itemgroupno,itemname,hsncode,gst,packdescription,mrp) " +
-                            "values(" + xItemId + ","
-                            + xStockPointNo + ","
+                        xItemId = xDb.GetMaxId("product_id", "m_product");
+                        string xProductDetails = "";
+                        xQry = "insert into   m_product" +
+                            "(product_id,product_name,category_id,group_id,product_details,hsn_code,gst,created_by,created_on) " +
+                            "values(" + xItemId + ",'"
+                            + txtProductName.Text + "',"
                             + xCategoryId + ","
                             + xGroupId + ",'"
-                            + txtItemName.Text + "','"
-                            + xHsnCode + "',"
-                            + xTaxNo + ",'',"
-                            + xPrice + ")";
-                        int xOpeningStock = Convert.ToInt32(txtOpeningStock.Text.ToString());
-                        int xStockId = xDb.GetMaxId("stockno", "inv_stockentry");
-                        string xBatch = "OS";
-                        string xQryStockEntry = "insert into   inv_stockentry" +
-                            " (stockno,itemno,stock,mrp,batch,expdate) " +
-                            " values(" + xStockId + "," + xItemId + "," + xOpeningStock + "," + xPrice + ",'" + xBatch + "','" + xOpeningStockExpDate + "')";
-                        //int xStockHistoryId = xDb.GetMaxId("stock_history_id", "stock_history");
-                        //string xQryStockDetails = "insert into   stock_history" +
-                        //    " (stock_history_id,itemno,category,qty,remarks)" +
-                        //    "  values(" + xStockHistoryId + "," + xItemId + ",'ITEM'," + xOpeningStock + ",'NEW ITEM CREATED')";
+                            + xProductDetails + "','"
+                            + xHsnCode + "','" + cmbTax.Text + "','" + xUser + "','" + xCurrentDateTime + "' )";
 
-                        string xQryStockDetails = "insert into audit_stock" +
-                  " (audit_stock_itemno,audit_stock_qty," +
-                  " audit_stock_mrp,audit_stock_batch," +
-                  " audit_stock_datetime,audit_stock_mode)" +
-                  " values(" + xItemId
-                  + "," + xOpeningStock
-                  + "," + 0
-                  + ",'" + xBatch
-                  + "','" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")
-                  + "','NEW ITEM')";
+                          xDb.DataProcess(xQry);
 
-                        myCommand.CommandText = xQry;
-                        myCommand.ExecuteNonQuery();
-                        myCommand.CommandText = xQryStockEntry;
-                        myCommand.ExecuteNonQuery();
-                        myCommand.CommandText = xQryStockDetails;
-                        myCommand.ExecuteNonQuery();
-
-                        myTrans.Commit();
-                        MessageBox.Show("Item Added.");
-
-                    }
-                    catch (Exception ex)
-                    {
-                        myTrans.Rollback();
-                        MessageBox.Show("Some Error - Item Not Added." + ex.ToString());
-                    }
-                    finally
-                    {
-                        myCommand.Dispose();
-                        myTrans.Dispose();
-                        myConnection.Close();
-                    }
-                }
+                        MessageBox.Show("Item Added.");              
             }
             else
             {
 
-                xQry = " update m_item " +
-                    " set itemcategoryno=" + xCategoryId + ", " +
-                    " itemgroupno=" + xGroupId + ", " +
-                    " itemname = '" + txtItemName.Text + "',  " +
-                    " hsncode = '" + xHsnCode + "',  " +
-                    " mrp = " + txtPrice.Text + ",  " +
-                    " gst = " + xTaxNo + ",  " +
-                    " packno = " + 1 + " , " +
-                    " packdescription = '" + cmbUnit.Text + "'  " +
-                    " where  itemno= " + xItemId + "";
+                xQry = " update m_product " +
+                    " set category_id=" + xCategoryId + ", " +
+                    " group_id=" + xGroupId + ", " +
+                    " product_name = '" + txtProductName.Text + "',  " +
+                    " hsn_code = '" + xHsnCode + "',  " +
+                    " updated_by = '" + xUser + "',  " +
+                    " updated_on = '" + xCurrentDateTime + "'  " +
+                    " where  product_id= " + xItemId + "";
                 xDb.DataProcess(xQry);
             }
 
@@ -195,14 +128,10 @@ namespace NellaiBill.Master
                 xItemId = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString());
                 cmbCategory.SelectedIndex = cmbCategory.FindStringExact(dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString());
                 cmbGroup.SelectedIndex = cmbGroup.FindStringExact(dataGridView1.Rows[e.RowIndex].Cells[4].Value.ToString());
-                txtItemName.Text = dataGridView1.Rows[e.RowIndex].Cells[5].Value.ToString();
+                txtProductName.Text = dataGridView1.Rows[e.RowIndex].Cells[5].Value.ToString();
                 txtHsnCode.Text = dataGridView1.Rows[e.RowIndex].Cells[6].Value.ToString();
-                cmbGst.SelectedIndex = cmbGst.FindStringExact(dataGridView1.Rows[e.RowIndex].Cells[7].Value.ToString());
-                cmbUnit.SelectedIndex = cmbUnit.FindStringExact(dataGridView1.Rows[e.RowIndex].Cells[8].Value.ToString());
-                panelOpeningStock.Enabled = false;
+              
                 mBtnSaveUpdate.Text = "UPDATE";
-                mBtnDelete.Enabled = true;
-                txtOpeningStock.Enabled = false;
             }
         }
 
@@ -211,40 +140,11 @@ namespace NellaiBill.Master
         {
             cmbGroup.Enabled = true;
             xCategoryId = Int32.Parse(cmbCategory.SelectedValue.ToString());
-            xDb.LoadComboBox("select itemgroupno,itemgroupname" +
-                " from m_itemgroup where itemcategoryno=" + xCategoryId, cmbGroup, "itemgroupno", "itemgroupname");
+            xDb.LoadComboBox("select group_id,group_name" +
+                " from m_group where category_id=" + xCategoryId, cmbGroup, "group_id", "group_name");
         }
 
-        private void txtDiscValue_Leave(object sender, EventArgs e)
-        {
 
-            if (txtDiscValue.Text == "")
-            {
-                txtDiscValue.Text = "0";
-            }
-            else
-            {
-                double xTotalAmount = Convert.ToDouble(txtPrice.Text);
-                double xDisValue = Convert.ToDouble(txtDiscValue.Text);
-                double xPercentage = (xTotalAmount * xDisValue) / 100;
-                txtDiscPercentage.Text = xPercentage.ToString();
-            }
-        }
-
-        private void txtDiscPercentage_Leave(object sender, EventArgs e)
-        {
-            if (txtDiscPercentage.Text == "")
-            {
-                txtDiscPercentage.Text = "0";
-            }
-            else
-            {
-                double xTotalAmount = Convert.ToDouble(txtPrice.Text);
-                double xPercentage = Convert.ToDouble(txtDiscPercentage.Text);
-                double xDisValue = (xTotalAmount * xPercentage) / 100;
-                txtDiscValue.Text = xDisValue.ToString();
-            }
-        }
 
         private void mBtnCancel_Click(object sender, EventArgs e)
         {
@@ -254,7 +154,7 @@ namespace NellaiBill.Master
 
         private void mBtnSaveUpdate_Click(object sender, EventArgs e)
         {
-            //if (xDb.GetMaxId("itemno", "m_item")>50)
+            //if (xDb.GetMaxId("product_id", "m_product")>50)
             //{
             //    MessageBox.Show("Please Check your software administrator- It's Expired");
             //    return;
@@ -269,62 +169,21 @@ namespace NellaiBill.Master
                 MessageBox.Show("Please Choose an Category/Group");
                 return;
             }
-            if (txtItemName.Text == "")
+            if (txtProductName.Text == "")
             {
                 MessageBox.Show("Please Choose an Item");
-                txtItemName.Focus();
+                txtProductName.Focus();
                 return;
             }
-            if (cmbGst.Text == "" || cmbGst.Text == "Please select")
-            {
-                MessageBox.Show("Please Choose an Gst");
-                return;
-            }
-
-            if (cmbUnit.Text == "" || cmbUnit.Text == "Please select")
-            {
-                MessageBox.Show("Please Choose an Unit");
-                return;
-            }
-
-            if (txtOpeningStock.Text == "")
-            {
-                MessageBox.Show("OpeningStock Should not be Empty/Atleast Zero");
-                txtOpeningStock.Focus();
-                return;
-            }
-            if (txtPrice.Text == "")
-            {
-                MessageBox.Show("Price Should not be Empty/Atleast Zero");
-                txtPrice.Focus();
-                return;
-            }
+           
             DataProcess();
         }
 
-        private void mBtnDelete_Click(object sender, EventArgs e)
-        {
-
-            int xCount = xDb.GetTotalCount("select * from inv_purchaseentry where itemno = " + xItemId + "");
-            if (xCount >= 1)
-            {
-                MessageBox.Show("Sorry You can't delete this item - Purchae/Sales made");
-                LoadGrid();
-                DataClear();
-                return;
-            }
-            else
-            {
-                xDb.DataProcess("delete from m_item where  itemno= " + xItemId + "");
-            }
-
-            LoadGrid();
-            DataClear();
-        }
+      
 
         private void txtSearch_TextChanged(object sender, EventArgs e)
         {
-            string xFilterSearch = "CATEGORY Like '%" + txtSearch.Text + "%' or GROUP_NAME Like '%" + txtSearch.Text + "%' or ITEMNAME Like '%" + txtSearch.Text + "%'";
+            string xFilterSearch = "CATEGORY Like '%" + txtSearch.Text + "%' or GROUP_NAME Like '%" + txtSearch.Text + "%' or product_name Like '%" + txtSearch.Text + "%'";
             (dataGridView1.DataSource as DataTable).DefaultView.RowFilter = string.Format(xFilterSearch);
         }
 
@@ -524,6 +383,11 @@ namespace NellaiBill.Master
         private void btnPDF_Click(object sender, EventArgs e)
         {
             ExportToPdf();
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

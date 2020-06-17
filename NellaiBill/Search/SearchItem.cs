@@ -43,8 +43,8 @@ namespace NellaiBill.Master
             if (xFormType == "purchase")
             {
                 
-                xDb.LoadGrid("select 0,i.itemno,i.itemname,0,0,'','',i.gst from m_item i " +
-                      "  order by itemname", dataGridView1);
+                xDb.LoadGrid("select 0,i.product_id,i.product_name,0,0,'','',i.gst from m_product i " +
+                      "  order by product_name", dataGridView1);
                 dataGridView1.ReadOnly = true;
                 dataGridView1.Columns[0].Visible = false;
                 dataGridView1.Columns[1].Visible = false;
@@ -53,19 +53,17 @@ namespace NellaiBill.Master
                 dataGridView1.Columns[4].Visible = false;
                 dataGridView1.Columns[5].Visible = false;
                 dataGridView1.Columns[6].Visible = false;//expdate
-                dataGridView1.Columns[7].Visible = false;//gst    
             
             }
             else
             {
-                xDb.LoadGrid("select s.stockno,s.itemno,i.itemname,s.stock,s.mrp,s.batch,s.expdate,i.gst from inv_stockentry s,m_item i " +
-                    " where s.stock>0 and  s.itemno = i.itemno order by itemname", dataGridView1);
+                xDb.LoadGrid("select s.stock_id,s.product_id,i.product_name,s.qty,s.mrp,s.batch,s.expdate,i.gst from stock s,m_product i " +
+                    " where s.qty>0 and  s.product_id = i.product_id order by product_name", dataGridView1);
 
                 dataGridView1.ReadOnly = true;
                 dataGridView1.Columns[0].Visible = false;
                 dataGridView1.Columns[1].Visible = false;
                 dataGridView1.Columns[6].Visible = false;//expdate
-                dataGridView1.Columns[7].Visible = false;//gst
                 dataGridView1.Columns[2].FillWeight = 200;
                 dataGridView1.Columns[3].FillWeight = 60;
                 dataGridView1.Columns[4].FillWeight = 60;
@@ -77,7 +75,7 @@ namespace NellaiBill.Master
 
         private void txtSearch_TextChanged(object sender, EventArgs e)
         {
-            string xFilterSearch = "itemname Like '%" + txtSearch.Text + "%'";
+            string xFilterSearch = "product_name Like '%" + txtSearch.Text + "%'";
             (dataGridView1.DataSource as DataTable).DefaultView.RowFilter = string.Format(xFilterSearch);
         }
 
@@ -93,19 +91,22 @@ namespace NellaiBill.Master
                 return;
             }
             xStock = dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString();
+            if (xFormType != "purchase")
+            {
 
-            /*Included Gst Logic */
-            double xUnitMrp = double.Parse(dataGridView1.Rows[e.RowIndex].Cells[4].Value.ToString());
-            double xGstBefore = double.Parse(dataGridView1.Rows[e.RowIndex].Cells[7].Value.ToString()) / 100 + 1;
-            double xUnitRate = (((xUnitMrp / xGstBefore)));
+                /*Included Gst Logic */
+                double xUnitMrp = double.Parse(dataGridView1.Rows[e.RowIndex].Cells[4].Value.ToString());
+                double xGstBefore = double.Parse(dataGridView1.Rows[e.RowIndex].Cells[7].Value.ToString()) / 100 + 1;
+                double xUnitRate = (((xUnitMrp / xGstBefore)));
 
-            xUnitPrice = xUnitRate.ToString("#.##");
-            xMrp = dataGridView1.Rows[e.RowIndex].Cells[4].Value.ToString();
+                xUnitPrice = xUnitRate.ToString("#.##");
+                xMrp = dataGridView1.Rows[e.RowIndex].Cells[4].Value.ToString();
 
-            xBatch = dataGridView1.Rows[e.RowIndex].Cells[5].Value.ToString();
-            xExpDate = dataGridView1.Rows[e.RowIndex].Cells[6].Value.ToString();
+                xBatch = dataGridView1.Rows[e.RowIndex].Cells[5].Value.ToString();
+                xExpDate = dataGridView1.Rows[e.RowIndex].Cells[6].Value.ToString();
+             
+            }
             xTax = dataGridView1.Rows[e.RowIndex].Cells[7].Value.ToString();
-
             this.Close();
         }
 
@@ -123,19 +124,23 @@ namespace NellaiBill.Master
                     return;
                 }
                 xStock = dgr.Cells[3].Value.ToString();
+                if (xFormType == "purchase")
+                {
+                }
+                else
+                {
+                    /*Included Gst Logic */
+                    double xUnitMrp = double.Parse(dgr.Cells[4].Value.ToString());
+                    double xGstBefore = double.Parse(dgr.Cells[7].Value.ToString()) / 100 + 1;
+                    double xUnitRate = (((xUnitMrp / xGstBefore)));
 
-                /*Included Gst Logic */
-                double xUnitMrp = double.Parse(dgr.Cells[4].Value.ToString());
-                double xGstBefore = double.Parse(dgr.Cells[7].Value.ToString()) / 100 + 1;
-                double xUnitRate = (((xUnitMrp / xGstBefore)));
+                    xUnitPrice = xUnitRate.ToString("#.##");
+                    xMrp = dgr.Cells[4].Value.ToString();
 
-                xUnitPrice = xUnitRate.ToString("#.##");
-                xMrp = dgr.Cells[4].Value.ToString();
-
-                xBatch = dgr.Cells[5].Value.ToString();
-                xExpDate = dgr.Cells[6].Value.ToString();
-                xTax = dgr.Cells[7].Value.ToString();
-
+                    xBatch = dgr.Cells[5].Value.ToString();
+                    xExpDate = dgr.Cells[6].Value.ToString();
+                    xTax = dgr.Cells[7].Value.ToString();
+                }
                 this.Close();
             }
         }
