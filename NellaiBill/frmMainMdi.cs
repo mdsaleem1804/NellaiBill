@@ -192,7 +192,7 @@ namespace NellaiBill
 
         private void stockReportToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            CR_Stock report = new CR_Stock();
+            StockReport report = new StockReport();
             report.MdiParent = this;
             report.Show();
         }
@@ -213,14 +213,14 @@ namespace NellaiBill
 
         private void supplerToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Ledger ledger = new Ledger("Supplier");
+            Supplier ledger = new Supplier();
             ledger.MdiParent = this;
             ledger.Show();
         }
 
         private void customerToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
-            Ledger ledger = new Ledger("Customer");
+            Customer ledger = new Customer();
             ledger.MdiParent = this;
             ledger.Show();
         }
@@ -234,7 +234,7 @@ namespace NellaiBill
 
         private void PurchaseReturnToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmPurchaseReturn frmPurchaseReturn = new frmPurchaseReturn();
+            PurchaseReturn frmPurchaseReturn = new PurchaseReturn();
             frmPurchaseReturn.MdiParent = this;
             frmPurchaseReturn.Show();
         }
@@ -248,7 +248,7 @@ namespace NellaiBill
 
         private void SalesReturnToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmSalesReturn frmSalesReturn = new frmSalesReturn();
+            SalesReturn frmSalesReturn = new SalesReturn();
             frmSalesReturn.MdiParent = this;
             frmSalesReturn.Show();
         }
@@ -287,7 +287,7 @@ namespace NellaiBill
 
         private void salesReturnReportToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            CR_SalesReturn report = new CR_SalesReturn();
+            SalesReturnReport report = new SalesReturnReport();
             // SalesReportDG report = new SalesReportDG();
             report.MdiParent = this;
             report.Show();

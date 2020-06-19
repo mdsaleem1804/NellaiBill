@@ -7,14 +7,14 @@
     <framework targetVersion="4.6.1" profile="Full" supportedRuntime="4.0.30319" />
   </compatibleFrameworks>
   <dependency>
-    <dependentAssembly dependencyType="install" codebase="NellaiBill.exe.manifest" size="25936">
+    <dependentAssembly dependencyType="install" codebase="NellaiBill.exe.manifest" size="26334">
       <assemblyIdentity name="NellaiBill.exe" version="1.0.0.1" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="msil" type="win32" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>mnGz/pCYNbSJG8YDZds2VQYq7P/4WpAE48jF/u+TI5U=</dsig:DigestValue>
+        <dsig:DigestValue>oa2VUXPnG9PwtSpTKcDMT1VW7KVT3qpFJRSukggs/yo=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

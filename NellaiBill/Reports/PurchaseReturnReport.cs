@@ -12,24 +12,23 @@ using System.Windows.Forms;
 
 namespace NellaiBill.Reports
 {
-    public partial class CR_Stock : Form
+    public partial class PurchaseReturnReport : Form
     {
-        ReportDocument reportDocument = new ReportDocument();
+        ReportDocument cryRpt = new ReportDocument();
         GlobalClass globalClass = new GlobalClass();
-        public CR_Stock()
+        public PurchaseReturnReport()
         {
             InitializeComponent();
         }
 
-        private void CR_Stock_Load(object sender, EventArgs e)
+        private void PurchaseReturnReport_Load(object sender, EventArgs e)
         {
-            string path = globalClass.GetReportPath() + "rptStock.rpt";
-            reportDocument.Load(path);
-            crystalReportViewer1.ReportSource = reportDocument;
+            string path = globalClass.GetReportPath() + "rptPurchaseReturn.rpt";
+            cryRpt.Load(path);
+            crystalReportViewer1.ReportSource = cryRpt;
             crystalReportViewer1.Refresh();
             crystalReportViewer1.RefreshReport();
             crystalReportViewer1.ToolPanelView = ToolPanelViewType.None;
         }
     }
-
 }

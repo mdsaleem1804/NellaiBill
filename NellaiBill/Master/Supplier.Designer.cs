@@ -1,6 +1,6 @@
 ﻿namespace NellaiBill.Master
 {
-    partial class Ledger
+    partial class Supplier
     {
         /// <summary>
         /// Required designer variable.
@@ -59,11 +59,11 @@
             this.lblFormName.BackColor = System.Drawing.Color.Transparent;
             this.lblFormName.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblFormName.ForeColor = System.Drawing.Color.White;
-            this.lblFormName.Location = new System.Drawing.Point(389, 0);
+            this.lblFormName.Location = new System.Drawing.Point(496, -3);
             this.lblFormName.Name = "lblFormName";
-            this.lblFormName.Size = new System.Drawing.Size(92, 24);
+            this.lblFormName.Size = new System.Drawing.Size(88, 24);
             this.lblFormName.TabIndex = 0;
-            this.lblFormName.Text = "LEDGER";
+            this.lblFormName.Text = "Supplier";
             // 
             // materialLabel1
             // 
@@ -102,7 +102,7 @@
             // 
             this.rchAddress.Location = new System.Drawing.Point(155, 123);
             this.rchAddress.Name = "rchAddress";
-            this.rchAddress.Size = new System.Drawing.Size(197, 119);
+            this.rchAddress.Size = new System.Drawing.Size(197, 78);
             this.rchAddress.TabIndex = 2;
             this.rchAddress.Text = "";
             // 
@@ -112,7 +112,7 @@
             this.materialLabel3.Depth = 0;
             this.materialLabel3.Font = new System.Drawing.Font("Roboto", 11F);
             this.materialLabel3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel3.Location = new System.Drawing.Point(48, 265);
+            this.materialLabel3.Location = new System.Drawing.Point(48, 220);
             this.materialLabel3.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel3.Name = "materialLabel3";
             this.materialLabel3.Size = new System.Drawing.Size(75, 19);
@@ -121,7 +121,7 @@
             // 
             // txtMobileNo
             // 
-            this.txtMobileNo.Location = new System.Drawing.Point(155, 265);
+            this.txtMobileNo.Location = new System.Drawing.Point(155, 220);
             this.txtMobileNo.Name = "txtMobileNo";
             this.txtMobileNo.Size = new System.Drawing.Size(197, 20);
             this.txtMobileNo.TabIndex = 3;
@@ -138,7 +138,7 @@
             // mBtnSaveUpdate
             // 
             this.mBtnSaveUpdate.Depth = 0;
-            this.mBtnSaveUpdate.Location = new System.Drawing.Point(232, 321);
+            this.mBtnSaveUpdate.Location = new System.Drawing.Point(232, 258);
             this.mBtnSaveUpdate.MouseState = MaterialSkin.MouseState.HOVER;
             this.mBtnSaveUpdate.Name = "mBtnSaveUpdate";
             this.mBtnSaveUpdate.Primary = true;
@@ -151,7 +151,7 @@
             // mBtnDelete
             // 
             this.mBtnDelete.Depth = 0;
-            this.mBtnDelete.Location = new System.Drawing.Point(232, 386);
+            this.mBtnDelete.Location = new System.Drawing.Point(232, 300);
             this.mBtnDelete.MouseState = MaterialSkin.MouseState.HOVER;
             this.mBtnDelete.Name = "mBtnDelete";
             this.mBtnDelete.Primary = true;
@@ -159,9 +159,10 @@
             this.mBtnDelete.TabIndex = 13;
             this.mBtnDelete.Text = "DELETE";
             this.mBtnDelete.UseVisualStyleBackColor = true;
+            this.mBtnDelete.Visible = false;
             this.mBtnDelete.Click += new System.EventHandler(this.mBtnDelete_Click);
             // 
-            // Ledger
+            // Supplier
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -177,8 +178,8 @@
             this.Controls.Add(this.txtName);
             this.Controls.Add(this.materialLabel1);
             this.Controls.Add(this.panel3);
-            this.Name = "Ledger";
-            this.Text = "Ledger";
+            this.Name = "Supplier";
+            this.Text = "Supplier";
             this.Load += new System.EventHandler(this.Ledger_Load);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();

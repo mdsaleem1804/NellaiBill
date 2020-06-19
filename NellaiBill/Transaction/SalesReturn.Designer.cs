@@ -1,6 +1,6 @@
 ﻿namespace NellaiBill.Transaction
 {
-    partial class frmSalesReturn
+    partial class SalesReturn
     {
         /// <summary>
         /// Required designer variable.
@@ -30,19 +30,6 @@
         {
             this.panel3 = new System.Windows.Forms.Panel();
             this.label10 = new System.Windows.Forms.Label();
-            this.txtBatch = new System.Windows.Forms.TextBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.txtItemName = new System.Windows.Forms.TextBox();
-            this.label12 = new System.Windows.Forms.Label();
-            this.rchRemarks = new System.Windows.Forms.RichTextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.txtChangeQty = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.txtItemNo = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.txtOldQty = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.mbtnSalesReturn = new MaterialSkin.Controls.MaterialRaisedButton();
             this.txtCreditNoteNo = new System.Windows.Forms.TextBox();
@@ -65,15 +52,32 @@
             this.label13 = new System.Windows.Forms.Label();
             this.dtpFromDate = new System.Windows.Forms.DateTimePicker();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.txtChangeQty = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.txtExpDate = new System.Windows.Forms.TextBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this.rchRemarks = new System.Windows.Forms.RichTextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtItemNo = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.txtItemName = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
             this.txtMrp = new System.Windows.Forms.TextBox();
-            this.label14 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.txtBatch = new System.Windows.Forms.TextBox();
+            this.label20 = new System.Windows.Forms.Label();
+            this.txtOldQty = new System.Windows.Forms.TextBox();
+            this.label24 = new System.Windows.Forms.Label();
+            this.txtSalesId = new System.Windows.Forms.TextBox();
+            this.label16 = new System.Windows.Forms.Label();
             this.panel3.SuspendLayout();
-            this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel3
@@ -98,145 +102,19 @@
             this.label10.TabIndex = 0;
             this.label10.Text = "Sales Return";
             // 
-            // txtBatch
-            // 
-            this.txtBatch.Location = new System.Drawing.Point(368, 40);
-            this.txtBatch.Name = "txtBatch";
-            this.txtBatch.ReadOnly = true;
-            this.txtBatch.Size = new System.Drawing.Size(69, 20);
-            this.txtBatch.TabIndex = 53;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(284, 36);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(35, 13);
-            this.label11.TabIndex = 57;
-            this.label11.Text = "Batch";
-            // 
-            // txtItemName
-            // 
-            this.txtItemName.Location = new System.Drawing.Point(98, 76);
-            this.txtItemName.Name = "txtItemName";
-            this.txtItemName.ReadOnly = true;
-            this.txtItemName.Size = new System.Drawing.Size(146, 20);
-            this.txtItemName.TabIndex = 52;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(5, 76);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(58, 13);
-            this.label12.TabIndex = 56;
-            this.label12.Text = "Item Name";
-            // 
-            // rchRemarks
-            // 
-            this.rchRemarks.Location = new System.Drawing.Point(457, 18);
-            this.rchRemarks.Name = "rchRemarks";
-            this.rchRemarks.Size = new System.Drawing.Size(161, 82);
-            this.rchRemarks.TabIndex = 56;
-            this.rchRemarks.Text = "";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(454, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(50, 13);
-            this.label1.TabIndex = 51;
-            this.label1.Text = "Narration";
-            // 
-            // txtChangeQty
-            // 
-            this.txtChangeQty.Location = new System.Drawing.Point(368, 106);
-            this.txtChangeQty.Name = "txtChangeQty";
-            this.txtChangeQty.Size = new System.Drawing.Size(69, 20);
-            this.txtChangeQty.TabIndex = 55;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(284, 106);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(63, 13);
-            this.label9.TabIndex = 49;
-            this.label9.Text = "Change Qty";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(284, 74);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(42, 13);
-            this.label7.TabIndex = 47;
-            this.label7.Text = "Old Qty";
-            // 
-            // panel1
-            // 
-            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Controls.Add(this.txtMrp);
-            this.panel1.Controls.Add(this.txtItemNo);
-            this.panel1.Controls.Add(this.label14);
-            this.panel1.Controls.Add(this.label8);
-            this.panel1.Controls.Add(this.txtBatch);
-            this.panel1.Controls.Add(this.label11);
-            this.panel1.Controls.Add(this.txtItemName);
-            this.panel1.Controls.Add(this.label12);
-            this.panel1.Controls.Add(this.rchRemarks);
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.txtChangeQty);
-            this.panel1.Controls.Add(this.label9);
-            this.panel1.Controls.Add(this.txtOldQty);
-            this.panel1.Controls.Add(this.label7);
-            this.panel1.Controls.Add(this.label6);
-            this.panel1.Controls.Add(this.mbtnSalesReturn);
-            this.panel1.Controls.Add(this.txtCreditNoteNo);
-            this.panel1.Location = new System.Drawing.Point(21, 426);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(758, 136);
-            this.panel1.TabIndex = 86;
-            // 
-            // txtItemNo
-            // 
-            this.txtItemNo.Location = new System.Drawing.Point(98, 46);
-            this.txtItemNo.Name = "txtItemNo";
-            this.txtItemNo.ReadOnly = true;
-            this.txtItemNo.Size = new System.Drawing.Size(52, 20);
-            this.txtItemNo.TabIndex = 58;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(5, 46);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(44, 13);
-            this.label8.TabIndex = 59;
-            this.label8.Text = "Item No";
-            // 
-            // txtOldQty
-            // 
-            this.txtOldQty.Location = new System.Drawing.Point(368, 70);
-            this.txtOldQty.Name = "txtOldQty";
-            this.txtOldQty.ReadOnly = true;
-            this.txtOldQty.Size = new System.Drawing.Size(69, 20);
-            this.txtOldQty.TabIndex = 54;
-            // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(5, 18);
+            this.label6.Location = new System.Drawing.Point(16, 17);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(80, 13);
+            this.label6.Size = new System.Drawing.Size(85, 13);
             this.label6.TabIndex = 44;
-            this.label6.Text = "Credit  Note No";
+            this.label6.Text = "Sales Return No";
             // 
             // mbtnSalesReturn
             // 
             this.mbtnSalesReturn.Depth = 0;
-            this.mbtnSalesReturn.Location = new System.Drawing.Point(630, 15);
+            this.mbtnSalesReturn.Location = new System.Drawing.Point(264, 275);
             this.mbtnSalesReturn.MouseState = MaterialSkin.MouseState.HOVER;
             this.mbtnSalesReturn.Name = "mbtnSalesReturn";
             this.mbtnSalesReturn.Primary = true;
@@ -248,10 +126,10 @@
             // 
             // txtCreditNoteNo
             // 
-            this.txtCreditNoteNo.Location = new System.Drawing.Point(98, 18);
+            this.txtCreditNoteNo.Location = new System.Drawing.Point(102, 17);
             this.txtCreditNoteNo.Name = "txtCreditNoteNo";
             this.txtCreditNoteNo.ReadOnly = true;
-            this.txtCreditNoteNo.Size = new System.Drawing.Size(52, 20);
+            this.txtCreditNoteNo.Size = new System.Drawing.Size(131, 20);
             this.txtCreditNoteNo.TabIndex = 51;
             // 
             // txtsales_id
@@ -290,7 +168,7 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(21, 190);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(758, 230);
+            this.dataGridView1.Size = new System.Drawing.Size(758, 275);
             this.dataGridView1.TabIndex = 85;
             this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
             // 
@@ -455,43 +333,205 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Date Wise";
             // 
+            // panel2
+            // 
+            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel2.Controls.Add(this.txtChangeQty);
+            this.panel2.Controls.Add(this.label9);
+            this.panel2.Controls.Add(this.txtExpDate);
+            this.panel2.Controls.Add(this.label15);
+            this.panel2.Controls.Add(this.label6);
+            this.panel2.Controls.Add(this.txtCreditNoteNo);
+            this.panel2.Controls.Add(this.rchRemarks);
+            this.panel2.Controls.Add(this.label1);
+            this.panel2.Controls.Add(this.txtItemNo);
+            this.panel2.Controls.Add(this.label7);
+            this.panel2.Controls.Add(this.txtItemName);
+            this.panel2.Controls.Add(this.label11);
+            this.panel2.Controls.Add(this.txtMrp);
+            this.panel2.Controls.Add(this.label18);
+            this.panel2.Controls.Add(this.txtBatch);
+            this.panel2.Controls.Add(this.label20);
+            this.panel2.Controls.Add(this.txtOldQty);
+            this.panel2.Controls.Add(this.label24);
+            this.panel2.Controls.Add(this.txtSalesId);
+            this.panel2.Controls.Add(this.label16);
+            this.panel2.Controls.Add(this.mbtnSalesReturn);
+            this.panel2.Location = new System.Drawing.Point(799, 71);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(355, 394);
+            this.panel2.TabIndex = 87;
+            // 
+            // txtChangeQty
+            // 
+            this.txtChangeQty.Location = new System.Drawing.Point(100, 336);
+            this.txtChangeQty.Name = "txtChangeQty";
+            this.txtChangeQty.Size = new System.Drawing.Size(137, 20);
+            this.txtChangeQty.TabIndex = 104;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(16, 336);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(63, 13);
+            this.label9.TabIndex = 103;
+            this.label9.Text = "Change Qty";
+            // 
+            // txtExpDate
+            // 
+            this.txtExpDate.Location = new System.Drawing.Point(99, 230);
+            this.txtExpDate.Name = "txtExpDate";
+            this.txtExpDate.ReadOnly = true;
+            this.txtExpDate.Size = new System.Drawing.Size(138, 20);
+            this.txtExpDate.TabIndex = 102;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(16, 237);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(48, 13);
+            this.label15.TabIndex = 101;
+            this.label15.Text = "ExpDate";
+            // 
+            // rchRemarks
+            // 
+            this.rchRemarks.Location = new System.Drawing.Point(100, 264);
+            this.rchRemarks.Name = "rchRemarks";
+            this.rchRemarks.Size = new System.Drawing.Size(137, 56);
+            this.rchRemarks.TabIndex = 100;
+            this.rchRemarks.Text = "";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(14, 267);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(50, 13);
+            this.label1.TabIndex = 99;
+            this.label1.Text = "Narration";
+            // 
+            // txtItemNo
+            // 
+            this.txtItemNo.Location = new System.Drawing.Point(100, 78);
+            this.txtItemNo.Name = "txtItemNo";
+            this.txtItemNo.ReadOnly = true;
+            this.txtItemNo.Size = new System.Drawing.Size(133, 20);
+            this.txtItemNo.TabIndex = 97;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(14, 78);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(44, 13);
+            this.label7.TabIndex = 98;
+            this.label7.Text = "Item No";
+            // 
+            // txtItemName
+            // 
+            this.txtItemName.Location = new System.Drawing.Point(100, 108);
+            this.txtItemName.Name = "txtItemName";
+            this.txtItemName.ReadOnly = true;
+            this.txtItemName.Size = new System.Drawing.Size(137, 20);
+            this.txtItemName.TabIndex = 95;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(14, 108);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(58, 13);
+            this.label11.TabIndex = 96;
+            this.label11.Text = "Item Name";
+            // 
             // txtMrp
             // 
-            this.txtMrp.Location = new System.Drawing.Point(368, 13);
+            this.txtMrp.Location = new System.Drawing.Point(100, 140);
             this.txtMrp.Name = "txtMrp";
             this.txtMrp.ReadOnly = true;
-            this.txtMrp.Size = new System.Drawing.Size(69, 20);
-            this.txtMrp.TabIndex = 87;
+            this.txtMrp.Size = new System.Drawing.Size(137, 20);
+            this.txtMrp.TabIndex = 93;
             // 
-            // label14
+            // label18
             // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(284, 13);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(25, 13);
-            this.label14.TabIndex = 88;
-            this.label14.Text = "Mrp";
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(16, 140);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(25, 13);
+            this.label18.TabIndex = 94;
+            this.label18.Text = "Mrp";
             // 
-            // frmSalesReturn
+            // txtBatch
+            // 
+            this.txtBatch.Location = new System.Drawing.Point(100, 167);
+            this.txtBatch.Name = "txtBatch";
+            this.txtBatch.ReadOnly = true;
+            this.txtBatch.Size = new System.Drawing.Size(137, 20);
+            this.txtBatch.TabIndex = 90;
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(16, 163);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(35, 13);
+            this.label20.TabIndex = 92;
+            this.label20.Text = "Batch";
+            // 
+            // txtOldQty
+            // 
+            this.txtOldQty.Location = new System.Drawing.Point(100, 197);
+            this.txtOldQty.Name = "txtOldQty";
+            this.txtOldQty.ReadOnly = true;
+            this.txtOldQty.Size = new System.Drawing.Size(137, 20);
+            this.txtOldQty.TabIndex = 91;
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Location = new System.Drawing.Point(16, 201);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(42, 13);
+            this.label24.TabIndex = 89;
+            this.label24.Text = "Old Qty";
+            // 
+            // txtSalesId
+            // 
+            this.txtSalesId.Location = new System.Drawing.Point(100, 46);
+            this.txtSalesId.Name = "txtSalesId";
+            this.txtSalesId.ReadOnly = true;
+            this.txtSalesId.Size = new System.Drawing.Size(133, 20);
+            this.txtSalesId.TabIndex = 64;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(16, 50);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(42, 13);
+            this.label16.TabIndex = 65;
+            this.label16.Text = "SalesId";
+            // 
+            // SalesReturn
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(804, 582);
-            this.Controls.Add(this.panel1);
+            this.ClientSize = new System.Drawing.Size(1177, 582);
+            this.Controls.Add(this.panel2);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.panel3);
-            this.Name = "frmSalesReturn";
+            this.Name = "SalesReturn";
             this.Text = "frmSalesReturn";
             this.Load += new System.EventHandler(this.frmSalesReturn_Load);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
@@ -501,6 +541,8 @@
             this.groupBox2.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -509,17 +551,6 @@
 
         internal System.Windows.Forms.Panel panel3;
         internal System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox txtBatch;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.TextBox txtItemName;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.RichTextBox rchRemarks;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtChangeQty;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.TextBox txtOldQty;
         private System.Windows.Forms.Label label6;
         private MaterialSkin.Controls.MaterialRaisedButton mbtnSalesReturn;
         private System.Windows.Forms.TextBox txtCreditNoteNo;
@@ -542,9 +573,24 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.DateTimePicker dtpFromDate;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TextBox txtItemNo;
-        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.TextBox txtMrp;
-        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.TextBox txtBatch;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.TextBox txtOldQty;
+        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.TextBox txtSalesId;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.TextBox txtChangeQty;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TextBox txtExpDate;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.RichTextBox rchRemarks;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox txtItemNo;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox txtItemName;
+        private System.Windows.Forms.Label label11;
     }
 }

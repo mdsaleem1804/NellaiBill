@@ -289,7 +289,7 @@ namespace NellaiBill.Master
                         myCommand.CommandText = xQrySalesDetails;
                         myCommand.ExecuteNonQuery();
 
-                        StockResponseModel stockResponseModel = xDb.GetStockFromQuery("select * from stock where product_id = " + xProductId + " and batch = '" + xBatch + "' and mrp = '" + xMrp + "'");
+                        StockResponseModel stockResponseModel = xDb.GetStockFromQuery("select * from stock where product_id = " + xProductId + " and batch_id = '" + xBatch + "' and mrp = '" + xMrp + "'");
 
                         int xOldQty = 0;
                         int xNewQty = 0;
@@ -298,9 +298,7 @@ namespace NellaiBill.Master
                         string xUpdateStockQry = "update stock set " +
                             " qty =  " + xNewQty + ", updated_by = '" + xUser + "', updated_on = '" + xCurrentDateTime + "' " +
                             " where product_id=" + xProductId + " " +
-
-
-                            " and batch = '" + xBatch + "' " +
+                            " and batch_id = '" + xBatch + "' " +
                             " and mrp = '" + xMrp + "'";
                         
 
@@ -311,7 +309,7 @@ namespace NellaiBill.Master
                         string xReason = "NEW SALES";
                         string xQryStockHistory = "insert into stock_history" +
                          " (product_id,old_qty,change_qty,current_qty," +
-                         " mrp,batch,expdate,reason,created_by,created_on)" +
+                         " mrp,batch_id,expiry_date,reason,created_by,created_on)" +
                          " values(" + xProductId  + "," + xOldQty + "," + xSalesQty + "," + xNewQty + "," + xMrp + "," +
                          " '" + xBatch + "','" + txtExpDate.Text + "','" + xReason + "'," +
                          " '" + xUser  + "','" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")
@@ -322,9 +320,8 @@ namespace NellaiBill.Master
 
                     }
 
-
                     string xQrySalesMain = "insert into   sales" +
-                          "(sales_id,date,customer_id,less_amount,service_amount,total_amount," +
+                          "(sales_id,date,patient_id,less_amount,service_amount,total_amount," +
                           "mode_of_payment,terms_of_delivery,created_by,created_on) " +
                           "values(" + xSalesId + "," +
                           " '" + dtpDate.Value.ToString("yyyy-MM-dd") + "'," +
@@ -481,14 +478,14 @@ namespace NellaiBill.Master
 
         private void txtLedgerSearch_Click(object sender, EventArgs e)
         {
-            SearchLedger search = new SearchLedger(5);
+            SearchPatient search = new SearchPatient();
             search.ShowDialog();
-            if (search.xLedgerNo.ToString() != "0")
+            if (search.xPatientId.ToString() != "0")
             {
-                txtCustomerNo.Text = search.xLedgerNo.ToString();
-                txtCustomerName.Text = search.xLedgerName.ToString();
-                txtCustomerMobileNo.Text = search.xLedgerMobileNo.ToString();
-                rchCustomerAddress.Text = search.xLedgerAddress.ToString();
+                txtCustomerNo.Text = search.xPatientId.ToString();
+                txtCustomerName.Text = search.xPatientName.ToString();
+                txtCustomerMobileNo.Text = search.xPatientMobileNo.ToString();
+                rchCustomerAddress.Text = search.xPatientAddress.ToString();
             }
 
         }

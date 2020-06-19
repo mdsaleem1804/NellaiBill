@@ -16,14 +16,14 @@ namespace NellaiBill.CrystalReports {
     using CrystalDecisions.CrystalReports.Engine;
     
     
-    public class rptStockByItemMrpBatch : ReportClass {
+    public class rptPurchaseReturn : ReportClass {
         
-        public rptStockByItemMrpBatch() {
+        public rptPurchaseReturn() {
         }
         
         public override string ResourceName {
             get {
-                return "rptStockByItemMrpBatch.rpt";
+                return "rptPurchaseReturn.rpt";
             }
             set {
                 // Do nothing
@@ -41,7 +41,7 @@ namespace NellaiBill.CrystalReports {
         
         public override string FullResourceName {
             get {
-                return "NellaiBill.CrystalReports.rptStockByItemMrpBatch.rpt";
+                return "NellaiBill.CrystalReports.rptPurchaseReturn.rpt";
             }
             set {
                 // Do nothing
@@ -87,36 +87,12 @@ namespace NellaiBill.CrystalReports {
                 return this.ReportDefinition.Sections[4];
             }
         }
-        
-        [Browsable(false)]
-        [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.Shared.IParameterField Parameter_ItemNo {
-            get {
-                return this.DataDefinition.ParameterFields[0];
-            }
-        }
-        
-        [Browsable(false)]
-        [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.Shared.IParameterField Parameter_Mrp {
-            get {
-                return this.DataDefinition.ParameterFields[1];
-            }
-        }
-        
-        [Browsable(false)]
-        [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.Shared.IParameterField Parameter_Batch {
-            get {
-                return this.DataDefinition.ParameterFields[2];
-            }
-        }
     }
     
     [System.Drawing.ToolboxBitmapAttribute(typeof(CrystalDecisions.Shared.ExportOptions), "report.bmp")]
-    public class CachedrptStockByItemMrpBatch : Component, ICachedReport {
+    public class CachedrptPurchaseReturn : Component, ICachedReport {
         
-        public CachedrptStockByItemMrpBatch() {
+        public CachedrptPurchaseReturn() {
         }
         
         [Browsable(false)]
@@ -153,7 +129,7 @@ namespace NellaiBill.CrystalReports {
         }
         
         public virtual CrystalDecisions.CrystalReports.Engine.ReportDocument CreateReport() {
-            rptStockByItemMrpBatch rpt = new rptStockByItemMrpBatch();
+            rptPurchaseReturn rpt = new rptPurchaseReturn();
             rpt.Site = this.Site;
             return rpt;
         }

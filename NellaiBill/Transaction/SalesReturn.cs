@@ -1,4 +1,6 @@
 ﻿using MySql.Data.MySqlClient;
+using NellaiBill.Common;
+using NellaiBill.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -11,18 +13,18 @@ using System.Windows.Forms;
 
 namespace NellaiBill.Transaction
 {
-    public partial class frmSalesReturn : Form
+    public partial class SalesReturn : Form
     {
         DatabaseConnection xDb = new DatabaseConnection();
 
-        string xQry = "select s.sales_id, s.date,i.product_id,i.product_name,s.batchid,s.qty,s.unitmrp" +
-            " from sales s1, " +
-            " sales_details s, " +
+        string xQry = "select s.sales_id, s.date,i.product_id,i.product_name,sd.batch_id,sd.qty,sd.expiry_date,sd.unit_mrp" +
+            " from sales s, " +
+            " sales_details sd, " +
             " m_product i " +
-            " where s1.sales_id=s.sales_id " +
-            " and i.product_id=s.product_id";
+            " where sd.sales_id=s.sales_id " +
+            " and i.product_id=sd.product_id";
 
-        public frmSalesReturn()
+        public SalesReturn()
         {
             InitializeComponent();
         }
@@ -46,26 +48,28 @@ namespace NellaiBill.Transaction
         {
             if (e.RowIndex >= 0)
             {
-                txtItemNo.Text = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
-                txtItemName.Text = dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString();
-                txtBatch.Text = dataGridView1.Rows[e.RowIndex].Cells[4].Value.ToString();
-                txtOldQty.Text = dataGridView1.Rows[e.RowIndex].Cells[5].Value.ToString();
-                txtMrp.Text = dataGridView1.Rows[e.RowIndex].Cells[6].Value.ToString();
+                txtItemNo.Text = dataGridView1.Rows[e.RowIndex].Cells["product_id"].Value.ToString();
+                txtItemName.Text = dataGridView1.Rows[e.RowIndex].Cells["product_name"].Value.ToString();
+                txtBatch.Text = dataGridView1.Rows[e.RowIndex].Cells["batch_id"].Value.ToString();
+                txtOldQty.Text = dataGridView1.Rows[e.RowIndex].Cells["qty"].Value.ToString();
+                txtMrp.Text = dataGridView1.Rows[e.RowIndex].Cells["unit_mrp"].Value.ToString();
+                txtExpDate.Text = dataGridView1.Rows[e.RowIndex].Cells["expiry_date"].Value.ToString();
+                txtSalesId.Text = dataGridView1.Rows[e.RowIndex].Cells["sales_id"].Value.ToString();
             }
-            txtCreditNoteNo.Text = xDb.GetMaxId("accounts_credit_note_id", "accounts_credit_note").ToString();
+            txtCreditNoteNo.Text = xDb.GetMaxId("sales_return_id", "sales_return").ToString();
         }
 
         private void btnView_Supplier_Click(object sender, EventArgs e)
         {
             xDb.LoadGrid(xQry +
-        " and s1.customerno=" + cmbCustomer.SelectedValue + " " +
+        " and s.patient_id=" + cmbCustomer.SelectedValue + " " +
         " ", dataGridView1);
         }
 
         private void btnView_Item_Click(object sender, EventArgs e)
         {
             xDb.LoadGrid(xQry +
-              " and s.product_id=" + cmbItem.SelectedValue + " " +
+              " and sd.product_id=" + cmbItem.SelectedValue + " " +
                 " ", dataGridView1);
         }
 
@@ -129,56 +133,62 @@ namespace NellaiBill.Transaction
         }
         public void DataProcess()
         {
-
-
+            string xUser = LoginInfo.UserID;
+            string xCurrentDateTime = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
             using (MySqlConnection myConnection = new MySqlConnection(xDb.conString))
             {
+
                 myConnection.Open();
                 MySqlTransaction myTrans = myConnection.BeginTransaction(System.Data.IsolationLevel.ReadCommitted);
                 MySqlCommand myCommand = myConnection.CreateCommand();
-
-                string xQryPurchaseReturn = "insert into   accounts_credit_note" +
-                               "(accounts_credit_note_id,ledger_no," +
-                               " credit_note_date,product_id,qty," +
-                               " details,batchid) " +
-                               " values(" + txtCreditNoteNo.Text + "," +
-                               " " + cmbCustomer.SelectedValue + "," +
-                               " '" + DateTime.Now + "'," +
-                               " '" + txtItemName.Text + "'," +
+                int xProductId = Convert.ToInt32(txtItemNo.Text);
+                string xBatch = txtBatch.Text;
+                double xMrp = Convert.ToDouble(txtMrp.Text);
+                string xReason = "SALES RETURN ";
+                string xExpiryDate = txtExpDate.Text;
+                string xQrySalesReturn = "insert into   sales_return" +
+                               "(sales_id," +
+                               " date,product_id,qty,mrp,batch_id,expiry_date,reason,created_by,created_on) " +
+                               " values(" + txtSalesId.Text + "," +
+                               " '" + DateTime.Now.ToString("yyyy-MM-dd") + "'," +
+                               " '" + xProductId + "'," +
                                " '" + Convert.ToInt32(txtChangeQty.Text) + "'," +
-                               " '" + rchRemarks.Text + "'," +
-                               " '" + txtBatch.Text + "')";
-                int xItemNo = Convert.ToInt32(txtItemNo.Text);
-                int xNewQty = Convert.ToInt32(txtChangeQty.Text) - Convert.ToInt32(txtOldQty.Text);
+                               " '" + xMrp + "'," +
+                               " '" + xBatch + "'," +
+                               " '" + xExpiryDate + "'," +
+                               " '" + xReason + rchRemarks.Text + "'," +
+                               " '" + xUser + "','" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")
+                         + "')";
 
-                string xQryStockUpdateEntry = "update stock set stock= stock + " + Convert.ToInt32(txtChangeQty.Text) + " " +
-                    " where product_id=" + xItemNo + " and batch='" + txtBatch.Text + "';";
+                StockResponseModel stockResponseModel = xDb.GetStockFromQuery("select * from stock where product_id = " + xProductId + " and batch_id = '" + xBatch + "' and mrp = '" + xMrp + "'");
 
-                //int xStockHistoryId = xDb.GetMaxId("stock_history_id", "stock_history");
+                int xStockOldQty = 0;
+                int xStockNewQty = 0;
+                xStockOldQty = stockResponseModel.Qty;
+                int xChangeQty = Convert.ToInt32(txtChangeQty.Text);
 
-                //string xQryStockDetails = "insert into   stock_history" +
-                //    " (stock_history_id,product_id,category,qty,remarks)" +
-                //    "  values(" + xStockHistoryId + "," + xItemNo + ",'SALES RETURN'," + Convert.ToInt32(txtChangeQty.Text) + ",'Item Returned')";
+                xStockNewQty = xStockOldQty + xChangeQty;
 
-                string xQryStockDetails = "insert into stock_history" +
-                         " (stock_history_itemno,stock_history_qty," +
-                         " stock_history_mrp,stock_history_batch," +
-                         " stock_history_datetime,stock_history_mode)" +
-                         " values(" + xItemNo
-                         + "," + txtChangeQty.Text
-                         + "," + txtMrp.Text
-                         + ",'" + txtBatch.Text
-                         + "','" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")
-                         + "','SALES RETURN')";
+                string xQryStockUpdateEntry = "update stock set " +
+                            " qty =  " + xStockNewQty + ", updated_by = '" + xUser + "', updated_on = '" + xCurrentDateTime + "' " +
+                            " where product_id=" + xProductId + " " +
+                            " and batch_id = '" + xBatch + "' " +
+                            " and mrp = '" + xMrp + "'";
+                string xQryStockHistory = "insert into stock_history" +
+                        " (product_id,old_qty,change_qty,current_qty," +
+                        " mrp,batch_id,expiry_date,reason,created_by,created_on)" +
+                        " values(" + xProductId + "," + xStockOldQty + "," + xChangeQty + "," + xStockNewQty + "," + xMrp + "," +
+                        " '" + xBatch + "','" + xExpiryDate + "','" + xReason + "'," +
+                        " '" + xUser + "','" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")
+                        + "')";
 
 
-                myCommand.CommandText = xQryPurchaseReturn;
+                myCommand.CommandText = xQrySalesReturn;
                 myCommand.ExecuteNonQuery();
                 myCommand.CommandText = xQryStockUpdateEntry;
                 myCommand.ExecuteNonQuery();
-                myCommand.CommandText = xQryStockDetails;
+                myCommand.CommandText = xQryStockHistory;
                 myCommand.ExecuteNonQuery();
-
                 myTrans.Commit();
                 MessageBox.Show("Sales Item Returned.");
                 DataClear();
@@ -192,6 +202,8 @@ namespace NellaiBill.Transaction
             txtCreditNoteNo.Text = "";
             txtItemName.Text = "";
             txtOldQty.Text = "";
+            txtSalesId.Text = "";
+            txtExpDate.Text = "";
             dataGridView1.DataSource = null;
         }
     }

@@ -109,6 +109,7 @@ namespace NellaiBill.Master
                     " group_id=" + xGroupId + ", " +
                     " product_name = '" + txtProductName.Text + "',  " +
                     " hsn_code = '" + xHsnCode + "',  " +
+                    " gst = '" + cmbTax.Text + "',  " +
                     " updated_by = '" + xUser + "',  " +
                     " updated_on = '" + xCurrentDateTime + "'  " +
                     " where  product_id= " + xItemId + "";

@@ -12,11 +12,11 @@ using System.Windows.Forms;
 
 namespace NellaiBill.Reports
 {
-    public partial class CR_SalesReturn : Form
+    public partial class SalesReturnReport : Form
     {
         ReportDocument cryRpt = new ReportDocument();
         GlobalClass globalClass = new GlobalClass();
-        public CR_SalesReturn()
+        public SalesReturnReport()
         {
             InitializeComponent();
         }

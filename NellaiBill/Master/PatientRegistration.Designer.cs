@@ -40,7 +40,7 @@
             this.txtUhid = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.txtPatientId = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblId = new System.Windows.Forms.Label();
             this.txtMobileNo = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.rchAddress = new System.Windows.Forms.RichTextBox();
@@ -53,7 +53,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.cmbUhidSelection = new System.Windows.Forms.ComboBox();
-            this.label9 = new System.Windows.Forms.Label();
+            this.lblSearch = new System.Windows.Forms.Label();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -73,7 +73,7 @@
             this.groupBox1.Controls.Add(this.txtUhid);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.txtPatientId);
-            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Controls.Add(this.lblId);
             this.groupBox1.Controls.Add(this.txtMobileNo);
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.rchAddress);
@@ -203,15 +203,15 @@
             this.txtPatientId.TabIndex = 11;
             this.txtPatientId.TextChanged += new System.EventHandler(this.txtPatientId_TextChanged);
             // 
-            // label1
+            // lblId
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(17, 16);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(68, 18);
-            this.label1.TabIndex = 33;
-            this.label1.Text = "Patient Id";
+            this.lblId.AutoSize = true;
+            this.lblId.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblId.Location = new System.Drawing.Point(17, 16);
+            this.lblId.Name = "lblId";
+            this.lblId.Size = new System.Drawing.Size(19, 18);
+            this.lblId.TabIndex = 33;
+            this.lblId.Text = "Id";
             // 
             // txtMobileNo
             // 
@@ -337,14 +337,14 @@
             this.cmbUhidSelection.TabIndex = 29;
             this.cmbUhidSelection.SelectedIndexChanged += new System.EventHandler(this.cmbUhidSelection_SelectedIndexChanged);
             // 
-            // label9
+            // lblSearch
             // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(36, 261);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(77, 13);
-            this.label9.TabIndex = 89;
-            this.label9.Text = "Search Patient";
+            this.lblSearch.AutoSize = true;
+            this.lblSearch.Location = new System.Drawing.Point(36, 261);
+            this.lblSearch.Name = "lblSearch";
+            this.lblSearch.Size = new System.Drawing.Size(41, 13);
+            this.lblSearch.TabIndex = 89;
+            this.lblSearch.Text = "Search";
             // 
             // txtSearch
             // 
@@ -360,7 +360,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1297, 520);
             this.Controls.Add(this.txtSearch);
-            this.Controls.Add(this.label9);
+            this.Controls.Add(this.lblSearch);
             this.Controls.Add(this.cmbUhidSelection);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.groupBox1);
@@ -392,12 +392,12 @@
         private System.Windows.Forms.TextBox txtUhid;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txtPatientId;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblId;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.TextBox txtAge;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.ComboBox cmbUhidSelection;
-        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label lblSearch;
         private System.Windows.Forms.TextBox txtSearch;
         private System.Windows.Forms.Button btnPrint;
         private System.Windows.Forms.DateTimePicker dtpEntryDate;

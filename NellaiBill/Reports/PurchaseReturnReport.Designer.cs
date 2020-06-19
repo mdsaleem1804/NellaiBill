@@ -1,6 +1,6 @@
 ﻿namespace NellaiBill.Reports
 {
-    partial class CR_SalesReturn
+    partial class PurchaseReturnReport
     {
         /// <summary>
         /// Required designer variable.
@@ -39,18 +39,18 @@
             this.crystalReportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.crystalReportViewer1.Location = new System.Drawing.Point(0, 0);
             this.crystalReportViewer1.Name = "crystalReportViewer1";
-            this.crystalReportViewer1.Size = new System.Drawing.Size(800, 450);
-            this.crystalReportViewer1.TabIndex = 0;
+            this.crystalReportViewer1.Size = new System.Drawing.Size(1074, 508);
+            this.crystalReportViewer1.TabIndex = 1;
             // 
-            // CR_SalesReturn
+            // PurchaseReturnReport
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1074, 508);
             this.Controls.Add(this.crystalReportViewer1);
-            this.Name = "CR_SalesReturn";
-            this.Text = "CR_SalesReturn";
-            this.Load += new System.EventHandler(this.CR_SalesReturn_Load);
+            this.Name = "PurchaseReturnReport";
+            this.Text = "PurchaseReturn";
+            this.Load += new System.EventHandler(this.PurchaseReturnReport_Load);
             this.ResumeLayout(false);
 
         }

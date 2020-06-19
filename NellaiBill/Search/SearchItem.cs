@@ -52,18 +52,18 @@ namespace NellaiBill.Master
                 dataGridView1.Columns[3].Visible = false;
                 dataGridView1.Columns[4].Visible = false;
                 dataGridView1.Columns[5].Visible = false;
-                dataGridView1.Columns[6].Visible = false;//expdate
+                dataGridView1.Columns[6].Visible = false;//expiry_date
             
             }
             else
             {
-                xDb.LoadGrid("select s.stock_id,s.product_id,i.product_name,s.qty,s.mrp,s.batch,s.expdate,i.gst from stock s,m_product i " +
+                xDb.LoadGrid("select s.stock_id,s.product_id,i.product_name,s.qty,s.mrp,s.batch_id,s.expiry_date,i.gst from stock s,m_product i " +
                     " where s.qty>0 and  s.product_id = i.product_id order by product_name", dataGridView1);
 
                 dataGridView1.ReadOnly = true;
                 dataGridView1.Columns[0].Visible = false;
                 dataGridView1.Columns[1].Visible = false;
-                dataGridView1.Columns[6].Visible = false;//expdate
+                dataGridView1.Columns[6].Visible = false;//expiry_date
                 dataGridView1.Columns[2].FillWeight = 200;
                 dataGridView1.Columns[3].FillWeight = 60;
                 dataGridView1.Columns[4].FillWeight = 60;
@@ -139,8 +139,9 @@ namespace NellaiBill.Master
 
                     xBatch = dgr.Cells[5].Value.ToString();
                     xExpDate = dgr.Cells[6].Value.ToString();
-                    xTax = dgr.Cells[7].Value.ToString();
+                    
                 }
+                xTax = dgr.Cells[7].Value.ToString();
                 this.Close();
             }
         }
