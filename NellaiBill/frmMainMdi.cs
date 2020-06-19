@@ -213,16 +213,16 @@ namespace NellaiBill
 
         private void supplerToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Supplier ledger = new Supplier("Supplier");
-            ledger.MdiParent = this;
-            ledger.Show();
+            Supplier master = new Supplier();
+            master.MdiParent = this;
+            master.Show();
         }
 
         private void customerToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
-            Supplier ledger = new Supplier("Customer");
-            ledger.MdiParent = this;
-            ledger.Show();
+            Customer master = new Customer();
+            master.MdiParent = this;
+            master.Show();
         }
 
         private void stockHistoryToolStripMenuItem_Click(object sender, EventArgs e)
@@ -248,7 +248,7 @@ namespace NellaiBill
 
         private void SalesReturnToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            SalesReturn frmSalesReturn = new SalesReturn();
+            Transaction.SalesReturn frmSalesReturn = new Transaction.SalesReturn();
             frmSalesReturn.MdiParent = this;
             frmSalesReturn.Show();
         }
@@ -287,7 +287,7 @@ namespace NellaiBill
 
         private void salesReturnReportToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            CR_SalesReturn report = new CR_SalesReturn();
+            Reports.SalesReturnReport report = new Reports.SalesReturnReport();
             // SalesReportDG report = new SalesReportDG();
             report.MdiParent = this;
             report.Show();
@@ -487,6 +487,13 @@ namespace NellaiBill
             IPDischargeSummary transaction = new IPDischargeSummary();
             transaction.MdiParent = this;
             transaction.Show();
+        }
+
+        private void purchaseReturnReportToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            PurchaseReturnReport report = new PurchaseReturnReport();
+            report.MdiParent = this;
+            report.Show();
         }
     }   
 }

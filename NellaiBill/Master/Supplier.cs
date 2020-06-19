@@ -15,7 +15,7 @@ namespace NellaiBill.Master
     {
         DatabaseConnection xDb = new DatabaseConnection();
         int xSupplierId;
-        public Supplier(string formName)
+        public Supplier()
         {
             InitializeComponent();
         }
@@ -25,7 +25,7 @@ namespace NellaiBill.Master
             LoadGrid();
             DataClear();
 
-            xSupplierId = Convert.ToInt32(xDb.GetMaxId("supplier_id", "supplier").ToString());
+            xSupplierId = Convert.ToInt32(xDb.GetMaxId("supplier_id", "m_supplier").ToString());
         }
         private void LoadGrid()
         {
@@ -33,7 +33,7 @@ namespace NellaiBill.Master
                 "name as Name," +
                 "address as Address," +
                 "mobile_no as Mobile " +
-                "from supplier";
+                "from m_supplier";
 
             xDb.LoadGrid(xQry, dataGridView1);
 
@@ -50,14 +50,14 @@ namespace NellaiBill.Master
             string xCurrentDateTime = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
             if (mBtnSaveUpdate.Text == "SAVE")
             {
-                xQry = "insert into supplier (supplier_id,name,address,mobile_no,created_by,created_on) " +
+                xQry = "insert into m_supplier (supplier_id,name,address,mobile_no,created_by,created_on) " +
                     " values ( " + xSupplierId + ",'" + txtName.Text + "', '" + rchAddress.Text + "','" + txtMobileNo.Text + "'," +
                          " '" + xUser + "','" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")
                          + "')";
             }
             else
             {
-                xQry = "update supplier set " +
+                xQry = "update m_supplier set " +
                     " name = '" + txtName.Text + "', " +
                     " address = '" + rchAddress.Text + "', " +
                     " mobile_no = '" + txtMobileNo.Text + "', updated_by = '" + xUser + "', updated_on = '" + xCurrentDateTime + "' " +
@@ -65,6 +65,7 @@ namespace NellaiBill.Master
             }
             xDb.DataProcess(xQry);
             MessageBox.Show("Supplier Saved/Updated");
+            xSupplierId = Convert.ToInt32(xDb.GetMaxId("supplier_id", "m_supplier").ToString());
             LoadGrid();
             DataClear();
         }
@@ -90,7 +91,7 @@ namespace NellaiBill.Master
             }
             else
             {
-                string xQry = "delete from supplier  where  supplier_id= " + xSupplierId + "";
+                string xQry = "delete from m_supplier  where  supplier_id= " + xSupplierId + "";
                 xDb.DataProcess(xQry);
             }
             MessageBox.Show("Supplier Deleted");

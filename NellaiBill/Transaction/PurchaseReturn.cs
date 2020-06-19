@@ -154,7 +154,7 @@ namespace NellaiBill.Transaction
                                "(purchase_id," +
                                " date,product_id,qty,mrp,batch_id,expiry_date,reason,created_by,created_on) " +
                                " values("+ Convert.ToInt32(txtPurchaseId.Text) + "," +
-                               " '" + DateTime.Now + "'," +
+                               " '" + DateTime.Now.ToString("yyyy-MM-dd") + "'," +
                                " '" + xProductId + "'," +
                                " '" + Convert.ToInt32(txtChangeQty.Text) + "'," +
                                " '" + xMrp + "'," +

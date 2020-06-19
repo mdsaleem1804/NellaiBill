@@ -62,7 +62,7 @@ namespace NellaiBill.Transaction
         private void btnView_Supplier_Click(object sender, EventArgs e)
         {
             xDb.LoadGrid(xQry +
-        " and s.customer_id=" + cmbCustomer.SelectedValue + " " +
+        " and s.patient_id=" + cmbCustomer.SelectedValue + " " +
         " ", dataGridView1);
         }
 
@@ -150,7 +150,7 @@ namespace NellaiBill.Transaction
                                "(sales_id," +
                                " date,product_id,qty,mrp,batch_id,expiry_date,reason,created_by,created_on) " +
                                " values(" + txtSalesId.Text + "," +
-                               " '" + DateTime.Now + "'," +
+                               " '" + DateTime.Now.ToString("yyyy-MM-dd") + "'," +
                                " '" + xProductId + "'," +
                                " '" + Convert.ToInt32(txtChangeQty.Text) + "'," +
                                " '" + xMrp + "'," +

@@ -320,9 +320,8 @@ namespace NellaiBill.Master
 
                     }
 
-
                     string xQrySalesMain = "insert into   sales" +
-                          "(sales_id,date,customer_id,less_amount,service_amount,total_amount," +
+                          "(sales_id,date,patient_id,less_amount,service_amount,total_amount," +
                           "mode_of_payment,terms_of_delivery,created_by,created_on) " +
                           "values(" + xSalesId + "," +
                           " '" + dtpDate.Value.ToString("yyyy-MM-dd") + "'," +
@@ -479,14 +478,14 @@ namespace NellaiBill.Master
 
         private void txtLedgerSearch_Click(object sender, EventArgs e)
         {
-            SearchLedger search = new SearchLedger(5);
+            SearchPatient search = new SearchPatient();
             search.ShowDialog();
-            if (search.xLedgerNo.ToString() != "0")
+            if (search.xPatientId.ToString() != "0")
             {
-                txtCustomerNo.Text = search.xLedgerNo.ToString();
-                txtCustomerName.Text = search.xLedgerName.ToString();
-                txtCustomerMobileNo.Text = search.xLedgerMobileNo.ToString();
-                rchCustomerAddress.Text = search.xLedgerAddress.ToString();
+                txtCustomerNo.Text = search.xPatientId.ToString();
+                txtCustomerName.Text = search.xPatientName.ToString();
+                txtCustomerMobileNo.Text = search.xPatientMobileNo.ToString();
+                rchCustomerAddress.Text = search.xPatientAddress.ToString();
             }
 
         }
