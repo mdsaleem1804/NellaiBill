@@ -62,7 +62,7 @@ namespace NellaiBill.Transaction
         private void btnView_Supplier_Click(object sender, EventArgs e)
         {
             xDb.LoadGrid(xQry +
-        " and s.customerno=" + cmbCustomer.SelectedValue + " " +
+        " and s.customer_id=" + cmbCustomer.SelectedValue + " " +
         " ", dataGridView1);
         }
 

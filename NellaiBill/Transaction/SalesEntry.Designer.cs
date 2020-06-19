@@ -800,7 +800,7 @@
             // 
             // btnSaveBill
             // 
-            this.btnSaveBill.BackColor = System.Drawing.Color.White;
+            this.btnSaveBill.BackColor = System.Drawing.Color.Lime;
             this.btnSaveBill.Enabled = false;
             this.btnSaveBill.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSaveBill.Location = new System.Drawing.Point(783, 556);

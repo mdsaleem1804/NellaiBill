@@ -16,14 +16,14 @@ namespace NellaiBill.CrystalReports {
     using CrystalDecisions.CrystalReports.Engine;
     
     
-    public class rptStockByItemMrpBatch : ReportClass {
+    public class rptStockByProductMrpBatch : ReportClass {
         
-        public rptStockByItemMrpBatch() {
+        public rptStockByProductMrpBatch() {
         }
         
         public override string ResourceName {
             get {
-                return "rptStockByItemMrpBatch.rpt";
+                return "rptStockByProductMrpBatch.rpt";
             }
             set {
                 // Do nothing
@@ -41,7 +41,7 @@ namespace NellaiBill.CrystalReports {
         
         public override string FullResourceName {
             get {
-                return "NellaiBill.CrystalReports.rptStockByItemMrpBatch.rpt";
+                return "NellaiBill.CrystalReports.rptStockByProductMrpBatch.rpt";
             }
             set {
                 // Do nothing
@@ -114,9 +114,9 @@ namespace NellaiBill.CrystalReports {
     }
     
     [System.Drawing.ToolboxBitmapAttribute(typeof(CrystalDecisions.Shared.ExportOptions), "report.bmp")]
-    public class CachedrptStockByItemMrpBatch : Component, ICachedReport {
+    public class CachedrptStockByProductMrpBatch : Component, ICachedReport {
         
-        public CachedrptStockByItemMrpBatch() {
+        public CachedrptStockByProductMrpBatch() {
         }
         
         [Browsable(false)]
@@ -153,7 +153,7 @@ namespace NellaiBill.CrystalReports {
         }
         
         public virtual CrystalDecisions.CrystalReports.Engine.ReportDocument CreateReport() {
-            rptStockByItemMrpBatch rpt = new rptStockByItemMrpBatch();
+            rptStockByProductMrpBatch rpt = new rptStockByProductMrpBatch();
             rpt.Site = this.Site;
             return rpt;
         }

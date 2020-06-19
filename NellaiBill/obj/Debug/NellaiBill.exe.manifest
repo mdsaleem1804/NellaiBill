@@ -319,14 +319,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="NellaiBill.exe" size="1517552">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="NellaiBill.exe" size="1482224">
       <assemblyIdentity name="NellaiBill" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>dB2zmLCZlrhvSemJ2kC3rOseM/+PBoYSXoBwXgKRTF4=</dsig:DigestValue>
+        <dsig:DigestValue>EeLhYOFFjvg0Ym+CdJuDOssg4W6UQqKQRAmcQ/Ngq9Q=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -414,6 +414,15 @@
       </hash>
     </dependentAssembly>
   </dependency>
+  <file name="Common\hms_lhs.sql" size="1504918">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>j9aLUXlD71/OajBdFmWhWXmTr6Mx9QKPm/kDG5OwfsY=</dsig:DigestValue>
+    </hash>
+  </file>
   <file name="h_icon_cng_icon.ico" size="42744">
     <hash>
       <dsig:Transforms>

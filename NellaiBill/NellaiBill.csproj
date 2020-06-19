@@ -312,15 +312,8 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>rptStock.rpt</DependentUpon>
-      <SubType>Component</SubType>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Compile>
-    <Compile Include="CrystalReports\rptStockByItemMrpBatch.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>rptStockByItemMrpBatch.rpt</DependentUpon>
       <SubType>Component</SubType>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Include="CrystalReports\rptStockHistory.cs">
       <AutoGen>True</AutoGen>
@@ -405,11 +398,11 @@
     <Compile Include="Master\frmTax.Designer.cs">
       <DependentUpon>frmTax.cs</DependentUpon>
     </Compile>
-    <Compile Include="Master\Ledger.cs">
+    <Compile Include="Master\Supplier.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Master\Ledger.Designer.cs">
-      <DependentUpon>Ledger.cs</DependentUpon>
+    <Compile Include="Master\Supplier.Designer.cs">
+      <DependentUpon>Supplier.cs</DependentUpon>
     </Compile>
     <Compile Include="Master\Login.cs">
       <SubType>Form</SubType>
@@ -519,11 +512,11 @@
     <Compile Include="Reports\CR_SalesReturn.Designer.cs">
       <DependentUpon>CR_SalesReturn.cs</DependentUpon>
     </Compile>
-    <Compile Include="Reports\CR_Stock.cs">
+    <Compile Include="Reports\StockReport.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Reports\CR_Stock.Designer.cs">
-      <DependentUpon>CR_Stock.cs</DependentUpon>
+    <Compile Include="Reports\StockReport.Designer.cs">
+      <DependentUpon>StockReport.cs</DependentUpon>
     </Compile>
     <Compile Include="Reports\EcgXraySummaryReport.cs">
       <SubType>Form</SubType>
@@ -574,11 +567,11 @@
     <Compile Include="Reports\SalesReportDG.Designer.cs">
       <DependentUpon>SalesReportDG.cs</DependentUpon>
     </Compile>
-    <Compile Include="Reports\StockReport.cs">
+    <Compile Include="Reports\StockReportDG.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Reports\StockReport.Designer.cs">
-      <DependentUpon>StockReport.cs</DependentUpon>
+    <Compile Include="Reports\StockReportDG.Designer.cs">
+      <DependentUpon>StockReportDG.cs</DependentUpon>
     </Compile>
     <Compile Include="Reports\WebReports.cs">
       <SubType>Form</SubType>
@@ -825,11 +818,6 @@
       <LastGenOutput>rptStock.cs</LastGenOutput>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
-    <EmbeddedResource Include="CrystalReports\rptStockByItemMrpBatch.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>rptStockByItemMrpBatch.cs</LastGenOutput>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
     <EmbeddedResource Include="CrystalReports\rptStockHistory.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>rptStockHistory.cs</LastGenOutput>
@@ -875,8 +863,8 @@
     <EmbeddedResource Include="Master\frmTax.resx">
       <DependentUpon>frmTax.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Master\Ledger.resx">
-      <DependentUpon>Ledger.cs</DependentUpon>
+    <EmbeddedResource Include="Master\Supplier.resx">
+      <DependentUpon>Supplier.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Master\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
@@ -926,8 +914,8 @@
     <EmbeddedResource Include="Reports\CR_SalesReturn.resx">
       <DependentUpon>CR_SalesReturn.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Reports\CR_Stock.resx">
-      <DependentUpon>CR_Stock.cs</DependentUpon>
+    <EmbeddedResource Include="Reports\StockReport.resx">
+      <DependentUpon>StockReport.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\EcgXraySummaryReport.resx">
       <DependentUpon>EcgXraySummaryReport.cs</DependentUpon>
@@ -953,8 +941,8 @@
     <EmbeddedResource Include="Reports\SalesReportDG.resx">
       <DependentUpon>SalesReportDG.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Reports\StockReport.resx">
-      <DependentUpon>StockReport.cs</DependentUpon>
+    <EmbeddedResource Include="Reports\StockReportDG.resx">
+      <DependentUpon>StockReportDG.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\WebReports.resx">
       <DependentUpon>WebReports.cs</DependentUpon>
@@ -1096,6 +1084,7 @@
     <Folder Include="DataSet\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Common\hms_lhs.sql" />
     <Content Include="h_icon_cng_icon.ico" />
     <Content Include="logo.ico" />
     <Content Include="pharmacy.ico" />

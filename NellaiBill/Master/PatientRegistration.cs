@@ -28,6 +28,9 @@ namespace NellaiBill.Transaction
             txtMobileNo.MaxLength = 10;
             DataClear();
             LoadGrid();
+            lblId.Text = "User Id";
+            lblSearch.Text = "Search Id";
+
         }
 
         private void loadFormBasedOnMissedUHID()

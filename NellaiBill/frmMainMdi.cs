@@ -192,7 +192,7 @@ namespace NellaiBill
 
         private void stockReportToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            CR_Stock report = new CR_Stock();
+            StockReport report = new StockReport();
             report.MdiParent = this;
             report.Show();
         }
@@ -213,14 +213,14 @@ namespace NellaiBill
 
         private void supplerToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Ledger ledger = new Ledger("Supplier");
+            Supplier ledger = new Supplier("Supplier");
             ledger.MdiParent = this;
             ledger.Show();
         }
 
         private void customerToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
-            Ledger ledger = new Ledger("Customer");
+            Supplier ledger = new Supplier("Customer");
             ledger.MdiParent = this;
             ledger.Show();
         }
@@ -279,7 +279,7 @@ namespace NellaiBill
 
         private void stockReportToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            StockReport stockReport = new StockReport();
+            StockReportDG stockReport = new StockReportDG();
             stockReport.MdiParent = this;
             stockReport.Show();
 
