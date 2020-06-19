@@ -231,6 +231,13 @@
       <SubType>Component</SubType>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
+    <Compile Include="CrystalReports\rptPurchaseReturn.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptPurchaseReturn.rpt</DependentUpon>
+      <SubType>Component</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
     <Compile Include="CrystalReports\rptScanBill.cs">
       <DependentUpon>rptScanBill.rpt</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -349,6 +356,12 @@
     <Compile Include="Master\CaseTypeMaster.Designer.cs">
       <DependentUpon>CaseTypeMaster.cs</DependentUpon>
     </Compile>
+    <Compile Include="Master\Customer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Master\Customer.Designer.cs">
+      <DependentUpon>Customer.cs</DependentUpon>
+    </Compile>
     <Compile Include="Master\DoctorRegistration.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -464,6 +477,12 @@
     <Compile Include="Reports\LabSummaryReport.Designer.cs">
       <DependentUpon>LabSummaryReport.cs</DependentUpon>
     </Compile>
+    <Compile Include="Reports\PurchaseReturnReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\PurchaseReturnReport.Designer.cs">
+      <DependentUpon>PurchaseReturnReport.cs</DependentUpon>
+    </Compile>
     <Compile Include="Reports\ScanSummaryReport.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -482,11 +501,11 @@
     <Compile Include="Search\SearchItem.Designer.cs">
       <DependentUpon>SearchItem.cs</DependentUpon>
     </Compile>
-    <Compile Include="Search\SearchLedger.cs">
+    <Compile Include="Search\SearchSupplier.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Search\SearchLedger.Designer.cs">
-      <DependentUpon>SearchLedger.cs</DependentUpon>
+    <Compile Include="Search\SearchSupplier.Designer.cs">
+      <DependentUpon>SearchSupplier.cs</DependentUpon>
     </Compile>
     <Compile Include="Search\SearchPatient.cs">
       <SubType>Form</SubType>
@@ -506,11 +525,11 @@
     <Compile Include="Master\UserMaster.Designer.cs">
       <DependentUpon>UserMaster.cs</DependentUpon>
     </Compile>
-    <Compile Include="Reports\CR_SalesReturn.cs">
+    <Compile Include="Reports\SalesReturnReport.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Reports\CR_SalesReturn.Designer.cs">
-      <DependentUpon>CR_SalesReturn.cs</DependentUpon>
+    <Compile Include="Reports\SalesReturnReport.Designer.cs">
+      <DependentUpon>SalesReturnReport.cs</DependentUpon>
     </Compile>
     <Compile Include="Reports\StockReport.cs">
       <SubType>Form</SubType>
@@ -758,6 +777,11 @@
       <LastGenOutput>rptPatientInformation.cs</LastGenOutput>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReports\rptPurchaseReturn.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptPurchaseReturn.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
     <EmbeddedResource Include="CrystalReports\rptScanBill.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>rptScanBill.cs</LastGenOutput>
@@ -842,6 +866,9 @@
     <EmbeddedResource Include="Master\CaseTypeMaster.resx">
       <DependentUpon>CaseTypeMaster.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Master\Customer.resx">
+      <DependentUpon>Customer.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Master\DoctorRegistration.resx">
       <DependentUpon>DoctorRegistration.cs</DependentUpon>
     </EmbeddedResource>
@@ -890,6 +917,9 @@
     <EmbeddedResource Include="Reports\LabSummaryReport.resx">
       <DependentUpon>LabSummaryReport.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reports\PurchaseReturnReport.resx">
+      <DependentUpon>PurchaseReturnReport.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reports\ScanSummaryReport.resx">
       <DependentUpon>ScanSummaryReport.cs</DependentUpon>
     </EmbeddedResource>
@@ -899,8 +929,8 @@
     <EmbeddedResource Include="Search\SearchItem.resx">
       <DependentUpon>SearchItem.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Search\SearchLedger.resx">
-      <DependentUpon>SearchLedger.cs</DependentUpon>
+    <EmbeddedResource Include="Search\SearchSupplier.resx">
+      <DependentUpon>SearchSupplier.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Search\SearchPatient.resx">
       <DependentUpon>SearchPatient.cs</DependentUpon>
@@ -911,8 +941,8 @@
     <EmbeddedResource Include="Master\UserMaster.resx">
       <DependentUpon>UserMaster.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Reports\CR_SalesReturn.resx">
-      <DependentUpon>CR_SalesReturn.cs</DependentUpon>
+    <EmbeddedResource Include="Reports\SalesReturnReport.resx">
+      <DependentUpon>SalesReturnReport.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\StockReport.resx">
       <DependentUpon>StockReport.cs</DependentUpon>

@@ -16,14 +16,14 @@ namespace NellaiBill.CrystalReports {
     using CrystalDecisions.CrystalReports.Engine;
     
     
-    public class rptPurchaseByInvoice : ReportClass {
+    public class rptPurchaseReturn : ReportClass {
         
-        public rptPurchaseByInvoice() {
+        public rptPurchaseReturn() {
         }
         
         public override string ResourceName {
             get {
-                return "rptPurchaseByInvoice.rpt";
+                return "rptPurchaseReturn.rpt";
             }
             set {
                 // Do nothing
@@ -41,7 +41,7 @@ namespace NellaiBill.CrystalReports {
         
         public override string FullResourceName {
             get {
-                return "NellaiBill.CrystalReports.rptPurchaseByInvoice.rpt";
+                return "NellaiBill.CrystalReports.rptPurchaseReturn.rpt";
             }
             set {
                 // Do nothing
@@ -87,20 +87,12 @@ namespace NellaiBill.CrystalReports {
                 return this.ReportDefinition.Sections[4];
             }
         }
-        
-        [Browsable(false)]
-        [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.Shared.IParameterField Parameter_PurchaseId {
-            get {
-                return this.DataDefinition.ParameterFields[0];
-            }
-        }
     }
     
     [System.Drawing.ToolboxBitmapAttribute(typeof(CrystalDecisions.Shared.ExportOptions), "report.bmp")]
-    public class CachedrptPurchaseByInvoice : Component, ICachedReport {
+    public class CachedrptPurchaseReturn : Component, ICachedReport {
         
-        public CachedrptPurchaseByInvoice() {
+        public CachedrptPurchaseReturn() {
         }
         
         [Browsable(false)]
@@ -137,7 +129,7 @@ namespace NellaiBill.CrystalReports {
         }
         
         public virtual CrystalDecisions.CrystalReports.Engine.ReportDocument CreateReport() {
-            rptPurchaseByInvoice rpt = new rptPurchaseByInvoice();
+            rptPurchaseReturn rpt = new rptPurchaseReturn();
             rpt.Site = this.Site;
             return rpt;
         }

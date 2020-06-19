@@ -159,6 +159,7 @@
             this.mBtnDelete.TabIndex = 13;
             this.mBtnDelete.Text = "DELETE";
             this.mBtnDelete.UseVisualStyleBackColor = true;
+            this.mBtnDelete.Visible = false;
             this.mBtnDelete.Click += new System.EventHandler(this.mBtnDelete_Click);
             // 
             // Supplier

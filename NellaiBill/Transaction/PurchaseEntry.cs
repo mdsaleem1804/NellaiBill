@@ -374,14 +374,14 @@ namespace NellaiBill.Transaction
 
         private void btnLedgerSearch_Click(object sender, EventArgs e)
         {
-            SearchLedger search = new SearchLedger(4);
+            SearchSupplier search = new SearchSupplier(4);
             search.ShowDialog();
-            if (search.xLedgerNo.ToString() != "0")
+            if (search.xSupplierNo.ToString() != "0")
             {
-                txtCustomerNo.Text = search.xLedgerNo.ToString();
-                txtCustomerName.Text = search.xLedgerName.ToString();
-                txtCustomerMobileNo.Text = search.xLedgerMobileNo.ToString();
-                rchCustomerAddress.Text = search.xLedgerAddress.ToString();
+                txtCustomerNo.Text = search.xSupplierNo.ToString();
+                txtCustomerName.Text = search.xSupplierName.ToString();
+                txtCustomerMobileNo.Text = search.xSupplierMobileNo.ToString();
+                rchCustomerAddress.Text = search.xSupplierAddress.ToString();
             }
         }
 

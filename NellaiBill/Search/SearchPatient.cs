@@ -17,6 +17,7 @@ namespace NellaiBill.Master
         public int xPatientId { get; set; }
         public string xPatientName { get; set; }
         public string xPatientAddress { get; set; }
+        public string xPatientMobileNo { get; set; }
         public string xUhid { get; set; }
         public SearchPatient()
         {
@@ -28,13 +29,15 @@ namespace NellaiBill.Master
             this.KeyPreview = true; //refer key activities
             xPatientId = 0;
             txtSearch.Select();
-            xDb.LoadGrid("select patient_id,uhid,patient_name,patient_address,patient_mobileno from m_patient_registration", dataGridView1);
+            xDb.LoadGrid("select patient_id,uhid,patient_name as Name," +
+                " patient_address as Address,patient_mobileno as MobileNo " +
+                " from m_patient_registration", dataGridView1);
             dataGridView1.ReadOnly = true;
             dataGridView1.Columns[0].Visible = false;
-            dataGridView1.Columns[1].FillWeight = 40;
-            dataGridView1.Columns[2].FillWeight = 150;
-            dataGridView1.Columns[3].FillWeight = 40;
-            dataGridView1.Columns[4].FillWeight = 40;
+            dataGridView1.Columns[1].Visible = false;
+            dataGridView1.Columns[2].FillWeight = 100;
+            dataGridView1.Columns[3].FillWeight = 240;
+            dataGridView1.Columns[4].FillWeight = 80;
         }
 
         private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -43,6 +46,7 @@ namespace NellaiBill.Master
             xUhid = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
             xPatientName = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
             xPatientAddress = dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString();
+            xPatientMobileNo = dataGridView1.Rows[e.RowIndex].Cells[4].Value.ToString();
             if (xPatientName == "")
             {
                 MessageBox.Show("Please select different PatientName");
@@ -61,6 +65,7 @@ namespace NellaiBill.Master
                 xUhid = dgr.Cells[1].Value.ToString();
                 xPatientName = dgr.Cells[2].Value.ToString();
                 xPatientAddress = dgr.Cells[3].Value.ToString();
+                xPatientMobileNo = dgr.Cells[4].Value.ToString();
                 if (xPatientName == "")
                 {
                     MessageBox.Show("Please select different PatientName");
