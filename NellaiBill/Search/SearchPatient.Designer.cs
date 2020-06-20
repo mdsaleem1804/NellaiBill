@@ -39,9 +39,9 @@
             this.label8.AutoSize = true;
             this.label8.Location = new System.Drawing.Point(12, 9);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(77, 13);
+            this.label8.Size = new System.Drawing.Size(44, 13);
             this.label8.TabIndex = 88;
-            this.label8.Text = "Search Patient";
+            this.label8.Text = "Search ";
             // 
             // txtSearch
             // 
@@ -72,7 +72,7 @@
             this.Controls.Add(this.txtSearch);
             this.Controls.Add(this.dataGridView1);
             this.Name = "SearchPatient";
-            this.Text = "SearchPatient";
+            this.Text = "Search";
             this.Load += new System.EventHandler(this.SearchPatient_Load);
             this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.SearchPatient_KeyPress);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();

@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.txtQty = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -144,7 +144,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(6, 48);
+            this.label4.Location = new System.Drawing.Point(124, 45);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(51, 20);
             this.label4.TabIndex = 10;
@@ -233,7 +233,7 @@
             // rchCustomerAddress
             // 
             this.rchCustomerAddress.Enabled = false;
-            this.rchCustomerAddress.Location = new System.Drawing.Point(490, 45);
+            this.rchCustomerAddress.Location = new System.Drawing.Point(599, 41);
             this.rchCustomerAddress.Name = "rchCustomerAddress";
             this.rchCustomerAddress.Size = new System.Drawing.Size(266, 46);
             this.rchCustomerAddress.TabIndex = 200;
@@ -242,7 +242,7 @@
             // txtCustomerMobileNo
             // 
             this.txtCustomerMobileNo.Enabled = false;
-            this.txtCustomerMobileNo.Location = new System.Drawing.Point(490, 16);
+            this.txtCustomerMobileNo.Location = new System.Drawing.Point(599, 12);
             this.txtCustomerMobileNo.Name = "txtCustomerMobileNo";
             this.txtCustomerMobileNo.Size = new System.Drawing.Size(266, 21);
             this.txtCustomerMobileNo.TabIndex = 201;
@@ -251,7 +251,7 @@
             // 
             this.label19.AutoSize = true;
             this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.Location = new System.Drawing.Point(391, 12);
+            this.label19.Location = new System.Drawing.Point(500, 8);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(79, 20);
             this.label19.TabIndex = 38;
@@ -261,7 +261,7 @@
             // 
             this.label18.AutoSize = true;
             this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.Location = new System.Drawing.Point(391, 45);
+            this.label18.Location = new System.Drawing.Point(500, 41);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(68, 20);
             this.label18.TabIndex = 35;
@@ -473,19 +473,19 @@
             this.dataGridView1.AccessibleDescription = "";
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.LightGoldenrodYellow;
-            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.LightGoldenrodYellow;
+            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
             this.dataGridView1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.DarkMagenta;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.DarkMagenta;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Id,
@@ -670,6 +670,7 @@
             this.cmbBillType.Name = "cmbBillType";
             this.cmbBillType.Size = new System.Drawing.Size(139, 21);
             this.cmbBillType.TabIndex = 2;
+            this.cmbBillType.Visible = false;
             // 
             // label6
             // 
@@ -679,6 +680,7 @@
             this.label6.Size = new System.Drawing.Size(47, 13);
             this.label6.TabIndex = 12;
             this.label6.Text = "Bill Type";
+            this.label6.Visible = false;
             // 
             // cmbPaymentMode
             // 
@@ -833,7 +835,7 @@
             // txtCustomerName
             // 
             this.txtCustomerName.Enabled = false;
-            this.txtCustomerName.Location = new System.Drawing.Point(79, 48);
+            this.txtCustomerName.Location = new System.Drawing.Point(197, 45);
             this.txtCustomerName.Name = "txtCustomerName";
             this.txtCustomerName.Size = new System.Drawing.Size(288, 21);
             this.txtCustomerName.TabIndex = 204;
@@ -842,7 +844,7 @@
             // 
             this.btnLedgerSearch.BackColor = System.Drawing.Color.Lime;
             this.btnLedgerSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLedgerSearch.Location = new System.Drawing.Point(762, 12);
+            this.btnLedgerSearch.Location = new System.Drawing.Point(16, 18);
             this.btnLedgerSearch.Name = "btnLedgerSearch";
             this.btnLedgerSearch.Size = new System.Drawing.Size(102, 47);
             this.btnLedgerSearch.TabIndex = 62;
@@ -853,7 +855,7 @@
             // txtCustomerNo
             // 
             this.txtCustomerNo.Enabled = false;
-            this.txtCustomerNo.Location = new System.Drawing.Point(79, 19);
+            this.txtCustomerNo.Location = new System.Drawing.Point(197, 16);
             this.txtCustomerNo.Name = "txtCustomerNo";
             this.txtCustomerNo.Size = new System.Drawing.Size(111, 21);
             this.txtCustomerNo.TabIndex = 203;
@@ -862,7 +864,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(6, 20);
+            this.label8.Location = new System.Drawing.Point(124, 17);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(23, 20);
             this.label8.TabIndex = 202;

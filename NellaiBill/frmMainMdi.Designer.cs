@@ -56,6 +56,7 @@
             this.stockReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.purchaseReportToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.salesReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.purchaseReturnReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salesReturnReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
@@ -65,7 +66,9 @@
             this.purchaseReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.feesMasterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.purchaseReturnReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.stockReportGridToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.stockReportGridToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.salesRepoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.StatusStrip1.SuspendLayout();
             this.menuStrip2.SuspendLayout();
             this.SuspendLayout();
@@ -254,7 +257,7 @@
             this.POSToolStripMenuItem.Name = "POSToolStripMenuItem";
             this.POSToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Shift | System.Windows.Forms.Keys.F4)));
             this.POSToolStripMenuItem.Size = new System.Drawing.Size(192, 22);
-            this.POSToolStripMenuItem.Text = "POS";
+            this.POSToolStripMenuItem.Text = "Sales Entry";
             this.POSToolStripMenuItem.Click += new System.EventHandler(this.POSToolStripMenuItem_Click);
             // 
             // SalesReturnToolStripMenuItem
@@ -273,7 +276,8 @@
             this.purchaseReportToolStripMenuItem1,
             this.salesReportToolStripMenuItem,
             this.purchaseReturnReportToolStripMenuItem,
-            this.salesReturnReportToolStripMenuItem});
+            this.salesReturnReportToolStripMenuItem,
+            this.stockReportGridToolStripMenuItem});
             this.LogsToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LogsToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
             this.LogsToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("LogsToolStripMenuItem.Image")));
@@ -308,6 +312,13 @@
             this.salesReportToolStripMenuItem.Size = new System.Drawing.Size(198, 22);
             this.salesReportToolStripMenuItem.Text = "Sales Report";
             this.salesReportToolStripMenuItem.Click += new System.EventHandler(this.salesReportToolStripMenuItem_Click);
+            // 
+            // purchaseReturnReportToolStripMenuItem
+            // 
+            this.purchaseReturnReportToolStripMenuItem.Name = "purchaseReturnReportToolStripMenuItem";
+            this.purchaseReturnReportToolStripMenuItem.Size = new System.Drawing.Size(198, 22);
+            this.purchaseReturnReportToolStripMenuItem.Text = "Purchase Return Report";
+            this.purchaseReturnReportToolStripMenuItem.Click += new System.EventHandler(this.purchaseReturnReportToolStripMenuItem_Click);
             // 
             // salesReturnReportToolStripMenuItem
             // 
@@ -378,12 +389,28 @@
             this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // purchaseReturnReportToolStripMenuItem
+            // stockReportGridToolStripMenuItem
             // 
-            this.purchaseReturnReportToolStripMenuItem.Name = "purchaseReturnReportToolStripMenuItem";
-            this.purchaseReturnReportToolStripMenuItem.Size = new System.Drawing.Size(198, 22);
-            this.purchaseReturnReportToolStripMenuItem.Text = "Purchase Return Report";
-            this.purchaseReturnReportToolStripMenuItem.Click += new System.EventHandler(this.purchaseReturnReportToolStripMenuItem_Click);
+            this.stockReportGridToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.stockReportGridToolStripMenuItem1,
+            this.salesRepoToolStripMenuItem});
+            this.stockReportGridToolStripMenuItem.Name = "stockReportGridToolStripMenuItem";
+            this.stockReportGridToolStripMenuItem.Size = new System.Drawing.Size(198, 22);
+            this.stockReportGridToolStripMenuItem.Text = "Report Grid";
+            // 
+            // stockReportGridToolStripMenuItem1
+            // 
+            this.stockReportGridToolStripMenuItem1.Name = "stockReportGridToolStripMenuItem1";
+            this.stockReportGridToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.stockReportGridToolStripMenuItem1.Text = "Stock Report Grid";
+            this.stockReportGridToolStripMenuItem1.Click += new System.EventHandler(this.stockReportGridToolStripMenuItem1_Click);
+            // 
+            // salesRepoToolStripMenuItem
+            // 
+            this.salesRepoToolStripMenuItem.Name = "salesRepoToolStripMenuItem";
+            this.salesRepoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.salesRepoToolStripMenuItem.Text = "Sales Report Grid";
+            this.salesRepoToolStripMenuItem.Click += new System.EventHandler(this.salesRepoToolStripMenuItem_Click);
             // 
             // frm_main_mdi
             // 
@@ -446,6 +473,9 @@
         private System.Windows.Forms.ToolStripMenuItem groupToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem productToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem purchaseReturnReportToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem stockReportGridToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem stockReportGridToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem salesRepoToolStripMenuItem;
     }
 }
 

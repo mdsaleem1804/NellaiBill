@@ -28,15 +28,15 @@ namespace NellaiBill.Reports
             string xQry = "";
             if(xStockType== "Available Stock")
             {
-                xQry = "and s.stock>0";
+                xQry = "and s.qty>0";
             }
            else if (xStockType == "Zero Stock")
             {
-                xQry = "and s.stock=0";
+                xQry = "and s.qty=0";
             }
             else if (xStockType == "Negative Stock")
             {
-                xQry = "and s.stock<0";
+                xQry = "and s.qty<0";
             }
             else if (xStockType == "All Stock")
             {
@@ -44,7 +44,7 @@ namespace NellaiBill.Reports
             }
             dataGridView1.ReadOnly = true;
             //dataGridView1.Columns[0].Width = 200;
-            string xQuery = "SELECT i.product_name, s.stock, s.mrp, s.batch_id,s.expiry_date FROM stock s, m_product i WHERE i.product_id = s.product_id " + xQry;
+            string xQuery = "SELECT i.product_name, s.qty, s.mrp, s.batch_id,s.expiry_date FROM stock s, m_product i WHERE i.product_id = s.product_id " + xQry;
 
             xDb.LoadGrid(xQuery, dataGridView1);
         }
@@ -68,19 +68,16 @@ namespace NellaiBill.Reports
             else
             {
                 string xItemNo = cmbItem.SelectedValue.ToString();
-                xFilter += " and stock_history_itemno=" + xItemNo;
+                xFilter += " and sh.product_id=" + xItemNo;
             }
             dataGridView2.ReadOnly = true;
             //DateTime xFromDate = DateTime.ParseExact(dtpFromDate.Text, "dd-MM-yyyy HH:mm:ss", CultureInfo.InvariantCulture);
             //DateTime xToDate = DateTime.ParseExact(dtpToDate.Text, "dd-MM-yyyy HH:mm:ss", CultureInfo.InvariantCulture);
-            string xQuery = "select i.product_name as ITEM_NAME,a.stock_history_qty as QTY," +
-                " a.stock_history_batch as BATCH,a.stock_history_mrp as MRP," +
-                " a.stock_history_datetime as DATETIME,a.stock_history_mode as DETAILS " +
-                " from stock_history a,m_product i where i.product_id=a.stock_history_itemno " +
-                " and stock_history_datetime>='" + Convert.ToDateTime(dtpFromDate.Text).ToString("yyyy-MM-dd HH:mm:ss") + "' and stock_history_datetime <= '" + Convert.ToDateTime(dtpToDate.Text).ToString("yyyy-MM-dd HH:mm:ss") + "' " + xFilter + " order by stock_history_datetime desc";
+            string xQuery = "select p.product_id,p.product_name,sh.old_qty,sh.change_qty,sh.current_qty,sh.mrp,sh.batch_id,sh.expiry_date,sh.reason, sh.created_by,sh.created_on from stock_history sh, m_product p where sh.product_id = p.product_id " +
+                " and sh.created_on>='" + Convert.ToDateTime(dtpFromDate.Text).ToString("yyyy-MM-dd HH:mm:ss") + "' and sh. created_on <= '" + Convert.ToDateTime(dtpToDate.Text).ToString("yyyy-MM-dd HH:mm:ss") + "' " + xFilter + " order by sh.created_on desc";
 
             xDb.LoadGrid(xQuery, dataGridView2);
-            dataGridView2.Columns["DATETIME"].DefaultCellStyle.Format = "dd /MMMM/yyyy hh:mm:ss";
+            dataGridView2.Columns["created_on"].DefaultCellStyle.Format = "dd /MMMM/yyyy hh:mm:ss";
             dataGridView2.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
         }
 

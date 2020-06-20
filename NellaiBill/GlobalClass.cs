@@ -14,7 +14,7 @@
         public string GetReportPath()
         {
             //return "E:\\Dotnet\\NellaiBill\\NellaiBill\\CrystalReports\\";
-           // return "D:\\Saleem\\reports\\";
+            //return "D:\\Saleem\\reports\\";
             return System.Windows.Forms.Application.StartupPath + "\\CrystalReports\\";
         }
 

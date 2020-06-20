@@ -118,6 +118,10 @@ D:\NellaiBill\NellaiBill\obj\Debug\NellaiBill.csproj.CoreCompileInputs.cache
 D:\NellaiBill\NellaiBill\obj\Debug\NellaiBill.csproj.CopyComplete
 D:\NellaiBill\NellaiBill\obj\Debug\NellaiBill.exe
 D:\NellaiBill\NellaiBill\obj\Debug\NellaiBill.pdb
+E:\Dotnet\NellaiBill\NellaiBill\bin\Debug\NellaiBill.exe
+E:\Dotnet\NellaiBill\NellaiBill\bin\Debug\NellaiBill.pdb
+E:\Dotnet\NellaiBill\NellaiBill\bin\Debug\MaterialSkin.dll
+E:\Dotnet\NellaiBill\NellaiBill\bin\Debug\MySql.Data.dll
 E:\Dotnet\NellaiBill\NellaiBill\bin\Debug\CrystalReports\rptDischargeBill.rpt
 E:\Dotnet\NellaiBill\NellaiBill\bin\Debug\CrystalReports\rptIpAdmissionReport.rpt
 E:\Dotnet\NellaiBill\NellaiBill\bin\Debug\CrystalReports\rptIpAdvanceReport.rpt
@@ -127,6 +131,7 @@ E:\Dotnet\NellaiBill\NellaiBill\bin\Debug\CrystalReports\rptIpInvoiceReport.rpt
 E:\Dotnet\NellaiBill\NellaiBill\bin\Debug\CrystalReports\rptLabConsolidated.rpt
 E:\Dotnet\NellaiBill\NellaiBill\bin\Debug\CrystalReports\rptLabPatientTestReport.rpt
 E:\Dotnet\NellaiBill\NellaiBill\bin\Debug\CrystalReports\rptPatientInformation.rpt
+E:\Dotnet\NellaiBill\NellaiBill\bin\Debug\CrystalReports\rptPurchaseReturn.rpt
 E:\Dotnet\NellaiBill\NellaiBill\bin\Debug\CrystalReports\rptScanBill.rpt
 E:\Dotnet\NellaiBill\NellaiBill\bin\Debug\CrystalReports\rptEcgXrayConsolidated.rpt
 E:\Dotnet\NellaiBill\NellaiBill\bin\Debug\CrystalReports\rptOPConsolidated.rpt
@@ -151,6 +156,7 @@ E:\Dotnet\NellaiBill\NellaiBill\bin\Debug\CrystalReports\rptIpInvoiceReport.cs
 E:\Dotnet\NellaiBill\NellaiBill\bin\Debug\CrystalReports\rptLabConsolidated.cs
 E:\Dotnet\NellaiBill\NellaiBill\bin\Debug\CrystalReports\rptLabPatientTestReport.cs
 E:\Dotnet\NellaiBill\NellaiBill\bin\Debug\CrystalReports\rptPatientInformation.cs
+E:\Dotnet\NellaiBill\NellaiBill\bin\Debug\CrystalReports\rptPurchaseReturn.cs
 E:\Dotnet\NellaiBill\NellaiBill\bin\Debug\CrystalReports\rptScanBill.cs
 E:\Dotnet\NellaiBill\NellaiBill\bin\Debug\CrystalReports\rptEcgXrayConsolidated.cs
 E:\Dotnet\NellaiBill\NellaiBill\bin\Debug\CrystalReports\rptOPConsolidated.cs
@@ -169,8 +175,6 @@ E:\Dotnet\NellaiBill\NellaiBill\bin\Debug\CrystalReports\rptUsers.cs
 E:\Dotnet\NellaiBill\NellaiBill\bin\Debug\NellaiBill.exe.config
 E:\Dotnet\NellaiBill\NellaiBill\bin\Debug\NellaiBill.exe.manifest
 E:\Dotnet\NellaiBill\NellaiBill\bin\Debug\NellaiBill.application
-E:\Dotnet\NellaiBill\NellaiBill\bin\Debug\NellaiBill.exe
-E:\Dotnet\NellaiBill\NellaiBill\bin\Debug\NellaiBill.pdb
 E:\Dotnet\NellaiBill\NellaiBill\bin\Debug\AxShockwaveFlashObjects.dll
 E:\Dotnet\NellaiBill\NellaiBill\bin\Debug\CrystalDecisions.CrystalReports.Engine.dll
 E:\Dotnet\NellaiBill\NellaiBill\bin\Debug\CrystalDecisions.ReportSource.dll
@@ -179,8 +183,6 @@ E:\Dotnet\NellaiBill\NellaiBill\bin\Debug\CrystalDecisions.Windows.Forms.dll
 E:\Dotnet\NellaiBill\NellaiBill\bin\Debug\Google.Protobuf.dll
 E:\Dotnet\NellaiBill\NellaiBill\bin\Debug\itextsharp.dll
 E:\Dotnet\NellaiBill\NellaiBill\bin\Debug\log4net.dll
-E:\Dotnet\NellaiBill\NellaiBill\bin\Debug\MaterialSkin.dll
-E:\Dotnet\NellaiBill\NellaiBill\bin\Debug\MySql.Data.dll
 E:\Dotnet\NellaiBill\NellaiBill\bin\Debug\MySqlBackup.dll
 E:\Dotnet\NellaiBill\NellaiBill\bin\Debug\OptimizedDataReader.dll
 E:\Dotnet\NellaiBill\NellaiBill\bin\Debug\Savage.Data.dll
@@ -206,7 +208,6 @@ E:\Dotnet\NellaiBill\NellaiBill\bin\Debug\itextsharp.xml
 E:\Dotnet\NellaiBill\NellaiBill\bin\Debug\log4net.xml
 E:\Dotnet\NellaiBill\NellaiBill\bin\Debug\MySql.Data.xml
 E:\Dotnet\NellaiBill\NellaiBill\bin\Debug\System.Threading.Tasks.Extensions.xml
-E:\Dotnet\NellaiBill\NellaiBill\obj\Debug\NellaiBill.csprojAssemblyReference.cache
 E:\Dotnet\NellaiBill\NellaiBill\obj\Debug\NellaiBill.Activation.resources
 E:\Dotnet\NellaiBill\NellaiBill\obj\Debug\NellaiBill.Backup.resources
 E:\Dotnet\NellaiBill\NellaiBill\obj\Debug\NellaiBill.Dashboard.resources
@@ -277,5 +278,4 @@ E:\Dotnet\NellaiBill\NellaiBill\obj\Debug\NellaiBill.application
 E:\Dotnet\NellaiBill\NellaiBill\obj\Debug\NellaiBill.csproj.CopyComplete
 E:\Dotnet\NellaiBill\NellaiBill\obj\Debug\NellaiBill.exe
 E:\Dotnet\NellaiBill\NellaiBill\obj\Debug\NellaiBill.pdb
-E:\Dotnet\NellaiBill\NellaiBill\bin\Debug\CrystalReports\rptPurchaseReturn.rpt
-E:\Dotnet\NellaiBill\NellaiBill\bin\Debug\CrystalReports\rptPurchaseReturn.cs
+E:\Dotnet\NellaiBill\NellaiBill\obj\Debug\NellaiBill.csprojAssemblyReference.cache

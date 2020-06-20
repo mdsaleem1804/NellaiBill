@@ -64,16 +64,14 @@ namespace NellaiBill.Reports
             {
                 xFilter += " and s.sales_id= " + txtInvoiceNo.Text.ToString();
             }
-            string xQuery = "select s.sales_id as INVNO,a.ledger_name as CUSTOMER,s.date as DATE,i.product_name as product_name,s.batchid as BATCH,s.qty as QTY" +
-                " from sales_details s,  account_ledger a,m_product i " +
-                " where s.customerno = a.account_ledger_id and s.product_id = i.product_id " +
-                " and date>='" + dtpFromDate.Text + "' and date <= '" + dtpToDate.Text + "' " + xFilter + " order by s.sales_id desc ";
+            string xQuery = "select s.sales_id,pr.product_name,sd.batch_id,sd.qty,sd.gst,sd.discount_percentage,sd.unit_mrp from sales s, sales_details sd, m_product pr where s.sales_id = sd.sales_id and pr.product_id = sd.product_id " +
+                " and s.date>='" + dtpFromDate.Text + "' and s.date <= '" + dtpToDate.Text + "' " + xFilter + " order by s.sales_id desc ";
             xDb.LoadGrid(xQuery, dataGridView1);
             dataGridView1.Columns["product_name"].Width = 200;
-            dataGridView1.Columns["CUSTOMER"].Width = 200;         
-            dataGridView1.Columns["INVNO"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
-            dataGridView1.Columns["DATE"].DefaultCellStyle.Format = "dd /MMMM/yyyy";
-            dataGridView1.Columns["qty"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            //dataGridView1.Columns["CUSTOMER"].Width = 200;         
+            //dataGridView1.Columns["INVNO"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            //dataGridView1.Columns["DATE"].DefaultCellStyle.Format = "dd /MMMM/yyyy";
+            //dataGridView1.Columns["qty"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
 
         }
     }

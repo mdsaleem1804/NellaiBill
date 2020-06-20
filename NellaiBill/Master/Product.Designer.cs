@@ -38,8 +38,11 @@
             this.cmbGroup = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.label4 = new System.Windows.Forms.Label();
+            this.cmbTax = new System.Windows.Forms.ComboBox();
             this.label14 = new System.Windows.Forms.Label();
             this.txtHsnCode = new System.Windows.Forms.TextBox();
+            this.mBtnCancel = new MaterialSkin.Controls.MaterialRaisedButton();
             this.mBtnSaveUpdate = new MaterialSkin.Controls.MaterialRaisedButton();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label8 = new System.Windows.Forms.Label();
@@ -47,9 +50,6 @@
             this.label15 = new System.Windows.Forms.Label();
             this.btnExcel = new MaterialSkin.Controls.MaterialRaisedButton();
             this.btnPDF = new MaterialSkin.Controls.MaterialRaisedButton();
-            this.cmbTax = new System.Windows.Forms.ComboBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.mBtnCancel = new MaterialSkin.Controls.MaterialRaisedButton();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -149,8 +149,32 @@
             this.panel2.Controls.Add(this.cmbGroup);
             this.panel2.Location = new System.Drawing.Point(30, 49);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1142, 78);
+            this.panel2.Size = new System.Drawing.Size(1142, 108);
             this.panel2.TabIndex = 29;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(897, 7);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(37, 24);
+            this.label4.TabIndex = 49;
+            this.label4.Text = "Gst";
+            // 
+            // cmbTax
+            // 
+            this.cmbTax.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbTax.FormattingEnabled = true;
+            this.cmbTax.Items.AddRange(new object[] {
+            "5",
+            "12",
+            "18",
+            "28"});
+            this.cmbTax.Location = new System.Drawing.Point(901, 34);
+            this.cmbTax.Name = "cmbTax";
+            this.cmbTax.Size = new System.Drawing.Size(105, 21);
+            this.cmbTax.TabIndex = 35;
             // 
             // label14
             // 
@@ -169,10 +193,23 @@
             this.txtHsnCode.Size = new System.Drawing.Size(173, 20);
             this.txtHsnCode.TabIndex = 4;
             // 
+            // mBtnCancel
+            // 
+            this.mBtnCancel.Depth = 0;
+            this.mBtnCancel.Location = new System.Drawing.Point(496, 61);
+            this.mBtnCancel.MouseState = MaterialSkin.MouseState.HOVER;
+            this.mBtnCancel.Name = "mBtnCancel";
+            this.mBtnCancel.Primary = true;
+            this.mBtnCancel.Size = new System.Drawing.Size(82, 28);
+            this.mBtnCancel.TabIndex = 45;
+            this.mBtnCancel.Text = "CANCEL";
+            this.mBtnCancel.UseVisualStyleBackColor = true;
+            this.mBtnCancel.Click += new System.EventHandler(this.mBtnCancel_Click);
+            // 
             // mBtnSaveUpdate
             // 
             this.mBtnSaveUpdate.Depth = 0;
-            this.mBtnSaveUpdate.Location = new System.Drawing.Point(1036, 8);
+            this.mBtnSaveUpdate.Location = new System.Drawing.Point(408, 61);
             this.mBtnSaveUpdate.MouseState = MaterialSkin.MouseState.HOVER;
             this.mBtnSaveUpdate.Name = "mBtnSaveUpdate";
             this.mBtnSaveUpdate.Primary = true;
@@ -246,42 +283,6 @@
             this.btnPDF.Text = "PDF";
             this.btnPDF.UseVisualStyleBackColor = true;
             this.btnPDF.Click += new System.EventHandler(this.btnPDF_Click);
-            // 
-            // cmbTax
-            // 
-            this.cmbTax.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbTax.FormattingEnabled = true;
-            this.cmbTax.Items.AddRange(new object[] {
-            "5",
-            "12",
-            "18"});
-            this.cmbTax.Location = new System.Drawing.Point(901, 34);
-            this.cmbTax.Name = "cmbTax";
-            this.cmbTax.Size = new System.Drawing.Size(105, 21);
-            this.cmbTax.TabIndex = 35;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(897, 7);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(37, 24);
-            this.label4.TabIndex = 49;
-            this.label4.Text = "Gst";
-            // 
-            // mBtnCancel
-            // 
-            this.mBtnCancel.Depth = 0;
-            this.mBtnCancel.Location = new System.Drawing.Point(1036, 42);
-            this.mBtnCancel.MouseState = MaterialSkin.MouseState.HOVER;
-            this.mBtnCancel.Name = "mBtnCancel";
-            this.mBtnCancel.Primary = true;
-            this.mBtnCancel.Size = new System.Drawing.Size(82, 28);
-            this.mBtnCancel.TabIndex = 45;
-            this.mBtnCancel.Text = "CANCEL";
-            this.mBtnCancel.UseVisualStyleBackColor = true;
-            this.mBtnCancel.Click += new System.EventHandler(this.mBtnCancel_Click);
             // 
             // frmItem
             // 

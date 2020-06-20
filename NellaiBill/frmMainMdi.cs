@@ -495,5 +495,19 @@ namespace NellaiBill
             report.MdiParent = this;
             report.Show();
         }
+
+        private void stockReportGridToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            StockReportDG report = new StockReportDG();
+            report.MdiParent = this;
+            report.Show();
+        }
+
+        private void salesRepoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SalesReportDG report = new SalesReportDG();
+            report.MdiParent = this;
+            report.Show();
+        }
     }   
 }

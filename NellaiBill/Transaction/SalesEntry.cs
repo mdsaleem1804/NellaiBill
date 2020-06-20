@@ -35,6 +35,7 @@ namespace NellaiBill.Master
             dataGridView1.ColumnHeadersDefaultCellStyle.ForeColor = Color.Yellow;
             this.KeyPreview = true;
             btnSaveBill.Enabled = true;
+            cmbBillType.SelectedIndex = 1;
         }
 
         private void AddDataToGrid()
@@ -165,6 +166,7 @@ namespace NellaiBill.Master
             dataGridView1.Rows.Clear();
             cmbPaymentMode.Text = "Please Select";
             lbl_total_amount_value.Text = "";
+            cmbBillType.SelectedIndex = 1;
         }
         private void btnAdd_Click(object sender, EventArgs e)
         {
