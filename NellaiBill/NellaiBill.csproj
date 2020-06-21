@@ -33,7 +33,7 @@
     </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
+    <PlatformTarget>x86</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -42,6 +42,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>1</WarningLevel>
     <Prefer32Bit>false</Prefer32Bit>
+    <LangVersion>8.0</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -51,6 +52,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <LangVersion>8.0</LangVersion>
   </PropertyGroup>
   <PropertyGroup>
     <ManifestCertificateThumbprint>FE9A7244EEC3E2134B6E2603A3824E21BAC5DB4B</ManifestCertificateThumbprint>
@@ -74,7 +76,7 @@
     <WarningLevel>1</WarningLevel>
     <DebugType>full</DebugType>
     <PlatformTarget>x86</PlatformTarget>
-    <LangVersion>7.3</LangVersion>
+    <LangVersion>8.0</LangVersion>
     <ErrorReport>prompt</ErrorReport>
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
     <Prefer32Bit>true</Prefer32Bit>
@@ -367,6 +369,12 @@
     </Compile>
     <Compile Include="Master\DoctorRegistration.Designer.cs">
       <DependentUpon>DoctorRegistration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Master\LabFeesMaster.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Master\LabFeesMaster.Designer.cs">
+      <DependentUpon>LabFeesMaster.cs</DependentUpon>
     </Compile>
     <Compile Include="Master\RoomMaster.cs">
       <SubType>Form</SubType>
@@ -871,6 +879,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Master\DoctorRegistration.resx">
       <DependentUpon>DoctorRegistration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master\LabFeesMaster.resx">
+      <DependentUpon>LabFeesMaster.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Master\RoomMaster.resx">
       <DependentUpon>RoomMaster.cs</DependentUpon>

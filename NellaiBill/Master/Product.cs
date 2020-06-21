@@ -155,11 +155,7 @@ namespace NellaiBill.Master
 
         private void mBtnSaveUpdate_Click(object sender, EventArgs e)
         {
-            //if (xDb.GetMaxId("product_id", "m_product")>50)
-            //{
-            //    MessageBox.Show("Please Check your software administrator- It's Expired");
-            //    return;
-            //}
+          
             if (cmbCategory.Text == "" || cmbCategory.Text == "Please select")
             {
                 MessageBox.Show("Please Choose an Category");

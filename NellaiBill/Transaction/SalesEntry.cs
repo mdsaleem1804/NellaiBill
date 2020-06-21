@@ -25,6 +25,7 @@ namespace NellaiBill.Master
             cmbPaymentMode.SelectedIndex = 0;
             cmbBillType.SelectedIndex = 0;
             lblInvoiceNo.Text = xDb.GetMaxId("sales_id", "sales").ToString();
+          
             dataGridView1.Columns[0].Visible = false;
             dataGridView1.RowHeadersVisible = false;
 
@@ -250,6 +251,7 @@ namespace NellaiBill.Master
                 return;
             }
             int xSalesId = xDb.GetMaxId("sales_id", "sales");
+         
             string xUser = LoginInfo.UserID;
             string xCurrentDateTime = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
             double xLessAmount = 0;

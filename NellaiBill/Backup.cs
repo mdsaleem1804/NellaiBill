@@ -33,9 +33,10 @@ namespace NellaiBill
                             xDb.connection.Open();
                             mb.ExportInfo.AddCreateDatabase = true;
                             mb.ExportInfo.ExportTableStructure = true;
-                            mb.ExportInfo.ExportRows = false;
+                            mb.ExportInfo.ExportRows = true;
                             mb.ExportToFile(file);
                             xDb.connection.Close();
+
                         }
                     }
                 }

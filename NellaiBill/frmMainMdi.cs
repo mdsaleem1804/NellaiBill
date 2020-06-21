@@ -169,12 +169,7 @@ namespace NellaiBill
             salesEntry.Show();
         }
 
-        private void BackupToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Backup backup = new Backup();
-            backup.MdiParent = this;
-            backup.Show();
-        }
+     
 
 
         private void stockReportToolStripMenuItem_Click(object sender, EventArgs e)
@@ -467,6 +462,27 @@ namespace NellaiBill
             LabTestEntry transaction = new LabTestEntry();
             transaction.MdiParent = this;
             transaction.Show();
+        }
+
+        private void labFeesMasterToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            LabFeesMaster master = new LabFeesMaster();
+            master.MdiParent = this;
+            master.Show();
+        }
+
+        private void iPDISCHARGESUMMARYToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            IPDischargeSummary transaction = new IPDischargeSummary();
+            transaction.MdiParent = this;
+            transaction.Show();
+        }
+
+        private void toolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            Backup backup = new Backup();
+            backup.MdiParent = this;
+            backup.Show();
         }
     }   
 }
