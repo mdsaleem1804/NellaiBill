@@ -34,13 +34,7 @@ namespace NellaiBill
             dashboard.MdiParent = this;
             dashboard.Show();
         }
-        private void groupToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Group g = new Group();
-            g.MdiParent = this;
-            g.Show();
-        }
-
+     
         private void salemToolStripMenuItem_Click(object sender, EventArgs e)
         {
             SalesEntry s = new SalesEntry();
@@ -54,13 +48,6 @@ namespace NellaiBill
             YearEnd yearEnd = new YearEnd();
             yearEnd.MdiParent = this;
             yearEnd.Show();
-        }
-
-        private void categoryToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Category category = new Category();
-            category.MdiParent = this;
-            category.Show();
         }
 
         private void itemToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -287,7 +274,7 @@ namespace NellaiBill
 
         private void salesReturnReportToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            SalesReturnReport report = new SalesReturnReport();
+            SalesReturn report = new SalesReturn();
             // SalesReportDG report = new SalesReportDG();
             report.MdiParent = this;
             report.Show();
@@ -478,13 +465,6 @@ namespace NellaiBill
         private void lABTESTENTRYToolStripMenuItem_Click(object sender, EventArgs e)
         {
             LabTestEntry transaction = new LabTestEntry();
-            transaction.MdiParent = this;
-            transaction.Show();
-        }
-
-        private void iPDISCHARGESUMMARYToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            IPDischargeSummary transaction = new IPDischargeSummary();
             transaction.MdiParent = this;
             transaction.Show();
         }
