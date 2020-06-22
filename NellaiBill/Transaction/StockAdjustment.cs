@@ -11,12 +11,13 @@ using System.Windows.Forms;
 
 namespace NellaiBill.Master
 {
-    public partial class SetPrice : Form
+    public partial class StockAdjustment : Form
     {
         DatabaseConnection xDb = new DatabaseConnection();
         int xStockId;
+        int xProductId;
         int xItemId;
-        public SetPrice()
+        public StockAdjustment()
         {
             InitializeComponent();
         }
@@ -38,7 +39,7 @@ namespace NellaiBill.Master
             {
 
                 double xMrp = Convert.ToDouble(dr.Cells["mrp"].Value);
-                double xStock = Convert.ToDouble(dr.Cells["stock"].Value);
+                double xStock = Convert.ToDouble(dr.Cells["qty"].Value);
                 xStockValue+= xMrp* xStock;
             }
            // lblTotalStockValue.Text = xStockValue.ToString();
@@ -47,7 +48,8 @@ namespace NellaiBill.Master
 
         private void LoadGrid()
         {
-            string xQuery = "select s.stock_id,i.product_id,i.product_name,s.mrp,s.stock,s.batch_id from m_product i, stock s where i.product_id = s.product_id";
+            string xQuery = "select s.stock_id,i.product_id,i.product_name,s.mrp,s.qty,s.batch_id " +
+                " from m_product i, stock s where i.product_id = s.product_id";
             xDb.LoadGrid(xQuery, dataGridView1);
         }
         private void DataClear()
@@ -91,7 +93,7 @@ namespace NellaiBill.Master
                     myCommand.CommandText = xUpdateStockQry;
                     myCommand.ExecuteNonQuery();
 
-                    string xQryStockDetails = "insert into stock_history" +
+                    string xQryStockDetails1 = "insert into stock_history" +
                                   " (stock_history_itemno,stock_history_qty," +
                                   " stock_history_mrp,stock_history_batch," +
                                   " stock_history_datetime,stock_history_mode)" +
@@ -101,6 +103,10 @@ namespace NellaiBill.Master
                                   + ",'" + txtBatch.Text.ToString()
                                   + "','" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") 
                                   + "','STOCK ADJUSTMENT')";
+                    //string xQryStockDetails = "insert into stock_history" +
+                    //       " (product_id,old_qty,change_qty,current_qty,mrp,batch_id,expiry_date,reason,created_by,created_on)" +
+                    //       "values(" + xProductId + "," + xOldQty + "," + xTotalQty + "," + xNewQty + "," + xMrp + ",'" + xBatch + "'," +
+                    //     " '" + xExpDate + "','" + xLogMessage + "','" + xUser + "','" + xCurrentDateTime + "')";
 
                     myCommand.CommandText = xQryStockDetails;
                     myCommand.ExecuteNonQuery();
@@ -137,9 +143,9 @@ namespace NellaiBill.Master
         private void btnLoadSameBatch_Click(object sender, EventArgs e)
         {
 
-            string xQuery = "select s.stock_id,s.product_id,i.product_name,s.mrp,s.stock,s.batch_id,s.expiry_date,i.gst from stock s, m_product i  " +
-                " where s.stock > 0 and s.product_id = i.product_id group by s.batch_id having count(s.batch_id) > 1 order by product_name";               
-            xDb.LoadGrid(xQuery, dataGridView2);
+            //string xQuery = "select s.stock_id,s.product_id,i.product_name,s.mrp,s.stock,s.batch_id,s.expiry_date,i.gst from stock s, m_product i  " +
+            //    " where s.stock > 0 and s.product_id = i.product_id group by s.batch_id having count(s.batch_id) > 1 order by product_name";               
+            //xDb.LoadGrid(xQuery, dataGridView2);
         }
     }
 }

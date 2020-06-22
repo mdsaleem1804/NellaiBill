@@ -109,6 +109,15 @@
     <Reference Include="MaterialSkin, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\MaterialSkin.0.2.1\lib\MaterialSkin.dll</HintPath>
     </Reference>
+    <Reference Include="MetroFramework, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MetroModernUI.1.4.0.0\lib\net\MetroFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="MetroFramework.Design, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MetroModernUI.1.4.0.0\lib\net\MetroFramework.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="MetroFramework.Fonts, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MetroModernUI.1.4.0.0\lib\net\MetroFramework.Fonts.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Office.Interop.Excel.15.0.4795.1000\lib\net20\Microsoft.Office.Interop.Excel.dll</HintPath>
       <EmbedInteropTypes>True</EmbedInteropTypes>
@@ -168,6 +177,12 @@
     </Compile>
     <Compile Include="Backup.Designer.cs">
       <DependentUpon>Backup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Common\DeveloperDashboard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Common\DeveloperDashboard.Designer.cs">
+      <DependentUpon>DeveloperDashboard.cs</DependentUpon>
     </Compile>
     <Compile Include="Common\LoginInfo.cs" />
     <Compile Include="CrystalReports\rptDischargeBill.cs">
@@ -437,12 +452,16 @@
     <Compile Include="Master\Employee.Designer.cs">
       <DependentUpon>Employee.cs</DependentUpon>
     </Compile>
+    <Compile Include="Models\BackUpResponseModel.cs" />
+    <Compile Include="Models\CompanyInfoResponseModel.cs" />
+    <Compile Include="Models\ConfigResponseModel.cs" />
     <Compile Include="Models\DoctorResponseModel.cs" />
     <Compile Include="Models\IPDetailModel.cs" />
     <Compile Include="Models\IpInvoiceDetailModel.cs" />
     <Compile Include="Models\IpInvoiceModel.cs" />
     <Compile Include="Models\LabResponseModel.cs" />
     <Compile Include="Models\PatientResponseModel.cs" />
+    <Compile Include="Models\ProductModel.cs" />
     <Compile Include="Models\StockResponseModel.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -720,11 +739,11 @@
     <Compile Include="Transaction\ScanBilling.Designer.cs">
       <DependentUpon>ScanBilling.cs</DependentUpon>
     </Compile>
-    <Compile Include="Transaction\SetPrice.cs">
+    <Compile Include="Transaction\StockAdjustment.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Transaction\SetPrice.Designer.cs">
-      <DependentUpon>SetPrice.cs</DependentUpon>
+    <Compile Include="Transaction\StockAdjustment.Designer.cs">
+      <DependentUpon>StockAdjustment.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -739,6 +758,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Backup.resx">
       <DependentUpon>Backup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Common\DeveloperDashboard.resx">
+      <DependentUpon>DeveloperDashboard.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CrystalReports\rptDischargeBill.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
@@ -1045,8 +1067,8 @@
     <EmbeddedResource Include="Transaction\ScanBilling.resx">
       <DependentUpon>ScanBilling.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Transaction\SetPrice.resx">
-      <DependentUpon>SetPrice.cs</DependentUpon>
+    <EmbeddedResource Include="Transaction\StockAdjustment.resx">
+      <DependentUpon>StockAdjustment.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -1121,9 +1143,7 @@
   <ItemGroup>
     <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="DataSet\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="Common\hms_lhs.sql" />
     <Content Include="h_icon_cng_icon.ico" />

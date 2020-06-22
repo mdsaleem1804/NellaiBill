@@ -269,7 +269,6 @@ E:\Dotnet\NellaiBill\NellaiBill\obj\Debug\NellaiBill.Transaction.PurchaseEntry.r
 E:\Dotnet\NellaiBill\NellaiBill\obj\Debug\NellaiBill.Master.SalesEntry.resources
 E:\Dotnet\NellaiBill\NellaiBill\obj\Debug\NellaiBill.Transaction.SalesForm1.resources
 E:\Dotnet\NellaiBill\NellaiBill\obj\Debug\NellaiBill.Transaction.ScanBilling.resources
-E:\Dotnet\NellaiBill\NellaiBill\obj\Debug\NellaiBill.Master.SetPrice.resources
 E:\Dotnet\NellaiBill\NellaiBill\obj\Debug\NellaiBill.Properties.Resources.resources
 E:\Dotnet\NellaiBill\NellaiBill\obj\Debug\NellaiBill.YearEnd.resources
 E:\Dotnet\NellaiBill\NellaiBill\obj\Debug\NellaiBill.csproj.GenerateResource.cache
@@ -279,3 +278,9 @@ E:\Dotnet\NellaiBill\NellaiBill\obj\Debug\NellaiBill.csproj.CopyComplete
 E:\Dotnet\NellaiBill\NellaiBill\obj\Debug\NellaiBill.exe
 E:\Dotnet\NellaiBill\NellaiBill\obj\Debug\NellaiBill.pdb
 E:\Dotnet\NellaiBill\NellaiBill\obj\Debug\NellaiBill.Master.LabFeesMaster.resources
+E:\Dotnet\NellaiBill\NellaiBill\obj\Debug\NellaiBill.csprojAssemblyReference.cache
+E:\Dotnet\NellaiBill\NellaiBill\obj\Debug\NellaiBill.Common.DeveloperDashboard.resources
+E:\Dotnet\NellaiBill\NellaiBill\bin\Debug\MetroFramework.Design.dll
+E:\Dotnet\NellaiBill\NellaiBill\bin\Debug\MetroFramework.dll
+E:\Dotnet\NellaiBill\NellaiBill\bin\Debug\MetroFramework.Fonts.dll
+E:\Dotnet\NellaiBill\NellaiBill\obj\Debug\NellaiBill.Master.StockAdjustment.resources

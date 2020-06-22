@@ -27,7 +27,7 @@ namespace NellaiBill
         "port=" + xPort + ";" +
         "Initial Catalog=" + xDatabaseName + ";" +
         "User Id=" + xUserName + ";" +
-        "password=" + Decrypt(xPassword, "hana-sept-mber16") + "; Convert Zero Datetime=True";
+        "password=" + Decrypt(xPassword, "hana-sept-mber16") + "; Convert Zero Datetime=True;CharSet=utf8;";
 
         public DatabaseConnection()
         {
@@ -59,6 +59,20 @@ namespace NellaiBill
             command.ExecuteNonQuery();
             connection.Close();
         }
+        //public void DataProcess1()
+        //{
+        //    MySqlDataAdapter da = new MySqlDataAdapter();
+        //    MySqlCommand cmd;
+        //    MySqlParameter parm;
+
+        //    // Create the InsertCommand.
+        //    cmd = new MySqlCommand("INSERT INTO mytable (id,name) VALUES (@id,@name)", new MySqlConnection(conString));
+        //    cmd.Parameters.Add("@id", MySqlDbType.VarChar, 15, "id");
+        //    cmd.Parameters.Add("@name", MySqlDbType.Nv, 15, "name");
+
+        //    da.InsertCommand = cmd;
+
+        //}
         public int GetTotalCount(string xQry)
         {
             int xTotalCount = 0;
@@ -361,6 +375,51 @@ namespace NellaiBill
                 return "";
             }
         }
+        public ConfigResponseModel GetConfig()
+        {
+            ConfigResponseModel model = new ConfigResponseModel();
+            using (connection = new MySqlConnection(conString))
+            {
+                string xQry = "select * from config";
+                connection.Open();
+                MySqlCommand comm = new MySqlCommand(xQry, connection);
+
+                MySqlDataReader reader = comm.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    model = new ConfigResponseModel()
+                    {
+                        BackUpPath = reader.GetString("backup_path")
+                    };
+                }
+                connection.Close();
+            }
+            return model;
+        }
+        public BackUpResponseModel GetBackUpHistory(string xDate)
+        {
+            BackUpResponseModel model = new BackUpResponseModel();
+            using (connection = new MySqlConnection(conString))
+            {
+                string xQry = "select * from backup where date='"+ xDate + "'";
+                connection.Open();
+                MySqlCommand comm = new MySqlCommand(xQry, connection);
+
+                MySqlDataReader reader = comm.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    model = new BackUpResponseModel()
+                    {
+                        Date = reader.GetDateTime("date"),
+                        BackUpPath = reader.GetString("path")
+                    };
+                }
+                connection.Close();
+            }
+            return model;
+        }
         public PatientResponseModel GetPatientFromPatientId(int xPatientId)
         {
             PatientResponseModel model = new PatientResponseModel();
@@ -468,7 +527,28 @@ namespace NellaiBill
             }
             return model;
         }
+        public CompanyInfoResponseModel GetCompanyDetails()
+        {
+            CompanyInfoResponseModel model = new CompanyInfoResponseModel();
+            using (connection = new MySqlConnection(conString))
+            {
+                string xQry = "select * from setup_companyinfo";
+                connection.Open();
+                MySqlCommand comm = new MySqlCommand(xQry, connection);
 
+                MySqlDataReader reader = comm.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    model = new CompanyInfoResponseModel()
+                    {
+                        CompanyTitle = reader.GetString("companytitle")
+                    };
+                }
+                connection.Close();
+            }
+            return model;
+        }
         public StockResponseModel GetStockFromQuery(String xQry)
         {
             StockResponseModel model = new StockResponseModel();
@@ -490,6 +570,30 @@ namespace NellaiBill
                         Mrp = reader.GetDouble("mrp"),
                         Batch = reader.GetString("batch_id"),
                         ExpDate = reader.GetDateTime("expiry_date")
+                    };
+                }
+                connection.Close();
+            }
+            return model;
+        }
+        public ProductModel GetProductFromProductId(String xQry)
+        {
+            ProductModel model = new ProductModel();
+            using (connection = new MySqlConnection(conString))
+            {
+
+                connection.Open();
+                MySqlCommand comm = new MySqlCommand(xQry, connection);
+
+                MySqlDataReader reader = comm.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    model = new ProductModel()
+                    {
+                        ProductId = reader.GetInt32("product_id"),
+                        ProductName = reader.GetString("product_name"),
+                        Gst = reader.GetString("gst")
                     };
                 }
                 connection.Close();

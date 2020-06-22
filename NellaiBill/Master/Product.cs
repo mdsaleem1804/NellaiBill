@@ -5,7 +5,10 @@ using NellaiBill.Common;
 using System;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.IO;
+using System.Text;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace NellaiBill.Master
@@ -24,6 +27,7 @@ namespace NellaiBill.Master
 
         private void Item_Load(object sender, EventArgs e)
         {
+            Thread.CurrentThread.CurrentUICulture = new CultureInfo("ta-IN");
             xDb.LoadComboBox("select category_id,category_name from m_category", cmbCategory, "category_id", "category_name");
             //xDb.LoadComboBox("select unit_no,unit_name from m_unit", cmbUnit, "unit_no", "unit_name");
             //xDb.LoadComboBox("select tax_no,tax_name from m_tax", cmbGst, "tax_no", "tax_name");
@@ -34,6 +38,7 @@ namespace NellaiBill.Master
             dataGridView1.Columns[0].Visible = false;
             dataGridView1.Columns[1].Visible = false;
             dataGridView1.Columns[2].Visible = false;
+            dataGridView1.Columns[3].Visible = false;
             xCategoryId = Int32.Parse(cmbCategory.SelectedValue.ToString());
             dataGridView1.ColumnHeadersDefaultCellStyle.Font = new System.Drawing.Font("Tahoma", 10, FontStyle.Bold);
             cmbCategory.Select();
@@ -46,15 +51,19 @@ namespace NellaiBill.Master
                 " c.category_id,g.group_id,i.product_id," +
                 " c.category_name as CATEGORY," +
                 " g.group_name as GROUP_NAME," +
-                " i.product_name as product_name, " +
+                " i.product_name as ProductName, " +
+                " i.product_name_tamil as ProductNameInTamil, " +
+                " i.product_code as ProductCode, " +
                  " i.hsn_code as hsn_code " +           
                 " from m_category c,m_group g, " +
                 " m_product i " +
                 " where c.category_id = i.category_id " +
                 " and g.group_id = i.group_id" +
-                " ";
+                " order by g.group_name,i.product_name ";
 
             xDb.LoadGrid(xQuery, dataGridView1);
+            dataGridView1.Columns["CATEGORY"].Width = 70;
+            dataGridView1.Columns["GROUP_NAME"].Width = 70;
 
             mBtnSaveUpdate.Text = "SAVE";
         }
@@ -62,6 +71,8 @@ namespace NellaiBill.Master
         private void DataClear()
         {
             txtProductName.Text = "";
+            txtProductNameInTamil.Text = "";
+            txtProductCode.Text = "";
             txtHsnCode.Text = "";
             mBtnSaveUpdate.Text = "SAVE";
             txtProductName.Focus();
@@ -72,7 +83,8 @@ namespace NellaiBill.Master
         {
             xCategoryId = Int32.Parse(cmbCategory.SelectedValue.ToString());
             xGroupId = Int32.Parse(cmbGroup.SelectedValue.ToString());
-
+            //byte[] xTamil = UTF8Encoding.UTF8.GetBytes(txtProductNameInTamil.Text.ToString()); ;
+            var xTamil = txtProductNameInTamil.Text;
             string xUser = LoginInfo.UserID;
             string xCurrentDateTime = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
             string xHsnCode = txtHsnCode.Text.ToString();
@@ -89,12 +101,13 @@ namespace NellaiBill.Master
                         xItemId = xDb.GetMaxId("product_id", "m_product");
                         string xProductDetails = "";
                         xQry = "insert into   m_product" +
-                            "(product_id,product_name,category_id,group_id,product_details,hsn_code,gst,created_by,created_on) " +
-                            "values(" + xItemId + ",'"
-                            + txtProductName.Text + "',"
+                            "(product_id,category_id,group_id,product_name,product_name_tamil,product_code,hsn_code,gst,created_by,created_on) " +
+                            "values(" + xItemId + ","
                             + xCategoryId + ","
                             + xGroupId + ",'"
-                            + xProductDetails + "','"
+                            + txtProductName.Text + "','"
+                            + txtProductNameInTamil.Text + "','"
+                            + txtProductCode.Text + "','"
                             + xHsnCode + "','" + cmbTax.Text + "','" + xUser + "','" + xCurrentDateTime + "' )";
 
                           xDb.DataProcess(xQry);
@@ -108,12 +121,18 @@ namespace NellaiBill.Master
                     " set category_id=" + xCategoryId + ", " +
                     " group_id=" + xGroupId + ", " +
                     " product_name = '" + txtProductName.Text + "',  " +
+                    " product_name_tamil = '" + xTamil + "',  " +
+                    " product_code = '" + txtProductCode.Text + "',  " +
                     " hsn_code = '" + xHsnCode + "',  " +
                     " gst = '" + cmbTax.Text + "',  " +
                     " updated_by = '" + xUser + "',  " +
                     " updated_on = '" + xCurrentDateTime + "'  " +
                     " where  product_id= " + xItemId + "";
                 xDb.DataProcess(xQry);
+
+    
+           
+
             }
 
             LoadGrid();
@@ -129,9 +148,10 @@ namespace NellaiBill.Master
                 xItemId = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString());
                 cmbCategory.SelectedIndex = cmbCategory.FindStringExact(dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString());
                 cmbGroup.SelectedIndex = cmbGroup.FindStringExact(dataGridView1.Rows[e.RowIndex].Cells[4].Value.ToString());
-                txtProductName.Text = dataGridView1.Rows[e.RowIndex].Cells[5].Value.ToString();
-                txtHsnCode.Text = dataGridView1.Rows[e.RowIndex].Cells[6].Value.ToString();
-              
+                txtProductName.Text = dataGridView1.Rows[e.RowIndex].Cells["ProductName"].Value.ToString();
+                txtHsnCode.Text = dataGridView1.Rows[e.RowIndex].Cells["hsn_code"].Value.ToString();
+                txtProductNameInTamil.Text = dataGridView1.Rows[e.RowIndex].Cells["ProductNameInTamil"].Value.ToString();
+                txtProductCode.Text = dataGridView1.Rows[e.RowIndex].Cells["ProductCode"].Value.ToString();
                 mBtnSaveUpdate.Text = "UPDATE";
             }
         }
@@ -382,9 +402,40 @@ namespace NellaiBill.Master
             ExportToPdf();
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void dataGridView1_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
         {
+            e.AdvancedBorderStyle.Bottom = DataGridViewAdvancedCellBorderStyle.None;
+            if (e.RowIndex < 1 || e.ColumnIndex < 0)
+                return;
+            if (IsTheSameCellValue(e.ColumnIndex, e.RowIndex))
+            {
+                e.AdvancedBorderStyle.Top = DataGridViewAdvancedCellBorderStyle.None;
+            }
+            else
+            {
+                e.AdvancedBorderStyle.Top = dataGridView1.AdvancedCellBorderStyle.Top;
+            }
+        }
 
+        private void dataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (e.RowIndex == 0)
+                return;
+            if (IsTheSameCellValue(e.ColumnIndex, e.RowIndex))
+            {
+                e.Value = "";
+                e.FormattingApplied = true;
+            }
+        }
+        bool IsTheSameCellValue(int column, int row)
+        {
+            DataGridViewCell cell1 = dataGridView1[column, row];
+            DataGridViewCell cell2 = dataGridView1[column, row - 1];
+            if (cell1.Value == null || cell2.Value == null)
+            {
+                return false;
+            }
+            return cell1.Value.ToString() == cell2.Value.ToString();
         }
     }
 }

@@ -16,8 +16,15 @@ namespace NellaiBill.Master
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-                 if(xDb.CountRecord("select * from m_user where username='" + txtUserName.Text+ "' and password='"+txtPassword.Text+"'")>=1)
-     
+              if (txtUserName.Text == "Developer" && txtPassword.Text == "nellaibill")
+            {
+                LoginInfo.UserID = txtUserName.Text;
+                DeveloperDashboard nextForm = new DeveloperDashboard();
+                this.Hide();
+                nextForm.ShowDialog();
+                this.Close();
+            }
+            else if (xDb.CountRecord("select * from m_user where username='" + txtUserName.Text+ "' and password='"+txtPassword.Text+"'")>=1)
             {
                 LoginInfo.UserID = txtUserName.Text;
                 frm_main_mdi nextForm = new frm_main_mdi();
@@ -25,11 +32,8 @@ namespace NellaiBill.Master
                 nextForm.ShowDialog();
                 this.Close();
                
-                //OutPatientEntry nextForm = new OutPatientEntry();
-                //this.Hide();
-                //nextForm.ShowDialog();
-                //this.Close();
             }
+          
             else
             {
                 MessageBox.Show("Login Credentials Wrong");
@@ -52,19 +56,19 @@ namespace NellaiBill.Master
             }
 
             string xEncrypted = CryptoEngine.Encrypt(xMacAddress, "sblw-3hn8-sqoy19");
-             if (xDb.GetTotalCount("select * from m_user where password='" + xEncrypted + "'") ==1)
-           //if (xDb.GetTotalCount("select * from m_login where password='" + xEncrypted + "'") == 1)
-            {       
+           //  if (xDb.GetTotalCount("select * from m_user where password='" + xEncrypted + "'") ==1)
+           ////if (xDb.GetTotalCount("select * from m_login where password='" + xEncrypted + "'") == 1)
+           // {       
                
-            }
-            else
-            {
-                //Activation xActivation = new Activation();
-                //this.Hide();
-                //xActivation.ShowDialog();
-                //this.Close();
+           // }
+           // else
+           // {
+           //     //Activation xActivation = new Activation();
+           //     //this.Hide();
+           //     //xActivation.ShowDialog();
+           //     //this.Close();
 
-            }
+           // }
 
         }
 

@@ -25,7 +25,7 @@ namespace NellaiBill.Master
             cmbPaymentMode.SelectedIndex = 0;
             cmbBillType.SelectedIndex = 0;
             lblInvoiceNo.Text = xDb.GetMaxId("sales_id", "sales").ToString();
-          
+
             dataGridView1.Columns[0].Visible = false;
             dataGridView1.RowHeadersVisible = false;
 
@@ -36,6 +36,8 @@ namespace NellaiBill.Master
             dataGridView1.ColumnHeadersDefaultCellStyle.ForeColor = Color.Yellow;
             this.KeyPreview = true;
             btnSaveBill.Enabled = true;
+            cmbBillType.SelectedIndex = 1;
+            cmbPaymentMode.SelectedIndex = 1;
         }
 
         private void AddDataToGrid()
@@ -143,6 +145,7 @@ namespace NellaiBill.Master
         }
         private void DataClear()
         {
+            txtProductCode.Text = "";
             txtItem.Text = "";
             txtBatch.Text = "";
             txtExpDate.Text = "";
@@ -251,7 +254,7 @@ namespace NellaiBill.Master
                 return;
             }
             int xSalesId = xDb.GetMaxId("sales_id", "sales");
-         
+
             string xUser = LoginInfo.UserID;
             string xCurrentDateTime = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
             double xLessAmount = 0;
@@ -296,15 +299,15 @@ namespace NellaiBill.Master
                         int xOldQty = 0;
                         int xNewQty = 0;
                         xOldQty = stockResponseModel.Qty;
-                        xNewQty =  xOldQty- xSalesQty;
+                        xNewQty = xOldQty - xSalesQty;
                         string xUpdateStockQry = "update stock set " +
                             " qty =  " + xNewQty + ", updated_by = '" + xUser + "', updated_on = '" + xCurrentDateTime + "' " +
                             " where product_id=" + xProductId + " " +
                             " and batch_id = '" + xBatch + "' " +
                             " and mrp = '" + xMrp + "'";
-                        
 
-                  
+
+
                         myCommand.CommandText = xUpdateStockQry;
                         myCommand.ExecuteNonQuery();
 
@@ -312,9 +315,9 @@ namespace NellaiBill.Master
                         string xQryStockHistory = "insert into stock_history" +
                          " (product_id,old_qty,change_qty,current_qty," +
                          " mrp,batch_id,expiry_date,reason,created_by,created_on)" +
-                         " values(" + xProductId  + "," + xOldQty + "," + xSalesQty + "," + xNewQty + "," + xMrp + "," +
+                         " values(" + xProductId + "," + xOldQty + "," + xSalesQty + "," + xNewQty + "," + xMrp + "," +
                          " '" + xBatch + "','" + txtExpDate.Text + "','" + xReason + "'," +
-                         " '" + xUser  + "','" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")
+                         " '" + xUser + "','" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")
                          + "')";
 
                         myCommand.CommandText = xQryStockHistory;
@@ -437,24 +440,33 @@ namespace NellaiBill.Master
 
         private void txtUserPassword_TextChanged(object sender, EventArgs e)
         {
-           //string  xUserName=(xDb.GetUserNameFromPassword(txtUserPassword.Text));
-           // if (xUserName != "")
-           // {
-           //     btnSaveBill.Enabled = xDb.CheckUserExists(txtUserPassword.Text);
-           //     btnSaveBill.BackColor = Color.Red;
-               
-           // }
-           // else
-           // {
-           //     btnSaveBill.Enabled = xDb.CheckUserExists(txtUserPassword.Text);
-           //     btnSaveBill.BackColor = Color.LavenderBlush;
-           // }
+            //string  xUserName=(xDb.GetUserNameFromPassword(txtUserPassword.Text));
+            // if (xUserName != "")
+            // {
+            //     btnSaveBill.Enabled = xDb.CheckUserExists(txtUserPassword.Text);
+            //     btnSaveBill.BackColor = Color.Red;
+
+            // }
+            // else
+            // {
+            //     btnSaveBill.Enabled = xDb.CheckUserExists(txtUserPassword.Text);
+            //     btnSaveBill.BackColor = Color.LavenderBlush;
+            // }
 
         }
 
         private void btnSaveBill_Click(object sender, EventArgs e)
         {
-            SaveData("S");
+            DialogResult result = MessageBox.Show("Do you want to save?", "Confirmation", MessageBoxButtons.YesNo);
+            if (result == DialogResult.Yes)
+            {
+                SaveData("S");
+            }
+            else if (result == DialogResult.No)
+            {
+                //...
+            }
+         
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
@@ -514,7 +526,7 @@ namespace NellaiBill.Master
 
         private void txtPaid_KeyPress(object sender, KeyPressEventArgs e)
         {
-            AcceptOnlyNumeric(e);      
+            AcceptOnlyNumeric(e);
         }
 
         private void AcceptOnlyNumeric(KeyPressEventArgs e)
@@ -527,7 +539,7 @@ namespace NellaiBill.Master
 
         private void txtUserPassword_KeyPress(object sender, KeyPressEventArgs e)
         {
-            
+
         }
 
         private void txtQty_KeyPress(object sender, KeyPressEventArgs e)
@@ -543,6 +555,36 @@ namespace NellaiBill.Master
         private void txtDiscountValue_KeyPress(object sender, KeyPressEventArgs e)
         {
             AcceptOnlyNumeric(e);
+        }
+
+        private void txtProductCode_TextChanged(object sender, EventArgs e)
+        {
+            txtUnitPrice.Text = "";
+          StockResponseModel stockResponseModel = xDb.GetStockFromQuery("select  " +
+                " s.stock_id, s.product_id, p.product_name, " +
+                " s.qty, s.mrp, s.batch_id, s.expiry_date, p.gst " +
+                " from m_product p,stock s " +
+                " where  s.product_id = p.product_id " +
+                " and product_code = '" + txtProductCode.Text + "'");
+            ProductModel productModel = xDb.GetProductFromProductId("select * from m_product where product_id=" + stockResponseModel.ProductId);
+            txtItem.Text = productModel.ProductName;
+            txtItemNo.Text = productModel.ProductId.ToString();
+            txtMrp.Text = stockResponseModel.Mrp.ToString();
+            txtStockId.Text = stockResponseModel.StockId.ToString();
+            txtStock.Text = stockResponseModel.Qty.ToString();
+            txtTax.Text = productModel.Gst;
+            txtBatch.Text = stockResponseModel.Batch;
+            txtExpDate.Text = stockResponseModel.ExpDate.ToString();
+            if (txtMrp.Text != "" && txtTax.Text != "")
+            {
+
+                /*Included Gst Logic */
+                double xUnitMrp = double.Parse(txtMrp.Text.ToString());
+                double xGstBefore = double.Parse(txtTax.Text.ToString()) / 100 + 1;
+                double xUnitRate = (((xUnitMrp / xGstBefore)));
+
+                txtUnitPrice.Text = xUnitRate.ToString("#.##");
+            }
         }
     }
 }

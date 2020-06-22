@@ -1,52 +1,63 @@
 ﻿using MySql.Data.MySqlClient;
+using NellaiBill.Common;
+using NellaiBill.Models;
 using System;
 using System.Windows.Forms;
 
 namespace NellaiBill
 {
     public partial class Backup : Form
-    {
+    {     
         public Backup()
         {
             InitializeComponent();
         }
         DatabaseConnection xDb = new DatabaseConnection();
+        
         private void btnBackup_Click(object sender, EventArgs e)
         {
-            string xCompanyName = "SHC";
+
             try
             {
-                if(txtFilePath.Text=="")
+                if (txtFilePath.Text == "")
                 {
                     MessageBox.Show("Please Choose Folder");
                     return;
                 }
-                // string file =   txtFilePath.Text + xCompanyName + "_" + DateTime.Now + "_" + "backup.sql";
-                string file = txtFilePath.Text +"backup.sql";
-                using (xDb.connection = new MySqlConnection(xDb.conString))
-                {
-                    using (MySqlCommand cmd = new MySqlCommand())
-                    {
-                        using (MySqlBackup mb = new MySqlBackup(cmd))
-                        {
-                            cmd.Connection = xDb.connection;
-                            xDb.connection.Open();
-                            mb.ExportInfo.AddCreateDatabase = true;
-                            mb.ExportInfo.ExportTableStructure = true;
-                            mb.ExportInfo.ExportRows = true;
-                            mb.ExportToFile(file);
-                            xDb.connection.Close();
+    
 
-                        }
-                    }
-                }
+                BackUpDatabase(txtFilePath.Text);
                 MessageBox.Show("Back up completed");
             }
-            catch(Exception ex )
+            catch (Exception ex )
             {
                 MessageBox.Show("Some Error - Back up not completed" + ex);
             }
 
+        }
+
+        public void BackUpDatabase(string file)
+        {
+            CompanyInfoResponseModel response = xDb.GetCompanyDetails();
+            string xCompanyName = response.CompanyTitle;
+            string xCurrentDateTime = DateTime.Now.ToString("ddMMMMyyyy_h_mm_tt");
+            string xFileName = file + "\\" + xCompanyName + "_" + xCurrentDateTime + ".sql";
+            using (xDb.connection = new MySqlConnection(xDb.conString))
+            {
+                using (MySqlCommand cmd = new MySqlCommand())
+                {
+                    using (MySqlBackup mb = new MySqlBackup(cmd))
+                    {
+                        cmd.Connection = xDb.connection;
+                        xDb.connection.Open();
+                        mb.ExportInfo.AddCreateDatabase = true;
+                        mb.ExportInfo.ExportTableStructure = true;
+                        mb.ExportInfo.ExportRows = true;
+                        mb.ExportToFile(xFileName);
+                        xDb.connection.Close();
+                    }
+                }
+            }
         }
 
         private void btnBrowse_Click(object sender, EventArgs e)
@@ -58,6 +69,50 @@ namespace NellaiBill
                 folderPath = folderBrowserDialog1.SelectedPath;
             }
             txtFilePath.Text = folderPath;
+            //string xQry = "update config set backup_path='" + folderPath + "'";
+            //xDb.DataProcess(xQry);
+            MessageBox.Show("Path Setting - Done");
+        }
+
+        private void Backup_Load(object sender, EventArgs e)
+        {
+            //ConfigResponseModel model = xDb.GetConfig();
+            //txtFilePath.Text= model.BackUpPath;
+            if(LoginInfo.UserID== "Developer")
+            {
+                grpRestore.Visible = true;
+            }
+        }
+
+        private void btnRestoreBrowse_Click(object sender, EventArgs e)
+        {
+            string folderPath = "";
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                folderPath = openFileDialog.FileName;
+            }
+            txtRestoreFilePath.Text = folderPath;;
+        }
+
+        private void btnRestore_Click(object sender, EventArgs e)
+        {
+            
+            string xRestoreFilePath = txtRestoreFilePath.Text;
+              using (MySqlConnection conn = new MySqlConnection(xDb.conString))
+            {
+                using (MySqlCommand cmd = new MySqlCommand())
+                {
+                    using (MySqlBackup mb = new MySqlBackup(cmd))
+                    {
+                        cmd.Connection = conn;
+                        conn.Open();
+                        mb.ImportFromFile(xRestoreFilePath);
+                        conn.Close();
+                    }
+                }
+            }
+            MessageBox.Show(" Restore completed");
         }
     }
 }

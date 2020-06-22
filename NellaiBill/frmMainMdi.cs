@@ -10,6 +10,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -61,7 +62,7 @@ namespace NellaiBill
 
         private void setPriceToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            SetPrice setPrice = new SetPrice();
+            StockAdjustment setPrice = new StockAdjustment();
             setPrice.MdiParent = this;
             setPrice.Show();
         }
@@ -114,7 +115,7 @@ namespace NellaiBill
 
         private void setPriceToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
-            SetPrice setPrice = new SetPrice();
+            StockAdjustment setPrice = new StockAdjustment();
             setPrice.MdiParent = this;
             setPrice.Show();
         }
@@ -185,14 +186,6 @@ namespace NellaiBill
             purchaseEntry.MdiParent = this;
             purchaseEntry.Show();
         }
-
-        private void stockAdjustmentToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            SetPrice setPrice = new SetPrice();
-            setPrice.MdiParent = this;
-            setPrice.Show();
-        }
-
         private void supplerToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Supplier ledger = new Supplier();
@@ -483,6 +476,30 @@ namespace NellaiBill
             Backup backup = new Backup();
             backup.MdiParent = this;
             backup.Show();
+        }
+
+        private void calculatorToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            //string filename = "calc.exe";
+
+            //Process runcalc = Process.Start(filename);
+
+            //while (runcalc.MainWindowHandle == IntPtr.Zero)
+            //{
+
+            //    System.Threading.Thread.Sleep(10);
+
+            //    runcalc.Refresh();
+
+            //}
+            System.Diagnostics.Process.Start("calc.exe");
+        }
+
+        private void stockAdjustmentToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            StockAdjustment setPrice = new StockAdjustment();
+            setPrice.MdiParent = this;
+            setPrice.Show();
         }
     }   
 }

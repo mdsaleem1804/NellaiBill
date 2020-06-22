@@ -37,6 +37,7 @@ namespace NellaiBill.Master
         private void LoadGrid()
         {
             string xQuery = "select c.category_id,g.group_id,c.category_name,g.group_name from m_category c,m_group g where c.category_id = g.category_id";
+            cmbCategory.SelectedIndex = 1;
             xDb.LoadGrid(xQuery, dataGridView1);
             btnSaveUpdate.Text = "SAVE";
         }
