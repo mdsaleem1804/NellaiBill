@@ -55,6 +55,10 @@ namespace NellaiBill.Transaction
             {
                 btnPatientSearch.PerformClick();
             }
+            if (e.Control == true && e.KeyCode == Keys.S)
+            {
+                mBtnSaveUpdate.PerformClick();
+            }
         }
 
         private void btnPatientSearch_Click(object sender, EventArgs e)
@@ -241,12 +245,22 @@ namespace NellaiBill.Transaction
         private void OPPrint(int OPNo)
         {
 
-            ReportDocument reportDocument = new ReportDocument();
-            GlobalClass globalClass = new GlobalClass();
-            string path = globalClass.GetReportPath() + "rptOutpatientBill.rpt";
-            reportDocument.Load(path);
-            reportDocument.SetParameterValue("opno", OPNo);
-            reportDocument.PrintToPrinter(1, true, 0, 0);
+            DialogResult result = MessageBox.Show("Do you want to print?", "Confirmation", MessageBoxButtons.YesNo);
+            if (result == DialogResult.Yes)
+            {
+
+                ReportDocument reportDocument = new ReportDocument();
+                GlobalClass globalClass = new GlobalClass();
+                string path = globalClass.GetReportPath() + "rptOutpatientBill.rpt";
+                reportDocument.Load(path);
+                reportDocument.SetParameterValue("opno", OPNo);
+                reportDocument.PrintToPrinter(1, true, 0, 0);
+            }
+            else if (result == DialogResult.No)
+            {
+                //...
+            }
+
         }
 
         private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)

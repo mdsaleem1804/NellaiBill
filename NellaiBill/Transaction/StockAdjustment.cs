@@ -1,4 +1,5 @@
 ﻿using MySql.Data.MySqlClient;
+using NellaiBill.Common;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,7 +17,7 @@ namespace NellaiBill.Master
         DatabaseConnection xDb = new DatabaseConnection();
         int xStockId;
         int xProductId;
-        int xItemId;
+        int xOldQty = 0;
         public StockAdjustment()
         {
             InitializeComponent();
@@ -40,15 +41,15 @@ namespace NellaiBill.Master
 
                 double xMrp = Convert.ToDouble(dr.Cells["mrp"].Value);
                 double xStock = Convert.ToDouble(dr.Cells["qty"].Value);
-                xStockValue+= xMrp* xStock;
+                xStockValue += xMrp * xStock;
             }
-           // lblTotalStockValue.Text = xStockValue.ToString();
+            // lblTotalStockValue.Text = xStockValue.ToString();
         }
 
 
         private void LoadGrid()
         {
-            string xQuery = "select s.stock_id,i.product_id,i.product_name,s.mrp,s.qty,s.batch_id " +
+            string xQuery = "select s.stock_id,i.product_id,i.product_name,s.mrp,s.qty,s.batch_id,s.expiry_date  " +
                 " from m_product i, stock s where i.product_id = s.product_id";
             xDb.LoadGrid(xQuery, dataGridView1);
         }
@@ -65,11 +66,13 @@ namespace NellaiBill.Master
             if (e.RowIndex >= 0)
             {
                 xStockId = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString());
-                xItemId = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString());
+                xProductId = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString());
                 txtItemName.Text = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
                 txtPrice.Text = dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString();
                 txtStock.Text = dataGridView1.Rows[e.RowIndex].Cells[4].Value.ToString();
+                xOldQty= Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[4].Value.ToString());
                 txtBatch.Text = dataGridView1.Rows[e.RowIndex].Cells[5].Value.ToString();
+                txtExpDate.Text = dataGridView1.Rows[e.RowIndex].Cells[6].Value.ToString();
                 btnSaveUpdate.Enabled = true;
             }
 
@@ -84,29 +87,34 @@ namespace NellaiBill.Master
                 MySqlCommand myCommand = myConnection.CreateCommand();
                 try
                 {
+                    
+                    int xChangeQty = Convert.ToInt32(txtStock.Text);
+                    int xCurrentQty = Convert.ToInt32(txtStock.Text);
+                    decimal xMrp = Convert.ToDecimal(txtPrice.Text);
+                    string xBatch = txtBatch.Text;
+                    string xExpDate = txtExpDate.Text;
+                    string xLogMessage = "STOCK ADJUSTMENT";
+
                     string xUpdateStockQry = "update stock " +
-                   " set mrp=" + Convert.ToDecimal(txtPrice.Text) + "," +
-                   " stock=" + Convert.ToInt32(txtStock.Text) + "," +
-                   " batch_id='" + txtBatch.Text + "'" +
+                   " set mrp=" + xMrp + "," +
+                   " qty=" + xCurrentQty + "," +
+                   " batch_id='" + xBatch + "'" +
                    " where  stock_id= " + xStockId + "";
-         
+
                     myCommand.CommandText = xUpdateStockQry;
                     myCommand.ExecuteNonQuery();
 
-                    string xQryStockDetails1 = "insert into stock_history" +
-                                  " (stock_history_itemno,stock_history_qty," +
-                                  " stock_history_mrp,stock_history_batch," +
-                                  " stock_history_datetime,stock_history_mode)" +
-                                  " values(" + xItemId
-                                  + ","  + Convert.ToInt32(txtStock.Text)
-                                  + "," + Convert.ToDouble(txtPrice.Text)
-                                  + ",'" + txtBatch.Text.ToString()
-                                  + "','" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") 
-                                  + "','STOCK ADJUSTMENT')";
-                    //string xQryStockDetails = "insert into stock_history" +
-                    //       " (product_id,old_qty,change_qty,current_qty,mrp,batch_id,expiry_date,reason,created_by,created_on)" +
-                    //       "values(" + xProductId + "," + xOldQty + "," + xTotalQty + "," + xNewQty + "," + xMrp + ",'" + xBatch + "'," +
-                    //     " '" + xExpDate + "','" + xLogMessage + "','" + xUser + "','" + xCurrentDateTime + "')";
+                    string xQryStockDetails = "insert into stock_history" +
+                            "(product_id,old_qty,change_qty,current_qty," +
+                            " mrp,batch_id,expiry_date,reason,created_by,created_on)" +
+                             "values(" + xProductId + ", " + xOldQty + ", " +
+                             " " + xChangeQty + "," + xCurrentQty + "," +
+                             " " + xMrp + "," +
+                             " '" + xBatch + "'," +
+                             " '" + xExpDate + "'," +
+                             " '" + xLogMessage + "'," +
+                             " '" + LoginInfo.UserID + "'," +
+                             " '" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "')";
 
                     myCommand.CommandText = xQryStockDetails;
                     myCommand.ExecuteNonQuery();

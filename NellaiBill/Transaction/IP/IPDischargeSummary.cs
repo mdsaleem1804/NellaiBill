@@ -26,7 +26,11 @@ namespace NellaiBill.Transaction.IP
             xDb.LoadComboBoxData("select ipno,admitted_by from ip_admission where is_paid=0", cmbIPNo);
             LoadGrid();
             txtDischargeNo.Text = xDb.GetMaxId("ip_discharge_entry_id", "ip_discharge_entry").ToString();
-            cmbIPNo.SelectedIndex=0;
+            if (cmbIPNo.Items.Count > 0)
+                cmbIPNo.SelectedIndex = 0;
+            else
+                MessageBox.Show("IP - Patient Not Exists");
+            LoadGrid();
             this.KeyPreview = true;
         }
 

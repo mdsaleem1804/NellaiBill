@@ -278,9 +278,9 @@ E:\Dotnet\NellaiBill\NellaiBill\obj\Debug\NellaiBill.csproj.CopyComplete
 E:\Dotnet\NellaiBill\NellaiBill\obj\Debug\NellaiBill.exe
 E:\Dotnet\NellaiBill\NellaiBill\obj\Debug\NellaiBill.pdb
 E:\Dotnet\NellaiBill\NellaiBill\obj\Debug\NellaiBill.Master.LabFeesMaster.resources
-E:\Dotnet\NellaiBill\NellaiBill\obj\Debug\NellaiBill.csprojAssemblyReference.cache
 E:\Dotnet\NellaiBill\NellaiBill\obj\Debug\NellaiBill.Common.DeveloperDashboard.resources
 E:\Dotnet\NellaiBill\NellaiBill\bin\Debug\MetroFramework.Design.dll
 E:\Dotnet\NellaiBill\NellaiBill\bin\Debug\MetroFramework.dll
 E:\Dotnet\NellaiBill\NellaiBill\bin\Debug\MetroFramework.Fonts.dll
 E:\Dotnet\NellaiBill\NellaiBill\obj\Debug\NellaiBill.Master.StockAdjustment.resources
+E:\Dotnet\NellaiBill\NellaiBill\obj\Debug\NellaiBill.csprojAssemblyReference.cache

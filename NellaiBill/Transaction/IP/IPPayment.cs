@@ -24,7 +24,10 @@ namespace NellaiBill.Transaction.IP
             xDb.LoadComboBoxData("select ipno,admitted_by from ip_admission where is_paid=0", cmbIPNo);
             txtAdvanceBillNo.Text = xDb.GetMaxId("advance_payment_id", "ip_advance_payment").ToString();
             this.KeyPreview = true;
-            cmbIPNo.SelectedIndex = 0;
+            if (cmbIPNo.Items.Count > 0)
+                cmbIPNo.SelectedIndex = 0;
+            else
+                MessageBox.Show("IP - Patient Not Exists");
             LoadGrid();
         }
         private void LoadGrid()

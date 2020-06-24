@@ -89,11 +89,11 @@
             this.toolStripBackUp = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.calculatorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.stockAdjustmentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.LogoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.purchaseReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.feesMasterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.stockAdjustmentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.StatusStrip1.SuspendLayout();
             this.menuStrip2.SuspendLayout();
             this.SuspendLayout();
@@ -594,16 +594,23 @@
             // toolStripMenuItem2
             // 
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(169, 22);
             this.toolStripMenuItem2.Text = "Backup";
             this.toolStripMenuItem2.Click += new System.EventHandler(this.toolStripMenuItem2_Click);
             // 
             // calculatorToolStripMenuItem
             // 
             this.calculatorToolStripMenuItem.Name = "calculatorToolStripMenuItem";
-            this.calculatorToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.calculatorToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
             this.calculatorToolStripMenuItem.Text = "Calculator";
             this.calculatorToolStripMenuItem.Click += new System.EventHandler(this.calculatorToolStripMenuItem_Click_1);
+            // 
+            // stockAdjustmentToolStripMenuItem
+            // 
+            this.stockAdjustmentToolStripMenuItem.Name = "stockAdjustmentToolStripMenuItem";
+            this.stockAdjustmentToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
+            this.stockAdjustmentToolStripMenuItem.Text = "Stock Adjustment";
+            this.stockAdjustmentToolStripMenuItem.Click += new System.EventHandler(this.stockAdjustmentToolStripMenuItem_Click_1);
             // 
             // LogoutToolStripMenuItem
             // 
@@ -633,13 +640,6 @@
             this.timer1.Enabled = true;
             this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
-            // stockAdjustmentToolStripMenuItem
-            // 
-            this.stockAdjustmentToolStripMenuItem.Name = "stockAdjustmentToolStripMenuItem";
-            this.stockAdjustmentToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.stockAdjustmentToolStripMenuItem.Text = "Stock Adjustment";
-            this.stockAdjustmentToolStripMenuItem.Click += new System.EventHandler(this.stockAdjustmentToolStripMenuItem_Click_1);
             // 
             // frm_main_mdi
             // 

@@ -85,7 +85,7 @@ namespace NellaiBill.Master
 
         private void txtSearch_TextChanged(object sender, EventArgs e)
         {
-            string xFilterSearch = "patient_name Like '%" + txtSearch.Text + "%' OR uhid LIKE '%" + txtSearch.Text + "%'";
+            string xFilterSearch = "Name Like '%" + txtSearch.Text + "%' OR uhid LIKE '%" + txtSearch.Text + "%'";
             (dataGridView1.DataSource as DataTable).DefaultView.RowFilter = string.Format(xFilterSearch);
         }
     }

@@ -43,6 +43,8 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.txtSearch = new System.Windows.Forms.TextBox();
+            this.txtExpDate = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel3.SuspendLayout();
             this.SuspendLayout();
@@ -111,14 +113,14 @@
             this.txtPrice.Enabled = false;
             this.txtPrice.Location = new System.Drawing.Point(420, 46);
             this.txtPrice.Name = "txtPrice";
-            this.txtPrice.Size = new System.Drawing.Size(190, 20);
+            this.txtPrice.Size = new System.Drawing.Size(71, 20);
             this.txtPrice.TabIndex = 14;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(645, 46);
+            this.label3.Location = new System.Drawing.Point(505, 47);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(55, 20);
             this.label3.TabIndex = 15;
@@ -126,14 +128,14 @@
             // 
             // txtStock
             // 
-            this.txtStock.Location = new System.Drawing.Point(723, 46);
+            this.txtStock.Location = new System.Drawing.Point(566, 46);
             this.txtStock.Name = "txtStock";
-            this.txtStock.Size = new System.Drawing.Size(190, 20);
+            this.txtStock.Size = new System.Drawing.Size(57, 20);
             this.txtStock.TabIndex = 16;
             // 
             // txtBatch
             // 
-            this.txtBatch.Location = new System.Drawing.Point(116, 89);
+            this.txtBatch.Location = new System.Drawing.Point(703, 44);
             this.txtBatch.Name = "txtBatch";
             this.txtBatch.Size = new System.Drawing.Size(190, 20);
             this.txtBatch.TabIndex = 18;
@@ -142,7 +144,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(12, 87);
+            this.label4.Location = new System.Drawing.Point(641, 44);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(56, 20);
             this.label4.TabIndex = 17;
@@ -187,12 +189,31 @@
             this.txtSearch.TabIndex = 83;
             this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
             // 
+            // txtExpDate
+            // 
+            this.txtExpDate.Location = new System.Drawing.Point(116, 87);
+            this.txtExpDate.Name = "txtExpDate";
+            this.txtExpDate.Size = new System.Drawing.Size(190, 20);
+            this.txtExpDate.TabIndex = 86;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(21, 87);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(78, 20);
+            this.label6.TabIndex = 85;
+            this.label6.Text = "ExpDate";
+            // 
             // StockAdjustment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(1305, 582);
+            this.ClientSize = new System.Drawing.Size(1028, 582);
+            this.Controls.Add(this.txtExpDate);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.txtSearch);
             this.Controls.Add(this.panel3);
@@ -234,5 +255,7 @@
         internal System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtSearch;
+        private System.Windows.Forms.TextBox txtExpDate;
+        private System.Windows.Forms.Label label6;
     }
 }
