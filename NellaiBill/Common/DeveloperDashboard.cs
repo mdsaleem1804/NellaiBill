@@ -25,7 +25,7 @@ namespace NellaiBill.Common
         "port=" + xPort + ";" +
         "User Id=" + xUserName + ";" +
         "password=" + Decrypt(xPassword, "hana-sept-mber16") + "; Convert Zero Datetime=True;CharSet=utf8;";
-
+        DatabaseConnection xDb = new DatabaseConnection();
         public DeveloperDashboard()
         {
             InitializeComponent();
@@ -33,7 +33,7 @@ namespace NellaiBill.Common
 
         private void DeveloperDashboard_Load(object sender, EventArgs e)
         {
-            
+            //cmbIsHms.Text=xDb.GetConfig().IsHms;
         }
 
         private void btnCreateDatabase_Click(object sender, EventArgs e)
@@ -94,6 +94,19 @@ namespace NellaiBill.Common
 
             Backup nextForm = new Backup();
             nextForm.ShowDialog();
+        }
+
+        private void btnRemove_Click(object sender, EventArgs e)
+        {
+            using (var conn = new MySqlConnection(xDb.conString))
+
+            using (var cmd = conn.CreateCommand())
+            {
+                conn.Open();
+                cmd.CommandText = "DROP DATABASE `hms_lhs`;";
+                cmd.ExecuteNonQuery();
+            }
+            MessageBox.Show("Database Removed");
         }
     }
 }

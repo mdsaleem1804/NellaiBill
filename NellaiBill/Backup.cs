@@ -69,19 +69,28 @@ namespace NellaiBill
                 folderPath = folderBrowserDialog1.SelectedPath;
             }
             txtFilePath.Text = folderPath;
-            //string xQry = "update config set backup_path='" + folderPath + "'";
-            //xDb.DataProcess(xQry);
+            //Issue Solved via https://www.codeproject.com/Questions/1246134/Csharp-textbox-not-contains-backslash-while-insert 
+            // To be concentrate sql injection in future
+
+            string xCSharpMySqlPath = folderPath.Replace("\\", "\\\\");
+            
+            string xQry = "update config set backup_path='" + xCSharpMySqlPath + "'";
+            xDb.DataProcess(xQry);
             MessageBox.Show("Path Setting - Done");
         }
 
         private void Backup_Load(object sender, EventArgs e)
         {
-            //ConfigResponseModel model = xDb.GetConfig();
-            //txtFilePath.Text= model.BackUpPath;
+            ConfigResponseModel model = xDb.GetConfig();
+            txtFilePath.Text= model.BackUpPath;
             if(LoginInfo.UserID== "Developer")
             {
                 grpRestore.Visible = true;
             }
+            string xQuery = "select date as Date,path as Path from backup";
+            
+            xDb.LoadGrid(xQuery, dataGridView1);
+            dataGridView1.Columns[0].Width = 200;
         }
 
         private void btnRestoreBrowse_Click(object sender, EventArgs e)
@@ -113,6 +122,11 @@ namespace NellaiBill
                 }
             }
             MessageBox.Show(" Restore completed");
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

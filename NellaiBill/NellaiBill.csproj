@@ -33,7 +33,7 @@
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>x64</PlatformTarget>
+    <PlatformTarget>x86</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -255,6 +255,13 @@
       <SubType>Component</SubType>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
+    <Compile Include="CrystalReports\rptSalesBill1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptSalesBill.rpt</DependentUpon>
+      <SubType>Component</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
     <Compile Include="CrystalReports\rptScanBill.cs">
       <DependentUpon>rptScanBill.rpt</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -384,6 +391,12 @@
     </Compile>
     <Compile Include="Master\DoctorRegistration.Designer.cs">
       <DependentUpon>DoctorRegistration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Master\IPFeesMaster.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Master\IPFeesMaster.Designer.cs">
+      <DependentUpon>IPFeesMaster.cs</DependentUpon>
     </Compile>
     <Compile Include="Master\LabFeesMaster.cs">
       <SubType>Form</SubType>
@@ -812,6 +825,11 @@
       <LastGenOutput>rptPurchaseReturn.cs</LastGenOutput>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReports\rptSalesBill.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptSalesBill1.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
     <EmbeddedResource Include="CrystalReports\rptScanBill.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>rptScanBill.cs</LastGenOutput>
@@ -901,6 +919,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Master\DoctorRegistration.resx">
       <DependentUpon>DoctorRegistration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master\IPFeesMaster.resx">
+      <DependentUpon>IPFeesMaster.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Master\LabFeesMaster.resx">
       <DependentUpon>LabFeesMaster.cs</DependentUpon>

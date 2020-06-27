@@ -111,14 +111,14 @@ namespace NellaiBill
             while (currentLoggedInUser.Read())
             {
                 xId = Convert.ToInt32(currentLoggedInUser.GetString(0));
-                if (xId > 60)
-                {
-                    MessageBox.Show("Your Key is not Activted . \n" + 
-                        "In Case you purchased this Software. \n" +
-                        "Please ask your Sales Person to Activate this product.");
+                //if (xId > 60)
+                //{
+                //    MessageBox.Show("Your Key is not Activted . \n" + 
+                //        "In Case you purchased this Software. \n" +
+                //        "Please ask your Sales Person to Activate this product.");
 
-                    System.Windows.Forms.Application.Exit();
-                }
+                //    System.Windows.Forms.Application.Exit();
+                //}
             }
             connection.Close();
             return xId;
@@ -187,23 +187,7 @@ namespace NellaiBill
             }
             return false;
         }
-        public void GetConfigValues()
-        {
-            connection = new MySqlConnection(conString);
-            string xQry = "select batch_id,exp_date,stock,gst from config";
-            connection.Open();
-            MySqlCommand comm = new MySqlCommand(xQry, connection);
-
-            MySqlDataReader mySqlDataReader = comm.ExecuteReader();
-
-            while (mySqlDataReader.Read())
-            {
-                xGBatch = Convert.ToInt32(mySqlDataReader.GetString(0));
-
-            }
-            connection.Close();
-
-        }
+       
 
         public void LoadDatabaseConfig()
         {
@@ -339,6 +323,28 @@ namespace NellaiBill
             i = dt.Rows.Count;
             return i;
         }
+        public bool OpenConnection()
+        {
+            try
+            {
+                connection = new MySqlConnection(conString);
+                connection.Open();
+                return true;
+            }
+            catch (MySqlException ex)
+            {
+               
+                switch (ex.Number)
+                {
+                    case 1042:
+                        MessageBox.Show("Cannot connect to server.  Please Turn On your Server");
+                        System.Windows.Forms.Application.Exit();
+                        break;
+                }
+                return false;
+            }
+        }
+
         public string GetTestFees(int xTestId)
         {
             using (connection = new MySqlConnection(conString))
@@ -390,7 +396,13 @@ namespace NellaiBill
                 {
                     model = new ConfigResponseModel()
                     {
-                        BackUpPath = reader.GetString("backup_path")
+                        BackUpPath = reader.GetString("backup_path"),
+                        IsHms= reader.GetString("is_hms"),
+                        IsBatch = reader.GetString("is_batch"),
+                        IsExpiry = reader.GetString("is_expiry"),
+                        IS_M_ProductnameInTamil = reader.GetString("is_m_product_name_in_tamil"),         
+                        IS_M_HsnCode = reader.GetString("is_m_hsn_code"),
+                        IS_M_ProductCode = reader.GetString("is_m_product_code")
                     };
                 }
                 connection.Close();
@@ -549,6 +561,8 @@ namespace NellaiBill
             }
             return model;
         }
+
+    
         public StockResponseModel GetStockFromQuery(String xQry)
         {
             StockResponseModel model = new StockResponseModel();
@@ -593,6 +607,7 @@ namespace NellaiBill
                     {
                         ProductId = reader.GetInt32("product_id"),
                         ProductName = reader.GetString("product_name"),
+                        ProductCode = reader.GetString("product_code"),
                         Gst = reader.GetString("gst")
                     };
                 }

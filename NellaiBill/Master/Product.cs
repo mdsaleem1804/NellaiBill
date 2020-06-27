@@ -2,6 +2,7 @@
 using iTextSharp.text.pdf;
 using MySql.Data.MySqlClient;
 using NellaiBill.Common;
+using NellaiBill.Models;
 using System;
 using System.Data;
 using System.Drawing;
@@ -41,8 +42,25 @@ namespace NellaiBill.Master
             dataGridView1.Columns[3].Visible = false;
             xCategoryId = Int32.Parse(cmbCategory.SelectedValue.ToString());
             dataGridView1.ColumnHeadersDefaultCellStyle.Font = new System.Drawing.Font("Tahoma", 10, FontStyle.Bold);
-            cmbCategory.Select();
+            cmbCategory.SelectedIndex = 1;
+            cmbGroup.Select();
             cmbTax.SelectedIndex = 0;
+
+            if(xDb.GetConfig().IS_M_ProductnameInTamil=="NO")
+            {
+                lblProductNameInTamil.Visible = false;
+                txtProductNameInTamil.Visible = false;
+            }
+            if (xDb.GetConfig().IS_M_HsnCode == "NO")
+            {
+                lblHsnCode.Visible = false;
+                txtHsnCode.Visible = false;
+            }
+            if (xDb.GetConfig().IS_M_ProductCode == "NO")
+            {
+                lblProductCode.Visible = false;
+                txtProductCode.Visible = false;
+            }
         }
 
         private void LoadGrid()
@@ -164,8 +182,6 @@ namespace NellaiBill.Master
             xDb.LoadComboBox("select group_id,group_name" +
                 " from m_group where category_id=" + xCategoryId, cmbGroup, "group_id", "group_name");
         }
-
-
 
         private void mBtnCancel_Click(object sender, EventArgs e)
         {
@@ -436,6 +452,21 @@ namespace NellaiBill.Master
                 return false;
             }
             return cell1.Value.ToString() == cell2.Value.ToString();
+        }
+
+      
+        private void txtProductCode_Leave(object sender, EventArgs e)
+        {
+            string xQry = "select * from m_product where product_code = '" + txtProductCode.Text + "'";
+            ProductModel productModel = xDb.GetProductFromProductId(xQry);
+            if (productModel.ProductCode == null)
+            {
+
+            }
+            else
+            {
+                MessageBox.Show("Code Already Entered for " + productModel.ProductName);
+            }
         }
     }
 }

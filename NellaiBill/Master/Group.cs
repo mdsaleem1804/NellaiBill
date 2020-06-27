@@ -31,12 +31,13 @@ namespace NellaiBill.Master
             dataGridView1.ReadOnly = true;
             dataGridView1.Columns[0].Visible = false;
             dataGridView1.Columns[1].Visible = false;
+            dataGridView1.Columns[2].Visible = false;
 
             dataGridView1.ColumnHeadersDefaultCellStyle.Font = new Font("Tahoma", 10, FontStyle.Bold);
         }
         private void LoadGrid()
         {
-            string xQuery = "select c.category_id,g.group_id,c.category_name,g.group_name from m_category c,m_group g where c.category_id = g.category_id";
+            string xQuery = "select c.category_id,g.group_id,c.category_name,g.group_name as GROUPNAME from m_category c,m_group g where c.category_id = g.category_id";
             cmbCategory.SelectedIndex = 1;
             xDb.LoadGrid(xQuery, dataGridView1);
             btnSaveUpdate.Text = "SAVE";
@@ -126,6 +127,6 @@ namespace NellaiBill.Master
             DataClear();
         }
 
-       
+      
     }
 }

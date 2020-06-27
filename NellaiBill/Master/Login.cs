@@ -16,6 +16,7 @@ namespace NellaiBill.Master
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
+
               if (txtUserName.Text == "Developer" && txtPassword.Text == "nellaibill")
             {
                 LoginInfo.UserID = txtUserName.Text;
@@ -42,20 +43,23 @@ namespace NellaiBill.Master
 
         private void Login_Load(object sender, EventArgs e)
         {
-            string xMacAddress = "";
-            foreach (NetworkInterface nic in NetworkInterface.GetAllNetworkInterfaces())
-            {
 
-                if (nic.OperationalStatus == OperationalStatus.Up && (!nic.Description.Contains("Virtual") && !nic.Description.Contains("Pseudo")))
-                {
-                    if (nic.GetPhysicalAddress().ToString() != "")
-                    {
-                        xMacAddress = nic.GetPhysicalAddress().ToString();
-                    }
-                }
-            }
+            xDb.OpenConnection();
+            
+            //string xMacAddress = "";
+            //foreach (NetworkInterface nic in NetworkInterface.GetAllNetworkInterfaces())
+            //{
 
-            string xEncrypted = CryptoEngine.Encrypt(xMacAddress, "sblw-3hn8-sqoy19");
+            //    if (nic.OperationalStatus == OperationalStatus.Up && (!nic.Description.Contains("Virtual") && !nic.Description.Contains("Pseudo")))
+            //    {
+            //        if (nic.GetPhysicalAddress().ToString() != "")
+            //        {
+            //            xMacAddress = nic.GetPhysicalAddress().ToString();
+            //        }
+            //    }
+            //}
+
+            //string xEncrypted = CryptoEngine.Encrypt(xMacAddress, "sblw-3hn8-sqoy19");
            //  if (xDb.GetTotalCount("select * from m_user where password='" + xEncrypted + "'") ==1)
            ////if (xDb.GetTotalCount("select * from m_login where password='" + xEncrypted + "'") == 1)
            // {       

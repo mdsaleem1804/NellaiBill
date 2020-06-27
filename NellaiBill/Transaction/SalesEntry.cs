@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Drawing;
 using System.Windows.Forms;
+using CrystalDecisions.CrystalReports.Engine;
 using MySql.Data.MySqlClient;
 using NellaiBill.Common;
 using NellaiBill.Models;
@@ -342,7 +343,15 @@ namespace NellaiBill.Master
                     myCommand.ExecuteNonQuery();
 
                     myTrans.Commit();
-                    MessageBox.Show("Record Saved Succesfully Id is " + xSalesId);
+                    DialogResult result = MessageBox.Show("Do you want to print?", "Confirmation", MessageBoxButtons.YesNo);
+                    if (result == DialogResult.Yes)
+                    {
+                        PrintBill(xSalesId);
+                    }
+                    else if (result == DialogResult.No)
+                    {
+                        //...
+                    }
                 }
                 catch (Exception ex)
                 {
@@ -361,6 +370,15 @@ namespace NellaiBill.Master
             DataClearAfterSave();
 
             lblInvoiceNo.Text = xDb.GetMaxId("sales_id", "sales").ToString();
+        }
+        private void PrintBill(int billno)
+        {
+            ReportDocument reportDocument = new ReportDocument();
+            GlobalClass globalClass = new GlobalClass();
+            string path = globalClass.GetReportPath() + "rptSalesBill.rpt";
+            reportDocument.Load(path);
+            reportDocument.SetParameterValue("SalesId", billno);
+            reportDocument.PrintToPrinter(1, true, 0, 0);
         }
 
         private void txtDiscPercentage_Leave(object sender, EventArgs e)

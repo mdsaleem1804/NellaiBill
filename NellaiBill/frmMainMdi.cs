@@ -26,16 +26,37 @@ namespace NellaiBill
             InitializeComponent();
         }
         GlobalClass globalClass = new GlobalClass();
+        DatabaseConnection xDb = new DatabaseConnection();
         string xUserName = LoginInfo.UserID;
 
         private void frm_main_mdi_Load(object sender, EventArgs e)
         {
-            lblUserType.Text = xUserName;         
+            lblUserType.Text = xUserName;
+            categoryToolStripMenuItem.Visible = false;
+            if (xDb.GetConfig().IsHms == "NO")
+            {
+                patientRegistrationToolStripMenuItem.Visible = false;
+                doctorRegistrationToolStripMenuItem.Visible = false;
+                scanTestMasterToolStripMenuItem.Visible = false;
+                ScanFeesMasterToolStripMenuItem.Visible = false;
+                labFeesMasterToolStripMenuItem.Visible = false;
+                caseTypeMasterToolStripMenuItem.Visible = false;
+                roomMasterToolStripMenuItem.Visible = false;
+                iPFeesMasterToolStripMenuItem.Visible = false;
+
+                hmsTransactionMenu.Visible = false;
+                oPSummaryReportToolStripMenuItem.Visible = false;
+                scanSummaryToolStripMenuItem.Visible = false;
+                labReportToolStripMenuItem.Visible = false;
+                iPToolStripMenuItem.Visible = false;
+                auditorDiagnosisSummaryReportToolStripMenuItem.Visible = false;
+                ecgXraySummaryReportToolStripMenuItem.Visible = false;
+            }
             Dashboard dashboard = new Dashboard();
             dashboard.MdiParent = this;
             dashboard.Show();
         }
-     
+
         private void salemToolStripMenuItem_Click(object sender, EventArgs e)
         {
             SalesEntry s = new SalesEntry();
@@ -170,7 +191,7 @@ namespace NellaiBill
             salesEntry.Show();
         }
 
-     
+
 
 
         private void stockReportToolStripMenuItem_Click(object sender, EventArgs e)
@@ -303,7 +324,7 @@ namespace NellaiBill
                 MessageBox.Show("Acces is denied");
                 return;
             }
-        
+
         }
 
 
@@ -497,9 +518,17 @@ namespace NellaiBill
 
         private void stockAdjustmentToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
-            StockAdjustment setPrice = new StockAdjustment();
-            setPrice.MdiParent = this;
-            setPrice.Show();
+            StockAdjustment stockAdjustment = new StockAdjustment();
+            stockAdjustment.MdiParent = this;
+            stockAdjustment.Show();
         }
-    }   
+
+        private void iPFeesMasterToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            IPFeesMaster master = new IPFeesMaster();
+            master.MdiParent = this;
+            master.Show();
+
+        }
+    }
 }

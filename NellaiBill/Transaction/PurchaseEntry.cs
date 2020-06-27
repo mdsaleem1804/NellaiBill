@@ -3,6 +3,7 @@ using NellaiBill.Common;
 using NellaiBill.Master;
 using NellaiBill.Models;
 using System;
+using System.ComponentModel;
 using System.Windows.Forms;
 
 namespace NellaiBill.Transaction
@@ -28,11 +29,21 @@ namespace NellaiBill.Transaction
             lblInvoiceNo.Text = xDb.GetMaxId("purchase_id", "purchase").ToString();
             dtpExpDate.Value.Date.AddDays(365);
             this.KeyPreview = true;
+            if (xDb.GetConfig().IsExpiry == "NO")
+            {
+                dtpExpDate.Enabled = false;
+            }
+            if (xDb.GetConfig().IsBatch == "NO")
+            {
+                txtBatch.Enabled = false;
+                txtBatch.Text = "DEFAULT";
+                txtQty.Select();
+            }
         }
 
         public void DataClear()
         {
-            txtItemName.Text="";
+            txtItemName.Text = "";
             txtItemNo.Text = "";
             txtBatch.Text = "";
             txtQty.Text = "";
@@ -42,7 +53,7 @@ namespace NellaiBill.Transaction
             txtSR.Text = "";
             txtDiscPercentage.Text = "0";
             txtDiscountValue.Text = "0";
-           // txtTax.Text = "Please select";
+            // txtTax.Text = "Please select";
             txtLessAmount.Text = "0";
 
 
@@ -155,7 +166,7 @@ namespace NellaiBill.Transaction
                         int xProductId = Convert.ToInt32(dr.Cells["product_id"].Value);
                         int xQty = Convert.ToInt32(dr.Cells["Qty"].Value);
                         int xPackOf = Convert.ToInt32(dr.Cells["PackOf"].Value);
-                        int xTotalQty = xQty  * xPackOf;
+                        int xTotalQty = xQty * xPackOf;
                         string xBatch = dr.Cells["Batch"].Value.ToString();
                         string xExpDate = dr.Cells["ExpDate"].Value.ToString();
                         double xMrp = Convert.ToDouble(dr.Cells["SellingPrice"].Value);
@@ -171,19 +182,19 @@ namespace NellaiBill.Transaction
                            " " + xMrp + "," +
                            " " + Convert.ToDouble(dr.Cells["Price"].Value) + "," +
                            " " + Convert.ToDouble(dr.Cells["DiscPercentage"].Value) + "," +
-                           " " + xGst+ "," +
-                           " " + Convert.ToDouble(dr.Cells["TotalAmount"].Value) +  " )";
+                           " " + xGst + "," +
+                           " " + Convert.ToDouble(dr.Cells["TotalAmount"].Value) + " )";
 
                         myCommand.CommandText = xQryInsertPurchase;
                         myCommand.ExecuteNonQuery();
                         string xLogMessage = "";
-                        StockResponseModel  stockResponseModel= xDb.GetStockFromQuery("select * from stock where product_id = " + xProductId + " and batch_id = '" + xBatch + "' and mrp = '" + xMrp + "'");
+                        StockResponseModel stockResponseModel = xDb.GetStockFromQuery("select * from stock where product_id = " + xProductId + " and batch_id = '" + xBatch + "' and mrp = '" + xMrp + "'");
                         int xOldQty = 0;
                         int xNewQty = 0;
-                        if (stockResponseModel.Mrp>0)
+                        if (stockResponseModel.Mrp > 0)
                         {
-                             xOldQty = stockResponseModel.Qty;
-                             xNewQty = xTotalQty + xOldQty;
+                            xOldQty = stockResponseModel.Qty;
+                            xNewQty = xTotalQty + xOldQty;
                             String xQryUpdateStock = "update stock set  " +
                                 " qty=" + xNewQty + ",updated_by = '" + xUser + "', updated_on = '" + xCurrentDateTime + "' " +
                                 " where product_id=" + xProductId + " and batch_id = '" + xBatch + "' " +
@@ -204,7 +215,7 @@ namespace NellaiBill.Transaction
                             xLogMessage = "PURCHASE CREATED FOR NEW BATCH MRP";
                         }
 
-                         xOldQty = stockResponseModel.Qty;
+                        xOldQty = stockResponseModel.Qty;
                         xNewQty = xTotalQty + xOldQty;
                         string xQryStockDetails = "insert into stock_history" +
                                   " (product_id,old_qty,change_qty,current_qty,mrp,batch_id,expiry_date,reason,created_by,created_on)" +
@@ -268,14 +279,14 @@ namespace NellaiBill.Transaction
 
         private void txtPackOf_Leave(object sender, EventArgs e)
         {
+
             if (txtQty.Text == "")
             {
                 MessageBox.Show("Please Enter Qty ");
                 txtQty.Focus();
                 return;
             }
-           
-            txtTotalQty.Text = ((double.Parse(txtQty.Text) ) * double.Parse(txtPackOf.Text)).ToString("#.##");
+            txtTotalQty.Text = ((double.Parse(txtQty.Text)) * double.Parse(txtPackOf.Text)).ToString("#.##");
 
         }
 
@@ -346,7 +357,12 @@ namespace NellaiBill.Transaction
                 txtBatch.Focus();
                 return;
             }
-
+            if (txtItemNo.Text == "")
+            {
+                MessageBox.Show("Please Choose Item");
+                txtBatch.Focus();
+                return;
+            }
             int xItemId = Convert.ToInt32(txtItemNo.Text.ToString());
             double xMrp = Convert.ToDouble(txtSR.Text.ToString());
             int xCount = xDb.GetTotalCount("select * from stock where product_id = " + xItemId + " and batch_id = '" + txtBatch.Text + "' and mrp =" + xMrp);
@@ -370,7 +386,7 @@ namespace NellaiBill.Transaction
             }
         }
 
-       
+
 
         private void btnLedgerSearch_Click(object sender, EventArgs e)
         {
@@ -391,10 +407,15 @@ namespace NellaiBill.Transaction
             search.ShowDialog();
             if (search.xItemNo.ToString() != "0")
             {
-                txtItemName.Text = search.xItemName.ToString();               
+                txtItemName.Text = search.xItemName.ToString();
                 txtItemNo.Text = search.xItemNo.ToString();
                 cmbTax.Text = search.xTax.ToString();
                 txtBatch.Select();
+                if(xDb.GetConfig().IsBatch=="NO")
+                {
+                    txtBatch.Text = "DEFAULT";
+                    txtQty.Select();
+                }
             }
         }
 
@@ -457,7 +478,7 @@ namespace NellaiBill.Transaction
             }
 
 
-            double xAmount = (double.Parse(txtTotalQty.Text)  ) * double.Parse(txtPR.Text);
+            double xAmount = (double.Parse(txtTotalQty.Text)) * double.Parse(txtPR.Text);
             double xAmountAfterDiscount = xAmount - double.Parse(txtDiscountValue.Text);
             double xGstValue = xAmountAfterDiscount * (double.Parse(cmbTax.Text) / 100);
             double xTotalAmount = xAmountAfterDiscount + xGstValue;
@@ -496,6 +517,64 @@ namespace NellaiBill.Transaction
             DataClear();
             CalculateTotalAmount();
 
+        }
+
+
+
+        private static void AcceptDecimal(object sender, KeyPressEventArgs e)
+        {
+
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
+      (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+
+            // only allow one decimal point
+            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private static void AcceptNumeric(KeyPressEventArgs e)
+        {
+            //We only want to allow numeric style chars
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                //Setting e.Handled cancels the keypress event, so the key is not entered
+                e.Handled = true;
+            }
+        }
+
+        private void txtQty_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            AcceptNumeric(e);
+        }
+
+        private void txtPackOf_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            AcceptNumeric(e);
+        }
+
+        private void txtPR_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            AcceptDecimal(sender, e);
+        }
+
+        private void txtSR_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            AcceptDecimal(sender, e);
+        }
+
+        private void txtDiscPercentage_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            AcceptDecimal(sender, e);
+        }
+
+        private void txtDiscountValue_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            AcceptDecimal(sender, e);
         }
     }
 }

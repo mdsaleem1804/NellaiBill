@@ -42,9 +42,11 @@
             this.btnRestore = new MaterialSkin.Controls.MaterialRaisedButton();
             this.btnRestoreBrowse = new MaterialSkin.Controls.MaterialRaisedButton();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.groupBox1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.grpRestore.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -55,7 +57,7 @@
             this.groupBox1.Controls.Add(this.btnBrowse);
             this.groupBox1.Location = new System.Drawing.Point(12, 76);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(776, 144);
+            this.groupBox1.Size = new System.Drawing.Size(605, 95);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Backup";
@@ -66,7 +68,7 @@
             this.materialLabel1.Depth = 0;
             this.materialLabel1.Font = new System.Drawing.Font("Roboto", 11F);
             this.materialLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel1.Location = new System.Drawing.Point(54, 18);
+            this.materialLabel1.Location = new System.Drawing.Point(6, 18);
             this.materialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel1.Name = "materialLabel1";
             this.materialLabel1.Size = new System.Drawing.Size(124, 19);
@@ -76,7 +78,7 @@
             // txtFilePath
             // 
             this.txtFilePath.Enabled = false;
-            this.txtFilePath.Location = new System.Drawing.Point(232, 19);
+            this.txtFilePath.Location = new System.Drawing.Point(6, 40);
             this.txtFilePath.Name = "txtFilePath";
             this.txtFilePath.Size = new System.Drawing.Size(440, 20);
             this.txtFilePath.TabIndex = 2;
@@ -84,7 +86,7 @@
             // btnBackup
             // 
             this.btnBackup.Depth = 0;
-            this.btnBackup.Location = new System.Drawing.Point(695, 73);
+            this.btnBackup.Location = new System.Drawing.Point(498, 49);
             this.btnBackup.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnBackup.Name = "btnBackup";
             this.btnBackup.Primary = true;
@@ -97,7 +99,7 @@
             // btnBrowse
             // 
             this.btnBrowse.Depth = 0;
-            this.btnBrowse.Location = new System.Drawing.Point(695, 19);
+            this.btnBrowse.Location = new System.Drawing.Point(498, 14);
             this.btnBrowse.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnBrowse.Name = "btnBrowse";
             this.btnBrowse.Primary = true;
@@ -135,9 +137,9 @@
             this.grpRestore.Controls.Add(this.txtRestoreFilePath);
             this.grpRestore.Controls.Add(this.btnRestore);
             this.grpRestore.Controls.Add(this.btnRestoreBrowse);
-            this.grpRestore.Location = new System.Drawing.Point(12, 251);
+            this.grpRestore.Location = new System.Drawing.Point(623, 81);
             this.grpRestore.Name = "grpRestore";
-            this.grpRestore.Size = new System.Drawing.Size(776, 144);
+            this.grpRestore.Size = new System.Drawing.Size(580, 90);
             this.grpRestore.TabIndex = 4;
             this.grpRestore.TabStop = false;
             this.grpRestore.Text = "Restore";
@@ -149,7 +151,7 @@
             this.materialLabel2.Depth = 0;
             this.materialLabel2.Font = new System.Drawing.Font("Roboto", 11F);
             this.materialLabel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel2.Location = new System.Drawing.Point(54, 18);
+            this.materialLabel2.Location = new System.Drawing.Point(14, 19);
             this.materialLabel2.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel2.Name = "materialLabel2";
             this.materialLabel2.Size = new System.Drawing.Size(124, 19);
@@ -159,7 +161,7 @@
             // txtRestoreFilePath
             // 
             this.txtRestoreFilePath.Enabled = false;
-            this.txtRestoreFilePath.Location = new System.Drawing.Point(232, 19);
+            this.txtRestoreFilePath.Location = new System.Drawing.Point(18, 50);
             this.txtRestoreFilePath.Name = "txtRestoreFilePath";
             this.txtRestoreFilePath.Size = new System.Drawing.Size(440, 20);
             this.txtRestoreFilePath.TabIndex = 2;
@@ -167,7 +169,7 @@
             // btnRestore
             // 
             this.btnRestore.Depth = 0;
-            this.btnRestore.Location = new System.Drawing.Point(695, 72);
+            this.btnRestore.Location = new System.Drawing.Point(479, 50);
             this.btnRestore.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnRestore.Name = "btnRestore";
             this.btnRestore.Primary = true;
@@ -180,7 +182,7 @@
             // btnRestoreBrowse
             // 
             this.btnRestoreBrowse.Depth = 0;
-            this.btnRestoreBrowse.Location = new System.Drawing.Point(695, 19);
+            this.btnRestoreBrowse.Location = new System.Drawing.Point(479, 15);
             this.btnRestoreBrowse.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnRestoreBrowse.Name = "btnRestoreBrowse";
             this.btnRestoreBrowse.Primary = true;
@@ -194,11 +196,22 @@
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(3, 191);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(1008, 409);
+            this.dataGridView1.TabIndex = 79;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            // 
             // Backup
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1280, 450);
+            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.grpRestore);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.groupBox1);
@@ -211,6 +224,7 @@
             this.panel3.PerformLayout();
             this.grpRestore.ResumeLayout(false);
             this.grpRestore.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -231,5 +245,6 @@
         private MaterialSkin.Controls.MaterialRaisedButton btnRestore;
         private MaterialSkin.Controls.MaterialRaisedButton btnRestoreBrowse;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.DataGridView dataGridView1;
     }
 }

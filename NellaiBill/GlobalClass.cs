@@ -1,4 +1,6 @@
-﻿namespace NellaiBill
+﻿using System.Windows.Forms;
+
+namespace NellaiBill
 {
     public class GlobalClass
     {
@@ -16,6 +18,10 @@
             //return "E:\\Dotnet\\NellaiBill\\NellaiBill\\CrystalReports\\";
            // return "D:\\Saleem\\reports\\";
             return System.Windows.Forms.Application.StartupPath + "\\CrystalReports\\";
+        }
+        public void DisplayMessage(string xMessage)
+        {
+            MessageBox.Show(xMessage);
         }
 
     }

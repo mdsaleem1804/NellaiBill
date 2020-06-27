@@ -24,7 +24,19 @@ namespace NellaiBill
 
         private void Dashboard_Load(object sender, EventArgs e)
         {
-            PrintReceiptPage(sender, e);
+            //PrintReceiptPage(sender, e);
+            String xDate = DateTime.Now.ToString("yyyy-MM-dd");
+            DatabaseConnection xDb = new DatabaseConnection();
+            Backup xBackUp = new Backup();
+            ConfigResponseModel configResponse = xDb.GetConfig();
+            xBackUp.BackUpDatabase(configResponse.BackUpPath);
+            BackUpResponseModel backupResponse = xDb.GetBackUpHistory(xDate);
+            if (backupResponse.BackUpPath == null)
+            {
+                string xQry = "insert into backup (date,path) " +
+                    " values('" + xDate + "','" + configResponse.BackUpPath.Replace("\\", "\\\\")  + "')";
+                xDb.DataProcess(xQry);
+            }
         }
         private static void PrintReceiptPage(object sender, EventArgs e)
         {
@@ -113,18 +125,7 @@ namespace NellaiBill
             //// Read a file  
             //string readText = File.ReadAllText(@"C:\Users\Welcome\Desktop\backup\csc.txt");
             //Console.WriteLine(readText);
-            //String xDate = DateTime.Now.ToString("yyyy-MM-dd");
-            //DatabaseConnection xDb = new DatabaseConnection();
-            //Backup xBackUp = new Backup();
-            //ConfigResponseModel configResponse = xDb.GetConfig();
-            //xBackUp.BackUpDatabase(configResponse.BackUpPath);
-            //BackUpResponseModel backupResponse = xDb.GetBackUpHistory(xDate);
-            //if (backupResponse.BackUpPath == null)
-            //{
-            //    string xQry = "insert into backup (date,path) " +
-            //        " values('" + xDate + "','" + configResponse.BackUpPath + "')";
-            //    xDb.DataProcess(xQry);
-            //}
+            
         }
     }
 }

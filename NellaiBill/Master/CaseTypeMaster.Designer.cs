@@ -71,14 +71,16 @@
             this.btnSaveUpdate.TabIndex = 36;
             this.btnSaveUpdate.Text = "SAVE";
             this.btnSaveUpdate.UseVisualStyleBackColor = false;
+            this.btnSaveUpdate.Click += new System.EventHandler(this.btnSaveUpdate_Click);
             // 
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(37, 129);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(880, 394);
+            this.dataGridView1.Size = new System.Drawing.Size(880, 541);
             this.dataGridView1.TabIndex = 35;
+            this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
             // 
             // txtCaseTypeName
             // 
@@ -104,7 +106,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1137, 450);
+            this.ClientSize = new System.Drawing.Size(1138, 584);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.btnSaveUpdate);
             this.Controls.Add(this.dataGridView1);
