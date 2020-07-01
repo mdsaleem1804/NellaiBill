@@ -166,6 +166,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Accounts\AccountGroup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Accounts\AccountGroup.Designer.cs">
+      <DependentUpon>AccountGroup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Accounts\Receipt.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Accounts\Receipt.Designer.cs">
+      <DependentUpon>Receipt.cs</DependentUpon>
+    </Compile>
     <Compile Include="Activation.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -185,6 +197,12 @@
       <DependentUpon>DeveloperDashboard.cs</DependentUpon>
     </Compile>
     <Compile Include="Common\LoginInfo.cs" />
+    <Compile Include="Common\SystemInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Common\SystemInfo.Designer.cs">
+      <DependentUpon>SystemInfo.cs</DependentUpon>
+    </Compile>
     <Compile Include="CrystalReports\rptDischargeBill.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -785,6 +803,12 @@
     <Compile Include="YearEnd.Designer.cs">
       <DependentUpon>YearEnd.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Accounts\AccountGroup.resx">
+      <DependentUpon>AccountGroup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Accounts\Receipt.resx">
+      <DependentUpon>Receipt.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Activation.resx">
       <DependentUpon>Activation.cs</DependentUpon>
     </EmbeddedResource>
@@ -793,6 +817,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Common\DeveloperDashboard.resx">
       <DependentUpon>DeveloperDashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Common\SystemInfo.resx">
+      <DependentUpon>SystemInfo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CrystalReports\rptDischargeBill.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
@@ -1194,7 +1221,6 @@
   <ItemGroup>
     <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <Content Include="Common\hms_lhs.sql" />
     <Content Include="h_icon_cng_icon.ico" />

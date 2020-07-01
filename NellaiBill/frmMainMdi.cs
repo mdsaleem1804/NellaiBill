@@ -1,5 +1,6 @@
 ﻿using MySql.Data;
 using MySql.Data.MySqlClient;
+using NellaiBill.Accounts;
 using NellaiBill.Common;
 using NellaiBill.Master;
 using NellaiBill.Reports;
@@ -327,10 +328,7 @@ namespace NellaiBill
             CommonFormControls(new Backup());
         }
 
-        private void calculatorToolStripMenuItem_Click_1(object sender, EventArgs e)
-        {
-            System.Diagnostics.Process.Start("calc.exe");
-        }
+        
 
         private void stockAdjustmentToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
@@ -355,6 +353,40 @@ namespace NellaiBill
         private void stockDetailsBetweenDateToolStripMenuItem_Click(object sender, EventArgs e)
         {
             CommonFormControls(new StockDetailBetweenDate());
+        }
+        private void calculatorToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("calc.exe");
+        }
+        private void NotepadToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("Notepad.exe");
+        }
+
+        private void WordpadToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("wordpad.exe");
+        }
+
+        private void MSWordToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("winword.exe");
+            
+        }
+
+        private void TaskManagerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("TaskMgr.exe");
+        }
+
+        private void SystemInfoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CommonFormControls(new SystemInfo());
+        }
+
+        private void accountGroupToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CommonFormControls(new AccountGroup());
         }
     }
 }

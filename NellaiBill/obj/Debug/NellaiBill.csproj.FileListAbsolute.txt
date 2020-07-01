@@ -171,3 +171,5 @@ E:\Dotnet\NellaiBill\NellaiBill\bin\Debug\CrystalReports\rptPatientList.cs
 E:\Dotnet\NellaiBill\NellaiBill\obj\Debug\NellaiBill.Reports.PatientList.resources
 E:\Dotnet\NellaiBill\NellaiBill\obj\Debug\NellaiBill.Reports.StockDetailBetweenDate.resources
 E:\Dotnet\NellaiBill\NellaiBill\obj\Debug\NellaiBill.csprojAssemblyReference.cache
+E:\Dotnet\NellaiBill\NellaiBill\obj\Debug\NellaiBill.Common.SystemInfo.resources
+E:\Dotnet\NellaiBill\NellaiBill\obj\Debug\NellaiBill.Accounts.AccountGroup.resources
