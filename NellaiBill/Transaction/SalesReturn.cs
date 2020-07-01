@@ -114,11 +114,6 @@ namespace NellaiBill.Transaction
                 rchRemarks.Focus();
                 return;
             }
-            ValidateQty();
-            DataProcess();
-        }
-        public void ValidateQty()
-        {
             if (Convert.ToInt32(txtOldQty.Text) >= Convert.ToInt32(txtChangeQty.Text))
             {
 
@@ -130,7 +125,9 @@ namespace NellaiBill.Transaction
                 txtChangeQty.Focus();
                 return;
             }
+            DataProcess();
         }
+       
         public void DataProcess()
         {
             string xUser = LoginInfo.UserID;

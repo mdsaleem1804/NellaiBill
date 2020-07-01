@@ -761,6 +761,7 @@
             this.txtQty.TabIndex = 14;
             this.txtQty.Tag = "Qty";
             this.txtQty.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtQty_KeyPress);
+            this.txtQty.Leave += new System.EventHandler(this.txtQty_Leave);
             // 
             // label5
             // 
@@ -935,7 +936,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(1270, 623);
+            this.ClientSize = new System.Drawing.Size(1304, 623);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.txtLessAmount);
             this.Controls.Add(this.label13);

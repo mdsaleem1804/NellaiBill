@@ -367,7 +367,7 @@
             this.txtChangeQty.Location = new System.Drawing.Point(100, 336);
             this.txtChangeQty.Name = "txtChangeQty";
             this.txtChangeQty.Size = new System.Drawing.Size(137, 20);
-            this.txtChangeQty.TabIndex = 104;
+            this.txtChangeQty.TabIndex = 60;
             // 
             // label9
             // 
@@ -384,7 +384,7 @@
             this.txtExpDate.Name = "txtExpDate";
             this.txtExpDate.ReadOnly = true;
             this.txtExpDate.Size = new System.Drawing.Size(138, 20);
-            this.txtExpDate.TabIndex = 102;
+            this.txtExpDate.TabIndex = 58;
             // 
             // label15
             // 
@@ -400,7 +400,7 @@
             this.rchRemarks.Location = new System.Drawing.Point(100, 264);
             this.rchRemarks.Name = "rchRemarks";
             this.rchRemarks.Size = new System.Drawing.Size(137, 56);
-            this.rchRemarks.TabIndex = 100;
+            this.rchRemarks.TabIndex = 59;
             this.rchRemarks.Text = "";
             // 
             // label1
@@ -418,7 +418,7 @@
             this.txtItemNo.Name = "txtItemNo";
             this.txtItemNo.ReadOnly = true;
             this.txtItemNo.Size = new System.Drawing.Size(133, 20);
-            this.txtItemNo.TabIndex = 97;
+            this.txtItemNo.TabIndex = 53;
             // 
             // label7
             // 
@@ -435,7 +435,7 @@
             this.txtItemName.Name = "txtItemName";
             this.txtItemName.ReadOnly = true;
             this.txtItemName.Size = new System.Drawing.Size(137, 20);
-            this.txtItemName.TabIndex = 95;
+            this.txtItemName.TabIndex = 54;
             // 
             // label11
             // 
@@ -452,7 +452,7 @@
             this.txtMrp.Name = "txtMrp";
             this.txtMrp.ReadOnly = true;
             this.txtMrp.Size = new System.Drawing.Size(137, 20);
-            this.txtMrp.TabIndex = 93;
+            this.txtMrp.TabIndex = 55;
             // 
             // label18
             // 
@@ -469,7 +469,7 @@
             this.txtBatch.Name = "txtBatch";
             this.txtBatch.ReadOnly = true;
             this.txtBatch.Size = new System.Drawing.Size(137, 20);
-            this.txtBatch.TabIndex = 90;
+            this.txtBatch.TabIndex = 56;
             // 
             // label20
             // 
@@ -486,7 +486,7 @@
             this.txtOldQty.Name = "txtOldQty";
             this.txtOldQty.ReadOnly = true;
             this.txtOldQty.Size = new System.Drawing.Size(137, 20);
-            this.txtOldQty.TabIndex = 91;
+            this.txtOldQty.TabIndex = 57;
             // 
             // label24
             // 
@@ -503,7 +503,7 @@
             this.txtSalesId.Name = "txtSalesId";
             this.txtSalesId.ReadOnly = true;
             this.txtSalesId.Size = new System.Drawing.Size(133, 20);
-            this.txtSalesId.TabIndex = 64;
+            this.txtSalesId.TabIndex = 52;
             // 
             // label16
             // 

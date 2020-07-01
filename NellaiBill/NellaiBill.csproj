@@ -248,6 +248,13 @@
       <SubType>Component</SubType>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
+    <Compile Include="CrystalReports\rptPatientList.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptPatientList.rpt</DependentUpon>
+      <SubType>Component</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
     <Compile Include="CrystalReports\rptPurchaseReturn.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -517,6 +524,12 @@
     <Compile Include="Reports\LabSummaryReport.Designer.cs">
       <DependentUpon>LabSummaryReport.cs</DependentUpon>
     </Compile>
+    <Compile Include="Reports\PatientList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\PatientList.Designer.cs">
+      <DependentUpon>PatientList.cs</DependentUpon>
+    </Compile>
     <Compile Include="Reports\PurchaseReturnReport.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -528,6 +541,12 @@
     </Compile>
     <Compile Include="Reports\ScanSummaryReport.Designer.cs">
       <DependentUpon>ScanSummaryReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\StockDetailBetweenDate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\StockDetailBetweenDate.Designer.cs">
+      <DependentUpon>StockDetailBetweenDate.cs</DependentUpon>
     </Compile>
     <Compile Include="Search\SearchDoctor.cs">
       <SubType>Form</SubType>
@@ -820,6 +839,11 @@
       <LastGenOutput>rptPatientInformation.cs</LastGenOutput>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReports\rptPatientList.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptPatientList.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
     <EmbeddedResource Include="CrystalReports\rptPurchaseReturn.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>rptPurchaseReturn.cs</LastGenOutput>
@@ -971,11 +995,17 @@
     <EmbeddedResource Include="Reports\LabSummaryReport.resx">
       <DependentUpon>LabSummaryReport.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reports\PatientList.resx">
+      <DependentUpon>PatientList.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reports\PurchaseReturnReport.resx">
       <DependentUpon>PurchaseReturnReport.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\ScanSummaryReport.resx">
       <DependentUpon>ScanSummaryReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\StockDetailBetweenDate.resx">
+      <DependentUpon>StockDetailBetweenDate.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Search\SearchDoctor.resx">
       <DependentUpon>SearchDoctor.cs</DependentUpon>

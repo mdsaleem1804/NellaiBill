@@ -53,6 +53,8 @@
             this.mbtnPurchaseReturn = new MaterialSkin.Controls.MaterialRaisedButton();
             this.label6 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.txtPurchaseId = new System.Windows.Forms.TextBox();
+            this.label16 = new System.Windows.Forms.Label();
             this.txtExpDate = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
             this.txtMrp = new System.Windows.Forms.TextBox();
@@ -69,8 +71,6 @@
             this.label9 = new System.Windows.Forms.Label();
             this.txtOldQty = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.txtPurchaseId = new System.Windows.Forms.TextBox();
-            this.label16 = new System.Windows.Forms.Label();
             this.panel3.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -362,6 +362,23 @@
             this.panel1.Size = new System.Drawing.Size(355, 433);
             this.panel1.TabIndex = 51;
             // 
+            // txtPurchaseId
+            // 
+            this.txtPurchaseId.Location = new System.Drawing.Point(100, 46);
+            this.txtPurchaseId.Name = "txtPurchaseId";
+            this.txtPurchaseId.ReadOnly = true;
+            this.txtPurchaseId.Size = new System.Drawing.Size(133, 20);
+            this.txtPurchaseId.TabIndex = 64;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(16, 50);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(61, 13);
+            this.label16.TabIndex = 65;
+            this.label16.Text = "PurchaseId";
+            // 
             // txtExpDate
             // 
             this.txtExpDate.Location = new System.Drawing.Point(100, 222);
@@ -452,7 +469,7 @@
             this.rchRemarks.Location = new System.Drawing.Point(100, 251);
             this.rchRemarks.Name = "rchRemarks";
             this.rchRemarks.Size = new System.Drawing.Size(137, 65);
-            this.rchRemarks.TabIndex = 56;
+            this.rchRemarks.TabIndex = 59;
             this.rchRemarks.Text = "";
             // 
             // label10
@@ -469,7 +486,7 @@
             this.txtChangeQty.Location = new System.Drawing.Point(100, 341);
             this.txtChangeQty.Name = "txtChangeQty";
             this.txtChangeQty.Size = new System.Drawing.Size(137, 20);
-            this.txtChangeQty.TabIndex = 55;
+            this.txtChangeQty.TabIndex = 60;
             this.txtChangeQty.Leave += new System.EventHandler(this.txtChangeQty_Leave);
             // 
             // label9
@@ -497,23 +514,6 @@
             this.label7.Size = new System.Drawing.Size(42, 13);
             this.label7.TabIndex = 47;
             this.label7.Text = "Old Qty";
-            // 
-            // txtPurchaseId
-            // 
-            this.txtPurchaseId.Location = new System.Drawing.Point(100, 46);
-            this.txtPurchaseId.Name = "txtPurchaseId";
-            this.txtPurchaseId.ReadOnly = true;
-            this.txtPurchaseId.Size = new System.Drawing.Size(133, 20);
-            this.txtPurchaseId.TabIndex = 64;
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(16, 50);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(61, 13);
-            this.label16.TabIndex = 65;
-            this.label16.Text = "PurchaseId";
             // 
             // PurchaseReturn
             // 

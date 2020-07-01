@@ -55,8 +55,11 @@
             this.cmbUhidSelection = new System.Windows.Forms.ComboBox();
             this.lblSearch = new System.Windows.Forms.Label();
             this.txtSearch = new System.Windows.Forms.TextBox();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -84,7 +87,7 @@
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.txtName);
             this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Location = new System.Drawing.Point(12, 50);
+            this.groupBox1.Location = new System.Drawing.Point(12, 85);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(1273, 193);
             this.groupBox1.TabIndex = 27;
@@ -318,7 +321,7 @@
             // 
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 293);
+            this.dataGridView1.Location = new System.Drawing.Point(12, 328);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(1273, 396);
             this.dataGridView1.TabIndex = 28;
@@ -331,7 +334,7 @@
             this.cmbUhidSelection.Items.AddRange(new object[] {
             "NEW",
             "OLD"});
-            this.cmbUhidSelection.Location = new System.Drawing.Point(32, 12);
+            this.cmbUhidSelection.Location = new System.Drawing.Point(32, 47);
             this.cmbUhidSelection.Name = "cmbUhidSelection";
             this.cmbUhidSelection.Size = new System.Drawing.Size(121, 21);
             this.cmbUhidSelection.TabIndex = 29;
@@ -340,7 +343,7 @@
             // lblSearch
             // 
             this.lblSearch.AutoSize = true;
-            this.lblSearch.Location = new System.Drawing.Point(36, 261);
+            this.lblSearch.Location = new System.Drawing.Point(36, 296);
             this.lblSearch.Name = "lblSearch";
             this.lblSearch.Size = new System.Drawing.Size(41, 13);
             this.lblSearch.TabIndex = 89;
@@ -348,17 +351,40 @@
             // 
             // txtSearch
             // 
-            this.txtSearch.Location = new System.Drawing.Point(128, 258);
+            this.txtSearch.Location = new System.Drawing.Point(128, 293);
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(324, 20);
             this.txtSearch.TabIndex = 90;
             this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
             // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.DarkMagenta;
+            this.panel3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel3.Controls.Add(this.label1);
+            this.panel3.Location = new System.Drawing.Point(12, 6);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(1273, 35);
+            this.panel3.TabIndex = 91;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(359, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(308, 24);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "NEW PATIENT REGISTRATION";
+            // 
             // NewPatient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1028, 701);
+            this.ClientSize = new System.Drawing.Size(1334, 701);
+            this.Controls.Add(this.panel3);
             this.Controls.Add(this.txtSearch);
             this.Controls.Add(this.lblSearch);
             this.Controls.Add(this.cmbUhidSelection);
@@ -370,6 +396,8 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -404,5 +432,7 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.RichTextBox rchNextOfKin;
         private System.Windows.Forms.Label label11;
+        internal System.Windows.Forms.Panel panel3;
+        internal System.Windows.Forms.Label label1;
     }
 }

@@ -7,6 +7,7 @@ namespace NellaiBill.Master
     {
         DatabaseConnection xDb = new DatabaseConnection();
         int xDoctorId;
+        GlobalClass globalClass = new GlobalClass();
         public DoctorRegistration()
         {
             InitializeComponent();
@@ -19,15 +20,52 @@ namespace NellaiBill.Master
             LoadGrid();
         }
 
-        private void mBtnSaveUpdate_Click(object sender, EventArgs e)
+
+
+        private void LoadGrid()
+        {
+            string xQry = "select doctor_id as DoctorId,doctor_name as DoctorName," +
+                " address as Address,mobileno as MobileNo from m_doctor";
+            xDb.LoadGrid(xQry, dataGridView1);
+            dataGridView1.ReadOnly = true;
+            dataGridView1.Columns[0].Visible = false;
+        }
+        private void DataClear()
+        {
+            txtName.Text = "";
+            txtMobileNo.Text = "";
+            rchAddress.Text = "";
+            btnSaveUpdate.Text = "SAVE";
+        }
+
+     
+
+        private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+            xDoctorId = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString());
+            txtName.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
+            rchAddress.Text = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
+            txtMobileNo.Text = dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString();
+            btnSaveUpdate.Text = "UPDATE";
+            mBtnDelete.Enabled = true;
+        }
+
+        private void txtMobileNo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            globalClass.AcceptOnlyNumeric(e);
+        }
+
+        private void btnSaveUpdate_Click(object sender, EventArgs e)
         {
             string xQry = "";
             if (txtName.Text == "")
             {
                 MessageBox.Show("Please Choose Name");
+                txtName.Focus();
                 return;
             }
-            if (mBtnSaveUpdate.Text == "SAVE")
+            if (btnSaveUpdate.Text == "SAVE")
             {
 
                 xQry = "insert into m_doctor (doctor_name,address,mobileno) " +
@@ -45,32 +83,6 @@ namespace NellaiBill.Master
             MessageBox.Show("Saved/Updated");
             LoadGrid();
             DataClear();
-        }
-
-        private void LoadGrid()
-        {
-            string xQry = "select doctor_id as DoctorId,doctor_name as DoctorName," +
-                " address as Address,mobileno as MobileNo from m_doctor";
-            xDb.LoadGrid(xQry, dataGridView1);
-            dataGridView1.ReadOnly = true;
-            dataGridView1.Columns[0].Visible = false;
-        }
-        private void DataClear()
-        {
-            txtName.Text = "";
-        }
-
-     
-
-        private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-            xDoctorId = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString());
-            txtName.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
-            rchAddress.Text = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
-            txtMobileNo.Text = dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString();
-            mBtnSaveUpdate.Text = "UPDATE";
-            mBtnDelete.Enabled = true;
         }
     }
 }

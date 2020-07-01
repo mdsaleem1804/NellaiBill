@@ -51,10 +51,50 @@ namespace NellaiBill
                 iPToolStripMenuItem.Visible = false;
                 auditorDiagnosisSummaryReportToolStripMenuItem.Visible = false;
                 ecgXraySummaryReportToolStripMenuItem.Visible = false;
+                patientInformationReportToolStripMenuItem.Visible = false;
             }
-            Dashboard dashboard = new Dashboard();
-            dashboard.MdiParent = this;
-            dashboard.Show();
+           
+            //Dashboard dashboard = new Dashboard();
+            // dashboard.MdiParent = this;
+            //dashboard.Show();
+            CommonFormControls(new OPBilling());
+        }
+        private void GetAllMenus()
+        {
+            //Reference :https://stackoverflow.com/questions/15380730/foreach-every-subitem-in-a-menustrip
+            List<ToolStripItem> allItems = new List<ToolStripItem>();
+            foreach (ToolStripItem toolItem in menuStrip2.Items)
+            {
+                allItems.Add(toolItem);
+                //add sub items
+                allItems.AddRange(GetItems(toolItem));
+            }
+        }
+        private IEnumerable<ToolStripItem> GetItems(ToolStripItem item)
+        {
+            if (item is ToolStripMenuItem)
+            {
+                foreach (ToolStripItem tsi in (item as ToolStripMenuItem).DropDownItems)
+                {
+                    if (tsi is ToolStripMenuItem)
+                    {
+                        if ((tsi as ToolStripMenuItem).HasDropDownItems)
+                        {
+                            foreach (ToolStripItem subItem in GetItems((tsi as ToolStripMenuItem)))
+                                yield return subItem;
+                        }
+                        yield return (tsi as ToolStripMenuItem);
+                    }
+                    else if (tsi is ToolStripSeparator)
+                    {
+                        yield return (tsi as ToolStripSeparator);
+                    }
+                }
+            }
+            else if (item is ToolStripSeparator)
+            {
+                yield return (item as ToolStripSeparator);
+            }
         }
         private void CommonFormControls(Form xForm)
         {
@@ -63,10 +103,17 @@ namespace NellaiBill
             {
                 this.ActiveMdiChild.Close();
             }
-            xForm.WindowState = FormWindowState.Maximized;
-            xForm.MdiParent = this;
-            xForm.Show();
+            xForm.TopLevel = false;
+            xForm.ControlBox = false;
+            xForm.Dock = DockStyle.Fill;
+           // xForm.BackColor = Color.Aqua;
+            xForm.FormBorderStyle = FormBorderStyle.None;
 
+            /*I assume this code is in your ParentForm and so 'this' points to ParentForm that contains ContainerPanel*/
+            this.ContainerPanel.Controls.Add(xForm);
+            xForm.WindowState = FormWindowState.Maximized;
+           // xForm.MdiParent = this;
+            xForm.Show();
         }
         private void companyToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -226,7 +273,10 @@ namespace NellaiBill
         {
             CommonFormControls(new SalesReturn());
         }
-
+        private void patientInformationReportToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CommonFormControls(new PatientList());
+        }
         private void ecgXraySummaryReportToolStripMenuItem_Click(object sender, EventArgs e)
         {
             CommonFormControls(new EcgXraySummaryReport());
@@ -244,15 +294,7 @@ namespace NellaiBill
         }
         private void auditorDiagnosisSummaryReportToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
-            if (xUserName == "admin")
-            {
-                CommonFormControls(new DiagnosisDateWiseSummaryReport());
-            }
-            else
-            {
-                MessageBox.Show("Sorry !!! Please contact Admin");
-            }
+         CommonFormControls(new DiagnosisDateWiseSummaryReport());  
         }
   
         private void iPConsolidatedReportToolStripMenuItem_Click(object sender, EventArgs e)
@@ -310,5 +352,9 @@ namespace NellaiBill
             lblDateTime.Text = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
         }
 
+        private void stockDetailsBetweenDateToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CommonFormControls(new StockDetailBetweenDate());
+        }
     }
 }

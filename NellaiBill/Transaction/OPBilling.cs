@@ -39,8 +39,6 @@ namespace NellaiBill.Transaction
         {
             this.KeyPreview = true;
             txtOpId.Text = xDb.GetMaxId("txno", "outpatientdetails").ToString();
-            mBtnDelete.Visible = false;
-            mBtnCancel.Visible = false;
             cmbCaseType.Select();
             LoadGrid();
         }
@@ -57,7 +55,7 @@ namespace NellaiBill.Transaction
             }
             if (e.Control == true && e.KeyCode == Keys.S)
             {
-                mBtnSaveUpdate.PerformClick();
+                btnSaveUpdate.PerformClick();
             }
         }
 
@@ -100,20 +98,28 @@ namespace NellaiBill.Transaction
             txtTokenNo.Text = "";
             txtOpId.Text = xDb.GetMaxId("txno", "outpatientdetails").ToString();
             cmbCaseType.Select();
+            btnSaveUpdate.Text = "SAVE";
         }
         private void LoadGrid()
         {
             //string xQry = "select doctor_id as DoctorId,doctor_name as DoctorName," +
             //    " gender as Gender,address as Address,mobileno as MobileNo,created_by as CreatedBy from m_doctor";
-            string xQry = "select o.txno,o.tokenno,o.date,o.noontype,o.uhid,p.patient_name," +
-                " o.casetype,o.casetype1,o.doctor_id,d.doctor_name,o.fees,o.payment_status,op_status " +
+            string xQry = "select o.txno as TxNo,o.tokenno as Token,o.date as Date," +
+                " o.noontype as Noon,o.uhid as UHID,p.patient_name as Name," +
+                " o.casetype as CaseType,o.casetype1 as CaseType1,o.doctor_id,d.doctor_name as Doctor ," +
+                " o.fees as Fees ,o.payment_status as Payment,op_status as Status " +
                 " from  outpatientdetails o, m_patient_registration p, m_doctor d " +
                 " where p.patient_id = o.patient_id " +
                 " and d.doctor_id = o.doctor_id " +
                 " and  o.date ='" + Convert.ToDateTime(DateTime.Today).ToString("yyyy-MM-dd") + "'";
-            xDb.LoadGrid(xQry, dataGridView1);
+            xDb.LoadGrid(xQry, dataGridView1); 
             dataGridView1.ReadOnly = true;
             dataGridView1.Columns[0].Visible = false;
+            dataGridView1.Columns[1].Width = 50;
+            dataGridView1.Columns["Name"].Width = 200;
+            dataGridView1.Columns["Doctor"].Width = 150;
+            dataGridView1.Columns["Fees"].Width = 50;
+            dataGridView1.Columns[2].Visible = false;
             dataGridView1.Columns[8].Visible = false;
         }
 
@@ -127,10 +133,59 @@ namespace NellaiBill.Transaction
             GetMaxTokenNo();
         }
 
-        private void mBtnSaveUpdate_Click_1(object sender, EventArgs e)
+        private void btnPrint_Click(object sender, EventArgs e)
+        {
+            OPPrint(Convert.ToInt32(txtOpId.Text));
+        }
+        private void OPPrint(int OPNo)
         {
 
-           
+            DialogResult result = MessageBox.Show("Do you want to print?", "Confirmation", MessageBoxButtons.YesNo);
+            if (result == DialogResult.Yes)
+            {
+
+                ReportDocument reportDocument = new ReportDocument();
+                GlobalClass globalClass = new GlobalClass();
+                string path = globalClass.GetReportPath() + "rptOutpatientBill.rpt";
+                reportDocument.Load(path);
+                reportDocument.SetParameterValue("opno", OPNo);
+                reportDocument.PrintToPrinter(1, true, 0, 0);
+            }
+            else if (result == DialogResult.No)
+            {
+                //...
+            }
+
+        }
+
+        private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+              
+                txtOpId.Text = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
+                txtPatientName.Text = dataGridView1.Rows[e.RowIndex].Cells["Name"].Value.ToString();
+                txtUhid.Text = dataGridView1.Rows[e.RowIndex].Cells["UHID"].Value.ToString();
+                cmbCaseType1.Text = dataGridView1.Rows[e.RowIndex].Cells[7].Value.ToString();
+                txtDoctorId.Text = dataGridView1.Rows[e.RowIndex].Cells[8].Value.ToString();
+                txtDoctorName.Text = dataGridView1.Rows[e.RowIndex].Cells[9].Value.ToString();
+                txtFees.Text = dataGridView1.Rows[e.RowIndex].Cells[10].Value.ToString();
+                cmbPaymentStatus.Text = dataGridView1.Rows[e.RowIndex].Cells[11].Value.ToString();
+                cmbOpPatientStatus.Text = dataGridView1.Rows[e.RowIndex].Cells[12].Value.ToString();
+                btnSaveUpdate.Text = "UPDATE";
+
+            }
+        }
+
+        private void txtFees_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            GlobalClass globalClass = new GlobalClass();
+            globalClass.AcceptOnlyNumeric(e);
+        }
+
+        private void btnSaveUpdate_Click(object sender, EventArgs e)
+        {
+
             if (cmbCaseType1.Text == "")
             {
                 MessageBox.Show("Something Wrong!!! CaseType1");
@@ -156,12 +211,12 @@ namespace NellaiBill.Transaction
                 cmbOpPatientStatus.Select();
                 return;
             }
-            
+
 
 
             string xQry = "";
 
-            if (mBtnSaveUpdate.Text == "SAVE")
+            if (btnSaveUpdate.Text == "SAVE")
             {
                 if (txtOpId.Text == "")
                 {
@@ -233,51 +288,9 @@ namespace NellaiBill.Transaction
             }
             MessageBox.Show("Saved/Updated");
 
-          
+
             LoadGrid();
             DataClear();
-        }
-
-        private void btnPrint_Click(object sender, EventArgs e)
-        {
-            OPPrint(Convert.ToInt32(txtOpId.Text));
-        }
-        private void OPPrint(int OPNo)
-        {
-
-            DialogResult result = MessageBox.Show("Do you want to print?", "Confirmation", MessageBoxButtons.YesNo);
-            if (result == DialogResult.Yes)
-            {
-
-                ReportDocument reportDocument = new ReportDocument();
-                GlobalClass globalClass = new GlobalClass();
-                string path = globalClass.GetReportPath() + "rptOutpatientBill.rpt";
-                reportDocument.Load(path);
-                reportDocument.SetParameterValue("opno", OPNo);
-                reportDocument.PrintToPrinter(1, true, 0, 0);
-            }
-            else if (result == DialogResult.No)
-            {
-                //...
-            }
-
-        }
-
-        private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex >= 0)
-            {
-              
-                txtOpId.Text = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
-                cmbCaseType1.Text = dataGridView1.Rows[e.RowIndex].Cells[7].Value.ToString();
-                txtDoctorId.Text = dataGridView1.Rows[e.RowIndex].Cells[8].Value.ToString();
-                txtDoctorName.Text = dataGridView1.Rows[e.RowIndex].Cells[9].Value.ToString();
-                txtFees.Text = dataGridView1.Rows[e.RowIndex].Cells[10].Value.ToString();
-                cmbPaymentStatus.Text = dataGridView1.Rows[e.RowIndex].Cells[11].Value.ToString();
-                cmbOpPatientStatus.Text = dataGridView1.Rows[e.RowIndex].Cells[12].Value.ToString();
-                mBtnSaveUpdate.Text = "UPDATE";
-
-            }
         }
     }
 }

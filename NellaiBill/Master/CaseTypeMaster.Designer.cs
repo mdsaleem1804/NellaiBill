@@ -43,7 +43,7 @@
             this.panel3.BackColor = System.Drawing.Color.DarkMagenta;
             this.panel3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panel3.Controls.Add(this.label8);
-            this.panel3.Location = new System.Drawing.Point(37, 23);
+            this.panel3.Location = new System.Drawing.Point(37, 30);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(880, 35);
             this.panel3.TabIndex = 37;
@@ -106,7 +106,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1138, 584);
+            this.ClientSize = new System.Drawing.Size(1028, 584);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.btnSaveUpdate);
             this.Controls.Add(this.dataGridView1);

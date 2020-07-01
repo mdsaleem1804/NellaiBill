@@ -37,7 +37,7 @@ namespace NellaiBill.Transaction
             {
                 txtBatch.Enabled = false;
                 txtBatch.Text = "DEFAULT";
-                txtQty.Select();
+               // txtQty.Select();
             }
         }
 
@@ -280,6 +280,11 @@ namespace NellaiBill.Transaction
         private void txtPackOf_Leave(object sender, EventArgs e)
         {
 
+            CalculateTotalQty();
+
+        }
+        private void CalculateTotalQty()
+        {
             if (txtQty.Text == "")
             {
                 MessageBox.Show("Please Enter Qty ");
@@ -287,7 +292,6 @@ namespace NellaiBill.Transaction
                 return;
             }
             txtTotalQty.Text = ((double.Parse(txtQty.Text)) * double.Parse(txtPackOf.Text)).ToString("#.##");
-
         }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -575,6 +579,11 @@ namespace NellaiBill.Transaction
         private void txtDiscountValue_KeyPress(object sender, KeyPressEventArgs e)
         {
             AcceptDecimal(sender, e);
+        }
+
+        private void txtQty_Leave(object sender, EventArgs e)
+        {
+            CalculateTotalQty();
         }
     }
 }

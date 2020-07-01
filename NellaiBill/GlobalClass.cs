@@ -23,6 +23,12 @@ namespace NellaiBill
         {
             MessageBox.Show(xMessage);
         }
-
+        public void AcceptOnlyNumeric(KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+        }
     }
 }

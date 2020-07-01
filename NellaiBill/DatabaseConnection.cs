@@ -1,6 +1,7 @@
 ﻿using MySql.Data.MySqlClient;
 using NellaiBill.Models;
 using System;
+using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Drawing;
@@ -187,7 +188,7 @@ namespace NellaiBill
             }
             return false;
         }
-       
+
 
         public void LoadDatabaseConfig()
         {
@@ -307,7 +308,7 @@ namespace NellaiBill
                 xComboBox.Items.Add(da[0].ToString());
             }
         }
-       
+
         public int CountRecord(string xQry)
         {
             MySqlConnection con = new MySqlConnection(conString);
@@ -333,7 +334,7 @@ namespace NellaiBill
             }
             catch (MySqlException ex)
             {
-               
+
                 switch (ex.Number)
                 {
                     case 1042:
@@ -397,10 +398,10 @@ namespace NellaiBill
                     model = new ConfigResponseModel()
                     {
                         BackUpPath = reader.GetString("backup_path"),
-                        IsHms= reader.GetString("is_hms"),
+                        IsHms = reader.GetString("is_hms"),
                         IsBatch = reader.GetString("is_batch"),
                         IsExpiry = reader.GetString("is_expiry"),
-                        IS_M_ProductnameInTamil = reader.GetString("is_m_product_name_in_tamil"),         
+                        IS_M_ProductnameInTamil = reader.GetString("is_m_product_name_in_tamil"),
                         IS_M_HsnCode = reader.GetString("is_m_hsn_code"),
                         IS_M_ProductCode = reader.GetString("is_m_product_code")
                     };
@@ -414,7 +415,7 @@ namespace NellaiBill
             BackUpResponseModel model = new BackUpResponseModel();
             using (connection = new MySqlConnection(conString))
             {
-                string xQry = "select * from backup where date='"+ xDate + "'";
+                string xQry = "select * from backup where date='" + xDate + "'";
                 connection.Open();
                 MySqlCommand comm = new MySqlCommand(xQry, connection);
 
@@ -451,7 +452,7 @@ namespace NellaiBill
                     {
                         PatientId = Convert.ToInt32(reader.GetInt32(0)),
                         UHID = reader.GetString(1),
-                        PatientName=reader.GetString(2),
+                        PatientName = reader.GetString(2),
                         PatientAddress = reader.GetString(3)
                     };
                 }
@@ -484,7 +485,7 @@ namespace NellaiBill
         }
         public IPDetailModel GetIpDetailsFromIpNo(int xIpNo)
         {
-            IPDetailModel model =new IPDetailModel();
+            IPDetailModel model = new IPDetailModel();
             using (connection = new MySqlConnection(conString))
             {
                 string xQry = "select p.patient_id,p.patient_name,p.patient_address," +
@@ -501,15 +502,15 @@ namespace NellaiBill
 
                 while (reader.Read())
                 {
-                   model = new IPDetailModel()
+                    model = new IPDetailModel()
                     {
                         PatientId = Convert.ToInt32(reader.GetInt32(0)),
                         PatientName = reader.GetString(1),
                         PatientAddress = reader.GetString(2),
-                        RoomId=reader.GetInt32(3),
+                        RoomId = reader.GetInt32(3),
                         DoctorId = reader.GetInt32(4),
                         CaseTypeId = reader.GetInt32(5)
-                   };
+                    };
                 }
                 connection.Close();
             }
@@ -562,120 +563,140 @@ namespace NellaiBill
             return model;
         }
 
-    
-        public StockResponseModel GetStockFromQuery(String xQry)
+        public List<int> GetStockProductIDs()
         {
+            List<int> values = new List<int>();
             StockResponseModel model = new StockResponseModel();
             using (connection = new MySqlConnection(conString))
             {
-                
-                connection.Open();
-                MySqlCommand comm = new MySqlCommand(xQry, connection);
 
+                connection.Open();
+                MySqlCommand comm = new MySqlCommand("select product_id from m_product", connection);
                 MySqlDataReader reader = comm.ExecuteReader();
 
                 while (reader.Read())
                 {
-                    model = new StockResponseModel()
-                    {
-                        StockId = reader.GetInt32("stock_id"),
-                        ProductId = reader.GetInt32("product_id"),
-                        Qty = reader.GetInt32("qty"),
-                        Mrp = reader.GetDouble("mrp"),
-                        Batch = reader.GetString("batch_id"),
-                        ExpDate = reader.GetDateTime("expiry_date")
-                    };
-                }
-                connection.Close();
+                    values.Add(reader.GetInt32("product_id"));
+                };
             }
-            return model;
+            connection.Close();
+            return values;
         }
-        public ProductModel GetProductFromProductId(String xQry)
+
+    public StockResponseModel GetStockFromQuery(String xQry)
+    {
+        StockResponseModel model = new StockResponseModel();
+        using (connection = new MySqlConnection(conString))
         {
-            ProductModel model = new ProductModel();
-            using (connection = new MySqlConnection(conString))
+
+            connection.Open();
+            MySqlCommand comm = new MySqlCommand(xQry, connection);
+
+            MySqlDataReader reader = comm.ExecuteReader();
+
+            while (reader.Read())
             {
-
-                connection.Open();
-                MySqlCommand comm = new MySqlCommand(xQry, connection);
-
-                MySqlDataReader reader = comm.ExecuteReader();
-
-                while (reader.Read())
+                model = new StockResponseModel()
                 {
-                    model = new ProductModel()
-                    {
-                        ProductId = reader.GetInt32("product_id"),
-                        ProductName = reader.GetString("product_name"),
-                        ProductCode = reader.GetString("product_code"),
-                        Gst = reader.GetString("gst")
-                    };
-                }
-                connection.Close();
+                    StockId = reader.GetInt32("stock_id"),
+                    ProductId = reader.GetInt32("product_id"),
+                    Qty = reader.GetInt32("qty"),
+                    Mrp = reader.GetDouble("mrp"),
+                    Batch = reader.GetString("batch_id"),
+                    ExpDate = reader.GetDateTime("expiry_date")
+                };
             }
-            return model;
+            connection.Close();
         }
-        public string GetRoomFees(int xRoomId)
+        return model;
+    }
+
+    public ProductModel GetProductFromProductId(String xQry)
+    {
+        ProductModel model = new ProductModel();
+        using (connection = new MySqlConnection(conString))
         {
-            using (connection = new MySqlConnection(conString))
+
+            connection.Open();
+            MySqlCommand comm = new MySqlCommand(xQry, connection);
+
+            MySqlDataReader reader = comm.ExecuteReader();
+
+            while (reader.Read())
             {
-                string xQry = "select amount from m_room where room_id= " + xRoomId + "";
-                connection.Open();
-                MySqlCommand comm = new MySqlCommand(xQry, connection);
-
-                MySqlDataReader reader = comm.ExecuteReader();
-
-                while (reader.Read())
+                model = new ProductModel()
                 {
-                    return reader.GetString(0);
-                }
-                connection.Close();
-                return "";
+                    ProductId = reader.GetInt32("product_id"),
+                    ProductName = reader.GetString("product_name"),
+                    ProductCode = reader.GetString("product_code"),
+                    Gst = reader.GetString("gst")
+                };
             }
+            connection.Close();
         }
-        public static string Encrypt(string input, string key)
+        return model;
+    }
+    public string GetRoomFees(int xRoomId)
+    {
+        using (connection = new MySqlConnection(conString))
         {
-            byte[] inputArray = UTF8Encoding.UTF8.GetBytes(input);
-            TripleDESCryptoServiceProvider tripleDES = new TripleDESCryptoServiceProvider();
-            tripleDES.Key = UTF8Encoding.UTF8.GetBytes(key);
-            tripleDES.Mode = CipherMode.ECB;
-            tripleDES.Padding = PaddingMode.PKCS7;
-            ICryptoTransform cTransform = tripleDES.CreateEncryptor();
-            byte[] resultArray = cTransform.TransformFinalBlock(inputArray, 0, inputArray.Length);
-            tripleDES.Clear();
-            return Convert.ToBase64String(resultArray, 0, resultArray.Length);
-        }
-        public static string Decrypt(string input, string key)
-        {
-            byte[] inputArray = Convert.FromBase64String(input);
-            TripleDESCryptoServiceProvider tripleDES = new TripleDESCryptoServiceProvider();
-            tripleDES.Key = UTF8Encoding.UTF8.GetBytes(key);
-            tripleDES.Mode = CipherMode.ECB;
-            tripleDES.Padding = PaddingMode.PKCS7;
-            ICryptoTransform cTransform = tripleDES.CreateDecryptor();
-            byte[] resultArray = cTransform.TransformFinalBlock(inputArray, 0, inputArray.Length);
-            tripleDES.Clear();
-            return UTF8Encoding.UTF8.GetString(resultArray);
-        }
+            string xQry = "select amount from m_room where room_id= " + xRoomId + "";
+            connection.Open();
+            MySqlCommand comm = new MySqlCommand(xQry, connection);
 
-        public string GetCaseTypeNameFromCaseTypeId(int xCaseTypeId)
-        {
-            string xCaseTypeName = "";
-            using (connection = new MySqlConnection(conString))
+            MySqlDataReader reader = comm.ExecuteReader();
+
+            while (reader.Read())
             {
-                string xQry = "select case_type_name from m_case_type where  case_type_id = " + xCaseTypeId + "";
-                connection.Open();
-                MySqlCommand comm = new MySqlCommand(xQry, connection);
-
-                MySqlDataReader reader = comm.ExecuteReader();
-
-                while (reader.Read())
-                {
-                    xCaseTypeName = reader.GetString(0);
-                }
-                connection.Close();
+                return reader.GetString(0);
             }
-            return xCaseTypeName;
+            connection.Close();
+            return "";
         }
     }
+    public static string Encrypt(string input, string key)
+    {
+        byte[] inputArray = UTF8Encoding.UTF8.GetBytes(input);
+        TripleDESCryptoServiceProvider tripleDES = new TripleDESCryptoServiceProvider();
+        tripleDES.Key = UTF8Encoding.UTF8.GetBytes(key);
+        tripleDES.Mode = CipherMode.ECB;
+        tripleDES.Padding = PaddingMode.PKCS7;
+        ICryptoTransform cTransform = tripleDES.CreateEncryptor();
+        byte[] resultArray = cTransform.TransformFinalBlock(inputArray, 0, inputArray.Length);
+        tripleDES.Clear();
+        return Convert.ToBase64String(resultArray, 0, resultArray.Length);
+    }
+    public static string Decrypt(string input, string key)
+    {
+        byte[] inputArray = Convert.FromBase64String(input);
+        TripleDESCryptoServiceProvider tripleDES = new TripleDESCryptoServiceProvider();
+        tripleDES.Key = UTF8Encoding.UTF8.GetBytes(key);
+        tripleDES.Mode = CipherMode.ECB;
+        tripleDES.Padding = PaddingMode.PKCS7;
+        ICryptoTransform cTransform = tripleDES.CreateDecryptor();
+        byte[] resultArray = cTransform.TransformFinalBlock(inputArray, 0, inputArray.Length);
+        tripleDES.Clear();
+        return UTF8Encoding.UTF8.GetString(resultArray);
+    }
+
+    public string GetCaseTypeNameFromCaseTypeId(int xCaseTypeId)
+    {
+        string xCaseTypeName = "";
+        using (connection = new MySqlConnection(conString))
+        {
+            string xQry = "select case_type_name from m_case_type where  case_type_id = " + xCaseTypeId + "";
+            connection.Open();
+            MySqlCommand comm = new MySqlCommand(xQry, connection);
+
+            MySqlDataReader reader = comm.ExecuteReader();
+
+            while (reader.Read())
+            {
+                xCaseTypeName = reader.GetString(0);
+            }
+            connection.Close();
+        }
+        return xCaseTypeName;
+    }
+}
 }

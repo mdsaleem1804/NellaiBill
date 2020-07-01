@@ -71,6 +71,7 @@
             this.POSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.SalesReturnToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.LogsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.patientInformationReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.oPSummaryReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ecgXraySummaryReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.scanSummaryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -90,11 +91,13 @@
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.calculatorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.stockAdjustmentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.LogoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMinimize = new System.Windows.Forms.ToolStripMenuItem();
+            this.LogoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.purchaseReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.feesMasterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.ContainerPanel = new System.Windows.Forms.Panel();
+            this.stockDetailsBetweenDateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.StatusStrip1.SuspendLayout();
             this.menuStrip2.SuspendLayout();
             this.SuspendLayout();
@@ -161,8 +164,8 @@
             this.BillingToolStripMenuItem,
             this.LogsToolStripMenuItem,
             this.toolStripBackUp,
-            this.LogoutToolStripMenuItem,
-            this.toolStripMinimize});
+            this.toolStripMinimize,
+            this.LogoutToolStripMenuItem});
             this.menuStrip2.Location = new System.Drawing.Point(0, 0);
             this.menuStrip2.Name = "menuStrip2";
             this.menuStrip2.Size = new System.Drawing.Size(959, 71);
@@ -453,6 +456,7 @@
             // LogsToolStripMenuItem
             // 
             this.LogsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.patientInformationReportToolStripMenuItem,
             this.oPSummaryReportToolStripMenuItem,
             this.ecgXraySummaryReportToolStripMenuItem,
             this.scanSummaryToolStripMenuItem,
@@ -464,7 +468,8 @@
             this.salesReportToolStripMenuItem,
             this.purchaseReportToolStripMenuItem1,
             this.stockReportToolStripMenuItem1,
-            this.salesReturnReportToolStripMenuItem});
+            this.salesReturnReportToolStripMenuItem,
+            this.stockDetailsBetweenDateToolStripMenuItem});
             this.LogsToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LogsToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
             this.LogsToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("LogsToolStripMenuItem.Image")));
@@ -473,6 +478,13 @@
             this.LogsToolStripMenuItem.Size = new System.Drawing.Size(60, 67);
             this.LogsToolStripMenuItem.Text = "Report";
             this.LogsToolStripMenuItem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            // 
+            // patientInformationReportToolStripMenuItem
+            // 
+            this.patientInformationReportToolStripMenuItem.Name = "patientInformationReportToolStripMenuItem";
+            this.patientInformationReportToolStripMenuItem.Size = new System.Drawing.Size(262, 22);
+            this.patientInformationReportToolStripMenuItem.Text = "Patient Information Report";
+            this.patientInformationReportToolStripMenuItem.Click += new System.EventHandler(this.patientInformationReportToolStripMenuItem_Click);
             // 
             // oPSummaryReportToolStripMenuItem
             // 
@@ -571,7 +583,7 @@
             this.stockReportToolStripMenuItem1.Name = "stockReportToolStripMenuItem1";
             this.stockReportToolStripMenuItem1.Size = new System.Drawing.Size(262, 22);
             this.stockReportToolStripMenuItem1.Text = "Stock_Report and Logs";
-                // 
+            // 
             // salesReturnReportToolStripMenuItem
             // 
             this.salesReturnReportToolStripMenuItem.Name = "salesReturnReportToolStripMenuItem";
@@ -615,18 +627,6 @@
             this.stockAdjustmentToolStripMenuItem.Text = "Stock Adjustment";
             this.stockAdjustmentToolStripMenuItem.Click += new System.EventHandler(this.stockAdjustmentToolStripMenuItem_Click_1);
             // 
-            // LogoutToolStripMenuItem
-            // 
-            this.LogoutToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LogoutToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
-            this.LogoutToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("LogoutToolStripMenuItem.Image")));
-            this.LogoutToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.LogoutToolStripMenuItem.Name = "LogoutToolStripMenuItem";
-            this.LogoutToolStripMenuItem.Size = new System.Drawing.Size(60, 67);
-            this.LogoutToolStripMenuItem.Text = "Logout";
-            this.LogoutToolStripMenuItem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.LogoutToolStripMenuItem.Click += new System.EventHandler(this.LogoutToolStripMenuItem_Click_1);
-            // 
             // toolStripMinimize
             // 
             this.toolStripMinimize.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -638,6 +638,18 @@
             this.toolStripMinimize.Text = "Minimize";
             this.toolStripMinimize.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.toolStripMinimize.Click += new System.EventHandler(this.toolStripMinimize_Click);
+            // 
+            // LogoutToolStripMenuItem
+            // 
+            this.LogoutToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LogoutToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.LogoutToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("LogoutToolStripMenuItem.Image")));
+            this.LogoutToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.LogoutToolStripMenuItem.Name = "LogoutToolStripMenuItem";
+            this.LogoutToolStripMenuItem.Size = new System.Drawing.Size(60, 67);
+            this.LogoutToolStripMenuItem.Text = "Logout";
+            this.LogoutToolStripMenuItem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.LogoutToolStripMenuItem.Click += new System.EventHandler(this.LogoutToolStripMenuItem_Click_1);
             // 
             // purchaseReportToolStripMenuItem
             // 
@@ -656,16 +668,31 @@
             this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // ContainerPanel
+            // 
+            this.ContainerPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ContainerPanel.Location = new System.Drawing.Point(0, 71);
+            this.ContainerPanel.Name = "ContainerPanel";
+            this.ContainerPanel.Size = new System.Drawing.Size(959, 374);
+            this.ContainerPanel.TabIndex = 12;
+            // 
+            // stockDetailsBetweenDateToolStripMenuItem
+            // 
+            this.stockDetailsBetweenDateToolStripMenuItem.Name = "stockDetailsBetweenDateToolStripMenuItem";
+            this.stockDetailsBetweenDateToolStripMenuItem.Size = new System.Drawing.Size(262, 22);
+            this.stockDetailsBetweenDateToolStripMenuItem.Text = "Stock Details Between Date";
+            this.stockDetailsBetweenDateToolStripMenuItem.Click += new System.EventHandler(this.stockDetailsBetweenDateToolStripMenuItem_Click);
+            // 
             // frm_main_mdi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(959, 467);
+            this.Controls.Add(this.ContainerPanel);
             this.Controls.Add(this.menuStrip2);
             this.Controls.Add(this.StatusStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.IsMdiContainer = true;
             this.Name = "frm_main_mdi";
             this.Text = "NELLAI BILL";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
@@ -746,6 +773,9 @@
         private System.Windows.Forms.ToolStripMenuItem iPFeesMasterToolStripMenuItem;
         internal System.Windows.Forms.ToolStripMenuItem toolStripMinimize;
         internal System.Windows.Forms.ToolStripMenuItem LogoutToolStripMenuItem;
+        private System.Windows.Forms.Panel ContainerPanel;
+        private System.Windows.Forms.ToolStripMenuItem patientInformationReportToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem stockDetailsBetweenDateToolStripMenuItem;
     }
 }
 

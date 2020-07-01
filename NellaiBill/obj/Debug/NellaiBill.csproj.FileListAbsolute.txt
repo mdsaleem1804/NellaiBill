@@ -166,4 +166,8 @@ E:\Dotnet\NellaiBill\NellaiBill\obj\Debug\NellaiBill.application
 E:\Dotnet\NellaiBill\NellaiBill\obj\Debug\NellaiBill.csproj.CopyComplete
 E:\Dotnet\NellaiBill\NellaiBill\obj\Debug\NellaiBill.exe
 E:\Dotnet\NellaiBill\NellaiBill\obj\Debug\NellaiBill.pdb
+E:\Dotnet\NellaiBill\NellaiBill\bin\Debug\CrystalReports\rptPatientList.rpt
+E:\Dotnet\NellaiBill\NellaiBill\bin\Debug\CrystalReports\rptPatientList.cs
+E:\Dotnet\NellaiBill\NellaiBill\obj\Debug\NellaiBill.Reports.PatientList.resources
+E:\Dotnet\NellaiBill\NellaiBill\obj\Debug\NellaiBill.Reports.StockDetailBetweenDate.resources
 E:\Dotnet\NellaiBill\NellaiBill\obj\Debug\NellaiBill.csprojAssemblyReference.cache
