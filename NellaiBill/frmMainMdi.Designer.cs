@@ -57,6 +57,7 @@
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.accountGroupToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.receiptToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.paymentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.hmsTransactionMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.outPatientEntryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.eCGBILLINGToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -106,7 +107,6 @@
             this.feesMasterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.ContainerPanel = new System.Windows.Forms.Panel();
-            this.paymentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.StatusStrip1.SuspendLayout();
             this.menuStrip2.SuspendLayout();
             this.SuspendLayout();
@@ -206,7 +206,7 @@
             this.RegistrationToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("RegistrationToolStripMenuItem.Image")));
             this.RegistrationToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.RegistrationToolStripMenuItem.Name = "RegistrationToolStripMenuItem";
-            this.RegistrationToolStripMenuItem.Size = new System.Drawing.Size(60, 69);
+            this.RegistrationToolStripMenuItem.Size = new System.Drawing.Size(62, 69);
             this.RegistrationToolStripMenuItem.Text = "Master";
             this.RegistrationToolStripMenuItem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             // 
@@ -338,16 +338,23 @@
             // accountGroupToolStripMenuItem
             // 
             this.accountGroupToolStripMenuItem.Name = "accountGroupToolStripMenuItem";
-            this.accountGroupToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.accountGroupToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
             this.accountGroupToolStripMenuItem.Text = "Account Group";
             this.accountGroupToolStripMenuItem.Click += new System.EventHandler(this.accountGroupToolStripMenuItem_Click);
             // 
             // receiptToolStripMenuItem
             // 
             this.receiptToolStripMenuItem.Name = "receiptToolStripMenuItem";
-            this.receiptToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.receiptToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
             this.receiptToolStripMenuItem.Text = "Receipt";
             this.receiptToolStripMenuItem.Click += new System.EventHandler(this.receiptToolStripMenuItem_Click);
+            // 
+            // paymentToolStripMenuItem
+            // 
+            this.paymentToolStripMenuItem.Name = "paymentToolStripMenuItem";
+            this.paymentToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
+            this.paymentToolStripMenuItem.Text = "Payment";
+            this.paymentToolStripMenuItem.Click += new System.EventHandler(this.paymentToolStripMenuItem_Click);
             // 
             // hmsTransactionMenu
             // 
@@ -366,7 +373,7 @@
             this.hmsTransactionMenu.Image = ((System.Drawing.Image)(resources.GetObject("hmsTransactionMenu.Image")));
             this.hmsTransactionMenu.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.hmsTransactionMenu.Name = "hmsTransactionMenu";
-            this.hmsTransactionMenu.Size = new System.Drawing.Size(60, 69);
+            this.hmsTransactionMenu.Size = new System.Drawing.Size(62, 69);
             this.hmsTransactionMenu.Text = "HMS";
             this.hmsTransactionMenu.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             // 
@@ -472,7 +479,7 @@
             this.BillingToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("BillingToolStripMenuItem.Image")));
             this.BillingToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.BillingToolStripMenuItem.Name = "BillingToolStripMenuItem";
-            this.BillingToolStripMenuItem.Size = new System.Drawing.Size(60, 69);
+            this.BillingToolStripMenuItem.Size = new System.Drawing.Size(62, 69);
             this.BillingToolStripMenuItem.Text = "Sales";
             this.BillingToolStripMenuItem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             // 
@@ -514,7 +521,7 @@
             this.LogsToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("LogsToolStripMenuItem.Image")));
             this.LogsToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.LogsToolStripMenuItem.Name = "LogsToolStripMenuItem";
-            this.LogsToolStripMenuItem.Size = new System.Drawing.Size(60, 69);
+            this.LogsToolStripMenuItem.Size = new System.Drawing.Size(62, 69);
             this.LogsToolStripMenuItem.Text = "Report";
             this.LogsToolStripMenuItem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             // 
@@ -653,7 +660,7 @@
             this.toolStripBackUp.Image = ((System.Drawing.Image)(resources.GetObject("toolStripBackUp.Image")));
             this.toolStripBackUp.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripBackUp.Name = "toolStripBackUp";
-            this.toolStripBackUp.Size = new System.Drawing.Size(60, 69);
+            this.toolStripBackUp.Size = new System.Drawing.Size(62, 69);
             this.toolStripBackUp.Text = "Tools";
             this.toolStripBackUp.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             // 
@@ -737,7 +744,7 @@
             this.LogoutToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("LogoutToolStripMenuItem.Image")));
             this.LogoutToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.LogoutToolStripMenuItem.Name = "LogoutToolStripMenuItem";
-            this.LogoutToolStripMenuItem.Size = new System.Drawing.Size(60, 69);
+            this.LogoutToolStripMenuItem.Size = new System.Drawing.Size(62, 69);
             this.LogoutToolStripMenuItem.Text = "Logout";
             this.LogoutToolStripMenuItem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.LogoutToolStripMenuItem.Click += new System.EventHandler(this.LogoutToolStripMenuItem_Click_1);
@@ -766,13 +773,6 @@
             this.ContainerPanel.Name = "ContainerPanel";
             this.ContainerPanel.Size = new System.Drawing.Size(959, 372);
             this.ContainerPanel.TabIndex = 12;
-            // 
-            // paymentToolStripMenuItem
-            // 
-            this.paymentToolStripMenuItem.Name = "paymentToolStripMenuItem";
-            this.paymentToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.paymentToolStripMenuItem.Text = "Payment";
-            this.paymentToolStripMenuItem.Click += new System.EventHandler(this.paymentToolStripMenuItem_Click);
             // 
             // frm_main_mdi
             // 
