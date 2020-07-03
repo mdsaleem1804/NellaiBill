@@ -1,4 +1,4 @@
 /.vs
 /packages
-/NellaiBill/bin/
-/NellaiBill/obj/
+/NellaiBill/bin
+/NellaiBill/obj
