@@ -172,6 +172,12 @@
     <Compile Include="Accounts\AccountGroup.Designer.cs">
       <DependentUpon>AccountGroup.cs</DependentUpon>
     </Compile>
+    <Compile Include="Accounts\Payment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Accounts\Payment.Designer.cs">
+      <DependentUpon>Payment.cs</DependentUpon>
+    </Compile>
     <Compile Include="Accounts\Receipt.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -805,6 +811,9 @@
     </Compile>
     <EmbeddedResource Include="Accounts\AccountGroup.resx">
       <DependentUpon>AccountGroup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Accounts\Payment.resx">
+      <DependentUpon>Payment.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Accounts\Receipt.resx">
       <DependentUpon>Receipt.cs</DependentUpon>

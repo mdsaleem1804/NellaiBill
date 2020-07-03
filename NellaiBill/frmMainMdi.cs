@@ -58,7 +58,8 @@ namespace NellaiBill
             //Dashboard dashboard = new Dashboard();
             // dashboard.MdiParent = this;
             //dashboard.Show();
-            CommonFormControls(new OPBilling());
+            
+            CommonFormControls(new Payment());
         }
         private void GetAllMenus()
         {
@@ -113,6 +114,7 @@ namespace NellaiBill
             /*I assume this code is in your ParentForm and so 'this' points to ParentForm that contains ContainerPanel*/
             this.ContainerPanel.Controls.Add(xForm);
             xForm.WindowState = FormWindowState.Maximized;
+            xForm.AutoScroll = true;
            // xForm.MdiParent = this;
             xForm.Show();
         }
@@ -388,5 +390,16 @@ namespace NellaiBill
         {
             CommonFormControls(new AccountGroup());
         }
+
+        private void receiptToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CommonFormControls(new Receipt());
+        }
+
+        private void paymentToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CommonFormControls(new Payment());
+        }
     }
 }
+                               
