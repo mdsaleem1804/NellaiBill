@@ -29,7 +29,7 @@ namespace NellaiBill.Transaction
 
         private void frmPurchaseReturn_Load(object sender, EventArgs e)
         {
-            xDb.LoadComboBox("select account_ledger_id,ledger_name from account_ledger where ledger_undergroup_no=4", cmbSupplier, "account_ledger_id", "ledger_name");
+            xDb.LoadComboBox("select supplier_id,name from m_supplier", cmbSupplier, "supplier_id", "name");
             xDb.LoadComboBox("select product_id,product_name from m_product", cmbItem, "product_id", "product_name");
             dataGridView1.ReadOnly = true;
         }

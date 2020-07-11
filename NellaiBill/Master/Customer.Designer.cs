@@ -179,6 +179,7 @@
             this.Name = "Customer";
             this.Text = "Customer";
             this.Load += new System.EventHandler(this.Customer_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Customer_KeyDown);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NellaiBill.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,7 +11,7 @@ using System.Windows.Forms;
 
 namespace NellaiBill.Master
 {
-  
+
     public partial class SearchPatient : Form
     {
         DatabaseConnection xDb = new DatabaseConnection();
@@ -34,7 +35,11 @@ namespace NellaiBill.Master
                 " from m_patient_registration", dataGridView1);
             dataGridView1.ReadOnly = true;
             dataGridView1.Columns[0].Visible = false;
-            dataGridView1.Columns[1].Visible = false;
+            ConfigResponseModel configResponseModel = xDb.GetConfig();
+            if (configResponseModel.IsHms == "NO")
+            {
+                dataGridView1.Columns[1].Visible = false;
+            }
             dataGridView1.Columns[2].FillWeight = 100;
             dataGridView1.Columns[3].FillWeight = 240;
             dataGridView1.Columns[4].FillWeight = 80;
@@ -85,7 +90,10 @@ namespace NellaiBill.Master
 
         private void txtSearch_TextChanged(object sender, EventArgs e)
         {
-            string xFilterSearch = "Name Like '%" + txtSearch.Text + "%' OR uhid LIKE '%" + txtSearch.Text + "%'";
+            string xFilterSearch = "Name Like '%" + txtSearch.Text + 
+                "%' OR uhid LIKE '%" + txtSearch.Text +
+                "%' OR MobileNo LIKE '%" + txtSearch.Text +
+                "%' OR Address LIKE '%" + txtSearch.Text + "%'";
             (dataGridView1.DataSource as DataTable).DefaultView.RowFilter = string.Format(xFilterSearch);
         }
     }

@@ -81,16 +81,16 @@ namespace NellaiBill
 
         private void Backup_Load(object sender, EventArgs e)
         {
-            ConfigResponseModel model = xDb.GetConfig();
-            txtFilePath.Text= model.BackUpPath;
-            if(LoginInfo.UserID== "Developer")
-            {
-                grpRestore.Visible = true;
-            }
-            string xQuery = "select date as Date,path as Path from backup";
+            //ConfigResponseModel model = xDb.GetConfig();
+            //txtFilePath.Text= model.BackUpPath;
+            //if(LoginInfo.UserID== "Developer")
+            //{
+            //    grpRestore.Visible = true;
+            //}
+            //string xQuery = "select date as Date,path as Path from backup";
             
-            xDb.LoadGrid(xQuery, dataGridView1);
-            dataGridView1.Columns[0].Width = 200;
+            //xDb.LoadGrid(xQuery, dataGridView1);
+            //dataGridView1.Columns[0].Width = 200;
         }
 
         private void btnRestoreBrowse_Click(object sender, EventArgs e)

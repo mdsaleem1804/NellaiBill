@@ -46,9 +46,9 @@ namespace NellaiBill.Transaction
             txtItemName.Text = "";
             txtItemNo.Text = "";
             txtBatch.Text = "";
-            txtQty.Text = "";
+            txtQty.Text = "1";
             txtPackOf.Text = "1";
-            txtTotalQty.Text = "";
+            txtTotalQty.Text = "1";
             txtPR.Text = "";
             txtSR.Text = "";
             txtDiscPercentage.Text = "0";

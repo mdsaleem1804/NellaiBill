@@ -29,7 +29,7 @@ namespace NellaiBill
         GlobalClass globalClass = new GlobalClass();
         DatabaseConnection xDb = new DatabaseConnection();
         string xUserName = LoginInfo.UserID;
-
+        public Form activeChild;
         private void frm_main_mdi_Load(object sender, EventArgs e)
         {
             lblUserType.Text = xUserName;
@@ -44,7 +44,7 @@ namespace NellaiBill
                 caseTypeMasterToolStripMenuItem.Visible = false;
                 roomMasterToolStripMenuItem.Visible = false;
                 iPFeesMasterToolStripMenuItem.Visible = false;
-
+                
                 hmsTransactionMenu.Visible = false;
                 oPSummaryReportToolStripMenuItem.Visible = false;
                 scanSummaryToolStripMenuItem.Visible = false;
@@ -53,13 +53,22 @@ namespace NellaiBill
                 auditorDiagnosisSummaryReportToolStripMenuItem.Visible = false;
                 ecgXraySummaryReportToolStripMenuItem.Visible = false;
                 patientInformationReportToolStripMenuItem.Visible = false;
+                userMasterToolStripMenuItem.Visible = false;
+
+               // stockAdjustmentToolStripMenuItem.Visible = false;
+                toolStripSeparator1.Visible = false;
+                toolStripSeparator2.Visible = false;
             }
-           
+            if (xDb.GetConfig().IsAccounts == "NO")
+            {
+                toolStripAccounts.Visible = false;
+            }
             //Dashboard dashboard = new Dashboard();
             // dashboard.MdiParent = this;
             //dashboard.Show();
-            
-            CommonFormControls(new Payment());
+
+            CommonFormControls(new OPBilling());
+            this.KeyPreview = true;
         }
         private void GetAllMenus()
         {
@@ -105,6 +114,7 @@ namespace NellaiBill
             {
                 this.ActiveMdiChild.Close();
             }
+            activeChild = xForm;
             xForm.TopLevel = false;
             xForm.ControlBox = false;
             xForm.Dock = DockStyle.Fill;
@@ -272,10 +282,7 @@ namespace NellaiBill
             CommonFormControls(new StockReport());
         }
 
-        private void salesReturnReportToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            CommonFormControls(new SalesReturn());
-        }
+       
         private void patientInformationReportToolStripMenuItem_Click(object sender, EventArgs e)
         {
             CommonFormControls(new PatientList());
@@ -399,6 +406,27 @@ namespace NellaiBill
         private void paymentToolStripMenuItem_Click(object sender, EventArgs e)
         {
             CommonFormControls(new Payment());
+        }
+
+
+        private void toolStripClose_Click(object sender, EventArgs e)
+        {
+            if (activeChild != null)
+            {
+                try
+                {
+                    activeChild.Close();
+                }
+                catch
+                {
+
+                }
+            }
+        }
+
+        private void salesEntryBasicToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CommonFormControls(new SalesEntryBasic());
         }
     }
 }

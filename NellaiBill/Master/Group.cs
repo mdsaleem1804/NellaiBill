@@ -32,8 +32,8 @@ namespace NellaiBill.Master
             dataGridView1.Columns[0].Visible = false;
             dataGridView1.Columns[1].Visible = false;
             dataGridView1.Columns[2].Visible = false;
-
             dataGridView1.ColumnHeadersDefaultCellStyle.Font = new Font("Tahoma", 10, FontStyle.Bold);
+            this.KeyPreview = true;
         }
         private void LoadGrid()
         {
@@ -127,6 +127,12 @@ namespace NellaiBill.Master
             DataClear();
         }
 
-      
+        private void Group_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Control == true && e.KeyCode == Keys.S)
+            {
+                btnSaveUpdate.PerformClick();
+            }
+        }
     }
 }

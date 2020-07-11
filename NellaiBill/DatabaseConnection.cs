@@ -112,9 +112,9 @@ namespace NellaiBill
             while (currentLoggedInUser.Read())
             {
                 xId = Convert.ToInt32(currentLoggedInUser.GetString(0));
-                //if (xId > 60)
+                //if (xId > 30)
                 //{
-                //    MessageBox.Show("Your Key is not Activted . \n" + 
+                //    MessageBox.Show("Your Key is not Activted . \n" +
                 //        "In Case you purchased this Software. \n" +
                 //        "Please ask your Sales Person to Activate this product.");
 
@@ -308,6 +308,22 @@ namespace NellaiBill
                 xComboBox.Items.Add(da[0].ToString());
             }
         }
+        public void LoadComboBoxCell(string xQry, DataGridViewComboBoxCell xComboBox)
+        {
+            DataTable table = new DataTable("ip_admission");
+            using (MySqlConnection conn = new MySqlConnection(conString))
+            {
+
+                using (MySqlDataAdapter adapter = new MySqlDataAdapter(xQry, conn))
+                {
+                    adapter.Fill(table);
+                }
+            }
+            foreach (DataRow da in table.Rows)
+            {
+                xComboBox.Items.Add(da[0].ToString());
+            }
+        }
 
         public int CountRecord(string xQry)
         {
@@ -399,11 +415,13 @@ namespace NellaiBill
                     {
                         BackUpPath = reader.GetString("backup_path"),
                         IsHms = reader.GetString("is_hms"),
+                        IsAccounts= reader.GetString("is_accounts"),
                         IsBatch = reader.GetString("is_batch"),
                         IsExpiry = reader.GetString("is_expiry"),
                         IS_M_ProductnameInTamil = reader.GetString("is_m_product_name_in_tamil"),
                         IS_M_HsnCode = reader.GetString("is_m_hsn_code"),
-                        IS_M_ProductCode = reader.GetString("is_m_product_code")
+                        IS_M_ProductCode = reader.GetString("is_m_product_code"),
+                        IS_M_ProductMrp = reader.GetString("is_m_product_mrp")
                     };
                 }
                 connection.Close();

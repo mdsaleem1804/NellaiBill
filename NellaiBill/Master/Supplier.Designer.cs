@@ -181,6 +181,7 @@
             this.Name = "Supplier";
             this.Text = "Supplier";
             this.Load += new System.EventHandler(this.Ledger_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Supplier_KeyDown);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();

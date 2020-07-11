@@ -153,7 +153,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(1010, 616);
+            this.ClientSize = new System.Drawing.Size(1010, 633);
             this.Controls.Add(this.btnSaveUpdate);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.cmbCategory);
@@ -166,6 +166,7 @@
             this.Name = "Group";
             this.Text = " Group";
             this.Load += new System.EventHandler(this.Group_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Group_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();

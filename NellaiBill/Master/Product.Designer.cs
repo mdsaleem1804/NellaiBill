@@ -38,6 +38,8 @@
             this.cmbGroup = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.lblMrp = new System.Windows.Forms.Label();
+            this.txtMrp = new System.Windows.Forms.TextBox();
             this.lblProductNameInTamil = new System.Windows.Forms.Label();
             this.txtProductNameInTamil = new System.Windows.Forms.TextBox();
             this.lblProductCode = new System.Windows.Forms.Label();
@@ -61,9 +63,9 @@
             // 
             this.cmbCategory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbCategory.FormattingEnabled = true;
-            this.cmbCategory.Location = new System.Drawing.Point(958, 40);
+            this.cmbCategory.Location = new System.Drawing.Point(831, 114);
             this.cmbCategory.Name = "cmbCategory";
-            this.cmbCategory.Size = new System.Drawing.Size(173, 21);
+            this.cmbCategory.Size = new System.Drawing.Size(78, 21);
             this.cmbCategory.TabIndex = 1;
             this.cmbCategory.Visible = false;
             this.cmbCategory.SelectedIndexChanged += new System.EventHandler(this.cmbCategory_SelectedIndexChanged);
@@ -72,7 +74,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(954, 12);
+            this.label2.Location = new System.Drawing.Point(724, 109);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(85, 24);
             this.label2.TabIndex = 21;
@@ -86,7 +88,7 @@
             this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 208);
+            this.dataGridView1.Location = new System.Drawing.Point(12, 236);
             this.dataGridView1.Name = "dataGridView1";
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
@@ -96,7 +98,7 @@
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.dataGridView1.Size = new System.Drawing.Size(1142, 435);
+            this.dataGridView1.Size = new System.Drawing.Size(1142, 407);
             this.dataGridView1.TabIndex = 18;
             this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
             this.dataGridView1.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridView1_CellFormatting);
@@ -140,6 +142,8 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.lblMrp);
+            this.panel2.Controls.Add(this.txtMrp);
             this.panel2.Controls.Add(this.lblProductNameInTamil);
             this.panel2.Controls.Add(this.txtProductNameInTamil);
             this.panel2.Controls.Add(this.lblProductCode);
@@ -158,14 +162,32 @@
             this.panel2.Controls.Add(this.cmbGroup);
             this.panel2.Location = new System.Drawing.Point(12, 51);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1142, 122);
+            this.panel2.Size = new System.Drawing.Size(1142, 150);
             this.panel2.TabIndex = 29;
+            // 
+            // lblMrp
+            // 
+            this.lblMrp.AutoSize = true;
+            this.lblMrp.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMrp.Location = new System.Drawing.Point(766, 12);
+            this.lblMrp.Name = "lblMrp";
+            this.lblMrp.Size = new System.Drawing.Size(43, 24);
+            this.lblMrp.TabIndex = 55;
+            this.lblMrp.Text = "Mrp";
+            // 
+            // txtMrp
+            // 
+            this.txtMrp.Location = new System.Drawing.Point(770, 40);
+            this.txtMrp.Name = "txtMrp";
+            this.txtMrp.Size = new System.Drawing.Size(91, 20);
+            this.txtMrp.TabIndex = 6;
+            this.txtMrp.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMrp_KeyPress);
             // 
             // lblProductNameInTamil
             // 
             this.lblProductNameInTamil.AutoSize = true;
             this.lblProductNameInTamil.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblProductNameInTamil.Location = new System.Drawing.Point(15, 67);
+            this.lblProductNameInTamil.Location = new System.Drawing.Point(126, 67);
             this.lblProductNameInTamil.Name = "lblProductNameInTamil";
             this.lblProductNameInTamil.Size = new System.Drawing.Size(207, 24);
             this.lblProductNameInTamil.TabIndex = 53;
@@ -173,16 +195,16 @@
             // 
             // txtProductNameInTamil
             // 
-            this.txtProductNameInTamil.Location = new System.Drawing.Point(19, 94);
+            this.txtProductNameInTamil.Location = new System.Drawing.Point(130, 94);
             this.txtProductNameInTamil.Name = "txtProductNameInTamil";
             this.txtProductNameInTamil.Size = new System.Drawing.Size(283, 20);
-            this.txtProductNameInTamil.TabIndex = 4;
+            this.txtProductNameInTamil.TabIndex = 8;
             // 
             // lblProductCode
             // 
             this.lblProductCode.AutoSize = true;
             this.lblProductCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblProductCode.Location = new System.Drawing.Point(317, 67);
+            this.lblProductCode.Location = new System.Drawing.Point(619, 12);
             this.lblProductCode.Name = "lblProductCode";
             this.lblProductCode.Size = new System.Drawing.Size(126, 24);
             this.lblProductCode.TabIndex = 51;
@@ -190,9 +212,9 @@
             // 
             // txtProductCode
             // 
-            this.txtProductCode.Location = new System.Drawing.Point(321, 95);
+            this.txtProductCode.Location = new System.Drawing.Point(623, 40);
             this.txtProductCode.Name = "txtProductCode";
-            this.txtProductCode.Size = new System.Drawing.Size(111, 20);
+            this.txtProductCode.Size = new System.Drawing.Size(142, 20);
             this.txtProductCode.TabIndex = 5;
             this.txtProductCode.Leave += new System.EventHandler(this.txtProductCode_Leave);
             // 
@@ -218,13 +240,13 @@
             this.cmbTax.Location = new System.Drawing.Point(507, 39);
             this.cmbTax.Name = "cmbTax";
             this.cmbTax.Size = new System.Drawing.Size(105, 21);
-            this.cmbTax.TabIndex = 7;
+            this.cmbTax.TabIndex = 4;
             // 
             // lblHsnCode
             // 
             this.lblHsnCode.AutoSize = true;
             this.lblHsnCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblHsnCode.Location = new System.Drawing.Point(471, 67);
+            this.lblHsnCode.Location = new System.Drawing.Point(15, 67);
             this.lblHsnCode.Name = "lblHsnCode";
             this.lblHsnCode.Size = new System.Drawing.Size(95, 24);
             this.lblHsnCode.TabIndex = 48;
@@ -232,15 +254,15 @@
             // 
             // txtHsnCode
             // 
-            this.txtHsnCode.Location = new System.Drawing.Point(475, 95);
+            this.txtHsnCode.Location = new System.Drawing.Point(19, 95);
             this.txtHsnCode.Name = "txtHsnCode";
             this.txtHsnCode.Size = new System.Drawing.Size(91, 20);
-            this.txtHsnCode.TabIndex = 6;
+            this.txtHsnCode.TabIndex = 7;
             // 
             // mBtnCancel
             // 
             this.mBtnCancel.Depth = 0;
-            this.mBtnCancel.Location = new System.Drawing.Point(641, 57);
+            this.mBtnCancel.Location = new System.Drawing.Point(868, 57);
             this.mBtnCancel.MouseState = MaterialSkin.MouseState.HOVER;
             this.mBtnCancel.Name = "mBtnCancel";
             this.mBtnCancel.Primary = true;
@@ -253,7 +275,7 @@
             // mBtnSaveUpdate
             // 
             this.mBtnSaveUpdate.Depth = 0;
-            this.mBtnSaveUpdate.Location = new System.Drawing.Point(641, 3);
+            this.mBtnSaveUpdate.Location = new System.Drawing.Point(868, 3);
             this.mBtnSaveUpdate.MouseState = MaterialSkin.MouseState.HOVER;
             this.mBtnSaveUpdate.Name = "mBtnSaveUpdate";
             this.mBtnSaveUpdate.Primary = true;
@@ -287,16 +309,16 @@
             // 
             // txtSearch
             // 
-            this.txtSearch.Location = new System.Drawing.Point(107, 182);
+            this.txtSearch.Location = new System.Drawing.Point(858, 211);
             this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(163, 20);
+            this.txtSearch.Size = new System.Drawing.Size(296, 20);
             this.txtSearch.TabIndex = 31;
             this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
             // 
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(17, 185);
+            this.label15.Location = new System.Drawing.Point(779, 214);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(73, 13);
             this.label15.TabIndex = 32;
@@ -307,7 +329,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(1238, 623);
+            this.ClientSize = new System.Drawing.Size(1192, 623);
             this.Controls.Add(this.label15);
             this.Controls.Add(this.txtSearch);
             this.Controls.Add(this.panel3);
@@ -317,6 +339,7 @@
             this.Text = "Item";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Item_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frmItem_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
@@ -351,5 +374,7 @@
         private System.Windows.Forms.TextBox txtProductCode;
         private System.Windows.Forms.Label lblProductNameInTamil;
         private System.Windows.Forms.TextBox txtProductNameInTamil;
+        private System.Windows.Forms.Label lblMrp;
+        private System.Windows.Forms.TextBox txtMrp;
     }
 }

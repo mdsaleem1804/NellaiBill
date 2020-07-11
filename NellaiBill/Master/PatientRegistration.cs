@@ -24,13 +24,14 @@ namespace NellaiBill.Transaction
 
         private void NewPatient_Load(object sender, EventArgs e)
         {
-            cmbGender.SelectedIndex = 0;
+            cmbGender.SelectedIndex = 1;
             txtMobileNo.MaxLength = 10;
             DataClear();
             LoadGrid();
             lblId.Text = "User Id";
             lblSearch.Text = "Search Id";
-
+            cmbGender.SelectedIndex = 1;
+            this.KeyPreview = true;
         }
 
         private void loadFormBasedOnMissedUHID()
@@ -290,6 +291,14 @@ namespace NellaiBill.Transaction
         private void dtpDob_ValueChanged(object sender, EventArgs e)
         {
             GetAgeFromDOB();
+        }
+
+        private void NewPatient_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Control == true && e.KeyCode == Keys.S)
+            {
+                btnSave.PerformClick();
+            }
         }
     }
 }

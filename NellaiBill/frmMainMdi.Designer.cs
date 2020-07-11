@@ -34,6 +34,7 @@
             this.ToolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.lblUserType = new System.Windows.Forms.ToolStripStatusLabel();
             this.ToolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripClose = new System.Windows.Forms.ToolStripStatusLabel();
             this.ToolStripStatusLabel3 = new System.Windows.Forms.ToolStripStatusLabel();
             this.lblDateTime = new System.Windows.Forms.ToolStripStatusLabel();
             this.menuStrip2 = new System.Windows.Forms.MenuStrip();
@@ -54,7 +55,7 @@
             this.groupToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.productToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.userMasterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripAccounts = new System.Windows.Forms.ToolStripMenuItem();
             this.accountGroupToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.receiptToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.paymentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -73,6 +74,7 @@
             this.PurchaseReturnToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.BillingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.POSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.salesEntryBasicToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.SalesReturnToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.LogsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.patientInformationReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -89,8 +91,6 @@
             this.stockReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salesReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.purchaseReportToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.stockReportToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.salesReturnReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.stockDetailsBetweenDateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripBackUp = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
@@ -117,6 +117,7 @@
             this.ToolStripStatusLabel1,
             this.lblUserType,
             this.ToolStripStatusLabel2,
+            this.toolStripClose,
             this.ToolStripStatusLabel3,
             this.lblDateTime});
             this.StatusStrip1.Location = new System.Drawing.Point(0, 445);
@@ -148,10 +149,17 @@
             this.ToolStripStatusLabel2.Size = new System.Drawing.Size(11, 17);
             this.ToolStripStatusLabel2.Text = ":";
             // 
+            // toolStripClose
+            // 
+            this.toolStripClose.Name = "toolStripClose";
+            this.toolStripClose.Size = new System.Drawing.Size(85, 17);
+            this.toolStripClose.Text = "CLOSE(ALT+C)";
+            this.toolStripClose.Click += new System.EventHandler(this.toolStripClose_Click);
+            // 
             // ToolStripStatusLabel3
             // 
             this.ToolStripStatusLabel3.Name = "ToolStripStatusLabel3";
-            this.ToolStripStatusLabel3.Size = new System.Drawing.Size(671, 17);
+            this.ToolStripStatusLabel3.Size = new System.Drawing.Size(555, 17);
             this.ToolStripStatusLabel3.Spring = true;
             // 
             // lblDateTime
@@ -168,7 +176,7 @@
             this.menuStrip2.BackColor = System.Drawing.Color.White;
             this.menuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.RegistrationToolStripMenuItem,
-            this.toolStripMenuItem1,
+            this.toolStripAccounts,
             this.hmsTransactionMenu,
             this.StockToolStripMenuItem,
             this.BillingToolStripMenuItem,
@@ -320,20 +328,20 @@
             this.userMasterToolStripMenuItem.Text = "User Master";
             this.userMasterToolStripMenuItem.Click += new System.EventHandler(this.userMasterToolStripMenuItem_Click);
             // 
-            // toolStripMenuItem1
+            // toolStripAccounts
             // 
-            this.toolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripAccounts.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.accountGroupToolStripMenuItem,
             this.receiptToolStripMenuItem,
             this.paymentToolStripMenuItem});
-            this.toolStripMenuItem1.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.toolStripMenuItem1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
-            this.toolStripMenuItem1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripMenuItem1.Image")));
-            this.toolStripMenuItem1.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(69, 69);
-            this.toolStripMenuItem1.Text = "Accounts";
-            this.toolStripMenuItem1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.toolStripAccounts.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolStripAccounts.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.toolStripAccounts.Image = ((System.Drawing.Image)(resources.GetObject("toolStripAccounts.Image")));
+            this.toolStripAccounts.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolStripAccounts.Name = "toolStripAccounts";
+            this.toolStripAccounts.Size = new System.Drawing.Size(69, 69);
+            this.toolStripAccounts.Text = "Accounts";
+            this.toolStripAccounts.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             // 
             // accountGroupToolStripMenuItem
             // 
@@ -473,6 +481,7 @@
             // 
             this.BillingToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.POSToolStripMenuItem,
+            this.salesEntryBasicToolStripMenuItem,
             this.SalesReturnToolStripMenuItem});
             this.BillingToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BillingToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
@@ -486,16 +495,24 @@
             // POSToolStripMenuItem
             // 
             this.POSToolStripMenuItem.Name = "POSToolStripMenuItem";
-            this.POSToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Shift | System.Windows.Forms.Keys.F4)));
-            this.POSToolStripMenuItem.Size = new System.Drawing.Size(192, 22);
+            this.POSToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Shift | System.Windows.Forms.Keys.F1)));
+            this.POSToolStripMenuItem.Size = new System.Drawing.Size(214, 22);
             this.POSToolStripMenuItem.Text = "Sales Entry";
             this.POSToolStripMenuItem.Click += new System.EventHandler(this.POSToolStripMenuItem_Click);
+            // 
+            // salesEntryBasicToolStripMenuItem
+            // 
+            this.salesEntryBasicToolStripMenuItem.Name = "salesEntryBasicToolStripMenuItem";
+            this.salesEntryBasicToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Shift | System.Windows.Forms.Keys.F2)));
+            this.salesEntryBasicToolStripMenuItem.Size = new System.Drawing.Size(214, 22);
+            this.salesEntryBasicToolStripMenuItem.Text = "Sales Entry Basic";
+            this.salesEntryBasicToolStripMenuItem.Click += new System.EventHandler(this.salesEntryBasicToolStripMenuItem_Click);
             // 
             // SalesReturnToolStripMenuItem
             // 
             this.SalesReturnToolStripMenuItem.Name = "SalesReturnToolStripMenuItem";
-            this.SalesReturnToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Shift | System.Windows.Forms.Keys.F5)));
-            this.SalesReturnToolStripMenuItem.Size = new System.Drawing.Size(192, 22);
+            this.SalesReturnToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Shift | System.Windows.Forms.Keys.F3)));
+            this.SalesReturnToolStripMenuItem.Size = new System.Drawing.Size(214, 22);
             this.SalesReturnToolStripMenuItem.Text = "Sales Return";
             this.SalesReturnToolStripMenuItem.Click += new System.EventHandler(this.SalesReturnToolStripMenuItem_Click);
             // 
@@ -513,8 +530,6 @@
             this.stockReportToolStripMenuItem,
             this.salesReportToolStripMenuItem,
             this.purchaseReportToolStripMenuItem1,
-            this.stockReportToolStripMenuItem1,
-            this.salesReturnReportToolStripMenuItem,
             this.stockDetailsBetweenDateToolStripMenuItem});
             this.LogsToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LogsToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
@@ -623,19 +638,6 @@
             this.purchaseReportToolStripMenuItem1.Size = new System.Drawing.Size(262, 22);
             this.purchaseReportToolStripMenuItem1.Text = "Purchase Report";
             this.purchaseReportToolStripMenuItem1.Click += new System.EventHandler(this.purchaseReportToolStripMenuItem1_Click);
-            // 
-            // stockReportToolStripMenuItem1
-            // 
-            this.stockReportToolStripMenuItem1.Name = "stockReportToolStripMenuItem1";
-            this.stockReportToolStripMenuItem1.Size = new System.Drawing.Size(262, 22);
-            this.stockReportToolStripMenuItem1.Text = "Stock_Report and Logs";
-            // 
-            // salesReturnReportToolStripMenuItem
-            // 
-            this.salesReturnReportToolStripMenuItem.Name = "salesReturnReportToolStripMenuItem";
-            this.salesReturnReportToolStripMenuItem.Size = new System.Drawing.Size(262, 22);
-            this.salesReturnReportToolStripMenuItem.Text = "Sales Return Report";
-            this.salesReturnReportToolStripMenuItem.Click += new System.EventHandler(this.salesReturnReportToolStripMenuItem_Click);
             // 
             // stockDetailsBetweenDateToolStripMenuItem
             // 
@@ -823,8 +825,6 @@
         private System.Windows.Forms.ToolStripMenuItem salesReportToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem purchaseReportToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem purchaseReportToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem stockReportToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem salesReturnReportToolStripMenuItem;
         internal System.Windows.Forms.ToolStripMenuItem hmsTransactionMenu;
         private System.Windows.Forms.ToolStripMenuItem outPatientEntryToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem patientRegistrationToolStripMenuItem;
@@ -872,10 +872,12 @@
         internal System.Windows.Forms.ToolStripMenuItem MSWordToolStripMenuItem;
         internal System.Windows.Forms.ToolStripMenuItem TaskManagerToolStripMenuItem;
         internal System.Windows.Forms.ToolStripMenuItem SystemInfoToolStripMenuItem;
-        internal System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
+        internal System.Windows.Forms.ToolStripMenuItem toolStripAccounts;
         private System.Windows.Forms.ToolStripMenuItem accountGroupToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem receiptToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem paymentToolStripMenuItem;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripClose;
+        private System.Windows.Forms.ToolStripMenuItem salesEntryBasicToolStripMenuItem;
     }
 }
 

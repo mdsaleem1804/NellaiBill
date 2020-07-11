@@ -68,6 +68,7 @@ namespace NellaiBill.Master
             LoadGrid();
             DataClear();
             xCustomerId = Convert.ToInt32(xDb.GetMaxId("patient_id", "m_patient_registration").ToString());
+            this.KeyPreview = true;
         }
         private void LoadGrid()
         {
@@ -89,6 +90,14 @@ namespace NellaiBill.Master
             txtMobileNo.Text = dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString();
             mBtnSaveUpdate.Text = "UPDATE";
             mBtnDelete.Enabled = true;
+        }
+
+        private void Customer_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Control == true && e.KeyCode == Keys.S)
+            {
+                mBtnSaveUpdate.PerformClick();
+            }
         }
     }
 }

@@ -10,11 +10,12 @@ namespace NellaiBill.Models
     {
         public string BackUpPath { get; set; }
         public string IsHms { get; set; }
+        public string IsAccounts { get; set; }
         public string IsBatch { get; set; }
         public string IsExpiry { get; set; }
         public string IS_M_ProductnameInTamil { get; set; }
         public string IS_M_HsnCode { get; set; }
-
         public string IS_M_ProductCode { get; set; }
+        public string IS_M_ProductMrp { get; set; }
     }
 }

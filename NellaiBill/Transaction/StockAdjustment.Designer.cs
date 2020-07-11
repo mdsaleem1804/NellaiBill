@@ -110,7 +110,6 @@
             // 
             // txtPrice
             // 
-            this.txtPrice.Enabled = false;
             this.txtPrice.Location = new System.Drawing.Point(420, 46);
             this.txtPrice.Name = "txtPrice";
             this.txtPrice.Size = new System.Drawing.Size(71, 20);

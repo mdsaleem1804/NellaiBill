@@ -96,9 +96,9 @@
             // rchNextOfKin
             // 
             this.rchNextOfKin.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rchNextOfKin.Location = new System.Drawing.Point(623, 109);
+            this.rchNextOfKin.Location = new System.Drawing.Point(386, 106);
             this.rchNextOfKin.Name = "rchNextOfKin";
-            this.rchNextOfKin.Size = new System.Drawing.Size(215, 77);
+            this.rchNextOfKin.Size = new System.Drawing.Size(200, 25);
             this.rchNextOfKin.TabIndex = 20;
             this.rchNextOfKin.Text = "";
             // 
@@ -106,11 +106,11 @@
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(620, 80);
+            this.label11.Location = new System.Drawing.Point(383, 80);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(83, 18);
+            this.label11.Size = new System.Drawing.Size(89, 18);
             this.label11.TabIndex = 94;
-            this.label11.Text = "Next Of Kin";
+            this.label11.Text = "Relationship";
             // 
             // dtpEntryDate
             // 
@@ -127,7 +127,7 @@
             // 
             this.btnPrint.BackColor = System.Drawing.Color.Yellow;
             this.btnPrint.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPrint.Location = new System.Drawing.Point(876, 107);
+            this.btnPrint.Location = new System.Drawing.Point(971, 109);
             this.btnPrint.Name = "btnPrint";
             this.btnPrint.Size = new System.Drawing.Size(108, 32);
             this.btnPrint.TabIndex = 65;
@@ -169,7 +169,7 @@
             // 
             this.btnSave.BackColor = System.Drawing.Color.Lime;
             this.btnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSave.Location = new System.Drawing.Point(876, 145);
+            this.btnSave.Location = new System.Drawing.Point(971, 147);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(108, 39);
             this.btnSave.TabIndex = 62;
@@ -238,9 +238,9 @@
             // rchAddress
             // 
             this.rchAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rchAddress.Location = new System.Drawing.Point(385, 109);
+            this.rchAddress.Location = new System.Drawing.Point(636, 101);
             this.rchAddress.Name = "rchAddress";
-            this.rchAddress.Size = new System.Drawing.Size(215, 77);
+            this.rchAddress.Size = new System.Drawing.Size(245, 77);
             this.rchAddress.TabIndex = 19;
             this.rchAddress.Text = "";
             // 
@@ -248,7 +248,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(382, 80);
+            this.label2.Location = new System.Drawing.Point(636, 80);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(62, 18);
             this.label2.TabIndex = 28;
@@ -383,7 +383,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1334, 701);
+            this.ClientSize = new System.Drawing.Size(1239, 701);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.txtSearch);
             this.Controls.Add(this.lblSearch);
@@ -393,6 +393,7 @@
             this.Name = "NewPatient";
             this.Text = "NewPatient";
             this.Load += new System.EventHandler(this.NewPatient_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.NewPatient_KeyDown);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();

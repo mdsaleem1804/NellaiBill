@@ -1,6 +1,7 @@
 ﻿using CrystalDecisions.CrystalReports.Engine;
 using CrystalDecisions.Windows.Forms;
 using NellaiBill.Master;
+using NellaiBill.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -41,6 +42,22 @@ namespace NellaiBill.Transaction
             txtOpId.Text = xDb.GetMaxId("txno", "outpatientdetails").ToString();
             cmbCaseType.Select();
             LoadGrid();
+            cmbCaseType.SelectedIndex = 0;
+            cmbNoonType.SelectedIndex = 0;
+            cmbCaseType1.SelectedIndex = 0;
+            cmbOpPatientStatus.SelectedIndex = 1;
+            cmbPaymentStatus.SelectedIndex = 1;
+            DoctorResponseModel doctorResponseModel= xDb.GetDoctorFromDoctorId(1);
+            if(doctorResponseModel.DoctorId==0)
+            {
+                MessageBox.Show("Could not Find Doctor Details");
+            }
+            {
+                txtDoctorId.Text = doctorResponseModel.DoctorId.ToString();
+                txtDoctorName.Text = doctorResponseModel.DoctorName;
+            }
+            txtFees.Text = "150";
+            GetMaxTokenNo();
         }
 
         private void OutPatientEntry_KeyDown(object sender, KeyEventArgs e)

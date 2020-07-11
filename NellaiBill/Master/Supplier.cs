@@ -24,7 +24,7 @@ namespace NellaiBill.Master
         {
             LoadGrid();
             DataClear();
-
+            this.KeyPreview = true;
             xSupplierId = Convert.ToInt32(xDb.GetMaxId("supplier_id", "m_supplier").ToString());
         }
         private void LoadGrid()
@@ -109,6 +109,14 @@ namespace NellaiBill.Master
             dataGridView1.ReadOnly = true;
             dataGridView1.Columns[0].Visible = false;
             dataGridView1.ColumnHeadersDefaultCellStyle.Font = new Font("Tahoma", 10, FontStyle.Bold);
+        }
+
+        private void Supplier_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Control == true && e.KeyCode == Keys.S)
+            {
+                mBtnSaveUpdate.PerformClick();
+            }
         }
     }
 }
