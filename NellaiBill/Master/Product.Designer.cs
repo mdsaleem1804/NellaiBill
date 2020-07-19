@@ -187,7 +187,7 @@
             // 
             this.lblProductNameInTamil.AutoSize = true;
             this.lblProductNameInTamil.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblProductNameInTamil.Location = new System.Drawing.Point(126, 67);
+            this.lblProductNameInTamil.Location = new System.Drawing.Point(15, 67);
             this.lblProductNameInTamil.Name = "lblProductNameInTamil";
             this.lblProductNameInTamil.Size = new System.Drawing.Size(207, 24);
             this.lblProductNameInTamil.TabIndex = 53;
@@ -195,7 +195,7 @@
             // 
             // txtProductNameInTamil
             // 
-            this.txtProductNameInTamil.Location = new System.Drawing.Point(130, 94);
+            this.txtProductNameInTamil.Location = new System.Drawing.Point(19, 94);
             this.txtProductNameInTamil.Name = "txtProductNameInTamil";
             this.txtProductNameInTamil.Size = new System.Drawing.Size(283, 20);
             this.txtProductNameInTamil.TabIndex = 8;
@@ -246,7 +246,7 @@
             // 
             this.lblHsnCode.AutoSize = true;
             this.lblHsnCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblHsnCode.Location = new System.Drawing.Point(15, 67);
+            this.lblHsnCode.Location = new System.Drawing.Point(327, 67);
             this.lblHsnCode.Name = "lblHsnCode";
             this.lblHsnCode.Size = new System.Drawing.Size(95, 24);
             this.lblHsnCode.TabIndex = 48;
@@ -254,7 +254,7 @@
             // 
             // txtHsnCode
             // 
-            this.txtHsnCode.Location = new System.Drawing.Point(19, 95);
+            this.txtHsnCode.Location = new System.Drawing.Point(331, 95);
             this.txtHsnCode.Name = "txtHsnCode";
             this.txtHsnCode.Size = new System.Drawing.Size(91, 20);
             this.txtHsnCode.TabIndex = 7;

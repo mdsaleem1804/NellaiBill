@@ -58,6 +58,11 @@ namespace NellaiBill
                // stockAdjustmentToolStripMenuItem.Visible = false;
                 toolStripSeparator1.Visible = false;
                 toolStripSeparator2.Visible = false;
+                CommonFormControls(new SalesEntry());
+            }
+            else
+            {
+                CommonFormControls(new OPBilling());
             }
             if (xDb.GetConfig().IsAccounts == "NO")
             {
@@ -67,7 +72,6 @@ namespace NellaiBill
             // dashboard.MdiParent = this;
             //dashboard.Show();
 
-            CommonFormControls(new OPBilling());
             this.KeyPreview = true;
         }
         private void GetAllMenus()

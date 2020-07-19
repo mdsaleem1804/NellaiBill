@@ -112,18 +112,23 @@ namespace NellaiBill
             while (currentLoggedInUser.Read())
             {
                 xId = Convert.ToInt32(currentLoggedInUser.GetString(0));
-                //if (xId > 30)
-                //{
-                //    MessageBox.Show("Your Key is not Activted . \n" +
-                //        "In Case you purchased this Software. \n" +
-                //        "Please ask your Sales Person to Activate this product.");
-
-                //    System.Windows.Forms.Application.Exit();
-                //}
+               // SetTrialPeriod(xId);
             }
             connection.Close();
             return xId;
 
+        }
+
+        private static void SetTrialPeriod(int xId)
+        {
+            if (xId > 50)
+            {
+                MessageBox.Show("Your Key is not Activted . \n" +
+                    "In Case you purchased this Software. \n" +
+                    "Please ask your Sales Person to Activate this product.");
+
+                System.Windows.Forms.Application.Exit();
+            }
         }
 
         public string GetUserNameFromPassword(string xPassword)

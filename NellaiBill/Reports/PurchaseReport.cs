@@ -40,7 +40,19 @@ namespace NellaiBill.Reports
             crystalReportViewer1.Refresh();
             crystalReportViewer1.ToolPanelView = ToolPanelViewType.None;
 
+        }
 
+        private void btnViewAuditor_Click(object sender, EventArgs e)
+        {
+            string xFromDate = dtpFromDate.Text;
+            string xToDate = dtpToDate.Text;
+            string path = globalClass.GetReportPath() + "rptPurchaseAuditor.rpt";
+            cryRpt.Load(path);
+            cryRpt.SetParameterValue("FromDate", DateTime.Parse(xFromDate));
+            cryRpt.SetParameterValue("ToDate", DateTime.Parse(xToDate));
+            crystalReportViewer1.ReportSource = cryRpt;
+            crystalReportViewer1.Refresh();
+            crystalReportViewer1.ToolPanelView = ToolPanelViewType.None;
         }
     }
 }

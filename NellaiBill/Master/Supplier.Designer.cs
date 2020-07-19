@@ -39,6 +39,8 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.mBtnSaveUpdate = new MaterialSkin.Controls.MaterialRaisedButton();
             this.mBtnDelete = new MaterialSkin.Controls.MaterialRaisedButton();
+            this.txtGstNo = new System.Windows.Forms.TextBox();
+            this.materialLabel4 = new MaterialSkin.Controls.MaterialLabel();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -132,18 +134,18 @@
             this.dataGridView1.Location = new System.Drawing.Point(386, 71);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(824, 361);
-            this.dataGridView1.TabIndex = 40;
+            this.dataGridView1.TabIndex = 6;
             this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
             // 
             // mBtnSaveUpdate
             // 
             this.mBtnSaveUpdate.Depth = 0;
-            this.mBtnSaveUpdate.Location = new System.Drawing.Point(232, 258);
+            this.mBtnSaveUpdate.Location = new System.Drawing.Point(232, 352);
             this.mBtnSaveUpdate.MouseState = MaterialSkin.MouseState.HOVER;
             this.mBtnSaveUpdate.Name = "mBtnSaveUpdate";
             this.mBtnSaveUpdate.Primary = true;
             this.mBtnSaveUpdate.Size = new System.Drawing.Size(120, 36);
-            this.mBtnSaveUpdate.TabIndex = 11;
+            this.mBtnSaveUpdate.TabIndex = 5;
             this.mBtnSaveUpdate.Text = "SAVE";
             this.mBtnSaveUpdate.UseVisualStyleBackColor = true;
             this.mBtnSaveUpdate.Click += new System.EventHandler(this.mBtnSave_Click);
@@ -151,7 +153,7 @@
             // mBtnDelete
             // 
             this.mBtnDelete.Depth = 0;
-            this.mBtnDelete.Location = new System.Drawing.Point(232, 300);
+            this.mBtnDelete.Location = new System.Drawing.Point(232, 394);
             this.mBtnDelete.MouseState = MaterialSkin.MouseState.HOVER;
             this.mBtnDelete.Name = "mBtnDelete";
             this.mBtnDelete.Primary = true;
@@ -162,12 +164,34 @@
             this.mBtnDelete.Visible = false;
             this.mBtnDelete.Click += new System.EventHandler(this.mBtnDelete_Click);
             // 
+            // txtGstNo
+            // 
+            this.txtGstNo.Location = new System.Drawing.Point(155, 261);
+            this.txtGstNo.Name = "txtGstNo";
+            this.txtGstNo.Size = new System.Drawing.Size(197, 20);
+            this.txtGstNo.TabIndex = 4;
+            // 
+            // materialLabel4
+            // 
+            this.materialLabel4.AutoSize = true;
+            this.materialLabel4.Depth = 0;
+            this.materialLabel4.Font = new System.Drawing.Font("Roboto", 11F);
+            this.materialLabel4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialLabel4.Location = new System.Drawing.Point(48, 261);
+            this.materialLabel4.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel4.Name = "materialLabel4";
+            this.materialLabel4.Size = new System.Drawing.Size(56, 19);
+            this.materialLabel4.TabIndex = 42;
+            this.materialLabel4.Text = "Gst No";
+            // 
             // Supplier
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(1222, 582);
+            this.Controls.Add(this.txtGstNo);
+            this.Controls.Add(this.materialLabel4);
             this.Controls.Add(this.mBtnDelete);
             this.Controls.Add(this.mBtnSaveUpdate);
             this.Controls.Add(this.dataGridView1);
@@ -203,5 +227,7 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         private MaterialSkin.Controls.MaterialRaisedButton mBtnSaveUpdate;
         private MaterialSkin.Controls.MaterialRaisedButton mBtnDelete;
+        private System.Windows.Forms.TextBox txtGstNo;
+        private MaterialSkin.Controls.MaterialLabel materialLabel4;
     }
 }

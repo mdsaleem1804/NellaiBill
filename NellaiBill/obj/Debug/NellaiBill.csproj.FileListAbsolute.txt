@@ -174,3 +174,11 @@ E:\Dotnet\NellaiBill\NellaiBill\obj\Debug\NellaiBill.application
 E:\Dotnet\NellaiBill\NellaiBill\obj\Debug\NellaiBill.csproj.CopyComplete
 E:\Dotnet\NellaiBill\NellaiBill\obj\Debug\NellaiBill.exe
 E:\Dotnet\NellaiBill\NellaiBill\obj\Debug\NellaiBill.pdb
+E:\Dotnet\NellaiBill\NellaiBill\obj\Debug\NellaiBill.csprojAssemblyReference.cache
+E:\Dotnet\NellaiBill\NellaiBill\obj\Debug\NellaiBill.Transaction.SalesEntryBasic.resources
+E:\Dotnet\NellaiBill\NellaiBill\bin\Debug\CrystalReports\rptSalesBillWithGst.rpt
+E:\Dotnet\NellaiBill\NellaiBill\bin\Debug\CrystalReports\rptSalesBillWithGst.cs
+E:\Dotnet\NellaiBill\NellaiBill\bin\Debug\CrystalReports\rptPurchaseAuditor.rpt
+E:\Dotnet\NellaiBill\NellaiBill\bin\Debug\CrystalReports\rptPurchaseAuditor.cs
+E:\Dotnet\NellaiBill\NellaiBill\bin\Debug\CrystalReports\rptSalesAuditor.rpt
+E:\Dotnet\NellaiBill\NellaiBill\bin\Debug\CrystalReports\rptSalesAuditor.cs

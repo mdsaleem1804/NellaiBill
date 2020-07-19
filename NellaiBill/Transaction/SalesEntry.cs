@@ -84,6 +84,7 @@ namespace NellaiBill.Master
                     Convert.ToDateTime(txtExpDate.Text).ToString("yyyy-MM-dd"),
                     txtStock.Text,
                     txtUnitPrice.Text,
+                    txtSellingPrice.Text,
                     txtMrp.Text,
                     txtQty.Text,
                     xAmount,
@@ -279,7 +280,7 @@ namespace NellaiBill.Master
                         double xMrp = Convert.ToDouble(dr.Cells["Mrp"].Value);
                         string xBatch = dr.Cells["Batch"].Value.ToString();
                         string xQrySalesDetails = "insert into   sales_details" +
-                           "(sales_id,txno,product_id,batch_id,expiry_date,qty,unit_rate,amount,gst,discount_percentage,unit_mrp) " +
+                           "(sales_id,txno,product_id,batch_id,expiry_date,qty,unit_rate,unit_sp,amount,gst,discount_percentage,unit_mrp) " +
                            "values(" + xSalesId + "," +
                              " '" + xTxNo + "'," +
                            " '" + xProductId + "'," +
@@ -287,6 +288,7 @@ namespace NellaiBill.Master
                             " '" + dr.Cells["ExpDate"].Value + "'," +
                            " " + xSalesQty + "," +
                            " " + Convert.ToDouble(dr.Cells["UnitPrice"].Value) + "," +
+                           " " + Convert.ToDouble(dr.Cells["UnitSP"].Value) + "," +
                            " " + xAmount + "," +
                            " " + Convert.ToDouble(dr.Cells["GstPercentage"].Value) + "," +
                            " " + Convert.ToDouble(dr.Cells["DiscPercentage"].Value) + "," +
@@ -343,15 +345,7 @@ namespace NellaiBill.Master
                     myCommand.ExecuteNonQuery();
 
                     myTrans.Commit();
-                    DialogResult result = MessageBox.Show("Do you want to print?", "Confirmation", MessageBoxButtons.YesNo);
-                    if (result == DialogResult.Yes)
-                    {
-                        PrintBill(xSalesId);
-                    }
-                    else if (result == DialogResult.No)
-                    {
-                        //...
-                    }
+                   
                 }
                 catch (Exception ex)
                 {
@@ -363,6 +357,15 @@ namespace NellaiBill.Master
                     myCommand.Dispose();
                     myTrans.Dispose();
                     xDb.connection.Close();
+                    //DialogResult result = MessageBox.Show("Do you want to print?", "Confirmation", MessageBoxButtons.YesNo);
+                    //if (result == DialogResult.Yes)
+                    //{
+                    //    PrintBill(xSalesId);
+                    //}
+                    //else if (result == DialogResult.No)
+                    //{
+                    //    //...
+                    //}
                 }
             }
 
@@ -380,7 +383,7 @@ namespace NellaiBill.Master
             reportDocument.SetParameterValue("SalesId", billno);
             reportDocument.PrintToPrinter(1, true, 0, 0);
         }
-
+        
         private void txtDiscPercentage_Leave(object sender, EventArgs e)
         {
             if (txtQty.Text == "")
@@ -496,6 +499,7 @@ namespace NellaiBill.Master
                 txtItem.Text = search.xItemName.ToString();
                 txtUnitPrice.Text = search.xUnitPrice.ToString();
                 txtMrp.Text = search.xMrp.ToString();
+                txtSellingPrice.Text = search.xMrp.ToString();
                 txtBatch.Text = search.xBatch.ToString();
                 txtExpDate.Text = search.xExpDate.ToString();
                 txtStock.Text = search.xStock.ToString();
@@ -504,7 +508,8 @@ namespace NellaiBill.Master
                 txtTax.Text = search.xTax.ToString();
                 txtDiscountValue.Text = "0";
                 txtDiscPercentage.Text = "0";
-                txtQty.Select();
+                txtQty.Text = "1";
+                txtSellingPrice.Select();
             }
         }
 
@@ -602,6 +607,18 @@ namespace NellaiBill.Master
                 double xUnitRate = (((xUnitMrp / xGstBefore)));
 
                 txtUnitPrice.Text = xUnitRate.ToString("#.##");
+            }
+        }
+        private void txtSellingPrice_TextChanged(object sender, EventArgs e)
+        {
+            if (txtTax.Text != "" && txtSellingPrice.Text!="") { 
+            /*Included Gst Logic */
+            double xSP = double.Parse(txtSellingPrice.Text);
+            double xGstValue = double.Parse(txtTax.Text.ToString());
+            double xGstBefore = xGstValue / 100 + 1;
+            double xUnitRate = (((xSP / xGstBefore)));
+
+            txtUnitPrice.Text = xUnitRate.ToString("#.##");
             }
         }
     }

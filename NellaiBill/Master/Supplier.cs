@@ -32,7 +32,8 @@ namespace NellaiBill.Master
             string xQry = "select supplier_id," +
                 "name as Name," +
                 "address as Address," +
-                "mobile_no as Mobile " +
+                "mobile_no as Mobile, " +
+                "gst_no as GstNo " +
                 "from m_supplier";
 
             xDb.LoadGrid(xQry, dataGridView1);
@@ -50,8 +51,10 @@ namespace NellaiBill.Master
             string xCurrentDateTime = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
             if (mBtnSaveUpdate.Text == "SAVE")
             {
-                xQry = "insert into m_supplier (supplier_id,name,address,mobile_no,created_by,created_on) " +
-                    " values ( " + xSupplierId + ",'" + txtName.Text + "', '" + rchAddress.Text + "','" + txtMobileNo.Text + "'," +
+                xQry = "insert into m_supplier (supplier_id,name,address,mobile_no,gst_no,created_by,created_on) " +
+                    " values ( " + xSupplierId + ",'" + txtName.Text + "', '" + rchAddress.Text + "'," +
+                         " '" + txtMobileNo.Text + "'," +
+                         " '" + txtGstNo.Text + "'," +
                          " '" + xUser + "','" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")
                          + "')";
             }
@@ -60,7 +63,9 @@ namespace NellaiBill.Master
                 xQry = "update m_supplier set " +
                     " name = '" + txtName.Text + "', " +
                     " address = '" + rchAddress.Text + "', " +
-                    " mobile_no = '" + txtMobileNo.Text + "', updated_by = '" + xUser + "', updated_on = '" + xCurrentDateTime + "' " +
+                    " mobile_no = '" + txtMobileNo.Text + "', " +
+                    " gst_no = '" + txtGstNo.Text + "', " +
+                    " updated_by = '" + xUser + "', updated_on = '" + xCurrentDateTime + "' " +
                     " where  supplier_id= " + xSupplierId + "";
             }
             xDb.DataProcess(xQry);
@@ -76,6 +81,7 @@ namespace NellaiBill.Master
             txtName.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
             rchAddress.Text = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
             txtMobileNo.Text = dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString();
+            txtGstNo.Text = dataGridView1.Rows[e.RowIndex].Cells[4].Value.ToString();
             mBtnSaveUpdate.Text = "UPDATE";
             mBtnDelete.Enabled = true;
         }
@@ -104,6 +110,7 @@ namespace NellaiBill.Master
             txtName.Text = "";
             rchAddress.Text = "";
             txtMobileNo.Text = "";
+            txtGstNo.Text = "";
             mBtnSaveUpdate.Text = "SAVE";
             mBtnDelete.Enabled = false;
             dataGridView1.ReadOnly = true;
