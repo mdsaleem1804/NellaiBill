@@ -32,6 +32,8 @@ namespace NellaiBill.Transaction
             lblSearch.Text = "Search Id";
             cmbGender.SelectedIndex = 1;
             this.KeyPreview = true;
+            dtpDob.Value= new DateTime(2000, 01, 01);
+            dtpDob.MaxDate = DateTime.Now;
         }
 
         private void loadFormBasedOnMissedUHID()
@@ -248,7 +250,7 @@ namespace NellaiBill.Transaction
                 DateTime  xDob=  Convert.ToDateTime(dataGridView1.Rows[e.RowIndex].Cells[7].Value.ToString());
                 if(xDob == DateTime.MinValue)
                 {
-                    dtpDob.Value = DateTime.Now;
+                    dtpDob.Value = new DateTime(2000, 01, 01);
                 }
                 else { 
                     dtpDob.Value = Convert.ToDateTime(dataGridView1.Rows[e.RowIndex].Cells[7].Value.ToString()); 
@@ -299,6 +301,26 @@ namespace NellaiBill.Transaction
             {
                 btnSave.PerformClick();
             }
+        }
+
+        private static void AcceptNumeric(KeyPressEventArgs e)
+        {
+            //We only want to allow numeric style chars
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                //Setting e.Handled cancels the keypress event, so the key is not entered
+                e.Handled = true;
+            }
+        }
+
+        private void txtPatientId_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            AcceptNumeric(e);
+        }
+
+        private void txtMobileNo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            AcceptNumeric(e);
         }
     }
 }

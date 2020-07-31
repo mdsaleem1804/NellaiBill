@@ -27,10 +27,12 @@
 --mysqladmin.exe -u root password secret
 
 -- Table stock has been altered successfully
---ALTER TABLE `stock` ADD `created_by` VARCHAR( 100 ) NOT NULL ,
---ADD `created_on` DATETIME NOT NULL ,
---ADD `updated_by` INT( 100 ) NULL ,
---ADD `updated_on` DATETIME NULL ;
+ALTER TABLE `purchase` ADD `created_by` VARCHAR( 100 ) NOT NULL ,
+ADD `created_on` DATETIME NOT NULL ,
+ADD `updated_by` INT( 100 ) NULL ,
+ADD `updated_on` DATETIME NULL ;
+
+
 
 --select p.product_name,c.category_name,g.group_name,s.mrp,s.batch_id,s.expiry_date 
 --from stock s ,m_product p ,m_category c,m_group g

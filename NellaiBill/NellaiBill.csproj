@@ -527,7 +527,9 @@
     <Compile Include="Models\LabResponseModel.cs" />
     <Compile Include="Models\PatientResponseModel.cs" />
     <Compile Include="Models\ProductModel.cs" />
+    <Compile Include="Models\PurchaseModel.cs" />
     <Compile Include="Models\StockResponseModel.cs" />
+    <Compile Include="Models\SupplierModel.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -725,6 +727,12 @@
     </Compile>
     <Compile Include="Transaction\EcgXrayBilling.Designer.cs">
       <DependentUpon>EcgXrayBilling.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction\PurchaseEntryEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transaction\PurchaseEntryEdit.Designer.cs">
+      <DependentUpon>PurchaseEntryEdit.cs</DependentUpon>
     </Compile>
     <Compile Include="Transaction\PurchaseReturn.cs">
       <SubType>Form</SubType>
@@ -1150,6 +1158,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Transaction\EcgXrayBilling.resx">
       <DependentUpon>EcgXrayBilling.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transaction\PurchaseEntryEdit.resx">
+      <DependentUpon>PurchaseEntryEdit.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Transaction\PurchaseReturn.resx">
       <DependentUpon>PurchaseReturn.cs</DependentUpon>

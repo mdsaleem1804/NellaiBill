@@ -1,5 +1,6 @@
 ﻿using CrystalDecisions.CrystalReports.Engine;
 using CrystalDecisions.Windows.Forms;
+using NellaiBill.Transaction;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -53,6 +54,16 @@ namespace NellaiBill.Reports
             crystalReportViewer1.ReportSource = cryRpt;
             crystalReportViewer1.Refresh();
             crystalReportViewer1.ToolPanelView = ToolPanelViewType.None;
+        }
+
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+            if (txtPurchaseId.Text != "")
+            {
+                PurchaseEntryEdit purchaseEntryEdit = new PurchaseEntryEdit(txtPurchaseId.Text);
+                purchaseEntryEdit.Show();
+            }
+
         }
     }
 }

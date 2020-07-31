@@ -160,6 +160,7 @@ namespace NellaiBill.Master
             txtStockId.Text = "";
             txtDiscPercentage.Text = "";
             txtDiscountValue.Text = "";
+            txtSellingPrice.Text = "";
         }
 
         private void DataClearAfterSave()
@@ -545,6 +546,11 @@ namespace NellaiBill.Master
             {
                 btnSaveBill.PerformClick();
             }
+            if (e.Control == true && e.KeyCode == Keys.F2)
+            {
+                Customer master =new Customer();
+                master.ShowDialog();
+            }
         }
 
         private void txtPaid_KeyPress(object sender, KeyPressEventArgs e)
@@ -621,6 +627,8 @@ namespace NellaiBill.Master
             txtUnitPrice.Text = xUnitRate.ToString("#.##");
             }
         }
+
+     
     }
 }
 

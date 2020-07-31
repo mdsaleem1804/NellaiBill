@@ -18,6 +18,7 @@ namespace NellaiBill.Master
         int xStockId;
         int xProductId;
         int xOldQty = 0;
+        string xOldBatch = "";
         public StockAdjustment()
         {
             InitializeComponent();
@@ -70,7 +71,8 @@ namespace NellaiBill.Master
                 txtItemName.Text = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
                 txtPrice.Text = dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString();
                 txtStock.Text = dataGridView1.Rows[e.RowIndex].Cells[4].Value.ToString();
-                xOldQty= Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[4].Value.ToString());
+                xOldQty = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[4].Value.ToString());
+                xOldBatch = dataGridView1.Rows[e.RowIndex].Cells[5].Value.ToString();
                 txtBatch.Text = dataGridView1.Rows[e.RowIndex].Cells[5].Value.ToString();
                 txtExpDate.Text = dataGridView1.Rows[e.RowIndex].Cells[6].Value.ToString();
                 btnSaveUpdate.Enabled = true;
@@ -80,6 +82,20 @@ namespace NellaiBill.Master
 
         private void btnSaveUpdate_Click(object sender, EventArgs e)
         {
+            DialogResult result = MessageBox.Show("It will affect Old Batch Details in reference to purchase ?", "Confirmation", MessageBoxButtons.YesNo);
+            if (result == DialogResult.Yes)
+            {
+                SaveData();
+            }
+            else if (result == DialogResult.No)
+            {
+                //...
+            }
+
+
+        }
+        private void SaveData()
+        {
             using (MySqlConnection myConnection = new MySqlConnection(xDb.conString))
             {
                 myConnection.Open();
@@ -87,7 +103,7 @@ namespace NellaiBill.Master
                 MySqlCommand myCommand = myConnection.CreateCommand();
                 try
                 {
-                    
+
                     int xChangeQty = Convert.ToInt32(txtStock.Text);
                     int xCurrentQty = Convert.ToInt32(txtStock.Text);
                     decimal xMrp = Convert.ToDecimal(txtPrice.Text);
@@ -102,6 +118,13 @@ namespace NellaiBill.Master
                    " where  stock_id= " + xStockId + "";
 
                     myCommand.CommandText = xUpdateStockQry;
+                    myCommand.ExecuteNonQuery();
+
+                    string xUpdatePurchaseQry = "update purchase_details " +
+                       " set    batch_id='" + xBatch + "'" +
+                       " where  batch_id= '" + xOldBatch + "'";
+
+                    myCommand.CommandText = xUpdatePurchaseQry;
                     myCommand.ExecuteNonQuery();
 
                     string xQryStockDetails = "insert into stock_history" +

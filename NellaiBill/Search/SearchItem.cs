@@ -42,7 +42,7 @@ namespace NellaiBill.Master
             txtSearch.Select();
             if (xFormType == "purchase")
             {
-                
+
                 xDb.LoadGrid("select 0,i.product_id,i.product_name,0,0,'','',i.gst from m_product i " +
                       "  order by product_name", dataGridView1);
                 dataGridView1.ReadOnly = true;
@@ -53,7 +53,7 @@ namespace NellaiBill.Master
                 dataGridView1.Columns[4].Visible = false;
                 dataGridView1.Columns[5].Visible = false;
                 dataGridView1.Columns[6].Visible = false;//expiry_date
-            
+
             }
             else
             {
@@ -69,13 +69,15 @@ namespace NellaiBill.Master
                 dataGridView1.Columns[4].FillWeight = 60;
                 dataGridView1.Columns[5].FillWeight = 60;
             }
-            
-           
+
+
         }
 
         private void txtSearch_TextChanged(object sender, EventArgs e)
         {
-            string xFilterSearch = "product_name Like '%" + txtSearch.Text + "%'";
+            string xFilterSearch = "product_name Like '%" + txtSearch.Text +
+                "%' OR batch_id LIKE '%" + txtSearch.Text + "%'";
+
             (dataGridView1.DataSource as DataTable).DefaultView.RowFilter = string.Format(xFilterSearch);
         }
 
@@ -104,7 +106,7 @@ namespace NellaiBill.Master
 
                 xBatch = dataGridView1.Rows[e.RowIndex].Cells[5].Value.ToString();
                 xExpDate = dataGridView1.Rows[e.RowIndex].Cells[6].Value.ToString();
-             
+
             }
             xTax = dataGridView1.Rows[e.RowIndex].Cells[7].Value.ToString();
             this.Close();
@@ -139,7 +141,7 @@ namespace NellaiBill.Master
 
                     xBatch = dgr.Cells[5].Value.ToString();
                     xExpDate = dgr.Cells[6].Value.ToString();
-                    
+
                 }
                 xTax = dgr.Cells[7].Value.ToString();
                 this.Close();

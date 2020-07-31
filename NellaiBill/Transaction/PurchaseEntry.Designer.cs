@@ -181,7 +181,7 @@
             this.groupBox1.Size = new System.Drawing.Size(858, 96);
             this.groupBox1.TabIndex = 95;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Supplier Details";
+            this.groupBox1.Text = "Supplier Details(Add Supplier -Ctrl+F1)";
             // 
             // txtCustomerName
             // 
@@ -936,7 +936,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(1304, 623);
+            this.ClientSize = new System.Drawing.Size(1045, 640);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.txtLessAmount);
             this.Controls.Add(this.label13);

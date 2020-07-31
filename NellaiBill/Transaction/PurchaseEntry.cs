@@ -441,6 +441,11 @@ namespace NellaiBill.Transaction
             {
                 mbtnSaveBill.PerformClick();
             }
+            if (e.Control == true && e.KeyCode == Keys.F1)
+            {
+                Supplier master = new Supplier();
+                master.ShowDialog();
+            }
         }
 
         private void btnAdd_Click(object sender, EventArgs e)

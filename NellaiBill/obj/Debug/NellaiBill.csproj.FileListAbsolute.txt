@@ -8,7 +8,10 @@ E:\Dotnet\NellaiBill\NellaiBill\bin\Debug\CrystalReports\rptLabConsolidated.rpt
 E:\Dotnet\NellaiBill\NellaiBill\bin\Debug\CrystalReports\rptLabPatientTestReport.rpt
 E:\Dotnet\NellaiBill\NellaiBill\bin\Debug\CrystalReports\rptPatientInformation.rpt
 E:\Dotnet\NellaiBill\NellaiBill\bin\Debug\CrystalReports\rptPatientList.rpt
+E:\Dotnet\NellaiBill\NellaiBill\bin\Debug\CrystalReports\rptSalesAuditor.rpt
+E:\Dotnet\NellaiBill\NellaiBill\bin\Debug\CrystalReports\rptPurchaseAuditor.rpt
 E:\Dotnet\NellaiBill\NellaiBill\bin\Debug\CrystalReports\rptPurchaseReturn.rpt
+E:\Dotnet\NellaiBill\NellaiBill\bin\Debug\CrystalReports\rptSalesBillWithGst.rpt
 E:\Dotnet\NellaiBill\NellaiBill\bin\Debug\CrystalReports\rptSalesBill.rpt
 E:\Dotnet\NellaiBill\NellaiBill\bin\Debug\CrystalReports\rptScanBill.rpt
 E:\Dotnet\NellaiBill\NellaiBill\bin\Debug\CrystalReports\rptEcgXrayConsolidated.rpt
@@ -35,7 +38,10 @@ E:\Dotnet\NellaiBill\NellaiBill\bin\Debug\CrystalReports\rptLabConsolidated.cs
 E:\Dotnet\NellaiBill\NellaiBill\bin\Debug\CrystalReports\rptLabPatientTestReport.cs
 E:\Dotnet\NellaiBill\NellaiBill\bin\Debug\CrystalReports\rptPatientInformation.cs
 E:\Dotnet\NellaiBill\NellaiBill\bin\Debug\CrystalReports\rptPatientList.cs
+E:\Dotnet\NellaiBill\NellaiBill\bin\Debug\CrystalReports\rptSalesAuditor.cs
+E:\Dotnet\NellaiBill\NellaiBill\bin\Debug\CrystalReports\rptPurchaseAuditor.cs
 E:\Dotnet\NellaiBill\NellaiBill\bin\Debug\CrystalReports\rptPurchaseReturn.cs
+E:\Dotnet\NellaiBill\NellaiBill\bin\Debug\CrystalReports\rptSalesBillWithGst.cs
 E:\Dotnet\NellaiBill\NellaiBill\bin\Debug\CrystalReports\rptSalesBill1.cs
 E:\Dotnet\NellaiBill\NellaiBill\bin\Debug\CrystalReports\rptScanBill.cs
 E:\Dotnet\NellaiBill\NellaiBill\bin\Debug\CrystalReports\rptEcgXrayConsolidated.cs
@@ -150,7 +156,9 @@ E:\Dotnet\NellaiBill\NellaiBill\obj\Debug\NellaiBill.Master.Group.resources
 E:\Dotnet\NellaiBill\NellaiBill\obj\Debug\NellaiBill.Master.frmItem.resources
 E:\Dotnet\NellaiBill\NellaiBill\obj\Debug\NellaiBill.Search.SearchScanDoctorFees.resources
 E:\Dotnet\NellaiBill\NellaiBill\obj\Debug\NellaiBill.Transaction.EcgXrayBilling.resources
+E:\Dotnet\NellaiBill\NellaiBill\obj\Debug\NellaiBill.Transaction.PurchaseEntryEdit.resources
 E:\Dotnet\NellaiBill\NellaiBill\obj\Debug\NellaiBill.Transaction.PurchaseReturn.resources
+E:\Dotnet\NellaiBill\NellaiBill\obj\Debug\NellaiBill.Transaction.SalesEntryBasic.resources
 E:\Dotnet\NellaiBill\NellaiBill\obj\Debug\NellaiBill.Transaction.SalesReturn.resources
 E:\Dotnet\NellaiBill\NellaiBill\obj\Debug\NellaiBill.Transaction.IP.IPAdmission.resources
 E:\Dotnet\NellaiBill\NellaiBill\obj\Debug\NellaiBill.Transaction.IP.IPDischargeSummary.resources
@@ -174,11 +182,3 @@ E:\Dotnet\NellaiBill\NellaiBill\obj\Debug\NellaiBill.application
 E:\Dotnet\NellaiBill\NellaiBill\obj\Debug\NellaiBill.csproj.CopyComplete
 E:\Dotnet\NellaiBill\NellaiBill\obj\Debug\NellaiBill.exe
 E:\Dotnet\NellaiBill\NellaiBill\obj\Debug\NellaiBill.pdb
-E:\Dotnet\NellaiBill\NellaiBill\obj\Debug\NellaiBill.csprojAssemblyReference.cache
-E:\Dotnet\NellaiBill\NellaiBill\obj\Debug\NellaiBill.Transaction.SalesEntryBasic.resources
-E:\Dotnet\NellaiBill\NellaiBill\bin\Debug\CrystalReports\rptSalesBillWithGst.rpt
-E:\Dotnet\NellaiBill\NellaiBill\bin\Debug\CrystalReports\rptSalesBillWithGst.cs
-E:\Dotnet\NellaiBill\NellaiBill\bin\Debug\CrystalReports\rptPurchaseAuditor.rpt
-E:\Dotnet\NellaiBill\NellaiBill\bin\Debug\CrystalReports\rptPurchaseAuditor.cs
-E:\Dotnet\NellaiBill\NellaiBill\bin\Debug\CrystalReports\rptSalesAuditor.rpt
-E:\Dotnet\NellaiBill\NellaiBill\bin\Debug\CrystalReports\rptSalesAuditor.cs

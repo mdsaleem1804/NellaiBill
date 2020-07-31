@@ -99,7 +99,7 @@
             this.rchNextOfKin.Location = new System.Drawing.Point(386, 106);
             this.rchNextOfKin.Name = "rchNextOfKin";
             this.rchNextOfKin.Size = new System.Drawing.Size(200, 25);
-            this.rchNextOfKin.TabIndex = 20;
+            this.rchNextOfKin.TabIndex = 19;
             this.rchNextOfKin.Text = "";
             // 
             // label11
@@ -205,6 +205,7 @@
             this.txtPatientId.Size = new System.Drawing.Size(169, 24);
             this.txtPatientId.TabIndex = 11;
             this.txtPatientId.TextChanged += new System.EventHandler(this.txtPatientId_TextChanged);
+            this.txtPatientId.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPatientId_KeyPress);
             // 
             // lblId
             // 
@@ -224,6 +225,7 @@
             this.txtMobileNo.Size = new System.Drawing.Size(160, 24);
             this.txtMobileNo.TabIndex = 15;
             this.txtMobileNo.Text = "0";
+            this.txtMobileNo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMobileNo_KeyPress);
             // 
             // label7
             // 
@@ -241,7 +243,7 @@
             this.rchAddress.Location = new System.Drawing.Point(636, 101);
             this.rchAddress.Name = "rchAddress";
             this.rchAddress.Size = new System.Drawing.Size(245, 77);
-            this.rchAddress.TabIndex = 19;
+            this.rchAddress.TabIndex = 20;
             this.rchAddress.Text = "";
             // 
             // label2
@@ -256,7 +258,7 @@
             // 
             // dtpDob
             // 
-            this.dtpDob.CustomFormat = "yyyy-MM-dd";
+            this.dtpDob.CustomFormat = "dd-MM-yyyy";
             this.dtpDob.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpDob.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpDob.Location = new System.Drawing.Point(20, 107);
@@ -383,7 +385,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1239, 701);
+            this.ClientSize = new System.Drawing.Size(1028, 701);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.txtSearch);
             this.Controls.Add(this.lblSearch);

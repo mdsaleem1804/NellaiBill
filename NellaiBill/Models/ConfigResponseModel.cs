@@ -17,5 +17,6 @@ namespace NellaiBill.Models
         public string IS_M_HsnCode { get; set; }
         public string IS_M_ProductCode { get; set; }
         public string IS_M_ProductMrp { get; set; }
+        public string DefualtDoctor { get; set; }
     }
 }

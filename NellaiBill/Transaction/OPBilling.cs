@@ -47,7 +47,8 @@ namespace NellaiBill.Transaction
             cmbCaseType1.SelectedIndex = 0;
             cmbOpPatientStatus.SelectedIndex = 1;
             cmbPaymentStatus.SelectedIndex = 1;
-            DoctorResponseModel doctorResponseModel= xDb.GetDoctorFromDoctorId(1);
+            ConfigResponseModel configResponseModel = xDb.GetConfig();
+            DoctorResponseModel doctorResponseModel= xDb.GetDoctorFromDoctorId(Convert.ToInt32(configResponseModel.DefualtDoctor));
             if(doctorResponseModel.DoctorId==0)
             {
                 MessageBox.Show("Could not Find Doctor Details");

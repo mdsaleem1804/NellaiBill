@@ -426,7 +426,8 @@ namespace NellaiBill
                         IS_M_ProductnameInTamil = reader.GetString("is_m_product_name_in_tamil"),
                         IS_M_HsnCode = reader.GetString("is_m_hsn_code"),
                         IS_M_ProductCode = reader.GetString("is_m_product_code"),
-                        IS_M_ProductMrp = reader.GetString("is_m_product_mrp")
+                        IS_M_ProductMrp = reader.GetString("is_m_product_mrp"),
+                        DefualtDoctor= reader.GetString("doctor_id")
                     };
                 }
                 connection.Close();
@@ -659,7 +660,57 @@ namespace NellaiBill
         }
         return model;
     }
-    public string GetRoomFees(int xRoomId)
+        public SupplierModel GetSupplierFromSupplier(String xQry)
+        {
+            SupplierModel model = new SupplierModel();
+            using (connection = new MySqlConnection(conString))
+            {
+
+                connection.Open();
+                MySqlCommand comm = new MySqlCommand(xQry, connection);
+
+                MySqlDataReader reader = comm.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    model = new SupplierModel()
+                    {
+                        SupplierId = reader.GetInt32("supplier_id"),
+                        SupplierName = reader.GetString("name"),
+                        SupplierAddress = reader.GetString("address"),
+                        SupplierMobileNo = reader.GetString("mobile_no"),
+                        SupplierGst = reader.GetString("gst_no")
+                    };
+                }
+                connection.Close();
+            }
+            return model;
+        }
+        public PurchaseModel GetPurchaseFromPurchaseEntries(String xQry)
+        {
+            PurchaseModel model = new PurchaseModel();
+            using (connection = new MySqlConnection(conString))
+            {
+
+                connection.Open();
+                MySqlCommand comm = new MySqlCommand(xQry, connection);
+
+                MySqlDataReader reader = comm.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    model = new PurchaseModel()
+                    {
+                        PurchaseId = reader.GetInt32("purchase_id"),
+                        PurchaseDate = reader.GetDateTime("date"),
+                        SupplierId = reader.GetInt32("supplier_id")
+                    };
+                }
+                connection.Close();
+            }
+            return model;
+        }
+        public string GetRoomFees(int xRoomId)
     {
         using (connection = new MySqlConnection(conString))
         {

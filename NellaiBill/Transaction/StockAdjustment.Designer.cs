@@ -101,6 +101,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.Enabled = false;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(345, 47);
             this.label2.Name = "label2";
@@ -110,6 +111,7 @@
             // 
             // txtPrice
             // 
+            this.txtPrice.Enabled = false;
             this.txtPrice.Location = new System.Drawing.Point(420, 46);
             this.txtPrice.Name = "txtPrice";
             this.txtPrice.Size = new System.Drawing.Size(71, 20);
@@ -118,6 +120,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
+            this.label3.Enabled = false;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(505, 47);
             this.label3.Name = "label3";
@@ -127,6 +130,7 @@
             // 
             // txtStock
             // 
+            this.txtStock.Enabled = false;
             this.txtStock.Location = new System.Drawing.Point(566, 46);
             this.txtStock.Name = "txtStock";
             this.txtStock.Size = new System.Drawing.Size(57, 20);
@@ -136,7 +140,7 @@
             // 
             this.txtBatch.Location = new System.Drawing.Point(703, 44);
             this.txtBatch.Name = "txtBatch";
-            this.txtBatch.Size = new System.Drawing.Size(190, 20);
+            this.txtBatch.Size = new System.Drawing.Size(244, 20);
             this.txtBatch.TabIndex = 18;
             // 
             // label4
@@ -190,6 +194,7 @@
             // 
             // txtExpDate
             // 
+            this.txtExpDate.Enabled = false;
             this.txtExpDate.Location = new System.Drawing.Point(116, 87);
             this.txtExpDate.Name = "txtExpDate";
             this.txtExpDate.Size = new System.Drawing.Size(190, 20);
@@ -198,6 +203,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
+            this.label6.Enabled = false;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.Location = new System.Drawing.Point(21, 87);
             this.label6.Name = "label6";
