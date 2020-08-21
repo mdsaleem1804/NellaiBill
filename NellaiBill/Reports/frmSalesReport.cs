@@ -37,7 +37,7 @@ namespace NellaiBill.Reports
         {
             ReportDocument reportDocument = new ReportDocument();
             GlobalClass globalClass = new GlobalClass();
-            string path = globalClass.GetReportPath() + "rptSalesBillWithGst.rpt";
+            string path = globalClass.GetReportPath() + "rptSalesBillTamil.rpt";
             reportDocument.Load(path);
             reportDocument.SetParameterValue("SalesId", billno);
             reportDocument.PrintToPrinter(1, true, 0, 0);

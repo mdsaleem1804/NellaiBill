@@ -11,6 +11,7 @@ E:\Dotnet\NellaiBill\NellaiBill\bin\Debug\CrystalReports\rptPatientList.rpt
 E:\Dotnet\NellaiBill\NellaiBill\bin\Debug\CrystalReports\rptSalesAuditor.rpt
 E:\Dotnet\NellaiBill\NellaiBill\bin\Debug\CrystalReports\rptPurchaseAuditor.rpt
 E:\Dotnet\NellaiBill\NellaiBill\bin\Debug\CrystalReports\rptPurchaseReturn.rpt
+E:\Dotnet\NellaiBill\NellaiBill\bin\Debug\CrystalReports\rptSalesBillTamil.rpt
 E:\Dotnet\NellaiBill\NellaiBill\bin\Debug\CrystalReports\rptSalesBillWithGst.rpt
 E:\Dotnet\NellaiBill\NellaiBill\bin\Debug\CrystalReports\rptSalesBill.rpt
 E:\Dotnet\NellaiBill\NellaiBill\bin\Debug\CrystalReports\rptScanBill.rpt
@@ -41,6 +42,7 @@ E:\Dotnet\NellaiBill\NellaiBill\bin\Debug\CrystalReports\rptPatientList.cs
 E:\Dotnet\NellaiBill\NellaiBill\bin\Debug\CrystalReports\rptSalesAuditor.cs
 E:\Dotnet\NellaiBill\NellaiBill\bin\Debug\CrystalReports\rptPurchaseAuditor.cs
 E:\Dotnet\NellaiBill\NellaiBill\bin\Debug\CrystalReports\rptPurchaseReturn.cs
+E:\Dotnet\NellaiBill\NellaiBill\bin\Debug\CrystalReports\rptSalesBillTamil.cs
 E:\Dotnet\NellaiBill\NellaiBill\bin\Debug\CrystalReports\rptSalesBillWithGst.cs
 E:\Dotnet\NellaiBill\NellaiBill\bin\Debug\CrystalReports\rptSalesBill1.cs
 E:\Dotnet\NellaiBill\NellaiBill\bin\Debug\CrystalReports\rptScanBill.cs

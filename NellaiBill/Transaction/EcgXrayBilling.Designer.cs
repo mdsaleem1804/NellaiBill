@@ -55,6 +55,8 @@
             this.cmbDoctor = new System.Windows.Forms.ComboBox();
             this.materialLabel3 = new MaterialSkin.Controls.MaterialLabel();
             this.cmbSection = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtFlimSize = new System.Windows.Forms.TextBox();
             this.panel3.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -87,10 +89,10 @@
             this.btnSaveUpdate.BackColor = System.Drawing.Color.DarkMagenta;
             this.btnSaveUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSaveUpdate.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnSaveUpdate.Location = new System.Drawing.Point(769, 206);
+            this.btnSaveUpdate.Location = new System.Drawing.Point(888, 206);
             this.btnSaveUpdate.Name = "btnSaveUpdate";
             this.btnSaveUpdate.Size = new System.Drawing.Size(111, 48);
-            this.btnSaveUpdate.TabIndex = 44;
+            this.btnSaveUpdate.TabIndex = 45;
             this.btnSaveUpdate.Text = "SAVE";
             this.btnSaveUpdate.UseVisualStyleBackColor = false;
             this.btnSaveUpdate.Click += new System.EventHandler(this.btnSaveUpdate_Click);
@@ -318,7 +320,7 @@
             this.materialLabel2.Depth = 0;
             this.materialLabel2.Font = new System.Drawing.Font("Roboto", 11F);
             this.materialLabel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel2.Location = new System.Drawing.Point(442, 202);
+            this.materialLabel2.Location = new System.Drawing.Point(561, 202);
             this.materialLabel2.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel2.Name = "materialLabel2";
             this.materialLabel2.Size = new System.Drawing.Size(99, 19);
@@ -329,10 +331,10 @@
             // 
             this.cmbDoctor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbDoctor.FormattingEnabled = true;
-            this.cmbDoctor.Location = new System.Drawing.Point(446, 233);
+            this.cmbDoctor.Location = new System.Drawing.Point(565, 233);
             this.cmbDoctor.Name = "cmbDoctor";
             this.cmbDoctor.Size = new System.Drawing.Size(161, 21);
-            this.cmbDoctor.TabIndex = 42;
+            this.cmbDoctor.TabIndex = 43;
             // 
             // materialLabel3
             // 
@@ -340,7 +342,7 @@
             this.materialLabel3.Depth = 0;
             this.materialLabel3.Font = new System.Drawing.Font("Roboto", 11F);
             this.materialLabel3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel3.Location = new System.Drawing.Point(623, 201);
+            this.materialLabel3.Location = new System.Drawing.Point(742, 201);
             this.materialLabel3.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel3.Name = "materialLabel3";
             this.materialLabel3.Size = new System.Drawing.Size(60, 19);
@@ -353,22 +355,38 @@
             this.cmbSection.FormattingEnabled = true;
             this.cmbSection.Items.AddRange(new object[] {
             "OP",
-            "WARD",
-            "LABOURWARD",
-            "NEWBORN",
-            "POW",
-            "IMCU",
-            "OT"});
-            this.cmbSection.Location = new System.Drawing.Point(625, 235);
+            "LABOURWARD"});
+            this.cmbSection.Location = new System.Drawing.Point(746, 232);
             this.cmbSection.Name = "cmbSection";
             this.cmbSection.Size = new System.Drawing.Size(113, 21);
-            this.cmbSection.TabIndex = 43;
+            this.cmbSection.TabIndex = 44;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(435, 201);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(69, 18);
+            this.label1.TabIndex = 144;
+            this.label1.Text = "Flim Size";
+            // 
+            // txtFlimSize
+            // 
+            this.txtFlimSize.Enabled = false;
+            this.txtFlimSize.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtFlimSize.Location = new System.Drawing.Point(438, 232);
+            this.txtFlimSize.Name = "txtFlimSize";
+            this.txtFlimSize.Size = new System.Drawing.Size(104, 24);
+            this.txtFlimSize.TabIndex = 42;
             // 
             // EcgXrayBilling
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1295, 652);
+            this.ClientSize = new System.Drawing.Size(1028, 652);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.txtFlimSize);
             this.Controls.Add(this.materialLabel3);
             this.Controls.Add(this.cmbSection);
             this.Controls.Add(this.materialLabel2);
@@ -423,5 +441,7 @@
         private System.Windows.Forms.ComboBox cmbDoctor;
         private MaterialSkin.Controls.MaterialLabel materialLabel3;
         private System.Windows.Forms.ComboBox cmbSection;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox txtFlimSize;
     }
 }

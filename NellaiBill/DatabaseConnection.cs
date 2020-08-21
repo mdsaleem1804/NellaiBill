@@ -385,6 +385,25 @@ namespace NellaiBill
                 return "";
             }
         }
+        public string GetTestSize(int xTestId)
+        {
+            using (connection = new MySqlConnection(conString))
+            {
+                string xQry = "select test_description from m_ecg_xray_test_fees where ecg_xray_test_fees_id= " + xTestId + "";
+                connection.Open();
+                MySqlCommand comm = new MySqlCommand(xQry, connection);
+
+                MySqlDataReader reader = comm.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    return reader.GetString(0);
+                }
+                connection.Close();
+                return "";
+            }
+        }
+
         public string GetAdvancePaymentFromIpNo(int xIpNo)
         {
             using (connection = new MySqlConnection(conString))
