@@ -103,7 +103,7 @@ namespace NellaiBill.Master
                     dataGridView1.Columns["ExpDate"].Width = 100;
                     dataGridView1.Columns["DGDelete"].Width = 40;
                     dataGridView1.Columns["Qty"].ReadOnly = false;
-                    dataGridView1.Columns["Price"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+                   // dataGridView1.Columns["Price"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
                     dataGridView1.Columns["Qty"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
                     dataGridView1.Columns["Amount"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
                     dataGridView1.Columns["GstPercentage"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;

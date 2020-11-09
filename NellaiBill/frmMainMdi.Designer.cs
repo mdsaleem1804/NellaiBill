@@ -93,6 +93,7 @@
             this.purchaseReportToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.stockDetailsBetweenDateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripBackUp = new System.Windows.Forms.ToolStripMenuItem();
+            this.stockAdjustmentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.calculatorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.NotepadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -100,13 +101,13 @@
             this.MSWordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.TaskManagerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.SystemInfoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.stockAdjustmentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMinimize = new System.Windows.Forms.ToolStripMenuItem();
             this.LogoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.purchaseReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.feesMasterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.ContainerPanel = new System.Windows.Forms.Panel();
+            this.scheduleHReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.StatusStrip1.SuspendLayout();
             this.menuStrip2.SuspendLayout();
             this.SuspendLayout();
@@ -346,21 +347,21 @@
             // accountGroupToolStripMenuItem
             // 
             this.accountGroupToolStripMenuItem.Name = "accountGroupToolStripMenuItem";
-            this.accountGroupToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.accountGroupToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
             this.accountGroupToolStripMenuItem.Text = "Account Group";
             this.accountGroupToolStripMenuItem.Click += new System.EventHandler(this.accountGroupToolStripMenuItem_Click);
             // 
             // receiptToolStripMenuItem
             // 
             this.receiptToolStripMenuItem.Name = "receiptToolStripMenuItem";
-            this.receiptToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.receiptToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
             this.receiptToolStripMenuItem.Text = "Receipt";
             this.receiptToolStripMenuItem.Click += new System.EventHandler(this.receiptToolStripMenuItem_Click);
             // 
             // paymentToolStripMenuItem
             // 
             this.paymentToolStripMenuItem.Name = "paymentToolStripMenuItem";
-            this.paymentToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.paymentToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
             this.paymentToolStripMenuItem.Text = "Payment";
             this.paymentToolStripMenuItem.Click += new System.EventHandler(this.paymentToolStripMenuItem_Click);
             // 
@@ -531,7 +532,8 @@
             this.stockReportToolStripMenuItem,
             this.salesReportToolStripMenuItem,
             this.purchaseReportToolStripMenuItem1,
-            this.stockDetailsBetweenDateToolStripMenuItem});
+            this.stockDetailsBetweenDateToolStripMenuItem,
+            this.scheduleHReportToolStripMenuItem});
             this.LogsToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LogsToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
             this.LogsToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("LogsToolStripMenuItem.Image")));
@@ -667,17 +669,24 @@
             this.toolStripBackUp.Text = "Tools";
             this.toolStripBackUp.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             // 
+            // stockAdjustmentToolStripMenuItem
+            // 
+            this.stockAdjustmentToolStripMenuItem.Name = "stockAdjustmentToolStripMenuItem";
+            this.stockAdjustmentToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
+            this.stockAdjustmentToolStripMenuItem.Text = "Stock Adjustment";
+            this.stockAdjustmentToolStripMenuItem.Click += new System.EventHandler(this.stockAdjustmentToolStripMenuItem_Click_1);
+            // 
             // toolStripMenuItem2
             // 
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(169, 22);
             this.toolStripMenuItem2.Text = "Backup";
             this.toolStripMenuItem2.Click += new System.EventHandler(this.toolStripMenuItem2_Click);
             // 
             // calculatorToolStripMenuItem
             // 
             this.calculatorToolStripMenuItem.Name = "calculatorToolStripMenuItem";
-            this.calculatorToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.calculatorToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
             this.calculatorToolStripMenuItem.Text = "Calculator";
             this.calculatorToolStripMenuItem.Click += new System.EventHandler(this.calculatorToolStripMenuItem_Click_1);
             // 
@@ -685,7 +694,7 @@
             // 
             this.NotepadToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("NotepadToolStripMenuItem.Image")));
             this.NotepadToolStripMenuItem.Name = "NotepadToolStripMenuItem";
-            this.NotepadToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.NotepadToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
             this.NotepadToolStripMenuItem.Text = "Notepad";
             this.NotepadToolStripMenuItem.Click += new System.EventHandler(this.NotepadToolStripMenuItem_Click);
             // 
@@ -693,7 +702,7 @@
             // 
             this.WordpadToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("WordpadToolStripMenuItem.Image")));
             this.WordpadToolStripMenuItem.Name = "WordpadToolStripMenuItem";
-            this.WordpadToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.WordpadToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
             this.WordpadToolStripMenuItem.Text = "Wordpad";
             this.WordpadToolStripMenuItem.Click += new System.EventHandler(this.WordpadToolStripMenuItem_Click);
             // 
@@ -701,7 +710,7 @@
             // 
             this.MSWordToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("MSWordToolStripMenuItem.Image")));
             this.MSWordToolStripMenuItem.Name = "MSWordToolStripMenuItem";
-            this.MSWordToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.MSWordToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
             this.MSWordToolStripMenuItem.Text = "MS Word";
             this.MSWordToolStripMenuItem.Click += new System.EventHandler(this.MSWordToolStripMenuItem_Click);
             // 
@@ -709,7 +718,7 @@
             // 
             this.TaskManagerToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("TaskManagerToolStripMenuItem.Image")));
             this.TaskManagerToolStripMenuItem.Name = "TaskManagerToolStripMenuItem";
-            this.TaskManagerToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.TaskManagerToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
             this.TaskManagerToolStripMenuItem.Text = "Task Manager";
             this.TaskManagerToolStripMenuItem.Click += new System.EventHandler(this.TaskManagerToolStripMenuItem_Click);
             // 
@@ -717,16 +726,9 @@
             // 
             this.SystemInfoToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("SystemInfoToolStripMenuItem.Image")));
             this.SystemInfoToolStripMenuItem.Name = "SystemInfoToolStripMenuItem";
-            this.SystemInfoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.SystemInfoToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
             this.SystemInfoToolStripMenuItem.Text = "System Info";
             this.SystemInfoToolStripMenuItem.Click += new System.EventHandler(this.SystemInfoToolStripMenuItem_Click);
-            // 
-            // stockAdjustmentToolStripMenuItem
-            // 
-            this.stockAdjustmentToolStripMenuItem.Name = "stockAdjustmentToolStripMenuItem";
-            this.stockAdjustmentToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.stockAdjustmentToolStripMenuItem.Text = "Stock Adjustment";
-            this.stockAdjustmentToolStripMenuItem.Click += new System.EventHandler(this.stockAdjustmentToolStripMenuItem_Click_1);
             // 
             // toolStripMinimize
             // 
@@ -776,6 +778,13 @@
             this.ContainerPanel.Name = "ContainerPanel";
             this.ContainerPanel.Size = new System.Drawing.Size(959, 372);
             this.ContainerPanel.TabIndex = 12;
+            // 
+            // scheduleHReportToolStripMenuItem
+            // 
+            this.scheduleHReportToolStripMenuItem.Name = "scheduleHReportToolStripMenuItem";
+            this.scheduleHReportToolStripMenuItem.Size = new System.Drawing.Size(262, 22);
+            this.scheduleHReportToolStripMenuItem.Text = "ScheduleHReport";
+            this.scheduleHReportToolStripMenuItem.Click += new System.EventHandler(this.scheduleHReportToolStripMenuItem_Click);
             // 
             // frm_main_mdi
             // 
@@ -879,6 +888,7 @@
         private System.Windows.Forms.ToolStripMenuItem paymentToolStripMenuItem;
         private System.Windows.Forms.ToolStripStatusLabel toolStripClose;
         private System.Windows.Forms.ToolStripMenuItem salesEntryBasicToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem scheduleHReportToolStripMenuItem;
     }
 }
 

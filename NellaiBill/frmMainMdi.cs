@@ -432,6 +432,11 @@ namespace NellaiBill
         {
             CommonFormControls(new SalesEntryBasic());
         }
+
+        private void scheduleHReportToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CommonFormControls(new ScheduleHReport());
+        }
     }
 }
                                

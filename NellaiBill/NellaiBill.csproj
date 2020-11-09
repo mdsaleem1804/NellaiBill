@@ -398,6 +398,13 @@
       <SubType>Component</SubType>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
+    <Compile Include="CrystalReports\rptScheduleH.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptScheduleH.rpt</DependentUpon>
+      <SubType>Component</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
     <Compile Include="CrystalReports\rptStock.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -595,6 +602,12 @@
     </Compile>
     <Compile Include="Reports\ScanSummaryReport.Designer.cs">
       <DependentUpon>ScanSummaryReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\ScheduleHReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\ScheduleHReport.Designer.cs">
+      <DependentUpon>ScheduleHReport.cs</DependentUpon>
     </Compile>
     <Compile Include="Reports\StockDetailBetweenDate.cs">
       <SubType>Form</SubType>
@@ -1007,6 +1020,11 @@
       <LastGenOutput>rptScanSummary.cs</LastGenOutput>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReports\rptScheduleH.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptScheduleH.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
     <EmbeddedResource Include="CrystalReports\rptStock.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>rptStock.cs</LastGenOutput>
@@ -1101,6 +1119,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\ScanSummaryReport.resx">
       <DependentUpon>ScanSummaryReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\ScheduleHReport.resx">
+      <DependentUpon>ScheduleHReport.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\StockDetailBetweenDate.resx">
       <DependentUpon>StockDetailBetweenDate.cs</DependentUpon>
