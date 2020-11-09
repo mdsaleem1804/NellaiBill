@@ -191,7 +191,7 @@
             this.webBrowser1.Name = "webBrowser1";
             this.webBrowser1.Size = new System.Drawing.Size(656, 337);
             this.webBrowser1.TabIndex = 94;
-            this.webBrowser1.Url = new System.Uri("http://localhost:8080/shc_pharmacy/print_format8.php?salesinvoiceno=704&xmode=rep" +
+            this.webBrowser1.Url = new System.Uri("http://localhost:8080/shc_pharmacy/print_format8.php?sales_id=704&xmode=rep" +
         "ort", System.UriKind.Absolute);
             // 
             // PurchaseSummaryReport

@@ -33,9 +33,7 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.label8 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label15 = new System.Windows.Forms.Label();
-            this.txtUhid = new System.Windows.Forms.TextBox();
-            this.txtLabId = new System.Windows.Forms.TextBox();
+            this.txtIpNo = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
             this.txtPatientId = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -48,11 +46,15 @@
             this.label1 = new System.Windows.Forms.Label();
             this.cmbRoom = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtAdmittedBy = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnSaveUpdate = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.txtRoomFees = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.rchPatientAddress = new System.Windows.Forms.RichTextBox();
+            this.label9 = new System.Windows.Forms.Label();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -105,9 +107,9 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.label15);
-            this.panel1.Controls.Add(this.txtUhid);
-            this.panel1.Controls.Add(this.txtLabId);
+            this.panel1.Controls.Add(this.rchPatientAddress);
+            this.panel1.Controls.Add(this.label9);
+            this.panel1.Controls.Add(this.txtIpNo);
             this.panel1.Controls.Add(this.label14);
             this.panel1.Controls.Add(this.txtPatientId);
             this.panel1.Controls.Add(this.label4);
@@ -118,36 +120,17 @@
             this.panel1.Controls.Add(this.label10);
             this.panel1.Location = new System.Drawing.Point(41, 53);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1236, 73);
+            this.panel1.Size = new System.Drawing.Size(1236, 83);
             this.panel1.TabIndex = 164;
             // 
-            // label15
+            // txtIpNo
             // 
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(592, 14);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(44, 18);
-            this.label15.TabIndex = 169;
-            this.label15.Text = "UHID";
-            // 
-            // txtUhid
-            // 
-            this.txtUhid.Enabled = false;
-            this.txtUhid.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUhid.Location = new System.Drawing.Point(595, 35);
-            this.txtUhid.Name = "txtUhid";
-            this.txtUhid.Size = new System.Drawing.Size(146, 24);
-            this.txtUhid.TabIndex = 168;
-            // 
-            // txtLabId
-            // 
-            this.txtLabId.Enabled = false;
-            this.txtLabId.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtLabId.Location = new System.Drawing.Point(29, 35);
-            this.txtLabId.Name = "txtLabId";
-            this.txtLabId.Size = new System.Drawing.Size(183, 24);
-            this.txtLabId.TabIndex = 131;
+            this.txtIpNo.Enabled = false;
+            this.txtIpNo.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtIpNo.Location = new System.Drawing.Point(29, 35);
+            this.txtIpNo.Name = "txtIpNo";
+            this.txtIpNo.Size = new System.Drawing.Size(183, 24);
+            this.txtIpNo.TabIndex = 131;
             // 
             // label14
             // 
@@ -182,18 +165,19 @@
             // 
             this.btnPatientSearch.BackColor = System.Drawing.Color.Lime;
             this.btnPatientSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPatientSearch.Location = new System.Drawing.Point(1036, 3);
+            this.btnPatientSearch.Location = new System.Drawing.Point(1112, 16);
             this.btnPatientSearch.Name = "btnPatientSearch";
             this.btnPatientSearch.Size = new System.Drawing.Size(121, 54);
             this.btnPatientSearch.TabIndex = 125;
             this.btnPatientSearch.Text = "SEARCH (CTRL+P)";
             this.btnPatientSearch.UseVisualStyleBackColor = false;
+            this.btnPatientSearch.Click += new System.EventHandler(this.btnPatientSearch_Click);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(746, 14);
+            this.label2.Location = new System.Drawing.Point(609, 14);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(97, 18);
             this.label2.TabIndex = 124;
@@ -203,9 +187,9 @@
             // 
             this.txtPatientName.Enabled = false;
             this.txtPatientName.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPatientName.Location = new System.Drawing.Point(749, 35);
+            this.txtPatientName.Location = new System.Drawing.Point(612, 35);
             this.txtPatientName.Name = "txtPatientName";
-            this.txtPatientName.Size = new System.Drawing.Size(268, 24);
+            this.txtPatientName.Size = new System.Drawing.Size(209, 24);
             this.txtPatientName.TabIndex = 123;
             // 
             // dtpBillDate
@@ -262,6 +246,7 @@
             this.cmbRoom.Name = "cmbRoom";
             this.cmbRoom.Size = new System.Drawing.Size(183, 26);
             this.cmbRoom.TabIndex = 170;
+            this.cmbRoom.SelectedIndexChanged += new System.EventHandler(this.cmbRoom_SelectedIndexChanged);
             // 
             // label3
             // 
@@ -273,49 +258,52 @@
             this.label3.TabIndex = 171;
             this.label3.Text = "Room";
             // 
-            // textBox1
+            // txtAdmittedBy
             // 
-            this.textBox1.Enabled = false;
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(637, 42);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(183, 24);
-            this.textBox1.TabIndex = 173;
+            this.txtAdmittedBy.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtAdmittedBy.Location = new System.Drawing.Point(774, 42);
+            this.txtAdmittedBy.Name = "txtAdmittedBy";
+            this.txtAdmittedBy.Size = new System.Drawing.Size(183, 24);
+            this.txtAdmittedBy.TabIndex = 173;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(634, 16);
+            this.label6.Location = new System.Drawing.Point(771, 16);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(86, 18);
             this.label6.TabIndex = 172;
             this.label6.Text = "Admitted By";
             // 
-            // button1
+            // btnSaveUpdate
             // 
-            this.button1.BackColor = System.Drawing.Color.Lime;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(835, 12);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(121, 54);
-            this.button1.TabIndex = 170;
-            this.button1.Text = "SAVE (CTRL+S)";
-            this.button1.UseVisualStyleBackColor = false;
+            this.btnSaveUpdate.BackColor = System.Drawing.Color.Lime;
+            this.btnSaveUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSaveUpdate.Location = new System.Drawing.Point(970, 27);
+            this.btnSaveUpdate.Name = "btnSaveUpdate";
+            this.btnSaveUpdate.Size = new System.Drawing.Size(121, 39);
+            this.btnSaveUpdate.TabIndex = 170;
+            this.btnSaveUpdate.Text = "SAVE";
+            this.btnSaveUpdate.UseVisualStyleBackColor = false;
+            this.btnSaveUpdate.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // dataGridView1
             // 
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(41, 217);
+            this.dataGridView1.Location = new System.Drawing.Point(41, 232);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(1236, 287);
+            this.dataGridView1.Size = new System.Drawing.Size(1236, 272);
             this.dataGridView1.TabIndex = 174;
+            this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.button1);
-            this.panel2.Controls.Add(this.textBox1);
+            this.panel2.Controls.Add(this.txtRoomFees);
+            this.panel2.Controls.Add(this.label7);
+            this.panel2.Controls.Add(this.btnSaveUpdate);
+            this.panel2.Controls.Add(this.txtAdmittedBy);
             this.panel2.Controls.Add(this.label6);
             this.panel2.Controls.Add(this.cmbRoom);
             this.panel2.Controls.Add(this.label3);
@@ -323,10 +311,49 @@
             this.panel2.Controls.Add(this.label1);
             this.panel2.Controls.Add(this.cmbDoctor);
             this.panel2.Controls.Add(this.label5);
-            this.panel2.Location = new System.Drawing.Point(41, 133);
+            this.panel2.Location = new System.Drawing.Point(41, 142);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1185, 78);
+            this.panel2.Size = new System.Drawing.Size(1236, 84);
             this.panel2.TabIndex = 175;
+            // 
+            // txtRoomFees
+            // 
+            this.txtRoomFees.Enabled = false;
+            this.txtRoomFees.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtRoomFees.Location = new System.Drawing.Point(625, 42);
+            this.txtRoomFees.Name = "txtRoomFees";
+            this.txtRoomFees.Size = new System.Drawing.Size(128, 24);
+            this.txtRoomFees.TabIndex = 175;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(622, 16);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(41, 18);
+            this.label7.TabIndex = 174;
+            this.label7.Text = "Fees";
+            // 
+            // rchPatientAddress
+            // 
+            this.rchPatientAddress.Enabled = false;
+            this.rchPatientAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rchPatientAddress.Location = new System.Drawing.Point(866, 31);
+            this.rchPatientAddress.Name = "rchPatientAddress";
+            this.rchPatientAddress.Size = new System.Drawing.Size(225, 37);
+            this.rchPatientAddress.TabIndex = 132;
+            this.rchPatientAddress.Text = "";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(863, 10);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(62, 18);
+            this.label9.TabIndex = 133;
+            this.label9.Text = "Address";
             // 
             // IPAdmission
             // 
@@ -340,6 +367,7 @@
             this.Name = "IPAdmission";
             this.Text = "IPAdmission";
             this.Load += new System.EventHandler(this.IPAdmission_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.IPAdmission_KeyDown);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.panel1.ResumeLayout(false);
@@ -358,7 +386,7 @@
         internal System.Windows.Forms.Panel panel3;
         internal System.Windows.Forms.Label label8;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.TextBox txtLabId;
+        private System.Windows.Forms.TextBox txtIpNo;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.TextBox txtPatientId;
         private System.Windows.Forms.Label label4;
@@ -367,16 +395,18 @@
         private System.Windows.Forms.TextBox txtPatientName;
         private System.Windows.Forms.DateTimePicker dtpBillDate;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.TextBox txtUhid;
         private System.Windows.Forms.ComboBox cmbCaseType;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox cmbRoom;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtAdmittedBy;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnSaveUpdate;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.TextBox txtRoomFees;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.RichTextBox rchPatientAddress;
+        private System.Windows.Forms.Label label9;
     }
 }

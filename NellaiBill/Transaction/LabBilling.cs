@@ -24,6 +24,7 @@ namespace NellaiBill.Master
             this.KeyPreview = true;
             txtLabId.Text = xDb.GetMaxId("lab_id", "billing_lab").ToString();
             xDb.LoadComboBox("select doctor_id,doctor_name from m_doctor", cmbDoctor, "doctor_id", "doctor_name");
+            cmbDoctor.SelectedIndex = 0;
             LoadGrid();
         }
         private void LoadGrid()
@@ -177,6 +178,7 @@ namespace NellaiBill.Master
 
                     myTrans.Commit();
                     MessageBox.Show("Record Saved Succesfully Id is " + xLabId);
+                    DataClear();
                 }
                 catch (Exception ex)
                 {
@@ -191,6 +193,17 @@ namespace NellaiBill.Master
                 }
 
             }
+        }
+        private void DataClear()
+        {
+            txtPatientId.Text = "";
+            txtPatientName.Text = "";
+            rchPatientAddress.Text = "";
+            txtUhid.Text = "";
+            txtSearch.Text = "";
+            dataGridView2.Rows.Clear();
+            txtLabId.Text = xDb.GetMaxId("lab_id", "billing_lab").ToString();           
+            cmbDoctor.SelectedIndex = 0;
         }
     }
 }

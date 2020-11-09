@@ -24,10 +24,16 @@ namespace NellaiBill.Transaction
 
         private void NewPatient_Load(object sender, EventArgs e)
         {
-            cmbGender.SelectedIndex = 0;
+            cmbGender.SelectedIndex = 1;
             txtMobileNo.MaxLength = 10;
             DataClear();
             LoadGrid();
+            lblId.Text = "User Id";
+            lblSearch.Text = "Search Id";
+            cmbGender.SelectedIndex = 1;
+            this.KeyPreview = true;
+            dtpDob.Value= new DateTime(2000, 01, 01);
+            dtpDob.MaxDate = DateTime.Now;
         }
 
         private void loadFormBasedOnMissedUHID()
@@ -233,6 +239,7 @@ namespace NellaiBill.Transaction
         {
             if (e.RowIndex >= 0)
             {
+                btnSave.Text = "UPDATE";
                 txtPatientId.Text = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
                 txtUhid.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
                 txtName.Text = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
@@ -240,14 +247,17 @@ namespace NellaiBill.Transaction
                 txtMobileNo.Text = dataGridView1.Rows[e.RowIndex].Cells[4].Value.ToString();
                 cmbGender.Text = dataGridView1.Rows[e.RowIndex].Cells[6].Value.ToString();
                 string xDateFromGrid = dataGridView1.Rows[e.RowIndex].Cells[7].Value.ToString();
-                if(xDateFromGrid== "1/1/0001 12:00:00 AM")
+                DateTime  xDob=  Convert.ToDateTime(dataGridView1.Rows[e.RowIndex].Cells[7].Value.ToString());
+                if(xDob == DateTime.MinValue)
                 {
-                    dtpDob.Value = DateTime.Now;
+                    dtpDob.Value = new DateTime(2000, 01, 01);
                 }
-                else { dtpDob.Value = Convert.ToDateTime(dataGridView1.Rows[e.RowIndex].Cells[7].Value.ToString()); }
-
+                else { 
+                    dtpDob.Value = Convert.ToDateTime(dataGridView1.Rows[e.RowIndex].Cells[7].Value.ToString()); 
+                }
+               
                 rchNextOfKin.Text = dataGridView1.Rows[e.RowIndex].Cells[8].Value.ToString();
-                btnSave.Text = "UPDATE";
+              
             }
         }
 
@@ -283,6 +293,34 @@ namespace NellaiBill.Transaction
         private void dtpDob_ValueChanged(object sender, EventArgs e)
         {
             GetAgeFromDOB();
+        }
+
+        private void NewPatient_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Control == true && e.KeyCode == Keys.S)
+            {
+                btnSave.PerformClick();
+            }
+        }
+
+        private static void AcceptNumeric(KeyPressEventArgs e)
+        {
+            //We only want to allow numeric style chars
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                //Setting e.Handled cancels the keypress event, so the key is not entered
+                e.Handled = true;
+            }
+        }
+
+        private void txtPatientId_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            AcceptNumeric(e);
+        }
+
+        private void txtMobileNo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            AcceptNumeric(e);
         }
     }
 }

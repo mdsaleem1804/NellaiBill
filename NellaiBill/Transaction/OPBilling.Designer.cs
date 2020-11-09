@@ -51,9 +51,6 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.cmbCaseType1 = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.mBtnCancel = new MaterialSkin.Controls.MaterialRaisedButton();
-            this.mBtnDelete = new MaterialSkin.Controls.MaterialRaisedButton();
-            this.mBtnSaveUpdate = new MaterialSkin.Controls.MaterialRaisedButton();
             this.txtTokenNo = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.cmbOpPatientStatus = new System.Windows.Forms.ComboBox();
@@ -66,17 +63,24 @@
             this.label6 = new System.Windows.Forms.Label();
             this.cmbNoonType = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.label16 = new System.Windows.Forms.Label();
+            this.btnSaveUpdate = new System.Windows.Forms.Button();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox2
             // 
+            this.groupBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
             this.groupBox2.Controls.Add(this.btnPrint);
             this.groupBox2.Controls.Add(this.label15);
             this.groupBox2.Controls.Add(this.txtUhid);
             this.groupBox2.Controls.Add(this.txtOpId);
+            this.groupBox2.Controls.Add(this.txtTokenNo);
             this.groupBox2.Controls.Add(this.label14);
+            this.groupBox2.Controls.Add(this.label13);
             this.groupBox2.Controls.Add(this.rchPatientAddress);
             this.groupBox2.Controls.Add(this.label9);
             this.groupBox2.Controls.Add(this.txtPatientId);
@@ -91,9 +95,9 @@
             this.groupBox2.Controls.Add(this.btnDoctorSearch);
             this.groupBox2.Controls.Add(this.dtpOpEntryDate);
             this.groupBox2.Controls.Add(this.label10);
-            this.groupBox2.Location = new System.Drawing.Point(35, 12);
+            this.groupBox2.Location = new System.Drawing.Point(12, 60);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(1240, 112);
+            this.groupBox2.Size = new System.Drawing.Size(1264, 112);
             this.groupBox2.TabIndex = 28;
             this.groupBox2.TabStop = false;
             // 
@@ -292,14 +296,15 @@
             // 
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(35, 248);
+            this.dataGridView1.Location = new System.Drawing.Point(18, 253);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(1240, 489);
+            this.dataGridView1.Size = new System.Drawing.Size(1258, 321);
             this.dataGridView1.TabIndex = 116;
             this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
             // 
             // cmbCaseType1
             // 
+            this.cmbCaseType1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbCaseType1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbCaseType1.FormattingEnabled = true;
             this.cmbCaseType1.Items.AddRange(new object[] {
@@ -309,7 +314,7 @@
             "WardCase",
             "Anc",
             "GreenFile"});
-            this.cmbCaseType1.Location = new System.Drawing.Point(432, 173);
+            this.cmbCaseType1.Location = new System.Drawing.Point(409, 221);
             this.cmbCaseType1.Name = "cmbCaseType1";
             this.cmbCaseType1.Size = new System.Drawing.Size(211, 26);
             this.cmbCaseType1.TabIndex = 23;
@@ -318,59 +323,20 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(429, 142);
+            this.label7.Location = new System.Drawing.Point(406, 190);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(83, 18);
             this.label7.TabIndex = 134;
             this.label7.Text = "CaseType1";
             // 
-            // mBtnCancel
-            // 
-            this.mBtnCancel.Depth = 0;
-            this.mBtnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mBtnCancel.Location = new System.Drawing.Point(1140, 214);
-            this.mBtnCancel.MouseState = MaterialSkin.MouseState.HOVER;
-            this.mBtnCancel.Name = "mBtnCancel";
-            this.mBtnCancel.Primary = true;
-            this.mBtnCancel.Size = new System.Drawing.Size(82, 28);
-            this.mBtnCancel.TabIndex = 126;
-            this.mBtnCancel.Text = "CANCEL";
-            this.mBtnCancel.UseVisualStyleBackColor = true;
-            // 
-            // mBtnDelete
-            // 
-            this.mBtnDelete.Depth = 0;
-            this.mBtnDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mBtnDelete.Location = new System.Drawing.Point(1043, 214);
-            this.mBtnDelete.MouseState = MaterialSkin.MouseState.HOVER;
-            this.mBtnDelete.Name = "mBtnDelete";
-            this.mBtnDelete.Primary = true;
-            this.mBtnDelete.Size = new System.Drawing.Size(82, 28);
-            this.mBtnDelete.TabIndex = 125;
-            this.mBtnDelete.Text = "DELETE";
-            this.mBtnDelete.UseVisualStyleBackColor = true;
-            // 
-            // mBtnSaveUpdate
-            // 
-            this.mBtnSaveUpdate.Depth = 0;
-            this.mBtnSaveUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mBtnSaveUpdate.Location = new System.Drawing.Point(954, 214);
-            this.mBtnSaveUpdate.MouseState = MaterialSkin.MouseState.HOVER;
-            this.mBtnSaveUpdate.Name = "mBtnSaveUpdate";
-            this.mBtnSaveUpdate.Primary = true;
-            this.mBtnSaveUpdate.Size = new System.Drawing.Size(82, 28);
-            this.mBtnSaveUpdate.TabIndex = 124;
-            this.mBtnSaveUpdate.Text = "SAVE";
-            this.mBtnSaveUpdate.UseVisualStyleBackColor = true;
-            this.mBtnSaveUpdate.Click += new System.EventHandler(this.mBtnSaveUpdate_Click_1);
-            // 
             // txtTokenNo
             // 
             this.txtTokenNo.Enabled = false;
-            this.txtTokenNo.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTokenNo.Location = new System.Drawing.Point(863, 216);
+            this.txtTokenNo.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTokenNo.ForeColor = System.Drawing.Color.Red;
+            this.txtTokenNo.Location = new System.Drawing.Point(1156, 37);
             this.txtTokenNo.Name = "txtTokenNo";
-            this.txtTokenNo.Size = new System.Drawing.Size(76, 24);
+            this.txtTokenNo.Size = new System.Drawing.Size(76, 53);
             this.txtTokenNo.TabIndex = 133;
             this.txtTokenNo.Text = "0";
             // 
@@ -378,7 +344,7 @@
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(765, 219);
+            this.label13.Location = new System.Drawing.Point(1153, 11);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(74, 18);
             this.label13.TabIndex = 132;
@@ -386,13 +352,14 @@
             // 
             // cmbOpPatientStatus
             // 
+            this.cmbOpPatientStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbOpPatientStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbOpPatientStatus.FormattingEnabled = true;
             this.cmbOpPatientStatus.Items.AddRange(new object[] {
             "Processing",
             "Completed",
             "Cancelled"});
-            this.cmbOpPatientStatus.Location = new System.Drawing.Point(1046, 171);
+            this.cmbOpPatientStatus.Location = new System.Drawing.Point(1006, 219);
             this.cmbOpPatientStatus.Name = "cmbOpPatientStatus";
             this.cmbOpPatientStatus.Size = new System.Drawing.Size(172, 26);
             this.cmbOpPatientStatus.TabIndex = 26;
@@ -401,7 +368,7 @@
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(1043, 142);
+            this.label12.Location = new System.Drawing.Point(1003, 190);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(99, 18);
             this.label12.TabIndex = 131;
@@ -409,22 +376,23 @@
             // 
             // cmbPaymentStatus
             // 
+            this.cmbPaymentStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbPaymentStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbPaymentStatus.FormattingEnabled = true;
             this.cmbPaymentStatus.Items.AddRange(new object[] {
             "Paid",
             "NotPaid",
             "NoFees"});
-            this.cmbPaymentStatus.Location = new System.Drawing.Point(826, 171);
+            this.cmbPaymentStatus.Location = new System.Drawing.Point(803, 219);
             this.cmbPaymentStatus.Name = "cmbPaymentStatus";
-            this.cmbPaymentStatus.Size = new System.Drawing.Size(214, 26);
+            this.cmbPaymentStatus.Size = new System.Drawing.Size(197, 26);
             this.cmbPaymentStatus.TabIndex = 25;
             // 
             // label11
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(822, 142);
+            this.label11.Location = new System.Drawing.Point(799, 190);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(112, 18);
             this.label11.TabIndex = 130;
@@ -434,7 +402,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(646, 142);
+            this.label8.Location = new System.Drawing.Point(623, 190);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(41, 18);
             this.label8.TabIndex = 129;
@@ -443,20 +411,22 @@
             // txtFees
             // 
             this.txtFees.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtFees.Location = new System.Drawing.Point(649, 173);
+            this.txtFees.Location = new System.Drawing.Point(626, 221);
             this.txtFees.Name = "txtFees";
             this.txtFees.Size = new System.Drawing.Size(171, 24);
             this.txtFees.TabIndex = 24;
+            this.txtFees.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtFees_KeyPress);
             // 
             // cmbCaseType
             // 
+            this.cmbCaseType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbCaseType.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbCaseType.FormattingEnabled = true;
             this.cmbCaseType.Items.AddRange(new object[] {
             "General",
             "Emergency",
             "Others"});
-            this.cmbCaseType.Location = new System.Drawing.Point(41, 173);
+            this.cmbCaseType.Location = new System.Drawing.Point(18, 221);
             this.cmbCaseType.Name = "cmbCaseType";
             this.cmbCaseType.Size = new System.Drawing.Size(171, 26);
             this.cmbCaseType.TabIndex = 21;
@@ -466,7 +436,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(41, 142);
+            this.label6.Location = new System.Drawing.Point(18, 190);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(75, 18);
             this.label6.TabIndex = 128;
@@ -474,12 +444,13 @@
             // 
             // cmbNoonType
             // 
+            this.cmbNoonType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbNoonType.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbNoonType.FormattingEnabled = true;
             this.cmbNoonType.Items.AddRange(new object[] {
             "Morning",
             "Evening"});
-            this.cmbNoonType.Location = new System.Drawing.Point(236, 173);
+            this.cmbNoonType.Location = new System.Drawing.Point(213, 221);
             this.cmbNoonType.Name = "cmbNoonType";
             this.cmbNoonType.Size = new System.Drawing.Size(172, 26);
             this.cmbNoonType.TabIndex = 22;
@@ -489,24 +460,56 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(233, 142);
+            this.label5.Location = new System.Drawing.Point(210, 190);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(77, 18);
             this.label5.TabIndex = 127;
             this.label5.Text = "NoonType";
             // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.DarkMagenta;
+            this.panel3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel3.Controls.Add(this.label16);
+            this.panel3.Location = new System.Drawing.Point(12, 12);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(1264, 35);
+            this.panel3.TabIndex = 135;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.BackColor = System.Drawing.Color.Transparent;
+            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.ForeColor = System.Drawing.Color.White;
+            this.label16.Location = new System.Drawing.Point(516, 2);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(120, 24);
+            this.label16.TabIndex = 0;
+            this.label16.Text = "OP BILLING";
+            // 
+            // btnSaveUpdate
+            // 
+            this.btnSaveUpdate.BackColor = System.Drawing.Color.DarkMagenta;
+            this.btnSaveUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSaveUpdate.ForeColor = System.Drawing.SystemColors.Window;
+            this.btnSaveUpdate.Location = new System.Drawing.Point(1184, 190);
+            this.btnSaveUpdate.Name = "btnSaveUpdate";
+            this.btnSaveUpdate.Size = new System.Drawing.Size(92, 57);
+            this.btnSaveUpdate.TabIndex = 136;
+            this.btnSaveUpdate.Text = "SAVE";
+            this.btnSaveUpdate.UseVisualStyleBackColor = false;
+            this.btnSaveUpdate.Click += new System.EventHandler(this.btnSaveUpdate_Click);
+            // 
             // OPBilling
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1348, 749);
+            this.ClientSize = new System.Drawing.Size(1290, 586);
+            this.Controls.Add(this.btnSaveUpdate);
+            this.Controls.Add(this.panel3);
             this.Controls.Add(this.cmbCaseType1);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.mBtnCancel);
-            this.Controls.Add(this.mBtnDelete);
-            this.Controls.Add(this.mBtnSaveUpdate);
-            this.Controls.Add(this.txtTokenNo);
-            this.Controls.Add(this.label13);
             this.Controls.Add(this.cmbOpPatientStatus);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.cmbPaymentStatus);
@@ -526,6 +529,8 @@
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -555,9 +560,6 @@
         private System.Windows.Forms.TextBox txtUhid;
         private System.Windows.Forms.ComboBox cmbCaseType1;
         private System.Windows.Forms.Label label7;
-        private MaterialSkin.Controls.MaterialRaisedButton mBtnCancel;
-        private MaterialSkin.Controls.MaterialRaisedButton mBtnDelete;
-        private MaterialSkin.Controls.MaterialRaisedButton mBtnSaveUpdate;
         private System.Windows.Forms.TextBox txtTokenNo;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.ComboBox cmbOpPatientStatus;
@@ -571,5 +573,8 @@
         private System.Windows.Forms.ComboBox cmbNoonType;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button btnPrint;
+        internal System.Windows.Forms.Panel panel3;
+        internal System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Button btnSaveUpdate;
     }
 }

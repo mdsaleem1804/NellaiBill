@@ -1,4 +1,6 @@
-﻿namespace NellaiBill
+﻿using System.Windows.Forms;
+
+namespace NellaiBill
 {
     public class GlobalClass
     {
@@ -17,6 +19,16 @@
            // return "D:\\Saleem\\reports\\";
             return System.Windows.Forms.Application.StartupPath + "\\CrystalReports\\";
         }
-
+        public void DisplayMessage(string xMessage)
+        {
+            MessageBox.Show(xMessage);
+        }
+        public void AcceptOnlyNumeric(KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+        }
     }
 }

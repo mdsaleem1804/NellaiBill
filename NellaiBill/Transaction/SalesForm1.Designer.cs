@@ -204,7 +204,7 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(83, 20);
             this.label2.TabIndex = 7;
-            this.label2.Text = "ItemName";
+            this.label2.Text = "product_name";
             // 
             // cmb_item
             // 

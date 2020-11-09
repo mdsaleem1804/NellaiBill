@@ -36,6 +36,10 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.label8 = new System.Windows.Forms.Label();
             this.crystalReportViewer1 = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
+            this.btnViewAuditor = new MaterialSkin.Controls.MaterialRaisedButton();
+            this.txtPurchaseId = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.btnEdit = new MaterialSkin.Controls.MaterialRaisedButton();
             this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -120,12 +124,58 @@
             this.crystalReportViewer1.Size = new System.Drawing.Size(1237, 600);
             this.crystalReportViewer1.TabIndex = 32;
             // 
+            // btnViewAuditor
+            // 
+            this.btnViewAuditor.Depth = 0;
+            this.btnViewAuditor.Location = new System.Drawing.Point(516, 69);
+            this.btnViewAuditor.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnViewAuditor.Name = "btnViewAuditor";
+            this.btnViewAuditor.Primary = true;
+            this.btnViewAuditor.Size = new System.Drawing.Size(195, 26);
+            this.btnViewAuditor.TabIndex = 33;
+            this.btnViewAuditor.Text = "VIEW AUDITOR DATA";
+            this.btnViewAuditor.UseVisualStyleBackColor = true;
+            this.btnViewAuditor.Click += new System.EventHandler(this.btnViewAuditor_Click);
+            // 
+            // txtPurchaseId
+            // 
+            this.txtPurchaseId.Location = new System.Drawing.Point(914, 68);
+            this.txtPurchaseId.Name = "txtPurchaseId";
+            this.txtPurchaseId.Size = new System.Drawing.Size(100, 20);
+            this.txtPurchaseId.TabIndex = 34;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(790, 71);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(92, 13);
+            this.label2.TabIndex = 35;
+            this.label2.Text = "Enter Purchase Id";
+            // 
+            // btnEdit
+            // 
+            this.btnEdit.Depth = 0;
+            this.btnEdit.Location = new System.Drawing.Point(1033, 64);
+            this.btnEdit.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnEdit.Name = "btnEdit";
+            this.btnEdit.Primary = true;
+            this.btnEdit.Size = new System.Drawing.Size(109, 37);
+            this.btnEdit.TabIndex = 36;
+            this.btnEdit.Text = "EDIT DATA";
+            this.btnEdit.UseVisualStyleBackColor = true;
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
+            // 
             // PurchaseReport
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(1278, 582);
+            this.ClientSize = new System.Drawing.Size(1295, 582);
+            this.Controls.Add(this.btnEdit);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.txtPurchaseId);
+            this.Controls.Add(this.btnViewAuditor);
             this.Controls.Add(this.crystalReportViewer1);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.btnViewData);
@@ -152,5 +202,9 @@
              internal System.Windows.Forms.Panel panel3;
         internal System.Windows.Forms.Label label8;
         private CrystalDecisions.Windows.Forms.CrystalReportViewer crystalReportViewer1;
+        private MaterialSkin.Controls.MaterialRaisedButton btnViewAuditor;
+        private System.Windows.Forms.TextBox txtPurchaseId;
+        private System.Windows.Forms.Label label2;
+        private MaterialSkin.Controls.MaterialRaisedButton btnEdit;
     }
 }

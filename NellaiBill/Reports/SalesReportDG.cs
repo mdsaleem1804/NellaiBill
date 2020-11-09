@@ -31,7 +31,7 @@ namespace NellaiBill.Reports
         }
         private void LoadComboBox()
         {
-            xDb.LoadComboBox("select i.itemno,i.itemname from m_item i", cmbItem, "itemno", "itemname");
+            xDb.LoadComboBox("select i.product_id,i.product_name from m_product i", cmbItem, "product_id", "product_name");
             xDb.LoadComboBox("SELECT account_ledger_id, ledger_name FROM account_ledger  where ledger_undergroup_no = 5 order by ledger_name", cmbLedger, "account_ledger_id", "ledger_name");
         }
 
@@ -49,7 +49,7 @@ namespace NellaiBill.Reports
             else
             {
                 string xItemNo = cmbItem.SelectedValue.ToString();
-                xFilter += " and s.itemno=" + xItemNo ;
+                xFilter += " and s.product_id=" + xItemNo ;
             }
             if (mChkSelectAllCustomer.Checked)
             {
@@ -62,14 +62,14 @@ namespace NellaiBill.Reports
             }
             if (txtInvoiceNo.Text.Length>0)
             {
-                xFilter += " and s.salesinvoiceno= " + txtInvoiceNo.Text.ToString();
+                xFilter += " and s.sales_id= " + txtInvoiceNo.Text.ToString();
             }
-            string xQuery = "select s.salesinvoiceno as INVNO,a.ledger_name as CUSTOMER,s.date as DATE,i.itemname as ITEMNAME,s.batchid as BATCH,s.qty as QTY" +
-                " from inv_salesentry s,  account_ledger a,m_item i " +
-                " where s.customerno = a.account_ledger_id and s.itemno = i.itemno " +
-                " and date>='" + dtpFromDate.Text + "' and date <= '" + dtpToDate.Text + "' " + xFilter + " order by s.salesinvoiceno desc ";
+            string xQuery = "select s.sales_id as INVNO,a.ledger_name as CUSTOMER,s.date as DATE,i.product_name as product_name,s.batchid as BATCH,s.qty as QTY" +
+                " from sales_details s,  account_ledger a,m_product i " +
+                " where s.customerno = a.account_ledger_id and s.product_id = i.product_id " +
+                " and date>='" + dtpFromDate.Text + "' and date <= '" + dtpToDate.Text + "' " + xFilter + " order by s.sales_id desc ";
             xDb.LoadGrid(xQuery, dataGridView1);
-            dataGridView1.Columns["ITEMNAME"].Width = 200;
+            dataGridView1.Columns["product_name"].Width = 200;
             dataGridView1.Columns["CUSTOMER"].Width = 200;         
             dataGridView1.Columns["INVNO"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
             dataGridView1.Columns["DATE"].DefaultCellStyle.Format = "dd /MMMM/yyyy";

@@ -99,6 +99,7 @@ namespace NellaiBill.Transaction
 
             int xTestId = Convert.ToInt32(cmbTest.SelectedValue.ToString());
             string xTestFees = xDb.GetTestFees(xTestId);
+            txtFlimSize.Text= xDb.GetTestSize(xTestId);
             if (xTestFees != "")
             {
                 txtFees.Text = xDb.GetTestFees(xTestId);

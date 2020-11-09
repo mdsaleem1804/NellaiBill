@@ -1,14 +1,16 @@
 ﻿using System;
 using System.Drawing;
 using System.Windows.Forms;
+using CrystalDecisions.CrystalReports.Engine;
 using MySql.Data.MySqlClient;
+using NellaiBill.Common;
+using NellaiBill.Models;
+
 namespace NellaiBill.Master
 {
     public partial class SalesEntry : Form
     {
         DatabaseConnection xDb = new DatabaseConnection();
-        string xLoggedinUserName = "";
-        string xUserName = "";
         public SalesEntry()
         {
             InitializeComponent();
@@ -17,13 +19,14 @@ namespace NellaiBill.Master
         private void Sales_Load(object sender, EventArgs e)
         {
             dataGridView1.Columns["Qty"].DefaultCellStyle.ForeColor = Color.Red;
-            dataGridView1.Columns["ItemName"].DefaultCellStyle.ForeColor = Color.Red;
-            dataGridView1.Columns["ItemName"].DefaultCellStyle.Font = new Font("Tahoma", 9.75F, FontStyle.Bold);
+            dataGridView1.Columns["product_name"].DefaultCellStyle.ForeColor = Color.Red;
+            dataGridView1.Columns["product_name"].DefaultCellStyle.Font = new Font("Tahoma", 9.75F, FontStyle.Bold);
             dataGridView1.Columns["Qty"].DefaultCellStyle.Font = new Font("Tahoma", 9.75F, FontStyle.Bold);
             dtpDate.Focus();
             cmbPaymentMode.SelectedIndex = 0;
             cmbBillType.SelectedIndex = 0;
-            lblInvoiceNo.Text = xDb.GetMaxId("salesinvoiceno", "inv_salesentry1").ToString();
+            lblInvoiceNo.Text = xDb.GetMaxId("sales_id", "sales").ToString();
+
             dataGridView1.Columns[0].Visible = false;
             dataGridView1.RowHeadersVisible = false;
 
@@ -33,6 +36,9 @@ namespace NellaiBill.Master
             dataGridView1.ColumnHeadersDefaultCellStyle.Font = new Font("Tahoma", 10, FontStyle.Bold);
             dataGridView1.ColumnHeadersDefaultCellStyle.ForeColor = Color.Yellow;
             this.KeyPreview = true;
+            btnSaveBill.Enabled = true;
+            cmbBillType.SelectedIndex = 1;
+            cmbPaymentMode.SelectedIndex = 1;
         }
 
         private void AddDataToGrid()
@@ -78,6 +84,7 @@ namespace NellaiBill.Master
                     Convert.ToDateTime(txtExpDate.Text).ToString("yyyy-MM-dd"),
                     txtStock.Text,
                     txtUnitPrice.Text,
+                    txtSellingPrice.Text,
                     txtMrp.Text,
                     txtQty.Text,
                     xAmount,
@@ -92,11 +99,11 @@ namespace NellaiBill.Master
                     CalculateTotalAmount();
                     DataClear();
 
-                    dataGridView1.Columns["ItemName"].Width = 200;
+                    dataGridView1.Columns["product_name"].Width = 200;
                     dataGridView1.Columns["ExpDate"].Width = 100;
                     dataGridView1.Columns["DGDelete"].Width = 40;
                     dataGridView1.Columns["Qty"].ReadOnly = false;
-                    dataGridView1.Columns["Price"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+                   // dataGridView1.Columns["Price"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
                     dataGridView1.Columns["Qty"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
                     dataGridView1.Columns["Amount"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
                     dataGridView1.Columns["GstPercentage"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
@@ -136,9 +143,11 @@ namespace NellaiBill.Master
 
             xTotalAmount = xAmount;
             lbl_total_amount_value.Text = xTotalAmount.ToString();
+
         }
         private void DataClear()
         {
+            txtProductCode.Text = "";
             txtItem.Text = "";
             txtBatch.Text = "";
             txtExpDate.Text = "";
@@ -151,6 +160,7 @@ namespace NellaiBill.Master
             txtStockId.Text = "";
             txtDiscPercentage.Text = "";
             txtDiscountValue.Text = "";
+            txtSellingPrice.Text = "";
         }
 
         private void DataClearAfterSave()
@@ -159,7 +169,6 @@ namespace NellaiBill.Master
             rchCustomerAddress.Text = "";
             txtPaid.Text = "0";
             txtBalance.Text = "";
-            txtUserPassword.Text = "";
             dataGridView1.Rows.Clear();
             cmbPaymentMode.Text = "Please Select";
             lbl_total_amount_value.Text = "";
@@ -247,7 +256,10 @@ namespace NellaiBill.Master
                 MessageBox.Show("Please add data");
                 return;
             }
-            int xSalesId = xDb.GetMaxId("salesinvoiceno", "inv_salesentry1");
+            int xSalesId = xDb.GetMaxId("sales_id", "sales");
+
+            string xUser = LoginInfo.UserID;
+            string xCurrentDateTime = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
             double xLessAmount = 0;
             using (MySqlConnection myConnection = new MySqlConnection(xDb.conString))
             {
@@ -258,84 +270,83 @@ namespace NellaiBill.Master
                 {
                     foreach (DataGridViewRow dr in dataGridView1.Rows)
                     {
+                        int xTxNo = dr.Index + 1;
                         int xStockId = Convert.ToInt32(dr.Cells["Id"].Value);
-                        int xItemNo = Convert.ToInt32(dr.Cells["ItemNoDg1"].Value);
-                        double xQty = Convert.ToDouble(dr.Cells["Qty"].Value);
+                        int xProductId = Convert.ToInt32(dr.Cells["ItemNoDg1"].Value);
+                        int xSalesQty = Convert.ToInt32(dr.Cells["Qty"].Value);
                         double UnitPrice = Convert.ToDouble(dr.Cells["UnitPrice"].Value);
-                        double xAmount = xQty * UnitPrice;
+                        double xAmount = xSalesQty * UnitPrice;
                         double xGstPercentage = Convert.ToDouble(dr.Cells["GstPercentage"].Value);
                         //double xUnitMrp = UnitPrice + (UnitPrice * xGstPercentage / 100);
                         double xMrp = Convert.ToDouble(dr.Cells["Mrp"].Value);
                         string xBatch = dr.Cells["Batch"].Value.ToString();
-                        string xQrySalesDetails = "insert into   inv_salesentry" +
-                           "(salesinvoiceno,date,customerno,itemno,batchid," +
-                           "dateexpired,qty,unitrate,amount," +
-                           "vat,discountpercentage," +
-                           "createdason,updatedason,unitmrp) " +
+                        string xQrySalesDetails = "insert into   sales_details" +
+                           "(sales_id,txno,product_id,batch_id,expiry_date,qty,unit_rate,unit_sp,amount,gst,discount_percentage,unit_mrp) " +
                            "values(" + xSalesId + "," +
-                             " '" + Convert.ToDateTime(dtpDate.Text).ToString("yyyy-MM-dd") + "'," +
-                            " '" + Convert.ToInt32(txtCustomerNo.Text.ToString()) + "'," +
-                           " '" + xItemNo + "'," +
+                             " '" + xTxNo + "'," +
+                           " '" + xProductId + "'," +
                             " '" + xBatch + "'," +
                             " '" + dr.Cells["ExpDate"].Value + "'," +
-                           " " + Convert.ToDouble(dr.Cells["Qty"].Value) + "," +
+                           " " + xSalesQty + "," +
                            " " + Convert.ToDouble(dr.Cells["UnitPrice"].Value) + "," +
+                           " " + Convert.ToDouble(dr.Cells["UnitSP"].Value) + "," +
                            " " + xAmount + "," +
                            " " + Convert.ToDouble(dr.Cells["GstPercentage"].Value) + "," +
                            " " + Convert.ToDouble(dr.Cells["DiscPercentage"].Value) + "," +
-                           " '" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "'," +
-                           " '" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "'," +
                            " " + xMrp + " )";
                         xLessAmount += Convert.ToDouble(dr.Cells["DiscValue"].Value);
+                        myCommand.CommandText = xQrySalesDetails;
+                        myCommand.ExecuteNonQuery();
 
-                        string xUpdateStockQry = "update inv_stockentry set " +
-                            " stock = stock - " + xQty + " " +
-                            " where itemno=" + xItemNo + " " +
-                            " and batch = '" + xBatch + "' " +
+                        StockResponseModel stockResponseModel = xDb.GetStockFromQuery("select * from stock where product_id = " + xProductId + " and batch_id = '" + xBatch + "' and mrp = '" + xMrp + "'");
+
+                        int xOldQty = 0;
+                        int xNewQty = 0;
+                        xOldQty = stockResponseModel.Qty;
+                        xNewQty = xOldQty - xSalesQty;
+                        string xUpdateStockQry = "update stock set " +
+                            " qty =  " + xNewQty + ", updated_by = '" + xUser + "', updated_on = '" + xCurrentDateTime + "' " +
+                            " where product_id=" + xProductId + " " +
+                            " and batch_id = '" + xBatch + "' " +
                             " and mrp = '" + xMrp + "'";
 
 
-                        myCommand.CommandText = xQrySalesDetails;
-                        myCommand.ExecuteNonQuery();
 
                         myCommand.CommandText = xUpdateStockQry;
                         myCommand.ExecuteNonQuery();
 
+                        string xReason = "NEW SALES";
+                        string xQryStockHistory = "insert into stock_history" +
+                         " (product_id,old_qty,change_qty,current_qty," +
+                         " mrp,batch_id,expiry_date,reason,created_by,created_on)" +
+                         " values(" + xProductId + "," + xOldQty + "," + xSalesQty + "," + xNewQty + "," + xMrp + "," +
+                         " '" + xBatch + "','" + txtExpDate.Text + "','" + xReason + "'," +
+                         " '" + xUser + "','" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")
+                         + "')";
 
-                        string xQryStockDetails = "insert into audit_stock" +
-                         " (audit_stock_itemno,audit_stock_qty," +
-                         " audit_stock_mrp,audit_stock_batch," +
-                         " audit_stock_datetime,audit_stock_mode)" +
-                         " values(" + xItemNo
-                         + "," + xQty
-                         + "," + xMrp
-                         + ",'" + xBatch
-                         + "','" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")
-                         + "','NEW SALES')";
-
-                        myCommand.CommandText = xQryStockDetails;
+                        myCommand.CommandText = xQryStockHistory;
                         myCommand.ExecuteNonQuery();
 
                     }
 
-                    string xQrySalesMain = "insert into   inv_salesentry1" +
-                          "(salesinvoiceno,date,customerno,totalamount,lessamount," +
-                          "modeofpayment,termsofdelivery,servicecharges,salesperson_id) " +
+                    string xQrySalesMain = "insert into   sales" +
+                          "(sales_id,date,patient_id,less_amount,service_amount,total_amount," +
+                          "mode_of_payment,terms_of_delivery,created_by,created_on) " +
                           "values(" + xSalesId + "," +
                           " '" + dtpDate.Value.ToString("yyyy-MM-dd") + "'," +
                           " '" + Convert.ToInt32(txtCustomerNo.Text.ToString()) + "'," +
-                          " '" + Convert.ToDouble(lbl_total_amount_value.Text) + "'," +
                           " '" + xLessAmount + "'," +
+                          " '0'," +
+                          " '" + Convert.ToDouble(lbl_total_amount_value.Text) + "'," +
                           " '" + cmbPaymentMode.Text.ToString() + "'," +
                           " '" + cmbBillType.Text.ToString() + "'," +
-                          " '0'," +
-                          " '" + xUserName + "' )";
+                          " '" + xUser + "','" + xCurrentDateTime + "' )";
 
                     myCommand.CommandText = xQrySalesMain;
                     myCommand.ExecuteNonQuery();
 
                     myTrans.Commit();
-                    MessageBox.Show("Record Saved Succesfully Id is " + xSalesId);
+                   
                 }
                 catch (Exception ex)
                 {
@@ -347,15 +358,33 @@ namespace NellaiBill.Master
                     myCommand.Dispose();
                     myTrans.Dispose();
                     xDb.connection.Close();
+                    //DialogResult result = MessageBox.Show("Do you want to print?", "Confirmation", MessageBoxButtons.YesNo);
+                    //if (result == DialogResult.Yes)
+                    //{
+                    //    PrintBill(xSalesId);
+                    //}
+                    //else if (result == DialogResult.No)
+                    //{
+                    //    //...
+                    //}
                 }
             }
 
             DataClear();
             DataClearAfterSave();
 
-            lblInvoiceNo.Text = xDb.GetMaxId("salesinvoiceno", "inv_salesentry1").ToString();
+            lblInvoiceNo.Text = xDb.GetMaxId("sales_id", "sales").ToString();
         }
-
+        private void PrintBill(int billno)
+        {
+            ReportDocument reportDocument = new ReportDocument();
+            GlobalClass globalClass = new GlobalClass();
+            string path = globalClass.GetReportPath() + "rptSalesBill.rpt";
+            reportDocument.Load(path);
+            reportDocument.SetParameterValue("SalesId", billno);
+            reportDocument.PrintToPrinter(1, true, 0, 0);
+        }
+        
         private void txtDiscPercentage_Leave(object sender, EventArgs e)
         {
             if (txtQty.Text == "")
@@ -433,24 +462,33 @@ namespace NellaiBill.Master
 
         private void txtUserPassword_TextChanged(object sender, EventArgs e)
         {
-            xUserName=(xDb.GetUserNameFromPassword(txtUserPassword.Text));
-            if (xUserName != "")
-            {
-                btnSaveBill.Enabled = xDb.CheckUserExists(txtUserPassword.Text);
-                btnSaveBill.BackColor = Color.Red;
-               
-            }
-            else
-            {
-                btnSaveBill.Enabled = xDb.CheckUserExists(txtUserPassword.Text);
-                btnSaveBill.BackColor = Color.LavenderBlush;
-            }
+            //string  xUserName=(xDb.GetUserNameFromPassword(txtUserPassword.Text));
+            // if (xUserName != "")
+            // {
+            //     btnSaveBill.Enabled = xDb.CheckUserExists(txtUserPassword.Text);
+            //     btnSaveBill.BackColor = Color.Red;
+
+            // }
+            // else
+            // {
+            //     btnSaveBill.Enabled = xDb.CheckUserExists(txtUserPassword.Text);
+            //     btnSaveBill.BackColor = Color.LavenderBlush;
+            // }
 
         }
 
         private void btnSaveBill_Click(object sender, EventArgs e)
         {
-            SaveData("S");
+            DialogResult result = MessageBox.Show("Do you want to save?", "Confirmation", MessageBoxButtons.YesNo);
+            if (result == DialogResult.Yes)
+            {
+                SaveData("S");
+            }
+            else if (result == DialogResult.No)
+            {
+                //...
+            }
+         
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
@@ -462,6 +500,7 @@ namespace NellaiBill.Master
                 txtItem.Text = search.xItemName.ToString();
                 txtUnitPrice.Text = search.xUnitPrice.ToString();
                 txtMrp.Text = search.xMrp.ToString();
+                txtSellingPrice.Text = search.xMrp.ToString();
                 txtBatch.Text = search.xBatch.ToString();
                 txtExpDate.Text = search.xExpDate.ToString();
                 txtStock.Text = search.xStock.ToString();
@@ -470,20 +509,21 @@ namespace NellaiBill.Master
                 txtTax.Text = search.xTax.ToString();
                 txtDiscountValue.Text = "0";
                 txtDiscPercentage.Text = "0";
-                txtQty.Select();
+                txtQty.Text = "1";
+                txtSellingPrice.Select();
             }
         }
 
         private void txtLedgerSearch_Click(object sender, EventArgs e)
         {
-            SearchLedger search = new SearchLedger(5);
+            SearchPatient search = new SearchPatient();
             search.ShowDialog();
-            if (search.xLedgerNo.ToString() != "0")
+            if (search.xPatientId.ToString() != "0")
             {
-                txtCustomerNo.Text = search.xLedgerNo.ToString();
-                txtCustomerName.Text = search.xLedgerName.ToString();
-                txtCustomerMobileNo.Text = search.xLedgerMobileNo.ToString();
-                rchCustomerAddress.Text = search.xLedgerAddress.ToString();
+                txtCustomerNo.Text = search.xPatientId.ToString();
+                txtCustomerName.Text = search.xPatientName.ToString();
+                txtCustomerMobileNo.Text = search.xPatientMobileNo.ToString();
+                rchCustomerAddress.Text = search.xPatientAddress.ToString();
             }
 
         }
@@ -506,11 +546,16 @@ namespace NellaiBill.Master
             {
                 btnSaveBill.PerformClick();
             }
+            if (e.Control == true && e.KeyCode == Keys.F2)
+            {
+                Customer master =new Customer();
+                master.ShowDialog();
+            }
         }
 
         private void txtPaid_KeyPress(object sender, KeyPressEventArgs e)
         {
-            AcceptOnlyNumeric(e);      
+            AcceptOnlyNumeric(e);
         }
 
         private void AcceptOnlyNumeric(KeyPressEventArgs e)
@@ -523,7 +568,7 @@ namespace NellaiBill.Master
 
         private void txtUserPassword_KeyPress(object sender, KeyPressEventArgs e)
         {
-            
+
         }
 
         private void txtQty_KeyPress(object sender, KeyPressEventArgs e)
@@ -540,6 +585,50 @@ namespace NellaiBill.Master
         {
             AcceptOnlyNumeric(e);
         }
+
+        private void txtProductCode_TextChanged(object sender, EventArgs e)
+        {
+            txtUnitPrice.Text = "";
+          StockResponseModel stockResponseModel = xDb.GetStockFromQuery("select  " +
+                " s.stock_id, s.product_id, p.product_name, " +
+                " s.qty, s.mrp, s.batch_id, s.expiry_date, p.gst " +
+                " from m_product p,stock s " +
+                " where  s.product_id = p.product_id " +
+                " and product_code = '" + txtProductCode.Text + "'");
+            ProductModel productModel = xDb.GetProductFromProductId("select * from m_product where product_id=" + stockResponseModel.ProductId);
+            txtItem.Text = productModel.ProductName;
+            txtItemNo.Text = productModel.ProductId.ToString();
+            txtMrp.Text = stockResponseModel.Mrp.ToString();
+            txtStockId.Text = stockResponseModel.StockId.ToString();
+            txtStock.Text = stockResponseModel.Qty.ToString();
+            txtTax.Text = productModel.Gst;
+            txtBatch.Text = stockResponseModel.Batch;
+            txtExpDate.Text = stockResponseModel.ExpDate.ToString();
+            if (txtMrp.Text != "" && txtTax.Text != "")
+            {
+
+                /*Included Gst Logic */
+                double xUnitMrp = double.Parse(txtMrp.Text.ToString());
+                double xGstBefore = double.Parse(txtTax.Text.ToString()) / 100 + 1;
+                double xUnitRate = (((xUnitMrp / xGstBefore)));
+
+                txtUnitPrice.Text = xUnitRate.ToString("#.##");
+            }
+        }
+        private void txtSellingPrice_TextChanged(object sender, EventArgs e)
+        {
+            if (txtTax.Text != "" && txtSellingPrice.Text!="") { 
+            /*Included Gst Logic */
+            double xSP = double.Parse(txtSellingPrice.Text);
+            double xGstValue = double.Parse(txtTax.Text.ToString());
+            double xGstBefore = xGstValue / 100 + 1;
+            double xUnitRate = (((xSP / xGstBefore)));
+
+            txtUnitPrice.Text = xUnitRate.ToString("#.##");
+            }
+        }
+
+     
     }
 }
 

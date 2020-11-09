@@ -33,6 +33,8 @@ namespace NellaiBill.Reports
             cryRpt.SetParameterValue("ToDate", DateTime.Parse(xToDate));
             cryRpt.SetParameterValue("TestName", cmbTest.Text);
             cryRpt.SetParameterValue("DoctorName", cmbDoctor.Text);
+            cryRpt.SetParameterValue("SectionName", cmbSection.Text);
+            cryRpt.SetParameterValue("TestDescription", cmbFlimType.Text);
             crystalReportViewer1.ReportSource = cryRpt;
             crystalReportViewer1.Refresh();
             crystalReportViewer1.ToolPanelView = ToolPanelViewType.None;
@@ -42,6 +44,8 @@ namespace NellaiBill.Reports
         {
             xDb.LoadComboBoxForReport("select ecg_xray_test_fees_id,test_name from m_ecg_xray_test_fees", cmbTest, "ecg_xray_test_fees_id", "test_name");
             xDb.LoadComboBoxForReport("select doctor_id,doctor_name from m_doctor", cmbDoctor, "doctor_id", "doctor_name");
+            cmbSection.SelectedIndex = 0;
+            cmbFlimType.SelectedIndex = 0;
         }
     }
 }

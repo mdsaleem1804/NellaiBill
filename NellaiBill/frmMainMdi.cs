@@ -1,14 +1,17 @@
 ﻿using MySql.Data;
 using MySql.Data.MySqlClient;
+using NellaiBill.Accounts;
 using NellaiBill.Common;
 using NellaiBill.Master;
 using NellaiBill.Reports;
 using NellaiBill.Transaction;
 using NellaiBill.Transaction.IP;
+using NellaiBill.Transaction.LAB;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -24,403 +27,416 @@ namespace NellaiBill
             InitializeComponent();
         }
         GlobalClass globalClass = new GlobalClass();
+        DatabaseConnection xDb = new DatabaseConnection();
         string xUserName = LoginInfo.UserID;
-
+        public Form activeChild;
         private void frm_main_mdi_Load(object sender, EventArgs e)
         {
-            lblUserType.Text = xUserName;         
-            Dashboard dashboard = new Dashboard();
-            dashboard.MdiParent = this;
-            dashboard.Show();
+            lblUserType.Text = xUserName;
+            categoryToolStripMenuItem.Visible = false;
+            if (xDb.GetConfig().IsHms == "NO")
+            {
+                patientRegistrationToolStripMenuItem.Visible = false;
+                doctorRegistrationToolStripMenuItem.Visible = false;
+                scanTestMasterToolStripMenuItem.Visible = false;
+                ScanFeesMasterToolStripMenuItem.Visible = false;
+                labFeesMasterToolStripMenuItem.Visible = false;
+                caseTypeMasterToolStripMenuItem.Visible = false;
+                roomMasterToolStripMenuItem.Visible = false;
+                iPFeesMasterToolStripMenuItem.Visible = false;
+                
+                hmsTransactionMenu.Visible = false;
+                oPSummaryReportToolStripMenuItem.Visible = false;
+                scanSummaryToolStripMenuItem.Visible = false;
+                labReportToolStripMenuItem.Visible = false;
+                iPToolStripMenuItem.Visible = false;
+                auditorDiagnosisSummaryReportToolStripMenuItem.Visible = false;
+                ecgXraySummaryReportToolStripMenuItem.Visible = false;
+                patientInformationReportToolStripMenuItem.Visible = false;
+                userMasterToolStripMenuItem.Visible = false;
+
+               // stockAdjustmentToolStripMenuItem.Visible = false;
+                toolStripSeparator1.Visible = false;
+                toolStripSeparator2.Visible = false;
+                CommonFormControls(new SalesEntry());
+            }
+            else
+            {
+                CommonFormControls(new OPBilling());
+            }
+            if (xDb.GetConfig().IsAccounts == "NO")
+            {
+                toolStripAccounts.Visible = false;
+            }
+            //Dashboard dashboard = new Dashboard();
+            // dashboard.MdiParent = this;
+            //dashboard.Show();
+
+            this.KeyPreview = true;
         }
-        private void groupToolStripMenuItem_Click(object sender, EventArgs e)
+        private void GetAllMenus()
         {
-            frmGroup g = new frmGroup();
-            g.MdiParent = this;
-            g.Show();
+            //Reference :https://stackoverflow.com/questions/15380730/foreach-every-subitem-in-a-menustrip
+            List<ToolStripItem> allItems = new List<ToolStripItem>();
+            foreach (ToolStripItem toolItem in menuStrip2.Items)
+            {
+                allItems.Add(toolItem);
+                //add sub items
+                allItems.AddRange(GetItems(toolItem));
+            }
         }
-
-        private void salemToolStripMenuItem_Click(object sender, EventArgs e)
+        private IEnumerable<ToolStripItem> GetItems(ToolStripItem item)
         {
-            SalesEntry s = new SalesEntry();
-            s.MdiParent = this;
-            s.Show();
+            if (item is ToolStripMenuItem)
+            {
+                foreach (ToolStripItem tsi in (item as ToolStripMenuItem).DropDownItems)
+                {
+                    if (tsi is ToolStripMenuItem)
+                    {
+                        if ((tsi as ToolStripMenuItem).HasDropDownItems)
+                        {
+                            foreach (ToolStripItem subItem in GetItems((tsi as ToolStripMenuItem)))
+                                yield return subItem;
+                        }
+                        yield return (tsi as ToolStripMenuItem);
+                    }
+                    else if (tsi is ToolStripSeparator)
+                    {
+                        yield return (tsi as ToolStripSeparator);
+                    }
+                }
+            }
+            else if (item is ToolStripSeparator)
+            {
+                yield return (item as ToolStripSeparator);
+            }
         }
-
-
-        private void yearEndToolStripMenuItem_Click(object sender, EventArgs e)
+        private void CommonFormControls(Form xForm)
         {
-            YearEnd yearEnd = new YearEnd();
-            yearEnd.MdiParent = this;
-            yearEnd.Show();
+            if (this.MdiChildren.Length == 0) { }
+            else
+            {
+                this.ActiveMdiChild.Close();
+            }
+            activeChild = xForm;
+            xForm.TopLevel = false;
+            xForm.ControlBox = false;
+            xForm.Dock = DockStyle.Fill;
+           // xForm.BackColor = Color.Aqua;
+            xForm.FormBorderStyle = FormBorderStyle.None;
+
+            /*I assume this code is in your ParentForm and so 'this' points to ParentForm that contains ContainerPanel*/
+            this.ContainerPanel.Controls.Add(xForm);
+            xForm.WindowState = FormWindowState.Maximized;
+            xForm.AutoScroll = true;
+           // xForm.MdiParent = this;
+            xForm.Show();
         }
-
-        private void categoryToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            frmCategory category = new frmCategory();
-            category.MdiParent = this;
-            category.Show();
-        }
-
-        private void itemToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            frmItem item = new frmItem();
-            item.MdiParent = this;
-            item.Show();
-        }
-
-
-
-        private void setPriceToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            SetPrice setPrice = new SetPrice();
-            setPrice.MdiParent = this;
-            setPrice.Show();
-        }
-
-
-
-        private void dateWiseReportToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Report report = new Report();
-            report.MdiParent = this;
-            report.Show();
-        }
-
-        private void updateTestDetailsToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            LabBilling labEntry = new LabBilling();
-            labEntry.MdiParent = this;
-            labEntry.Show();
-        }
-
-        private void labReportToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            LabReport labReport = new LabReport();
-            labReport.MdiParent = this;
-            labReport.Show();
-        }
-
-        private void employeeToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Employee employee = new Employee();
-            employee.MdiParent = this;
-            employee.Show();
-        }
-
-        private void calculatorToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            System.Diagnostics.Process.Start("calc.exe");
-        }
-
-        private void newPatientToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            NewPatient employee = new NewPatient();
-            employee.MdiParent = this;
-            employee.Show();
-        }
-
-        private void salesToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            SalesEntry s = new SalesEntry();
-            s.MdiParent = this;
-            s.Show();
-        }
-
-        private void setPriceToolStripMenuItem_Click_1(object sender, EventArgs e)
-        {
-            SetPrice setPrice = new SetPrice();
-            setPrice.MdiParent = this;
-            setPrice.Show();
-        }
-
-        private void changePasswordToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            frmChangePassword frmChangePassword = new frmChangePassword();
-            frmChangePassword.MdiParent = this;
-            frmChangePassword.Show();
-        }
-
-        private void LogoutToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            System.Windows.Forms.Application.Exit();
-        }
-
-
-
-        private void groupToolStripMenuItem_Click_1(object sender, EventArgs e)
-        {
-            frmGroup frmGroup = new frmGroup();
-            frmGroup.MdiParent = this;
-            frmGroup.Show();
-
-        }
-
-        private void categoryToolStripMenuItem_Click_1(object sender, EventArgs e)
-        {
-            frmCategory frmCategory = new frmCategory();
-            frmCategory.MdiParent = this;
-            frmCategory.Show();
-        }
-
-        private void productToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            frmItem frmItem = new frmItem();
-            frmItem.MdiParent = this;
-            frmItem.Show();
-        }
-
-        private void taxToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            frmTax frmTax = new frmTax();
-            frmTax.MdiParent = this;
-            frmTax.Show();
-        }
-
-        private void POSToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            SalesEntry salesEntry = new SalesEntry();
-            salesEntry.MdiParent = this;
-            salesEntry.Show();
-        }
-
-        private void BackupToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Backup backup = new Backup();
-            backup.MdiParent = this;
-            backup.Show();
-        }
-
-
-        private void stockReportToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            CR_Stock report = new CR_Stock();
-            report.MdiParent = this;
-            report.Show();
-        }
-
-        private void PurchaseEntryToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            PurchaseEntry purchaseEntry = new PurchaseEntry();
-            purchaseEntry.MdiParent = this;
-            purchaseEntry.Show();
-        }
-
-        private void stockAdjustmentToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            SetPrice setPrice = new SetPrice();
-            setPrice.MdiParent = this;
-            setPrice.Show();
-        }
-
-        private void supplerToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Ledger ledger = new Ledger("Supplier");
-            ledger.MdiParent = this;
-            ledger.Show();
-        }
-
-        private void customerToolStripMenuItem_Click_1(object sender, EventArgs e)
-        {
-            Ledger ledger = new Ledger("Customer");
-            ledger.MdiParent = this;
-            ledger.Show();
-        }
-
-        private void stockHistoryToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            frmStockHistory frmStockHistory = new frmStockHistory();
-            frmStockHistory.MdiParent = this;
-            frmStockHistory.Show();
-        }
-
-        private void PurchaseReturnToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            frmPurchaseReturn frmPurchaseReturn = new frmPurchaseReturn();
-            frmPurchaseReturn.MdiParent = this;
-            frmPurchaseReturn.Show();
-        }
-
         private void companyToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmCompany frmCompany = new frmCompany();
-            frmCompany.MdiParent = this;
-            frmCompany.Show();
+            CommonFormControls(new frmCompany());
         }
-
-        private void SalesReturnToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            frmSalesReturn frmSalesReturn = new frmSalesReturn();
-            frmSalesReturn.MdiParent = this;
-            frmSalesReturn.Show();
-        }
-
-        private void salesReportToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            //SalesReportDG frmSalesReport = new SalesReportDG();
-            //frmSalesReport.MdiParent = this;
-            //frmSalesReport.Show();
-            frmSalesReport frmSalesReport = new frmSalesReport();
-            frmSalesReport.MdiParent = this;
-            frmSalesReport.Show();
-        }
-
-        private void oldProjectReportsToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            WebReports webReports = new WebReports();
-            webReports.MdiParent = this;
-            webReports.Show();
-        }
-
-        private void purchaseReportToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            PurchaseReport frmPurchaseReport = new PurchaseReport();
-            frmPurchaseReport.MdiParent = this;
-            frmPurchaseReport.Show();
-        }
-
-        private void stockReportToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            StockReport stockReport = new StockReport();
-            stockReport.MdiParent = this;
-            stockReport.Show();
-
-        }
-
-        private void salesReturnReportToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            CR_SalesReturn report = new CR_SalesReturn();
-            // SalesReportDG report = new SalesReportDG();
-            report.MdiParent = this;
-            report.Show();
-        }
-
         private void patientRegistrationToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            NewPatient master = new NewPatient();
-            master.MdiParent = this;
-            master.Show();
+            CommonFormControls(new NewPatient());
         }
 
         private void doctorRegistrationToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            DoctorRegistration master = new DoctorRegistration();
-            master.MdiParent = this;
-            master.Show();
+            CommonFormControls(new DoctorRegistration());
         }
 
-        private void oPTodaysCollectionReportToolStripMenuItem_Click(object sender, EventArgs e)
+        private void groupToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
-            OPSummaryReport report = new OPSummaryReport();
-            report.MdiParent = this;
-            report.Show();
+            CommonFormControls(new Group());
         }
 
+        private void categoryToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            CommonFormControls(new Category());
+        }
+
+        private void productToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CommonFormControls(new frmItem());
+        }
+        private void supplerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CommonFormControls(new Supplier());
+        }
+        private void customerToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            CommonFormControls(new Customer());
+        }
 
         private void userMasterToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (xUserName == "admin")
             {
-                UserMaster master = new UserMaster();
-                master.MdiParent = this;
-                master.Show();
+                CommonFormControls(new UserMaster());
             }
             else
             {
                 MessageBox.Show("Acces is denied");
                 return;
             }
-        
-        }
 
-
-        private void outPatientEntryToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            OPBilling transaction = new OPBilling();
-            transaction.MdiParent = this;
-            transaction.Show();
         }
-        private void eCGBILLINGToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            EcgXrayBilling transaction = new EcgXrayBilling();
-            transaction.MdiParent = this;
-            transaction.Show();
-        }
-
-        private void ecgXraySummaryReportToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            EcgXraySummaryReport report = new EcgXraySummaryReport();
-            report.MdiParent = this;
-            report.Show();
-        }
-
         private void scanTestMasterToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ScanTestMaster master = new ScanTestMaster();
-            master.MdiParent = this;
-            master.Show();
+            CommonFormControls(new ScanTestMaster());
+        }
+
+        private void caseTypeMasterToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CommonFormControls(new CaseTypeMaster());
+        }
+
+        private void roomMasterToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CommonFormControls(new RoomMaster());
         }
 
         private void ScanFeesMasterToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ScanFeesMaster master = new ScanFeesMaster();
-            master.MdiParent = this;
-            master.Show();
+            CommonFormControls(new ScanFeesMaster());
+        }
+     
+        private void iPFeesMasterToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CommonFormControls(new IPFeesMaster());
+        }
+
+        private void labFeesMasterToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CommonFormControls(new LabFeesMaster());
         }
 
         private void sCANBILLINGToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ScanBilling master = new ScanBilling();
-            master.MdiParent = this;
-            master.Show();
+            CommonFormControls(new ScanBilling());
         }
-
-        private void scanSummaryToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            ScanSummaryReport report = new ScanSummaryReport();
-            report.MdiParent = this;
-            report.Show();
-        }
-
-        private void oPSummaryReportToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            OPSummaryReport report = new OPSummaryReport();
-            report.MdiParent = this;
-            report.Show();
-        }
-
         private void lABBILLINGToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            LabBilling billing = new LabBilling();
-            billing.MdiParent = this;
-            billing.Show();
+            CommonFormControls(new LabBilling());
         }
 
         private void iPADMISSIONToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            IPAdmission billing = new IPAdmission();
-            billing.MdiParent = this;
-            billing.Show();
+            CommonFormControls(new IPAdmission());
         }
 
+        private void lABTESTENTRYToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CommonFormControls(new LabTestEntry());
+        }
+
+
+        private void iPADVANCEPAYMENTToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CommonFormControls(new IPPayment());
+        }
+
+        private void iPINVOICEBILLToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CommonFormControls(new IPInvoice());
+        }
+
+        private void outPatientEntryToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CommonFormControls(new OPBilling());
+        }
+        private void eCGBILLINGToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CommonFormControls(new EcgXrayBilling());
+        }
+
+        private void PurchaseEntryToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CommonFormControls(new PurchaseEntry());
+        }
+
+
+
+        private void PurchaseReturnToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CommonFormControls(new PurchaseReturn());
+        }
+
+        private void POSToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CommonFormControls(new SalesEntry());
+        }
+        private void SalesReturnToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CommonFormControls(new SalesReturn());
+        }
+
+        private void salesReportToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CommonFormControls(new frmSalesReport());
+        }
+
+        private void purchaseReportToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            CommonFormControls(new PurchaseReport());
+        }
+        private void stockReportToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CommonFormControls(new StockReport());
+        }
+
+       
+        private void patientInformationReportToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CommonFormControls(new PatientList());
+        }
+        private void ecgXraySummaryReportToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CommonFormControls(new EcgXraySummaryReport());
+        }
+
+
+        private void scanSummaryToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CommonFormControls(new ScanSummaryReport());
+        }
+
+        private void oPSummaryReportToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CommonFormControls(new OPSummaryReport());
+        }
         private void auditorDiagnosisSummaryReportToolStripMenuItem_Click(object sender, EventArgs e)
         {
+         CommonFormControls(new DiagnosisDateWiseSummaryReport());  
+        }
+  
+        private void iPConsolidatedReportToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CommonFormControls(new IpInvoiceReport());
+        }
 
-            if (xUserName == "admin")
-            {
-                DiagnosisDateWiseSummaryReport report = new DiagnosisDateWiseSummaryReport();
-                report.MdiParent = this;
-                report.Show();
-            }
-            else
-            {
-                MessageBox.Show("Sorry !!! Please contact Admin");
-            }
+        private void iPAdvanceReportToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CommonFormControls(new IPAdvanceReport());
+        }
+
+        private void iPAdmissionReportToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CommonFormControls(new IPAdmissionReport());
+        }
+
+        private void labReportToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            CommonFormControls(new LabSummaryReport());
+        }
+       
+        private void iPDISCHARGESUMMARYToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CommonFormControls(new IPDischargeSummary());
+        }
+
+        private void toolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            CommonFormControls(new Backup());
+        }
+
+        
+
+        private void stockAdjustmentToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            CommonFormControls(new StockAdjustment());
+        }
+
+        private void toolStripMinimize_Click(object sender, EventArgs e)
+        {
+            WindowState = FormWindowState.Minimized;
+        }
+
+        private void LogoutToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            System.Windows.Forms.Application.Exit();
         }
 
         private void timer1_Tick(object sender, EventArgs e)
         {
             lblDateTime.Text = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
         }
+
+        private void stockDetailsBetweenDateToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CommonFormControls(new StockDetailBetweenDate());
+        }
+        private void calculatorToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("calc.exe");
+        }
+        private void NotepadToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("Notepad.exe");
+        }
+
+        private void WordpadToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("wordpad.exe");
+        }
+
+        private void MSWordToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("winword.exe");
+            
+        }
+
+        private void TaskManagerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("TaskMgr.exe");
+        }
+
+        private void SystemInfoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CommonFormControls(new SystemInfo());
+        }
+
+        private void accountGroupToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CommonFormControls(new AccountGroup());
+        }
+
+        private void receiptToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CommonFormControls(new Receipt());
+        }
+
+        private void paymentToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CommonFormControls(new Payment());
+        }
+
+
+        private void toolStripClose_Click(object sender, EventArgs e)
+        {
+            if (activeChild != null)
+            {
+                try
+                {
+                    activeChild.Close();
+                }
+                catch
+                {
+
+                }
+            }
+        }
+
+        private void salesEntryBasicToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CommonFormControls(new SalesEntryBasic());
+        }
+
+        private void scheduleHReportToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CommonFormControls(new ScheduleHReport());
+        }
     }
 }
+                               
