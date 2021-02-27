@@ -22,14 +22,15 @@ namespace NellaiBill
         public string xReportPath = "";
         int xGBatch = 0;
         public MySqlConnection connection;
-        // public string conString = @"Data Source=localhost;port=3306;Initial Catalog=nellai_billing;User Id=root;password=nellaibill";
-        public string conString =
+         public string conString = @"Data Source=localhost;port=3306;Initial Catalog=hms_lhs;User Id=root;password=";
+       // public string conString = @"Data Source=ns1069.ifastnet.com;port=3306;Initial Catalog=hellotam_nellaibill;User Id=hellotam_saleem;password=hellotamila;Convert Zero Datetime=True;CharSet=utf8;";
+        /*public string conString =
         @"Data Source=" + xHostName + ";" +
         "port=" + xPort + ";" +
         "Initial Catalog=" + xDatabaseName + ";" +
         "User Id=" + xUserName + ";" +
         "password=" + Decrypt(xPassword, "hana-sept-mber16") + "; Convert Zero Datetime=True;CharSet=utf8;";
-
+        */
         public DatabaseConnection()
         {
             string a = Encrypt("", "hana-sept-mber16");
@@ -791,5 +792,94 @@ namespace NellaiBill
         }
         return xCaseTypeName;
     }
-}
+        // For User Model  - By  Vincy  - 09/11/2020
+        public UserModel GetUserDetailFromEmailId(string xEmail)
+        {
+            UserModel model = new UserModel();
+            using (connection = new MySqlConnection(conString))
+            {
+                string xQry = "select user_id,name,email_id,mobile_no,username,password,department_id,role from m_user   where   email_id  = '" + xEmail + "'";
+                connection.Open();
+                MySqlCommand comm = new MySqlCommand(xQry, connection);
+
+                MySqlDataReader reader = comm.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    model = new UserModel()
+                    {
+                        UserId = reader.GetInt32(0),
+                        Name = reader.GetString(1),
+                        EmailId = reader.GetString(2),
+                        MobileNo = reader.GetString(3),
+                        UserName = reader.GetString(4),
+                        PassWord = reader.GetString(5)
+                    };
+                }
+                connection.Close();
+            }
+            return model;
+        }
+
+        public ConfigModel GetConfig(int xCongifid)
+        {
+            ConfigModel model = new ConfigModel();
+            using (connection = new MySqlConnection(conString))
+            {
+                string xQry = "select config_id,is_hms,is_accounts,is_batch,is_expiry,backup_path,is_m_hsn_code,is_m_product_name_in_tamil,is_m_product_code,is_m_product_mrp,doctor_id from config where config_id  = " + xCongifid + "";
+                connection.Open();
+                MySqlCommand comm = new MySqlCommand(xQry, connection);
+
+                MySqlDataReader reader = comm.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    model = new ConfigModel()
+                    {
+                        config_id = reader.GetInt32(0),
+                        is_hms = reader.GetString(1),
+                        is_accounts = reader.GetString(2),
+                        is_batch = reader.GetString(3),
+                        is_expiry = reader.GetString(4),
+                        backup_path = reader.GetString(5),
+                        is_m_hsn_code = reader.GetString(6),
+                        is_m_product_name_in_tamil = reader.GetString(7),
+                        is_m_product_code = reader.GetString(8),
+                        is_m_product_mrp = reader.GetString(9),
+                        doctor_id = reader.GetInt32(10)
+                    };
+                }
+                connection.Close();
+            }
+            return model;
+        }
+
+        ////For Doctor Model date 11/11/20
+        //public DoctorModel GetDoctorDetails(int xDoctorId)
+        //{
+        //    DoctorModel model = new DoctorModel();
+        //    using (connection = new MySqlConnection(conString))
+        //    {
+        //        string xQry = "select doctor_id,doctor_name,specialist,address,mobileno from m_doctor   where   doctor_id  = '" + xDoctorId + "'";
+        //        connection.Open();
+        //        MySqlCommand comm = new MySqlCommand(xQry, connection);
+
+        //        MySqlDataReader reader = comm.ExecuteReader();
+
+        //        while (reader.Read())
+        //        {
+        //            model = new DoctorModel()
+        //            {
+        //                doctor_id = reader.GetInt32(0),
+        //                doctor_name = reader.GetString(1),
+        //                specialist = reader.GetString(2),
+        //                address = reader.GetString(3),
+        //                mobileno = reader.GetString(4),
+        //            };
+        //        }
+        //        connection.Close();
+        //    }
+        //    return model;
+        //}
+    }
 }

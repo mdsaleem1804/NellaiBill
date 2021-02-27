@@ -41,6 +41,10 @@ namespace NellaiBill.Master
             dataGridView1.Columns[1].Visible = false;
             dataGridView1.Columns[2].Visible = false;
             dataGridView1.Columns[3].Visible = false;
+            dataGridView1.Columns[11].Visible = false;
+            dataGridView1.Columns[12].Visible = false;
+            dataGridView1.Columns[13].Visible = false;
+            dataGridView1.Columns[14].Visible = false;
             xCategoryId = Int32.Parse(cmbCategory.SelectedValue.ToString());
             dataGridView1.ColumnHeadersDefaultCellStyle.Font = new System.Drawing.Font("Tahoma", 10, FontStyle.Bold);
             cmbCategory.SelectedIndex = 1;
@@ -71,7 +75,19 @@ namespace NellaiBill.Master
                 txtMrp.Visible = false;
                 dataGridView1.Columns["Mrp"].Visible = false;
             }
-            this.KeyPreview = true;
+            ConfigResponseModel configResponseModel = xDb.GetConfig();
+            if (configResponseModel.IsHms == "NO")
+            {
+                lbSalt.Visible = false;
+                txtSalt.Visible = false;
+                lbSchH.Visible = false;
+                chboxScheduleH.Visible = false;
+                lblSchHPlus.Visible = false;
+                chboxScheduleHp.Visible = false;
+                lblNorcatic.Visible = false;
+                chboxNorcatic.Visible = false;
+            }
+                this.KeyPreview = true;
         }
 
         private void LoadGrid()
@@ -85,7 +101,11 @@ namespace NellaiBill.Master
                 " i.product_code as ProductCode, " +
                 " i.hsn_code as hsn_code," +
                 " i.gst as Gst, " +
-                " i.mrp as Mrp " +
+                " i.mrp as Mrp," +
+                " i.salt_name as SALT," +
+                 " i.scheduleh as SCHEDULEH," +
+                 " i.schedulehP as SCHEDULEH_PLUS," +
+                 " i.norcatic as NORCATIC" +
                 " from m_category c,m_group g, " +
                 " m_product i " +
                 " where c.category_id = i.category_id " +
@@ -136,7 +156,9 @@ namespace NellaiBill.Master
                             "(product_id,category_id,group_id," +
                             "product_name,product_name_tamil," +
                             "product_code,hsn_code,gst,mrp," +
-                            "created_by,created_on) " +
+                            "created_by,created_on," +
+                            "salt_name,scheduleh," + 
+                            "schedulehP,norcatic) " +
                             "values(" + xItemId + ","
                             + xCategoryId + ","
                             + xGroupId + ",'"
@@ -147,7 +169,11 @@ namespace NellaiBill.Master
                             + cmbTax.Text + "','"
                             + txtMrp.Text + "','"
                             + xUser 
-                            + "','" + xCurrentDateTime + "' )";
+                            + "','" + xCurrentDateTime + "', '"
+                            + txtSalt.Text + "','"
+                            + chboxScheduleH.Text + "','"
+                            + chboxScheduleHp.Text + "','"
+                            + chboxNorcatic.Text + "')";
 
                           xDb.DataProcess(xQry);
 
@@ -166,7 +192,11 @@ namespace NellaiBill.Master
                     " gst = '" + cmbTax.Text + "',  " +
                     " mrp = '" + txtMrp.Text + "',  " +
                     " updated_by = '" + xUser + "',  " +
-                    " updated_on = '" + xCurrentDateTime + "'  " +
+                    " updated_on = '" + xCurrentDateTime + "',  " +
+                    " salt_name = '" + txtSalt.Text + "', " +
+                    " scheduleh = '" + chboxScheduleH.Text + "', " +
+                    " schedulehp ='" + chboxScheduleHp.Text + "', " +
+                    " norcatic ='" + chboxNorcatic.Text + "' " +
                     " where  product_id= " + xItemId + "";
                 xDb.DataProcess(xQry);
             }
@@ -190,6 +220,10 @@ namespace NellaiBill.Master
                 txtProductCode.Text = dataGridView1.Rows[e.RowIndex].Cells["ProductCode"].Value.ToString();
                 cmbTax.Text = dataGridView1.Rows[e.RowIndex].Cells["Gst"].Value.ToString();
                 txtMrp.Text = dataGridView1.Rows[e.RowIndex].Cells["Mrp"].Value.ToString();
+                txtSalt.Text = dataGridView1.Rows[e.RowIndex].Cells[11].Value.ToString();
+                chboxScheduleH.Text = dataGridView1.Rows[e.RowIndex].Cells[12].Value.ToString();
+                chboxScheduleHp.Text = dataGridView1.Rows[e.RowIndex].Cells[13].Value.ToString();
+                chboxNorcatic.Text = dataGridView1.Rows[e.RowIndex].Cells[14].Value.ToString();
                 mBtnSaveUpdate.Text = "UPDATE";
             }
         }
@@ -236,7 +270,10 @@ namespace NellaiBill.Master
 
         private void txtSearch_TextChanged(object sender, EventArgs e)
         {
-            string xFilterSearch = "CATEGORY Like '%" + txtSearch.Text + "%' or GROUP_NAME Like '%" + txtSearch.Text + "%' or product_name Like '%" + txtSearch.Text + "%'";
+             string xFilterSearch = "CATEGORY Like '%" + txtSearch.Text + "%' or GROUP_NAME Like '%" + txtSearch.Text + "%' or ProductName Like '%" + txtSearch.Text + "%'";
+            //string xFilterSearch = "CATEGORY Like '%" + txtSearch.Text +
+            //     "%' OR GROUP_NAME LIKE '%" + txtSearch.Text +
+            //     "%' OR product_name LIKE '%" + txtSearch.Text+ "%' ";
             (dataGridView1.DataSource as DataTable).DefaultView.RowFilter = string.Format(xFilterSearch);
         }
 
@@ -501,6 +538,45 @@ namespace NellaiBill.Master
         private void txtMrp_KeyPress(object sender, KeyPressEventArgs e)
         {
             xGlobal.AcceptOnlyNumeric(e);
+        }
+
+        private void chboxScheduleH_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chboxScheduleH.Checked == true)
+            {
+                chboxScheduleH.Text = "YES";
+            }
+            else
+            {
+                chboxScheduleH.Text = "NO";
+
+            }
+        }
+
+        private void chboxScheduleHp_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chboxScheduleHp.Checked == true)
+            {
+                chboxScheduleHp.Text = "YES";
+            }
+            else
+            {
+                chboxScheduleHp.Text = "NO";
+
+            }
+        }
+
+        private void chboxNorcatic_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chboxNorcatic.Checked == true)
+            {
+                chboxNorcatic.Text = "YES";
+            }
+            else
+            {
+                chboxNorcatic.Text = "NO";
+
+            }
         }
     }
 }

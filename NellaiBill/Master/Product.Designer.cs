@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             this.cmbCategory = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
@@ -38,15 +38,23 @@
             this.cmbGroup = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.chboxNorcatic = new System.Windows.Forms.CheckBox();
+            this.chboxScheduleHp = new System.Windows.Forms.CheckBox();
+            this.chboxScheduleH = new System.Windows.Forms.CheckBox();
             this.lblMrp = new System.Windows.Forms.Label();
             this.txtMrp = new System.Windows.Forms.TextBox();
             this.lblProductNameInTamil = new System.Windows.Forms.Label();
             this.txtProductNameInTamil = new System.Windows.Forms.TextBox();
             this.lblProductCode = new System.Windows.Forms.Label();
             this.txtProductCode = new System.Windows.Forms.TextBox();
+            this.lblNorcatic = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.lblSchHPlus = new System.Windows.Forms.Label();
             this.cmbTax = new System.Windows.Forms.ComboBox();
+            this.lbSchH = new System.Windows.Forms.Label();
+            this.lbSalt = new System.Windows.Forms.Label();
             this.lblHsnCode = new System.Windows.Forms.Label();
+            this.txtSalt = new System.Windows.Forms.TextBox();
             this.txtHsnCode = new System.Windows.Forms.TextBox();
             this.mBtnCancel = new MaterialSkin.Controls.MaterialRaisedButton();
             this.mBtnSaveUpdate = new MaterialSkin.Controls.MaterialRaisedButton();
@@ -63,7 +71,7 @@
             // 
             this.cmbCategory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbCategory.FormattingEnabled = true;
-            this.cmbCategory.Location = new System.Drawing.Point(831, 114);
+            this.cmbCategory.Location = new System.Drawing.Point(520, 104);
             this.cmbCategory.Name = "cmbCategory";
             this.cmbCategory.Size = new System.Drawing.Size(78, 21);
             this.cmbCategory.TabIndex = 1;
@@ -74,7 +82,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(724, 109);
+            this.label2.Location = new System.Drawing.Point(516, 75);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(85, 24);
             this.label2.TabIndex = 21;
@@ -84,20 +92,20 @@
             // dataGridView1
             // 
             this.dataGridView1.AllowUserToAddRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle9;
             this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(12, 236);
             this.dataGridView1.Name = "dataGridView1";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.HotPink;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.HotPink;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle10;
             this.dataGridView1.Size = new System.Drawing.Size(1142, 407);
             this.dataGridView1.TabIndex = 18;
             this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
@@ -142,15 +150,23 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.chboxNorcatic);
+            this.panel2.Controls.Add(this.chboxScheduleHp);
+            this.panel2.Controls.Add(this.chboxScheduleH);
             this.panel2.Controls.Add(this.lblMrp);
             this.panel2.Controls.Add(this.txtMrp);
             this.panel2.Controls.Add(this.lblProductNameInTamil);
             this.panel2.Controls.Add(this.txtProductNameInTamil);
             this.panel2.Controls.Add(this.lblProductCode);
             this.panel2.Controls.Add(this.txtProductCode);
+            this.panel2.Controls.Add(this.lblNorcatic);
             this.panel2.Controls.Add(this.label4);
+            this.panel2.Controls.Add(this.lblSchHPlus);
             this.panel2.Controls.Add(this.cmbTax);
+            this.panel2.Controls.Add(this.lbSchH);
+            this.panel2.Controls.Add(this.lbSalt);
             this.panel2.Controls.Add(this.lblHsnCode);
+            this.panel2.Controls.Add(this.txtSalt);
             this.panel2.Controls.Add(this.txtHsnCode);
             this.panel2.Controls.Add(this.mBtnCancel);
             this.panel2.Controls.Add(this.mBtnSaveUpdate);
@@ -162,14 +178,44 @@
             this.panel2.Controls.Add(this.cmbGroup);
             this.panel2.Location = new System.Drawing.Point(12, 51);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1142, 150);
+            this.panel2.Size = new System.Drawing.Size(1142, 154);
             this.panel2.TabIndex = 29;
+            // 
+            // chboxNorcatic
+            // 
+            this.chboxNorcatic.AutoSize = true;
+            this.chboxNorcatic.Location = new System.Drawing.Point(912, 130);
+            this.chboxNorcatic.Name = "chboxNorcatic";
+            this.chboxNorcatic.Size = new System.Drawing.Size(15, 14);
+            this.chboxNorcatic.TabIndex = 56;
+            this.chboxNorcatic.UseVisualStyleBackColor = true;
+            this.chboxNorcatic.CheckedChanged += new System.EventHandler(this.chboxNorcatic_CheckedChanged);
+            // 
+            // chboxScheduleHp
+            // 
+            this.chboxScheduleHp.AutoSize = true;
+            this.chboxScheduleHp.Location = new System.Drawing.Point(912, 104);
+            this.chboxScheduleHp.Name = "chboxScheduleHp";
+            this.chboxScheduleHp.Size = new System.Drawing.Size(15, 14);
+            this.chboxScheduleHp.TabIndex = 56;
+            this.chboxScheduleHp.UseVisualStyleBackColor = true;
+            this.chboxScheduleHp.CheckedChanged += new System.EventHandler(this.chboxScheduleHp_CheckedChanged);
+            // 
+            // chboxScheduleH
+            // 
+            this.chboxScheduleH.AutoSize = true;
+            this.chboxScheduleH.Location = new System.Drawing.Point(912, 75);
+            this.chboxScheduleH.Name = "chboxScheduleH";
+            this.chboxScheduleH.Size = new System.Drawing.Size(15, 14);
+            this.chboxScheduleH.TabIndex = 56;
+            this.chboxScheduleH.UseVisualStyleBackColor = true;
+            this.chboxScheduleH.CheckedChanged += new System.EventHandler(this.chboxScheduleH_CheckedChanged);
             // 
             // lblMrp
             // 
             this.lblMrp.AutoSize = true;
             this.lblMrp.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMrp.Location = new System.Drawing.Point(766, 12);
+            this.lblMrp.Location = new System.Drawing.Point(15, 75);
             this.lblMrp.Name = "lblMrp";
             this.lblMrp.Size = new System.Drawing.Size(43, 24);
             this.lblMrp.TabIndex = 55;
@@ -177,7 +223,7 @@
             // 
             // txtMrp
             // 
-            this.txtMrp.Location = new System.Drawing.Point(770, 40);
+            this.txtMrp.Location = new System.Drawing.Point(19, 102);
             this.txtMrp.Name = "txtMrp";
             this.txtMrp.Size = new System.Drawing.Size(91, 20);
             this.txtMrp.TabIndex = 6;
@@ -187,7 +233,7 @@
             // 
             this.lblProductNameInTamil.AutoSize = true;
             this.lblProductNameInTamil.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblProductNameInTamil.Location = new System.Drawing.Point(15, 67);
+            this.lblProductNameInTamil.Location = new System.Drawing.Point(202, 75);
             this.lblProductNameInTamil.Name = "lblProductNameInTamil";
             this.lblProductNameInTamil.Size = new System.Drawing.Size(207, 24);
             this.lblProductNameInTamil.TabIndex = 53;
@@ -195,7 +241,7 @@
             // 
             // txtProductNameInTamil
             // 
-            this.txtProductNameInTamil.Location = new System.Drawing.Point(19, 94);
+            this.txtProductNameInTamil.Location = new System.Drawing.Point(206, 102);
             this.txtProductNameInTamil.Name = "txtProductNameInTamil";
             this.txtProductNameInTamil.Size = new System.Drawing.Size(283, 20);
             this.txtProductNameInTamil.TabIndex = 8;
@@ -218,6 +264,16 @@
             this.txtProductCode.TabIndex = 5;
             this.txtProductCode.Leave += new System.EventHandler(this.txtProductCode_Leave);
             // 
+            // lblNorcatic
+            // 
+            this.lblNorcatic.AutoSize = true;
+            this.lblNorcatic.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNorcatic.Location = new System.Drawing.Point(827, 120);
+            this.lblNorcatic.Name = "lblNorcatic";
+            this.lblNorcatic.Size = new System.Drawing.Size(79, 24);
+            this.lblNorcatic.TabIndex = 48;
+            this.lblNorcatic.Text = "Norcatic";
+            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -227,6 +283,16 @@
             this.label4.Size = new System.Drawing.Size(37, 24);
             this.label4.TabIndex = 49;
             this.label4.Text = "Gst";
+            // 
+            // lblSchHPlus
+            // 
+            this.lblSchHPlus.AutoSize = true;
+            this.lblSchHPlus.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSchHPlus.Location = new System.Drawing.Point(780, 98);
+            this.lblSchHPlus.Name = "lblSchHPlus";
+            this.lblSchHPlus.Size = new System.Drawing.Size(126, 24);
+            this.lblSchHPlus.TabIndex = 48;
+            this.lblSchHPlus.Text = "Schedule H +";
             // 
             // cmbTax
             // 
@@ -242,19 +308,46 @@
             this.cmbTax.Size = new System.Drawing.Size(105, 21);
             this.cmbTax.TabIndex = 4;
             // 
+            // lbSchH
+            // 
+            this.lbSchH.AutoSize = true;
+            this.lbSchH.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbSchH.Location = new System.Drawing.Point(796, 75);
+            this.lbSchH.Name = "lbSchH";
+            this.lbSchH.Size = new System.Drawing.Size(110, 24);
+            this.lbSchH.TabIndex = 48;
+            this.lbSchH.Text = "Schedule H";
+            // 
+            // lbSalt
+            // 
+            this.lbSalt.AutoSize = true;
+            this.lbSalt.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbSalt.Location = new System.Drawing.Point(629, 75);
+            this.lbSalt.Name = "lbSalt";
+            this.lbSalt.Size = new System.Drawing.Size(40, 24);
+            this.lbSalt.TabIndex = 48;
+            this.lbSalt.Text = "Salt";
+            // 
             // lblHsnCode
             // 
             this.lblHsnCode.AutoSize = true;
             this.lblHsnCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblHsnCode.Location = new System.Drawing.Point(327, 67);
+            this.lblHsnCode.Location = new System.Drawing.Point(766, 11);
             this.lblHsnCode.Name = "lblHsnCode";
             this.lblHsnCode.Size = new System.Drawing.Size(95, 24);
             this.lblHsnCode.TabIndex = 48;
             this.lblHsnCode.Text = "Hsn Code";
             // 
+            // txtSalt
+            // 
+            this.txtSalt.Location = new System.Drawing.Point(623, 104);
+            this.txtSalt.Name = "txtSalt";
+            this.txtSalt.Size = new System.Drawing.Size(91, 20);
+            this.txtSalt.TabIndex = 7;
+            // 
             // txtHsnCode
             // 
-            this.txtHsnCode.Location = new System.Drawing.Point(331, 95);
+            this.txtHsnCode.Location = new System.Drawing.Point(771, 40);
             this.txtHsnCode.Name = "txtHsnCode";
             this.txtHsnCode.Size = new System.Drawing.Size(91, 20);
             this.txtHsnCode.TabIndex = 7;
@@ -262,7 +355,7 @@
             // mBtnCancel
             // 
             this.mBtnCancel.Depth = 0;
-            this.mBtnCancel.Location = new System.Drawing.Point(868, 57);
+            this.mBtnCancel.Location = new System.Drawing.Point(932, 66);
             this.mBtnCancel.MouseState = MaterialSkin.MouseState.HOVER;
             this.mBtnCancel.Name = "mBtnCancel";
             this.mBtnCancel.Primary = true;
@@ -275,7 +368,7 @@
             // mBtnSaveUpdate
             // 
             this.mBtnSaveUpdate.Depth = 0;
-            this.mBtnSaveUpdate.Location = new System.Drawing.Point(868, 3);
+            this.mBtnSaveUpdate.Location = new System.Drawing.Point(932, 12);
             this.mBtnSaveUpdate.MouseState = MaterialSkin.MouseState.HOVER;
             this.mBtnSaveUpdate.Name = "mBtnSaveUpdate";
             this.mBtnSaveUpdate.Primary = true;
@@ -376,5 +469,13 @@
         private System.Windows.Forms.TextBox txtProductNameInTamil;
         private System.Windows.Forms.Label lblMrp;
         private System.Windows.Forms.TextBox txtMrp;
+        private System.Windows.Forms.CheckBox chboxScheduleH;
+        private System.Windows.Forms.Label lbSchH;
+        private System.Windows.Forms.Label lbSalt;
+        private System.Windows.Forms.TextBox txtSalt;
+        private System.Windows.Forms.CheckBox chboxNorcatic;
+        private System.Windows.Forms.CheckBox chboxScheduleHp;
+        private System.Windows.Forms.Label lblNorcatic;
+        private System.Windows.Forms.Label lblSchHPlus;
     }
 }

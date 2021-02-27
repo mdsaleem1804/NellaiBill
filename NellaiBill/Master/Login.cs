@@ -16,16 +16,8 @@ namespace NellaiBill.Master
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-
-              if (txtUserName.Text == "Developer" && txtPassword.Text == "nellaibill")
-            {
-                LoginInfo.UserID = txtUserName.Text;
-                DeveloperDashboard nextForm = new DeveloperDashboard();
-                this.Hide();
-                nextForm.ShowDialog();
-                this.Close();
-            }
-            else if (xDb.CountRecord("select * from m_user where username='" + txtUserName.Text+ "' and password='"+txtPassword.Text+"'")>=1)
+            if(xDb.CountRecord("select * from m_user where username='" + txtUserName.Text+ "' and password='"+txtPassword.Text+"'")>=1)
+           // if((txtUserName.Text=="admin") && (txtPassword.Text=="admin"))
             {
                 LoginInfo.UserID = txtUserName.Text;
                 frm_main_mdi nextForm = new frm_main_mdi();
@@ -33,8 +25,11 @@ namespace NellaiBill.Master
                 nextForm.ShowDialog();
                 this.Close();
                
+                //OutPatientEntry nextForm = new OutPatientEntry();
+                //this.Hide();
+                //nextForm.ShowDialog();
+                //this.Close();
             }
-          
             else
             {
                 MessageBox.Show("Login Credentials Wrong");
@@ -43,36 +38,33 @@ namespace NellaiBill.Master
 
         private void Login_Load(object sender, EventArgs e)
         {
+            string xMacAddress = "";
+            foreach (NetworkInterface nic in NetworkInterface.GetAllNetworkInterfaces())
+            {
 
-            xDb.OpenConnection();
-            
-            //string xMacAddress = "";
-            //foreach (NetworkInterface nic in NetworkInterface.GetAllNetworkInterfaces())
-            //{
+                if (nic.OperationalStatus == OperationalStatus.Up && (!nic.Description.Contains("Virtual") && !nic.Description.Contains("Pseudo")))
+                {
+                    if (nic.GetPhysicalAddress().ToString() != "")
+                    {
+                        xMacAddress = nic.GetPhysicalAddress().ToString();
+                    }
+                }
+            }
 
-            //    if (nic.OperationalStatus == OperationalStatus.Up && (!nic.Description.Contains("Virtual") && !nic.Description.Contains("Pseudo")))
-            //    {
-            //        if (nic.GetPhysicalAddress().ToString() != "")
-            //        {
-            //            xMacAddress = nic.GetPhysicalAddress().ToString();
-            //        }
-            //    }
-            //}
-
-            //string xEncrypted = CryptoEngine.Encrypt(xMacAddress, "sblw-3hn8-sqoy19");
-           //  if (xDb.GetTotalCount("select * from m_user where password='" + xEncrypted + "'") ==1)
-           ////if (xDb.GetTotalCount("select * from m_login where password='" + xEncrypted + "'") == 1)
-           // {       
+            string xEncrypted = CryptoEngine.Encrypt(xMacAddress, "sblw-3hn8-sqoy19");
+             if (xDb.GetTotalCount("select * from m_user where password='" + xEncrypted + "'") ==1)
+           // if (xDb.GetTotalCount("select * from m_login where password='" + xEncrypted + "'") == 1)
+            {       
                
-           // }
-           // else
-           // {
-           //     //Activation xActivation = new Activation();
-           //     //this.Hide();
-           //     //xActivation.ShowDialog();
-           //     //this.Close();
+            }
+            else
+            {
+                //Activation xActivation = new Activation();
+                //this.Hide();
+                //xActivation.ShowDialog();
+                //this.Close();
 
-           // }
+            }
 
         }
 
@@ -87,5 +79,21 @@ namespace NellaiBill.Master
         {
             DataClear();
         }
+
+        private void linkForgetPassword_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            frmForgetPassword frmforget = new frmForgetPassword();
+            frmforget.txtEmail.Text = txtUserName.Text;
+            frmforget.ShowDialog();
+        }
+
+        private void linkChangePassword_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            frmChangePassword frmchangepw = new frmChangePassword();
+            frmchangepw.txtEmailId.Text = txtUserName.Text;
+            frmchangepw.ShowDialog();
+        }
+
+     
     }
 }

@@ -29,17 +29,18 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmChangePassword));
-            this.OldPassword = new System.Windows.Forms.TextBox();
-            this.UserID = new System.Windows.Forms.TextBox();
+            this.txtOldPassword = new System.Windows.Forms.TextBox();
+            this.txtEmailId = new System.Windows.Forms.TextBox();
             this.Label1 = new System.Windows.Forms.Label();
             this.Label4 = new System.Windows.Forms.Label();
             this.Label2 = new System.Windows.Forms.Label();
-            this.NewPassword = new System.Windows.Forms.TextBox();
+            this.txtNewPassword = new System.Windows.Forms.TextBox();
             this.Label3 = new System.Windows.Forms.Label();
-            this.ConfirmPassword = new System.Windows.Forms.TextBox();
+            this.txtConfirmPassword = new System.Windows.Forms.TextBox();
             this.Panel1 = new System.Windows.Forms.Panel();
+            this.btncancel1 = new System.Windows.Forms.Button();
             this.LogoPictureBox = new System.Windows.Forms.PictureBox();
-            this.Button1 = new System.Windows.Forms.Button();
+            this.btnchangepassword = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnKeyboard = new System.Windows.Forms.Button();
             this.Label5 = new System.Windows.Forms.Label();
@@ -47,25 +48,25 @@
             ((System.ComponentModel.ISupportInitialize)(this.LogoPictureBox)).BeginInit();
             this.SuspendLayout();
             // 
-            // OldPassword
+            // txtOldPassword
             // 
-            this.OldPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.OldPassword.ForeColor = System.Drawing.Color.DarkViolet;
-            this.OldPassword.Location = new System.Drawing.Point(397, 54);
-            this.OldPassword.Name = "OldPassword";
-            this.OldPassword.PasswordChar = '•';
-            this.OldPassword.Size = new System.Drawing.Size(200, 29);
-            this.OldPassword.TabIndex = 11;
+            this.txtOldPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtOldPassword.ForeColor = System.Drawing.Color.DarkViolet;
+            this.txtOldPassword.Location = new System.Drawing.Point(437, 54);
+            this.txtOldPassword.Name = "txtOldPassword";
+            this.txtOldPassword.PasswordChar = '•';
+            this.txtOldPassword.Size = new System.Drawing.Size(160, 29);
+            this.txtOldPassword.TabIndex = 11;
             // 
-            // UserID
+            // txtEmailId
             // 
-            this.UserID.CharacterCasing = System.Windows.Forms.CharacterCasing.Lower;
-            this.UserID.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.UserID.ForeColor = System.Drawing.Color.DarkViolet;
-            this.UserID.Location = new System.Drawing.Point(397, 22);
-            this.UserID.Name = "UserID";
-            this.UserID.Size = new System.Drawing.Size(200, 29);
-            this.UserID.TabIndex = 10;
+            this.txtEmailId.CharacterCasing = System.Windows.Forms.CharacterCasing.Lower;
+            this.txtEmailId.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtEmailId.ForeColor = System.Drawing.Color.DarkViolet;
+            this.txtEmailId.Location = new System.Drawing.Point(437, 22);
+            this.txtEmailId.Name = "txtEmailId";
+            this.txtEmailId.Size = new System.Drawing.Size(160, 29);
+            this.txtEmailId.TabIndex = 10;
             // 
             // Label1
             // 
@@ -73,7 +74,7 @@
             this.Label1.BackColor = System.Drawing.Color.Transparent;
             this.Label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Label1.ForeColor = System.Drawing.Color.DarkMagenta;
-            this.Label1.Location = new System.Drawing.Point(224, 54);
+            this.Label1.Location = new System.Drawing.Point(209, 54);
             this.Label1.Name = "Label1";
             this.Label1.Size = new System.Drawing.Size(137, 24);
             this.Label1.TabIndex = 9;
@@ -85,11 +86,11 @@
             this.Label4.BackColor = System.Drawing.Color.Transparent;
             this.Label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Label4.ForeColor = System.Drawing.Color.DarkMagenta;
-            this.Label4.Location = new System.Drawing.Point(224, 22);
+            this.Label4.Location = new System.Drawing.Point(209, 22);
             this.Label4.Name = "Label4";
-            this.Label4.Size = new System.Drawing.Size(81, 24);
+            this.Label4.Size = new System.Drawing.Size(87, 24);
             this.Label4.TabIndex = 17;
-            this.Label4.Text = "User ID :";
+            this.Label4.Text = "Email Id :";
             // 
             // Label2
             // 
@@ -97,21 +98,21 @@
             this.Label2.BackColor = System.Drawing.Color.Transparent;
             this.Label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Label2.ForeColor = System.Drawing.Color.DarkMagenta;
-            this.Label2.Location = new System.Drawing.Point(224, 86);
+            this.Label2.Location = new System.Drawing.Point(209, 86);
             this.Label2.Name = "Label2";
             this.Label2.Size = new System.Drawing.Size(146, 24);
             this.Label2.TabIndex = 12;
             this.Label2.Text = "New Password :";
             // 
-            // NewPassword
+            // txtNewPassword
             // 
-            this.NewPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.NewPassword.ForeColor = System.Drawing.Color.DarkViolet;
-            this.NewPassword.Location = new System.Drawing.Point(397, 86);
-            this.NewPassword.Name = "NewPassword";
-            this.NewPassword.PasswordChar = '•';
-            this.NewPassword.Size = new System.Drawing.Size(200, 29);
-            this.NewPassword.TabIndex = 13;
+            this.txtNewPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNewPassword.ForeColor = System.Drawing.Color.DarkViolet;
+            this.txtNewPassword.Location = new System.Drawing.Point(437, 86);
+            this.txtNewPassword.Name = "txtNewPassword";
+            this.txtNewPassword.PasswordChar = '•';
+            this.txtNewPassword.Size = new System.Drawing.Size(160, 29);
+            this.txtNewPassword.TabIndex = 13;
             // 
             // Label3
             // 
@@ -119,39 +120,58 @@
             this.Label3.BackColor = System.Drawing.Color.Transparent;
             this.Label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Label3.ForeColor = System.Drawing.Color.DarkMagenta;
-            this.Label3.Location = new System.Drawing.Point(224, 118);
+            this.Label3.Location = new System.Drawing.Point(209, 118);
             this.Label3.Name = "Label3";
-            this.Label3.Size = new System.Drawing.Size(172, 24);
+            this.Label3.Size = new System.Drawing.Size(216, 24);
             this.Label3.TabIndex = 16;
-            this.Label3.Text = "Confirm Password :";
+            this.Label3.Text = "ConfirmNew  Password :";
             // 
-            // ConfirmPassword
+            // txtConfirmPassword
             // 
-            this.ConfirmPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ConfirmPassword.ForeColor = System.Drawing.Color.DarkViolet;
-            this.ConfirmPassword.Location = new System.Drawing.Point(397, 118);
-            this.ConfirmPassword.Name = "ConfirmPassword";
-            this.ConfirmPassword.PasswordChar = '•';
-            this.ConfirmPassword.Size = new System.Drawing.Size(200, 29);
-            this.ConfirmPassword.TabIndex = 14;
+            this.txtConfirmPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtConfirmPassword.ForeColor = System.Drawing.Color.DarkViolet;
+            this.txtConfirmPassword.Location = new System.Drawing.Point(437, 118);
+            this.txtConfirmPassword.Name = "txtConfirmPassword";
+            this.txtConfirmPassword.PasswordChar = '•';
+            this.txtConfirmPassword.Size = new System.Drawing.Size(160, 29);
+            this.txtConfirmPassword.TabIndex = 14;
             // 
             // Panel1
             // 
             this.Panel1.BackColor = System.Drawing.Color.BlanchedAlmond;
+            this.Panel1.Controls.Add(this.btncancel1);
             this.Panel1.Controls.Add(this.LogoPictureBox);
-            this.Panel1.Controls.Add(this.OldPassword);
-            this.Panel1.Controls.Add(this.UserID);
+            this.Panel1.Controls.Add(this.txtOldPassword);
+            this.Panel1.Controls.Add(this.txtEmailId);
             this.Panel1.Controls.Add(this.Label1);
             this.Panel1.Controls.Add(this.Label4);
             this.Panel1.Controls.Add(this.Label2);
-            this.Panel1.Controls.Add(this.Button1);
-            this.Panel1.Controls.Add(this.NewPassword);
+            this.Panel1.Controls.Add(this.btnchangepassword);
+            this.Panel1.Controls.Add(this.txtNewPassword);
             this.Panel1.Controls.Add(this.Label3);
-            this.Panel1.Controls.Add(this.ConfirmPassword);
-            this.Panel1.Location = new System.Drawing.Point(102, 190);
+            this.Panel1.Controls.Add(this.txtConfirmPassword);
+            this.Panel1.Location = new System.Drawing.Point(102, 141);
             this.Panel1.Name = "Panel1";
-            this.Panel1.Size = new System.Drawing.Size(613, 226);
+            this.Panel1.Size = new System.Drawing.Size(613, 275);
             this.Panel1.TabIndex = 61;
+            // 
+            // btncancel1
+            // 
+            this.btncancel1.BackColor = System.Drawing.Color.DarkMagenta;
+            this.btncancel1.BackgroundImage = global::NellaiBill.Properties.Resources.clear_icon;
+            this.btncancel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btncancel1.FlatAppearance.BorderSize = 0;
+            this.btncancel1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btncancel1.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btncancel1.ForeColor = System.Drawing.Color.White;
+            this.btncancel1.Location = new System.Drawing.Point(458, 172);
+            this.btncancel1.Name = "btncancel1";
+            this.btncancel1.Size = new System.Drawing.Size(103, 40);
+            this.btncancel1.TabIndex = 63;
+            this.btncancel1.Text = "&Cancel";
+            this.btncancel1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btncancel1.UseVisualStyleBackColor = false;
+            this.btncancel1.Click += new System.EventHandler(this.btncancel1_Click);
             // 
             // LogoPictureBox
             // 
@@ -163,22 +183,23 @@
             this.LogoPictureBox.TabIndex = 61;
             this.LogoPictureBox.TabStop = false;
             // 
-            // Button1
+            // btnchangepassword
             // 
-            this.Button1.BackColor = System.Drawing.Color.DarkMagenta;
-            this.Button1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Button1.BackgroundImage")));
-            this.Button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.Button1.FlatAppearance.BorderSize = 0;
-            this.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Button1.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Button1.ForeColor = System.Drawing.Color.White;
-            this.Button1.Location = new System.Drawing.Point(397, 153);
-            this.Button1.Name = "Button1";
-            this.Button1.Size = new System.Drawing.Size(147, 57);
-            this.Button1.TabIndex = 15;
-            this.Button1.Text = "&Change Password";
-            this.Button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.Button1.UseVisualStyleBackColor = false;
+            this.btnchangepassword.BackColor = System.Drawing.Color.DarkMagenta;
+            this.btnchangepassword.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnchangepassword.BackgroundImage")));
+            this.btnchangepassword.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnchangepassword.FlatAppearance.BorderSize = 0;
+            this.btnchangepassword.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnchangepassword.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnchangepassword.ForeColor = System.Drawing.Color.White;
+            this.btnchangepassword.Location = new System.Drawing.Point(265, 172);
+            this.btnchangepassword.Name = "btnchangepassword";
+            this.btnchangepassword.Size = new System.Drawing.Size(160, 40);
+            this.btnchangepassword.TabIndex = 15;
+            this.btnchangepassword.Text = "&Change Password";
+            this.btnchangepassword.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnchangepassword.UseVisualStyleBackColor = false;
+            this.btnchangepassword.Click += new System.EventHandler(this.btnchangepassword_Click);
             // 
             // btnCancel
             // 
@@ -213,8 +234,8 @@
             // 
             // Label5
             // 
-            this.Label5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.Label5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.Label5.BackColor = System.Drawing.Color.DarkMagenta;
             this.Label5.Font = new System.Drawing.Font("Segoe UI Semibold", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Label5.ForeColor = System.Drawing.Color.White;
@@ -247,19 +268,20 @@
 
         #endregion
 
-        internal System.Windows.Forms.TextBox OldPassword;
-        internal System.Windows.Forms.TextBox UserID;
+        internal System.Windows.Forms.TextBox txtOldPassword;
+        internal System.Windows.Forms.TextBox txtEmailId;
         internal System.Windows.Forms.Label Label1;
         internal System.Windows.Forms.Label Label4;
         internal System.Windows.Forms.Label Label2;
-        internal System.Windows.Forms.TextBox NewPassword;
+        internal System.Windows.Forms.TextBox txtNewPassword;
         internal System.Windows.Forms.Label Label3;
-        internal System.Windows.Forms.TextBox ConfirmPassword;
+        internal System.Windows.Forms.TextBox txtConfirmPassword;
         internal System.Windows.Forms.Panel Panel1;
         internal System.Windows.Forms.PictureBox LogoPictureBox;
-        internal System.Windows.Forms.Button Button1;
+        internal System.Windows.Forms.Button btnchangepassword;
         internal System.Windows.Forms.Button btnCancel;
         internal System.Windows.Forms.Button btnKeyboard;
         internal System.Windows.Forms.Label Label5;
+        internal System.Windows.Forms.Button btncancel1;
     }
 }

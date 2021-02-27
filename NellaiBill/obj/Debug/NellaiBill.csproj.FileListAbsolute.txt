@@ -25,6 +25,7 @@ E:\Dotnet\NellaiBill\NellaiBill\bin\Debug\CrystalReports\rptSalesByInvoice.rpt
 E:\Dotnet\NellaiBill\NellaiBill\bin\Debug\CrystalReports\rptSalesConsolidated.rpt
 E:\Dotnet\NellaiBill\NellaiBill\bin\Debug\CrystalReports\rptSalesReturn.rpt
 E:\Dotnet\NellaiBill\NellaiBill\bin\Debug\CrystalReports\rptScanSummary.rpt
+E:\Dotnet\NellaiBill\NellaiBill\bin\Debug\CrystalReports\rptScheduleH.rpt
 E:\Dotnet\NellaiBill\NellaiBill\bin\Debug\CrystalReports\rptStock.rpt
 E:\Dotnet\NellaiBill\NellaiBill\bin\Debug\CrystalReports\rptStockHistory.rpt
 E:\Dotnet\NellaiBill\NellaiBill\bin\Debug\CrystalReports\rptTestCrossTab.rpt
@@ -56,6 +57,7 @@ E:\Dotnet\NellaiBill\NellaiBill\bin\Debug\CrystalReports\rptSalesByInvoice.cs
 E:\Dotnet\NellaiBill\NellaiBill\bin\Debug\CrystalReports\rptSalesConsolidated.cs
 E:\Dotnet\NellaiBill\NellaiBill\bin\Debug\CrystalReports\rptSalesReturn.cs
 E:\Dotnet\NellaiBill\NellaiBill\bin\Debug\CrystalReports\rptScanSummary.cs
+E:\Dotnet\NellaiBill\NellaiBill\bin\Debug\CrystalReports\rptScheduleH.cs
 E:\Dotnet\NellaiBill\NellaiBill\bin\Debug\CrystalReports\rptStock.cs
 E:\Dotnet\NellaiBill\NellaiBill\bin\Debug\CrystalReports\rptStockHistory.cs
 E:\Dotnet\NellaiBill\NellaiBill\bin\Debug\CrystalReports\rptTestCrossTab.cs
@@ -115,6 +117,8 @@ E:\Dotnet\NellaiBill\NellaiBill\obj\Debug\NellaiBill.frm_main_mdi.resources
 E:\Dotnet\NellaiBill\NellaiBill\obj\Debug\NellaiBill.Master.CaseTypeMaster.resources
 E:\Dotnet\NellaiBill\NellaiBill\obj\Debug\NellaiBill.Master.Customer.resources
 E:\Dotnet\NellaiBill\NellaiBill\obj\Debug\NellaiBill.Master.DoctorRegistration.resources
+E:\Dotnet\NellaiBill\NellaiBill\obj\Debug\NellaiBill.Master.frmForgetPassword.resources
+E:\Dotnet\NellaiBill\NellaiBill\obj\Debug\NellaiBill.frmSettings.resources
 E:\Dotnet\NellaiBill\NellaiBill\obj\Debug\NellaiBill.Master.IPFeesMaster.resources
 E:\Dotnet\NellaiBill\NellaiBill\obj\Debug\NellaiBill.Master.LabFeesMaster.resources
 E:\Dotnet\NellaiBill\NellaiBill\obj\Debug\NellaiBill.Master.RoomMaster.resources
@@ -126,6 +130,7 @@ E:\Dotnet\NellaiBill\NellaiBill\obj\Debug\NellaiBill.Master.frmTax.resources
 E:\Dotnet\NellaiBill\NellaiBill\obj\Debug\NellaiBill.Master.Supplier.resources
 E:\Dotnet\NellaiBill\NellaiBill\obj\Debug\NellaiBill.Master.Login.resources
 E:\Dotnet\NellaiBill\NellaiBill\obj\Debug\NellaiBill.Master.Employee.resources
+E:\Dotnet\NellaiBill\NellaiBill\obj\Debug\NellaiBill.Master.UserRegistration.resources
 E:\Dotnet\NellaiBill\NellaiBill\obj\Debug\NellaiBill.Reports.DiagnosisDateWiseSummaryReport.resources
 E:\Dotnet\NellaiBill\NellaiBill\obj\Debug\NellaiBill.Reports.IPAdvanceReport.resources
 E:\Dotnet\NellaiBill\NellaiBill\obj\Debug\NellaiBill.Reports.IPAdmissionReport.resources
@@ -135,6 +140,7 @@ E:\Dotnet\NellaiBill\NellaiBill\obj\Debug\NellaiBill.Reports.LabSummaryReport.re
 E:\Dotnet\NellaiBill\NellaiBill\obj\Debug\NellaiBill.Reports.PatientList.resources
 E:\Dotnet\NellaiBill\NellaiBill\obj\Debug\NellaiBill.Reports.PurchaseReturnReport.resources
 E:\Dotnet\NellaiBill\NellaiBill\obj\Debug\NellaiBill.Reports.ScanSummaryReport.resources
+E:\Dotnet\NellaiBill\NellaiBill\obj\Debug\NellaiBill.Reports.ScheduleHReport.resources
 E:\Dotnet\NellaiBill\NellaiBill\obj\Debug\NellaiBill.Reports.StockDetailBetweenDate.resources
 E:\Dotnet\NellaiBill\NellaiBill\obj\Debug\NellaiBill.Master.SearchDoctor.resources
 E:\Dotnet\NellaiBill\NellaiBill\obj\Debug\NellaiBill.Master.SearchItem.resources
@@ -179,13 +185,10 @@ E:\Dotnet\NellaiBill\NellaiBill\obj\Debug\NellaiBill.Master.StockAdjustment.reso
 E:\Dotnet\NellaiBill\NellaiBill\obj\Debug\NellaiBill.Properties.Resources.resources
 E:\Dotnet\NellaiBill\NellaiBill\obj\Debug\NellaiBill.YearEnd.resources
 E:\Dotnet\NellaiBill\NellaiBill\obj\Debug\NellaiBill.csproj.GenerateResource.cache
+E:\Dotnet\NellaiBill\NellaiBill\obj\Debug\NellaiBill.csproj.CoreCompileInputs.cache
 E:\Dotnet\NellaiBill\NellaiBill\obj\Debug\NellaiBill.exe.manifest
 E:\Dotnet\NellaiBill\NellaiBill\obj\Debug\NellaiBill.application
 E:\Dotnet\NellaiBill\NellaiBill\obj\Debug\NellaiBill.csproj.CopyComplete
 E:\Dotnet\NellaiBill\NellaiBill\obj\Debug\NellaiBill.exe
 E:\Dotnet\NellaiBill\NellaiBill\obj\Debug\NellaiBill.pdb
 E:\Dotnet\NellaiBill\NellaiBill\obj\Debug\NellaiBill.csprojAssemblyReference.cache
-E:\Dotnet\NellaiBill\NellaiBill\obj\Debug\NellaiBill.csproj.CoreCompileInputs.cache
-E:\Dotnet\NellaiBill\NellaiBill\obj\Debug\NellaiBill.Reports.ScheduleHReport.resources
-E:\Dotnet\NellaiBill\NellaiBill\bin\Debug\CrystalReports\rptScheduleH.rpt
-E:\Dotnet\NellaiBill\NellaiBill\bin\Debug\CrystalReports\rptScheduleH.cs

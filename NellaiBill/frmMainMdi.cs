@@ -3,6 +3,7 @@ using MySql.Data.MySqlClient;
 using NellaiBill.Accounts;
 using NellaiBill.Common;
 using NellaiBill.Master;
+using NellaiBill.Models;
 using NellaiBill.Reports;
 using NellaiBill.Transaction;
 using NellaiBill.Transaction.IP;
@@ -34,7 +35,8 @@ namespace NellaiBill
         {
             lblUserType.Text = xUserName;
             categoryToolStripMenuItem.Visible = false;
-            if (xDb.GetConfig().IsHms == "NO")
+            ConfigResponseModel configResponseModel = xDb.GetConfig();
+            if (configResponseModel.IsHms == "NO")
             {
                 patientRegistrationToolStripMenuItem.Visible = false;
                 doctorRegistrationToolStripMenuItem.Visible = false;
@@ -64,7 +66,7 @@ namespace NellaiBill
             {
                 CommonFormControls(new OPBilling());
             }
-            if (xDb.GetConfig().IsAccounts == "NO")
+            if (configResponseModel.IsAccounts == "NO")
             {
                 toolStripAccounts.Visible = false;
             }
@@ -436,6 +438,11 @@ namespace NellaiBill
         private void scheduleHReportToolStripMenuItem_Click(object sender, EventArgs e)
         {
             CommonFormControls(new ScheduleHReport());
+        }
+
+        private void settingsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CommonFormControls(new frmSettings());
         }
     }
 }

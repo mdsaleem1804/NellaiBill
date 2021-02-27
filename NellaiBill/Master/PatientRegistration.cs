@@ -167,15 +167,17 @@ namespace NellaiBill.Transaction
         }
         private void LoadGrid()
         {
-            string xQry = "select patient_id,uhid,patient_name,patient_address,patient_mobileno,age,gender,date_of_birth,next_of_kin from m_patient_registration order by patient_id desc";
+            string xQry = "select patient_id as PATIENTID,uhid as UHID," +
+                "patient_name as NAME,patient_address as ADDRESS,patient_mobileno as MOBILENO," +
+                "age as AGE,gender as GENDER,date_of_birth as DOB,next_of_kin as RELATIONSHIP from m_patient_registration order by patient_id desc";
             xDb.LoadGrid(xQry, dataGridView1);
             dataGridView1.ReadOnly = true;
             //dataGridView1.Columns[0].Visible = false;
-            dataGridView1.Columns[0].Width = 50;
+            dataGridView1.Columns[0].Width = 80;
             dataGridView1.Columns[2].Width = 200;
-            dataGridView1.Columns[3].Width = 350;
+            dataGridView1.Columns[3].Width = 250;
             dataGridView1.Columns[4].Width = 100;
-            dataGridView1.Columns[5].Width = 50;
+            dataGridView1.Columns[5].Width = 80;
             dataGridView1.Columns[6].Width = 50;
         }
         private void DataClear()
